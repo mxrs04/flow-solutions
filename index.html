@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow Solutions | KI-Lösungen, die Zeit sparen</title>
+    <meta name="description" content="Flow Solutions entwickelt maßgeschneiderte KI-Lösungen und automatisierte Voice-Agenten für Unternehmen. Maximieren Sie Ihre Effizienz.">
+    
+    <!-- Tailwind CSS v3 via Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f6ff',
+                            100: '#e0edff',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+                        'wave': 'wave 1.5s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' },
+                        },
+                        wave: {
+                            '0%': { height: '20%' },
+                            '100%': { height: '100%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Ambient Background Effects */
+        body {
+            background-color: #030712;
+            color: #f3f4f6;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.15);
+        }
+        .glass-nav {
+            background: rgba(3, 7, 18, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Ambient Glow background -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] animate-pulse-glow"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-indigo-600/15 rounded-full blur-[128px] animate-pulse-glow" style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-cyan-600/15 rounded-full blur-[128px] animate-pulse-glow" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-indigo-600 to-cyan-400 p-[1px] transition-transform duration-300 group-hover:scale-105">
+                        <div class="w-full h-full bg-gray-950 rounded-[11px] flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-white">Flow <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Solutions</span></span>
+                </a>
+
+                <!-- Nav Menu -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Dienstleistungen</a>
+                    <a href="#kontakt" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Kontakt</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div>
+                    <a href="#kontakt" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg shadow-lg shadow-blue-600/25 transition-all duration-200 hover:shadow-blue-500/40 hover:-translate-y-0.5">
+                        Jetzt kontaktieren
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-20">
+        
+        <!-- HERO SEKTION -->
+        <section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-grid-pattern">
+            <div class="max-w-5xl mx-auto text-center">
+                
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-xs font-mono font-medium text-blue-400 mb-8 animate-float">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
+                    <span>Intelligente Unternehmens-KI & Voice Automation</span>
+                </div>
+
+                <!-- Hauptüberschrift (Geforderter Inhalt) -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+                    KI-Lösungen, <br class="hidden sm:inline" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">die Zeit sparen</span>
+                </h1>
+
+                <!-- Untertitel -->
+                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 mb-10 leading-relaxed">
+                    Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit hochpräzisen Voice-Agenten und maßgeschneiderten KI-Systemen der nächsten Generation.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <a href="#kontakt" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 rounded-xl shadow-xl shadow-blue-600/30 transition-all duration-300 hover:scale-105">
+                        <span>Jetzt kontaktieren</span>
+                        <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-gray-300 hover:text-white glass-card rounded-xl transition-all duration-300 hover:bg-gray-800/60">
+                        Dienstleistungen ansehen
+                    </a>
+                </div>
+
+                <!-- Hero Tech Feature Visual (Voice Agent Dashboard Preview) -->
+                <div class="max-w-3xl mx-auto glass-card rounded-2xl p-6 sm:p-8 text-left shadow-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all duration-500"></div>
+                    
+                    <div class="flex items-center justify-between pb-6 border-b border-gray-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                            <span class="text-xs font-mono text-gray-400">STATUS: VOICE_AGENT_ACTIVE</span>
+                        </div>
+                        <span class="text-xs font-mono text-blue-400 bg-blue-950/80 px-2.5 py-1 rounded-md border border-blue-800/50">Latenz: 180ms</span>
+                    </div>
+
+                    <div class="py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div class="space-y-1">
+                            <h4 class="text-sm font-semibold text-gray-200">Automatisierter Telefonassistent</h4>
+                            <p class="text-xs text-gray-400">Verarbeitet Inbound-Anfragen, Terminbuchungen & FAQ in Echtzeit.</p>
+                        </div>
+                        <!-- Animated Audio Waveform -->
+                        <div class="flex items-center gap-1.5 h-8 px-4 bg-gray-950/80 rounded-lg border border-gray-800">
+                            <div class="w-1 bg-blue-500 rounded-full animate-wave h-4"></div>
+                            <div class="w-1 bg-blue-400 rounded-full animate-wave h-7" style="animation-delay: 0.2s"></div>
+                            <div class="w-1 bg-indigo-500 rounded-full animate-wave h-3" style="animation-delay: 0.4s"></div>
+                            <div class="w-1 bg-cyan-400 rounded-full animate-wave h-6" style="animation-delay: 0.1s"></div>
+                            <div class="w-1 bg-blue-500 rounded-full animate-wave h-5" style="animation-delay: 0.3s"></div>
+                            <div class="w-1 bg-indigo-400 rounded-full animate-wave h-8" style="animation-delay: 0.5s"></div>
+                            <div class="w-1 bg-blue-400 rounded-full animate-wave h-3" style="animation-delay: 0.2s"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-800 text-center">
+                        <div class="p-2">
+                            <div class="text-lg font-bold text-white">99.4%</div>
+                            <div class="text-[11px] text-gray-400">Erkennungsrate</div>
+                        </div>
+                        <div class="p-2 border-x border-gray-800">
+                            <div class="text-lg font-bold text-white">24/7</div>
+                            <div class="text-[11px] text-gray-400">Verfügbarkeit</div>
+                        </div>
+                        <div class="p-2">
+                            <div class="text-lg font-bold text-white">&lt; 1 Sek.</div>
+                            <div class="text-[11px] text-gray-400">Reaktionszeit</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIENSTLEISTUNGEN SEKTION (3 KACHELN) -->
+        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-mono font-semibold tracking-wider text-blue-400 uppercase mb-3">Unsere Dienstleistungen</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Maßgeschneiderte KI-Systeme für maximale Skalierung</p>
+                <p class="mt-4 text-gray-400 text-base">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
+            </div>
+
+            <!-- Grid mit 3 Kacheln -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Kachel 1 -->
+                <div class="glass-card rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Automatisierte Voice-Agenten</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Informationen erfassen.
+                        </p>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-gray-300 font-mono pt-4 border-t border-gray-800">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>Echtzeit-Spracherkennung</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>CRM & Kalender-Integration</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kachel 2 -->
+                <div class="glass-card rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 group-hover:bg-indigo-500/20 transition-all duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Workflow-Automatisierung</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von der automatischen E-Mail-Sortierung bis zur komplexen Datenverarbeitung.
+                        </p>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-gray-300 font-mono pt-4 border-t border-gray-800">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>Prozessanalyse & Setup</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>Fehlerfreie System-Kopplung</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kachel 3 -->
+                <div class="glass-card rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Enterprise KI-Assistenten</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – DSGVO-konform, sicher und sofort einsatzbereit.
+                        </p>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-gray-300 font-mono pt-4 border-t border-gray-800">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>Interne Wissensdatenbanken</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>Höchster Datenschutzstandard</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER MIT KONTAKTFORMULAR -->
+    <footer id="kontakt" class="relative z-10 bg-gray-950 border-t border-gray-800/80 pt-20 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Bereit für die Zukunft?</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Senden Sie uns eine Nachricht. Wir analysieren Ihr Potenzial und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+            </div>
+
+            <!-- Kontaktformular -->
+            <div class="glass-card rounded-3xl p-8 sm:p-10 mb-16 shadow-2xl relative">
+                <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                required
+                                placeholder="Max Mustermann" 
+                                class="w-full px-4 py-3.5 bg-gray-900/90 border border-gray-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-200"
+                            />
+                        </div>
+
+                        <!-- E-Mail -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">E-Mail-Adresse</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                required
+                                placeholder="max@unternehmen.de" 
+                                class="w-full px-4 py-3.5 bg-gray-900/90 border border-gray-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-200"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Nachricht -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Nachricht</label>
+                        <textarea 
+                            id="message" 
+                            rows="4" 
+                            required
+                            placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihre Anforderungen..." 
+                            class="w-full px-4 py-3.5 bg-gray-900/90 border border-gray-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-200 resize-none"
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button 
+                        type="submit" 
+                        id="submitBtn"
+                        class="w-full inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-xl shadow-lg shadow-blue-600/30 transition-all duration-300 hover:shadow-blue-500/50"
+                    >
+                        <span>Nachricht absenden</span>
+                        <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Feedback Message -->
+                <div id="formSuccess" class="hidden text-center py-8">
+                    <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Vielen Dank für Ihre Anfrage!</h3>
+                    <p class="text-gray-400 text-sm">Wir haben Ihre Nachricht erhalten und werden uns in Kürze mit Ihnen in Verbindung setzen.</p>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Links -->
+            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-gray-900 text-xs text-gray-500 gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-gray-400">Flow Solutions</span>
+                    <span>© 2026. Alle Rechte vorbehalten.</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-gray-300 transition-colors">Datenschutz</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Impressum</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">AGB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form Handler Script -->
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contactForm');
+            const successMsg = document.getElementById('formSuccess');
+            
+            form.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
