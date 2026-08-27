@@ -7,7 +7,7 @@
   "theme_color": "#0a0a0a",
   "icons": [
     {
-      "src": "assets/Logo 1zu1.jpg",
+      "src": "assets/Logo inverted 1zu1.jpeg",
       "sizes": "1024x1024",
       "type": "image/jpeg",
       "purpose": "any maskable"
