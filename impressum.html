@@ -6,8 +6,6 @@
     <title>Impressum | Flow Solutions</title>
     <meta name="description" content="Impressum und rechtliche Angaben von Maximilian Reiser – Flow Solutions.">
     <meta property="og:title" content="Flow Solutions">
-    
-    <!-- Favicon & Apple Home Screen Config -->
     <link rel="icon" type="image/jpeg" href="assets/Logo 1zu1.jpg">
     <link rel="apple-touch-icon" href="assets/Logo inverted 1zu1.jpeg">
     <link rel="manifest" href="site.webmanifest">
@@ -16,16 +14,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#0a0a0a">
-
-    <!-- Tailwind CSS v3 via Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -38,39 +30,71 @@
             }
         }
     </script>
-
     <style>
+        @media (min-width: 768px) {
+            html, body, a, button, input, textarea {
+                cursor: none !important;
+            }
+        }
         body {
             background-color: #f5f5f7;
             color: #1d1d1f;
+        }
+        .liquid-glass-nav {
+            background: rgba(10, 10, 10, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
         .apple-card {
             background: #ffffff;
             border: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
         }
+        .hover-scale {
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+        .custom-cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            border: 1.5px solid rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+        }
+        .custom-cursor.active {
+            width: 44px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.9);
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-black selection:text-white flex flex-col min-h-screen">
 
-    <!-- Navigation Header (Dunkel fixiert) -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/95 backdrop-blur-md border-b border-neutral-800 text-white">
+    <div id="customCursor" class="custom-cursor hidden md:block"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105 shrink-0">
+                <a href="index.html" class="flex items-center gap-3 group hover-scale">
+                    <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md shrink-0">
                         <img src="assets/Logo 1zu1.jpg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
                     </div>
                     <span class="text-xl font-bold tracking-tight text-white">Flow <span class="text-neutral-400 font-medium">Solutions</span></span>
                 </a>
 
-                <!-- Back to main page button -->
                 <div>
-                    <a href="index.html" class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-sm">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                        </svg>
+                    <a href="index.html" data-i18n="nav_home" class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-sm hover-scale">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                         <span>Zurück zur Startseite</span>
                     </a>
                 </div>
@@ -78,13 +102,11 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
             
-            <!-- Page Title Header -->
             <div class="mb-10 text-center sm:text-left">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200 border border-neutral-300 text-xs font-semibold text-neutral-800 mb-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200 border border-neutral-300 text-xs font-semibold text-neutral-800 mb-4 hover-scale">
                     <span>Rechtliche Informationen</span>
                 </div>
                 <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 mb-3">
@@ -95,15 +117,11 @@
                 </p>
             </div>
 
-            <!-- Content Apple Card -->
-            <div class="apple-card rounded-3xl p-8 sm:p-12 shadow-md space-y-10 text-neutral-800">
+            <div class="apple-card rounded-3xl p-8 sm:p-12 shadow-md space-y-10 text-neutral-800 hover-scale">
                 
-                <!-- Angaben zum Unternehmen / Betreiber -->
                 <section class="space-y-4">
                     <h2 class="text-xl font-bold text-neutral-900 flex items-center gap-3 border-b border-neutral-200 pb-3">
-                        <svg class="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 4h4" />
-                        </svg>
+                        <svg class="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 4h4" /></svg>
                         <span>Diensteanbieter & Verantwortlicher</span>
                     </h2>
                     <div class="text-neutral-700 space-y-1 text-base leading-relaxed pl-1">
@@ -114,20 +132,15 @@
                     </div>
                 </section>
 
-                <!-- Kontaktinformationen -->
                 <section class="space-y-4">
                     <h2 class="text-xl font-bold text-neutral-900 flex items-center gap-3 border-b border-neutral-200 pb-3">
-                        <svg class="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
+                        <svg class="w-5 h-5 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                         <span>Kontakt</span>
                     </h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-neutral-700">
-                        <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center gap-4">
+                        <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center gap-4 hover-scale">
                             <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center text-white shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                             </div>
                             <div>
                                 <div class="text-xs text-neutral-500 uppercase tracking-wider font-mono">Telefon</div>
@@ -135,11 +148,9 @@
                             </div>
                         </div>
 
-                        <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center gap-4">
+                        <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center gap-4 hover-scale">
                             <div class="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center text-white shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                             </div>
                             <div>
                                 <div class="text-xs text-neutral-500 uppercase tracking-wider font-mono">E-Mail</div>
@@ -149,7 +160,6 @@
                     </div>
                 </section>
 
-                <!-- Vertretungsberechtigung -->
                 <section class="space-y-3">
                     <h2 class="text-xl font-bold text-neutral-900 border-b border-neutral-200 pb-3">
                         Vertreten durch
@@ -159,7 +169,6 @@
                     </p>
                 </section>
 
-                <!-- Haftungsausschluss / Disclaimer -->
                 <section class="space-y-6 pt-4 border-t border-neutral-200">
                     <h2 class="text-xl font-bold text-neutral-900">
                         Haftungsausschluss (Disclaimer)
@@ -169,42 +178,26 @@
                         <div>
                             <h3 class="font-semibold text-neutral-900 text-base mb-1">Haftung für Inhalte</h3>
                             <p>
-                                Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                                Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.
                             </p>
                         </div>
 
                         <div>
                             <h3 class="font-semibold text-neutral-900 text-base mb-1">Haftung für Links</h3>
                             <p>
-                                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 class="font-semibold text-neutral-900 text-base mb-1">Urheberrecht</h3>
-                            <p>
-                                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.
                             </p>
                         </div>
                     </div>
-                </section>
-
-                <!-- Verbraucherstreitbeilegung -->
-                <section class="space-y-3 pt-4 border-t border-neutral-200">
-                    <h3 class="font-semibold text-neutral-900 text-base">Verbraucherstreitbeilegung / Universalschlichtungsstelle</h3>
-                    <p class="text-neutral-600 text-sm leading-relaxed">
-                        Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-                    </p>
                 </section>
 
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="relative z-10 bg-white border-t border-neutral-300 py-8 px-4 sm:px-6 lg:px-8">
+    <footer class="relative z-10 bg-white border-t border-neutral-300 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3 hover-scale">
                 <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
                     <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
                 </div>
@@ -212,12 +205,29 @@
                 <span>© 2026. Alle Rechte vorbehalten.</span>
             </div>
             <div class="flex items-center gap-6">
-                <a href="index.html" class="hover:text-neutral-900 transition-colors">Startseite</a>
-                <a href="datenschutz.html" class="hover:text-neutral-900 transition-colors">Datenschutz</a>
-                <a href="impressum.html" class="text-black font-semibold">Impressum</a>
+                <a href="index.html" class="hover:text-neutral-900 transition-colors hover-scale">Startseite</a>
+                <a href="ueber-uns.html" class="hover:text-neutral-900 transition-colors hover-scale">Über uns</a>
+                <a href="kontakt.html" class="hover:text-neutral-900 transition-colors hover-scale">Kontakt</a>
+                <a href="datenschutz.html" class="hover:text-neutral-900 transition-colors hover-scale">Datenschutz</a>
+                <a href="impressum.html" class="text-black font-semibold hover-scale">Impressum</a>
             </div>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.getElementById('customCursor');
+            if (cursor && window.innerWidth >= 768) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+                document.querySelectorAll('a, button, .hover-scale, input, textarea').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+                });
+            }
+        });
+    </script>
 </body>
 </html>
