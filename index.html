@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flow Solutions | KI-Lösungen, die Zeit sparen</title>
+    <title>Flow Solutions | B2B KI & Voice Automation</title>
     <meta name="description" content="Flow Solutions entwickelt maßgeschneiderte KI-Lösungen und automatisierte Voice-Agenten für Unternehmen. Maximieren Sie Ihre Effizienz.">
     
+    <!-- Favicon & Apple Home Screen Config -->
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="apple-touch-icon" href="assets/logo.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="Flow Solutions">
+    <meta name="application-name" content="Flow Solutions">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0a0a">
+
     <!-- Tailwind CSS v3 via Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -20,38 +30,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f6ff',
-                            100: '#e0edff',
-                            400: '#38bdf8',
-                            500: '#0284c7',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            900: '#0f172a',
-                        }
-                    },
-                    animation: {
-                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-                        'wave': 'wave 1.5s ease-in-out infinite alternate',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        pulseGlow: {
-                            '0%, 100%': { opacity: '0.4' },
-                            '50%': { opacity: '0.8' },
-                        },
-                        wave: {
-                            '0%': { height: '20%' },
-                            '100%': { height: '100%' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
                     }
                 }
             }
@@ -59,297 +39,463 @@
     </script>
 
     <style>
-        /* Custom Ambient Background Effects */
+        /* Apple-inspired Light Aesthetic */
         body {
-            background-color: #030712;
-            color: #f3f4f6;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
         }
-        .bg-grid-pattern {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-            background-size: 32px 32px;
+        
+        /* Dropdown popover animations */
+        .dropdown-menu {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
         }
-        .glass-card {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .dropdown-wrapper:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
-        .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.4);
-            box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.15);
+
+        /* Crisp Apple Card Styles */
+        .apple-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .glass-nav {
-            background: rgba(3, 7, 18, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        .apple-card:hover {
+            box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-blue-500 selection:text-white">
+<body class="font-sans antialiased selection:bg-black selection:text-white">
 
-    <!-- Ambient Glow background -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] animate-pulse-glow"></div>
-        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-indigo-600/15 rounded-full blur-[128px] animate-pulse-glow" style="animation-delay: 2s;"></div>
-        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-cyan-600/15 rounded-full blur-[128px] animate-pulse-glow" style="animation-delay: 4s;"></div>
-    </div>
-
-    <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <!-- NAVIGATIONSLEISTE (Dunkel fixiert, inspiriert vom CPC Referenzbild) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/95 backdrop-blur-md border-b border-neutral-800 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-indigo-600 to-cyan-400 p-[1px] transition-transform duration-300 group-hover:scale-105">
-                        <div class="w-full h-full bg-gray-950 rounded-[11px] flex items-center justify-center">
-                            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- Logo & Brand Name -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-md transition-transform duration-300 group-hover:scale-105 shrink-0">
+                        <img src="assets/logo.svg" alt="Flow Solutions Logo" class="w-full h-full object-contain">
                     </div>
-                    <span class="text-xl font-bold tracking-tight text-white">Flow <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Solutions</span></span>
+                    <span class="text-lg sm:text-xl font-bold tracking-tight text-white">Flow <span class="text-neutral-400 font-medium">Solutions</span></span>
                 </a>
 
-                <!-- Nav Menu -->
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="#services" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Dienstleistungen</a>
-                    <a href="#kontakt" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Kontakt</a>
+                <!-- Desktop Navigation Menu (mit Dropdowns) -->
+                <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                    
+                    <!-- Dropdown 1: Leistungen -->
+                    <div class="relative dropdown-wrapper py-6">
+                        <button class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-300 hover:text-white transition-colors">
+                            <span>Leistungen</span>
+                            <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <!-- Popover Menu -->
+                        <div class="absolute left-0 top-full dropdown-menu w-72 bg-white text-neutral-900 rounded-2xl shadow-2xl p-2 border border-neutral-200">
+                            <a href="#services" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">Voice-Agenten</div>
+                                <div class="text-xs text-neutral-500 mt-0.5">Automatisierte Telefonassistenten rund um die Uhr</div>
+                            </a>
+                            <a href="#services" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">Workflow-Automatisierung</div>
+                                <div class="text-xs text-neutral-500 mt-0.5">Nahtlose Verknüpfung von Software-Pipelines</div>
+                            </a>
+                            <a href="#services" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">Enterprise KI-Assistenten</div>
+                                <div class="text-xs text-neutral-500 mt-0.5">DSGVO-konforme interne Wissensmodelle</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown 2: Branchen -->
+                    <div class="relative dropdown-wrapper py-6">
+                        <button class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-300 hover:text-white transition-colors">
+                            <span>Branchen</span>
+                            <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <!-- Popover Menu -->
+                        <div class="absolute left-0 top-full dropdown-menu w-64 bg-white text-neutral-900 rounded-2xl shadow-2xl p-2 border border-neutral-200">
+                            <a href="#branchen" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">Handwerk & Service</div>
+                                <div class="text-xs text-neutral-500">Inbound-Anrufe & Terminplanung</div>
+                            </a>
+                            <a href="#branchen" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">E-Commerce & Retail</div>
+                                <div class="text-xs text-neutral-500">Automatisierter 24/7 Kunden-Support</div>
+                            </a>
+                            <a href="#branchen" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">Immobilien & Beratung</div>
+                                <div class="text-xs text-neutral-500">Qualifizierung von Interessenten</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown 3: Über uns -->
+                    <div class="relative dropdown-wrapper py-6">
+                        <button class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-300 hover:text-white transition-colors">
+                            <span>Über uns</span>
+                            <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <!-- Popover Menu -->
+                        <div class="absolute left-0 top-full dropdown-menu w-56 bg-white text-neutral-900 rounded-2xl shadow-2xl p-2 border border-neutral-200">
+                            <a href="#ueber-uns" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">Unsere Mission</div>
+                            </a>
+                            <a href="#ueber-uns" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">KI & Innovation</div>
+                            </a>
+                            <a href="#kontakt" class="block p-3 rounded-xl hover:bg-neutral-100 transition-colors">
+                                <div class="font-semibold text-sm text-neutral-900">Karriere & Kontakt</div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#kontakt" class="px-3 py-2 text-sm font-medium text-neutral-300 hover:text-white transition-colors">
+                        Kontakt
+                    </a>
+
+                    <!-- Language Switcher -->
+                    <div class="relative dropdown-wrapper py-6 ml-2">
+                        <button class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-medium text-neutral-300 hover:text-white bg-neutral-900 border border-neutral-800 rounded-lg transition-colors">
+                            <span>DE</span>
+                            <svg class="w-3 h-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="absolute right-0 top-full dropdown-menu w-32 bg-white text-neutral-900 rounded-xl shadow-2xl p-1.5 border border-neutral-200 text-xs">
+                            <a href="#" class="block p-2 rounded-lg bg-neutral-100 font-semibold text-neutral-900">Deutsch (DE)</a>
+                            <a href="#" class="block p-2 rounded-lg hover:bg-neutral-100 text-neutral-600 transition-colors">English (EN)</a>
+                        </div>
+                    </div>
                 </nav>
 
                 <!-- Header CTA Button -->
-                <div>
-                    <a href="#kontakt" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg shadow-lg shadow-blue-600/25 transition-all duration-200 hover:shadow-blue-500/40 hover:-translate-y-0.5">
-                        Jetzt kontaktieren
+                <div class="flex items-center gap-3">
+                    <a href="#kontakt" class="inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-sm hover:scale-105">
+                        Jetzt anfragen
                     </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-neutral-300 hover:text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
+
             </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-neutral-950 border-b border-neutral-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-200 border-b border-neutral-900">Leistungen</a>
+            <a href="#branchen" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-200 border-b border-neutral-900">Branchen</a>
+            <a href="#ueber-uns" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-200 border-b border-neutral-900">Über uns</a>
+            <a href="#kontakt" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-200">Kontakt</a>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="relative z-10 pt-20">
+    <!-- MAIN CONTENT AREA -->
+    <main class="relative z-10 pt-20 sm:pt-24">
         
-        <!-- HERO SEKTION -->
-        <section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-grid-pattern">
-            <div class="max-w-5xl mx-auto text-center">
+        <!-- HERO SEKTION (Apple-Stil mit viel Whitespace & Großbild) -->
+        <section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+            
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-200/80 border border-neutral-300 text-xs font-semibold text-neutral-800 mb-8">
+                <span class="w-2 h-2 rounded-full bg-black"></span>
+                <span>Next-Gen B2B KI & Voice Automation</span>
+            </div>
+
+            <!-- Hauptüberschrift -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 mb-6 leading-[1.08] max-w-4xl mx-auto">
+                KI-Lösungen, <br class="hidden sm:inline" />
+                <span class="text-neutral-500">die Zeit sparen.</span>
+            </h1>
+
+            <!-- Untertitel -->
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-neutral-600 mb-10 leading-relaxed font-normal">
+                Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit hochpräzisen Voice-Agenten und maßgeschneiderten KI-Systemen der nächsten Generation.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#kontakt" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-neutral-950 hover:bg-neutral-800 rounded-full shadow-lg shadow-neutral-950/20 transition-all duration-300 hover:scale-105">
+                    <span>Jetzt kontaktieren</span>
+                    <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </a>
+                <a href="#services" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-neutral-900 bg-white border border-neutral-300 rounded-full transition-all duration-300 hover:bg-neutral-100 shadow-sm">
+                    Dienstleistungen entdecken
+                </a>
+            </div>
+
+            <!-- GROSSFLÄCHIGES HERO-BILD (Digital Workflows & Tech Workspace) -->
+            <div class="relative max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-neutral-300 bg-white group">
+                <img 
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2000&q=80" 
+                    alt="Flow Solutions Digital AI Workflows & Dashboard" 
+                    class="w-full h-[380px] sm:h-[550px] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/20 to-transparent flex flex-col justify-end p-6 sm:p-10 text-left">
+                    <div class="max-w-2xl text-white">
+                        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-md text-xs font-mono uppercase tracking-wider mb-3 border border-white/30">High Precision AI Architecture</span>
+                        <h3 class="text-2xl sm:text-3xl font-bold mb-2">Autonome Workflows & Voice Assistants</h3>
+                        <p class="text-neutral-200 text-sm sm:text-base leading-relaxed">
+                            Lückenlose Integration in Ihre bestehende Systemlandschaft – DSGVO-konform, blitzschnell und rund um die Uhr einsatzbereit.
+                        </p>
+                    </div>
+
+                    <!-- Floating Performance Badges -->
+                    <div class="grid grid-cols-3 gap-3 sm:gap-6 pt-6 border-t border-white/20 mt-6 text-center text-white">
+                        <div>
+                            <div class="text-xl sm:text-2xl font-extrabold">99.4%</div>
+                            <div class="text-[11px] sm:text-xs text-neutral-300">Erkennungsrate</div>
+                        </div>
+                        <div class="border-x border-white/20">
+                            <div class="text-xl sm:text-2xl font-extrabold">24/7</div>
+                            <div class="text-[11px] sm:text-xs text-neutral-300">Verfügbarkeit</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-extrabold">&lt; 1 Sek.</div>
+                            <div class="text-[11px] sm:text-xs text-neutral-300">Reaktionszeit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- LEISTUNGEN SEKTION (Apple Cards mit großen Unsplash Stock-Bildern) -->
+        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold tracking-widest text-neutral-500 uppercase mb-2 block">Unsere Kernkompetenzen</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight">Maßgeschneiderte KI-Systeme für maximale Skalierung</h2>
+                <p class="mt-4 text-neutral-600 text-base sm:text-lg">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
+            </div>
+
+            <!-- Grid mit 3 großflächigen Apple Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-xs font-mono font-medium text-blue-400 mb-8 animate-float">
-                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
-                    <span>Intelligente Unternehmens-KI & Voice Automation</span>
+                <!-- Card 1: Voice Agenten -->
+                <div class="apple-card rounded-3xl overflow-hidden flex flex-col justify-between group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=1000&q=80" 
+                            alt="Automatisierte Voice-Agenten" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-white text-xs font-mono px-3 py-1 rounded-full border border-white/20">Voice Agents</div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-neutral-900 mb-3">Automatisierte Voice-Agenten</h3>
+                            <p class="text-neutral-600 text-sm leading-relaxed mb-6">
+                                Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.
+                            </p>
+                        </div>
+                        <ul class="space-y-2.5 text-xs text-neutral-800 font-medium pt-4 border-t border-neutral-200">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span>Echtzeit-Spracherkennung</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span>Nahtlose CRM- & Kalender-Anbindung</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Hauptüberschrift (Geforderter Inhalt) -->
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
-                    KI-Lösungen, <br class="hidden sm:inline" />
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">die Zeit sparen</span>
-                </h1>
-
-                <!-- Untertitel -->
-                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 mb-10 leading-relaxed">
-                    Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit hochpräzisen Voice-Agenten und maßgeschneiderten KI-Systemen der nächsten Generation.
-                </p>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                    <a href="#kontakt" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 rounded-xl shadow-xl shadow-blue-600/30 transition-all duration-300 hover:scale-105">
-                        <span>Jetzt kontaktieren</span>
-                        <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
-                    </a>
-                    <a href="#services" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-gray-300 hover:text-white glass-card rounded-xl transition-all duration-300 hover:bg-gray-800/60">
-                        Dienstleistungen ansehen
-                    </a>
+                <!-- Card 2: Workflow-Automatisierung -->
+                <div class="apple-card rounded-3xl overflow-hidden flex flex-col justify-between group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80" 
+                            alt="Workflow-Automatisierung" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-white text-xs font-mono px-3 py-1 rounded-full border border-white/20">Automation</div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-neutral-900 mb-3">Workflow-Automatisierung</h3>
+                            <p class="text-neutral-600 text-sm leading-relaxed mb-6">
+                                Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.
+                            </p>
+                        </div>
+                        <ul class="space-y-2.5 text-xs text-neutral-800 font-medium pt-4 border-t border-neutral-200">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span>Prozessanalyse & Individual-Setup</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span>Fehlerfreie System-Kopplung</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Hero Tech Feature Visual (Voice Agent Dashboard Preview) -->
-                <div class="max-w-3xl mx-auto glass-card rounded-2xl p-6 sm:p-8 text-left shadow-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all duration-500"></div>
-                    
-                    <div class="flex items-center justify-between pb-6 border-b border-gray-800">
-                        <div class="flex items-center gap-3">
-                            <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
-                            <span class="text-xs font-mono text-gray-400">STATUS: VOICE_AGENT_ACTIVE</span>
-                        </div>
-                        <span class="text-xs font-mono text-blue-400 bg-blue-950/80 px-2.5 py-1 rounded-md border border-blue-800/50">Latenz: 180ms</span>
+                <!-- Card 3: Enterprise KI-Assistenten -->
+                <div class="apple-card rounded-3xl overflow-hidden flex flex-col justify-between group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80" 
+                            alt="Enterprise KI-Assistenten" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-white text-xs font-mono px-3 py-1 rounded-full border border-white/20">AI Knowledge</div>
                     </div>
-
-                    <div class="py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div class="space-y-1">
-                            <h4 class="text-sm font-semibold text-gray-200">Automatisierter Telefonassistent</h4>
-                            <p class="text-xs text-gray-400">Verarbeitet Inbound-Anfragen, Terminbuchungen & FAQ in Echtzeit.</p>
+                    <div class="p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-neutral-900 mb-3">Enterprise KI-Assistenten</h3>
+                            <p class="text-neutral-600 text-sm leading-relaxed mb-6">
+                                Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.
+                            </p>
                         </div>
-                        <!-- Animated Audio Waveform -->
-                        <div class="flex items-center gap-1.5 h-8 px-4 bg-gray-950/80 rounded-lg border border-gray-800">
-                            <div class="w-1 bg-blue-500 rounded-full animate-wave h-4"></div>
-                            <div class="w-1 bg-blue-400 rounded-full animate-wave h-7" style="animation-delay: 0.2s"></div>
-                            <div class="w-1 bg-indigo-500 rounded-full animate-wave h-3" style="animation-delay: 0.4s"></div>
-                            <div class="w-1 bg-cyan-400 rounded-full animate-wave h-6" style="animation-delay: 0.1s"></div>
-                            <div class="w-1 bg-blue-500 rounded-full animate-wave h-5" style="animation-delay: 0.3s"></div>
-                            <div class="w-1 bg-indigo-400 rounded-full animate-wave h-8" style="animation-delay: 0.5s"></div>
-                            <div class="w-1 bg-blue-400 rounded-full animate-wave h-3" style="animation-delay: 0.2s"></div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-800 text-center">
-                        <div class="p-2">
-                            <div class="text-lg font-bold text-white">99.4%</div>
-                            <div class="text-[11px] text-gray-400">Erkennungsrate</div>
-                        </div>
-                        <div class="p-2 border-x border-gray-800">
-                            <div class="text-lg font-bold text-white">24/7</div>
-                            <div class="text-[11px] text-gray-400">Verfügbarkeit</div>
-                        </div>
-                        <div class="p-2">
-                            <div class="text-lg font-bold text-white">&lt; 1 Sek.</div>
-                            <div class="text-[11px] text-gray-400">Reaktionszeit</div>
-                        </div>
+                        <ul class="space-y-2.5 text-xs text-neutral-800 font-medium pt-4 border-t border-neutral-200">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span>Interne Wissensdatenbanken</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <span>Höchster Datenschutzstandard</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- DIENSTLEISTUNGEN SEKTION (3 KACHELN) -->
-        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <!-- FULL-WIDTH BANNER SEKTION (Apple Showcase Bild) -->
+        <section id="ueber-uns" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="relative rounded-3xl overflow-hidden apple-card group">
+                <img 
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80" 
+                    alt="Flow Solutions Team & Innovation" 
+                    class="w-full h-[400px] sm:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-neutral-950/90 via-neutral-950/60 to-transparent flex items-center p-8 sm:p-16">
+                    <div class="max-w-xl text-white">
+                        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-md text-xs font-mono uppercase tracking-wider mb-4 border border-white/30">Über Flow Solutions</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">Digitaler Vorsprung durch intelligente Automation</h2>
+                        <p class="text-neutral-300 text-sm sm:text-base leading-relaxed mb-8">
+                            Wir befähigen zukunftsorientierte Unternehmen, repetitive Aufgaben zu eliminieren, Reaktionszeiten drastisch zu senken und wertvolle Mitarbeiter-Ressourcen für strategisches Wachstum freizusetzen.
+                        </p>
+                        <a href="#kontakt" class="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-md">
+                            Kostenloses Erstgespräch vereinbaren
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRANCHEN SEKTION -->
+        <section id="branchen" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-mono font-semibold tracking-wider text-blue-400 uppercase mb-3">Unsere Dienstleistungen</h2>
-                <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Maßgeschneiderte KI-Systeme für maximale Skalierung</p>
-                <p class="mt-4 text-gray-400 text-base">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
+                <span class="text-xs font-mono font-bold tracking-widest text-neutral-500 uppercase mb-2 block">Branchenfokus</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight">Optimiert für Ihre Industrie</h2>
             </div>
 
-            <!-- Grid mit 3 Kacheln -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Kachel 1 -->
-                <div class="glass-card rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Automatisierte Voice-Agenten</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Informationen erfassen.
-                        </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="apple-card rounded-2xl p-8 text-left">
+                    <div class="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-300 flex items-center justify-center text-black mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 4h4"/></svg>
                     </div>
-                    <ul class="space-y-2.5 text-xs text-gray-300 font-mono pt-4 border-t border-gray-800">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span>Echtzeit-Spracherkennung</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span>CRM & Kalender-Integration</span>
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-neutral-900 mb-2">Handwerk & Service</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">
+                        Kein verpasster Kundenanruf mehr auf der Baustelle oder unterwegs. Der Voice-Agent nimmt Notfallanfragen auf und trägt Termine automatisch ein.
+                    </p>
                 </div>
 
-                <!-- Kachel 2 -->
-                <div class="glass-card rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 group-hover:bg-indigo-500/20 transition-all duration-300">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Workflow-Automatisierung</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von der automatischen E-Mail-Sortierung bis zur komplexen Datenverarbeitung.
-                        </p>
+                <div class="apple-card rounded-2xl p-8 text-left">
+                    <div class="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-300 flex items-center justify-center text-black mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                     </div>
-                    <ul class="space-y-2.5 text-xs text-gray-300 font-mono pt-4 border-t border-gray-800">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span>Prozessanalyse & Setup</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span>Fehlerfreie System-Kopplung</span>
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-neutral-900 mb-2">E-Commerce & Retail</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">
+                        Sofortige Auskunft zum Bestellstatus, Retourenabwicklung und Produktberatung in Echtzeit ohne lange Support-Warteschlangen.
+                    </p>
                 </div>
 
-                <!-- Kachel 3 -->
-                <div class="glass-card rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Enterprise KI-Assistenten</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – DSGVO-konform, sicher und sofort einsatzbereit.
-                        </p>
+                <div class="apple-card rounded-2xl p-8 text-left">
+                    <div class="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-300 flex items-center justify-center text-black mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                     </div>
-                    <ul class="space-y-2.5 text-xs text-gray-300 font-mono pt-4 border-t border-gray-800">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span>Interne Wissensdatenbanken</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span>Höchster Datenschutzstandard</span>
-                        </li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-neutral-900 mb-2">Immobilien & Beratung</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">
+                        Automatische Vorqualifizierung von Kauf- oder Mietinteressenten, schnelle Terminvergabe und Erstellung strukturierter Exposé-Anfragen.
+                    </p>
                 </div>
-
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER MIT KONTAKTFORMULAR -->
-    <footer id="kontakt" class="relative z-10 bg-gray-950 border-t border-gray-800/80 pt-20 pb-12 px-4 sm:px-6 lg:px-8">
+    <!-- FOOTER MIT KONTAKTFORMULAR (Apple High-Contrast Formular) -->
+    <footer id="kontakt" class="relative z-10 bg-white border-t border-neutral-300 pt-20 pb-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
             
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Bereit für die Zukunft?</h2>
-                <p class="text-gray-400 max-w-xl mx-auto">Senden Sie uns eine Nachricht. Wir analysieren Ihr Potenzial und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+                <span class="text-xs font-mono font-bold tracking-widest text-neutral-500 uppercase mb-2 block">Kontakt aufnehmen</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight mb-4">Bereit für die Zukunft?</h2>
+                <p class="text-neutral-600 max-w-xl mx-auto text-base">Senden Sie uns eine Nachricht. Wir analysieren Ihr Automatisierungspotenzial und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
             </div>
 
             <!-- Kontaktformular -->
-            <div class="glass-card rounded-3xl p-8 sm:p-10 mb-16 shadow-2xl relative">
+            <div class="apple-card rounded-3xl p-8 sm:p-12 mb-16 shadow-lg relative bg-white border border-neutral-300">
                 <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- Name -->
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                            <label for="name" class="block text-sm font-semibold text-neutral-900 mb-2">Name</label>
                             <input 
                                 type="text" 
                                 id="name" 
                                 required
                                 placeholder="Max Mustermann" 
-                                class="w-full px-4 py-3.5 bg-gray-900/90 border border-gray-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-200"
+                                class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-300 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all duration-200"
                             />
                         </div>
 
                         <!-- E-Mail -->
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">E-Mail-Adresse</label>
+                            <label for="email" class="block text-sm font-semibold text-neutral-900 mb-2">E-Mail-Adresse</label>
                             <input 
                                 type="email" 
                                 id="email" 
                                 required
                                 placeholder="max@unternehmen.de" 
-                                class="w-full px-4 py-3.5 bg-gray-900/90 border border-gray-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-200"
+                                class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-300 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all duration-200"
                             />
                         </div>
                     </div>
 
                     <!-- Nachricht -->
                     <div>
-                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Nachricht</label>
+                        <label for="message" class="block text-sm font-semibold text-neutral-900 mb-2">Nachricht</label>
                         <textarea 
                             id="message" 
                             rows="4" 
                             required
                             placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihre Anforderungen..." 
-                            class="w-full px-4 py-3.5 bg-gray-900/90 border border-gray-800 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-200 resize-none"
+                            class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-300 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all duration-200 resize-none"
                         ></textarea>
                     </div>
 
@@ -357,7 +503,7 @@
                     <button 
                         type="submit" 
                         id="submitBtn"
-                        class="w-full inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-xl shadow-lg shadow-blue-600/30 transition-all duration-300 hover:shadow-blue-500/50"
+                        class="w-full inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-neutral-950 hover:bg-neutral-800 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg"
                     >
                         <span>Nachricht absenden</span>
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -368,33 +514,41 @@
 
                 <!-- Feedback Message -->
                 <div id="formSuccess" class="hidden text-center py-8">
-                    <div class="w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-700 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Vielen Dank für Ihre Anfrage!</h3>
-                    <p class="text-gray-400 text-sm">Wir haben Ihre Nachricht erhalten und werden uns in Kürze mit Ihnen in Verbindung setzen.</p>
+                    <h3 class="text-xl font-bold text-neutral-900 mb-2">Vielen Dank für Ihre Anfrage!</h3>
+                    <p class="text-neutral-600 text-sm">Wir haben Ihre Nachricht erhalten und werden uns in Kürze mit Ihnen in Verbindung setzen.</p>
                 </div>
             </div>
 
             <!-- Footer Bottom Links -->
-            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-gray-900 text-xs text-gray-500 gap-4">
-                <div class="flex items-center gap-2">
-                    <span class="font-bold text-gray-400">Flow Solutions</span>
+            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-neutral-200 text-xs text-neutral-500 gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-lg bg-neutral-950 flex items-center justify-center p-1">
+                        <img src="assets/logo.svg" alt="Flow Solutions Logo" class="w-full h-full object-contain filter invert">
+                    </div>
+                    <span class="font-bold text-neutral-900">Flow Solutions</span>
                     <span>© 2026. Alle Rechte vorbehalten.</span>
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="datenschutz.html" class="hover:text-gray-300 transition-colors">Datenschutz</a>
-                    <a href="impressum.html" class="hover:text-gray-300 transition-colors">Impressum</a>
-                    <a href="#" class="hover:text-gray-300 transition-colors">AGB</a>
+                    <a href="datenschutz.html" class="hover:text-neutral-900 transition-colors">Datenschutz</a>
+                    <a href="impressum.html" class="hover:text-neutral-900 transition-colors">Impressum</a>
+                    <a href="#" class="hover:text-neutral-900 transition-colors">AGB</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Form Handler Script -->
+    <!-- Interactive Scripts -->
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
         function handleFormSubmit(event) {
             event.preventDefault();
             const form = document.getElementById('contactForm');
