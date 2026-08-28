@@ -37,8 +37,8 @@
             }
         }
         body {
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: #08080a;
+            color: #f5f5f7;
         }
         .liquid-glass-nav {
             background: rgba(10, 10, 10, 0.45);
@@ -46,10 +46,11 @@
             -webkit-backdrop-filter: blur(28px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
-        .apple-card {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+        .apple-dark-card {
+            background: rgba(23, 23, 26, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(16px);
         }
         .hover-scale {
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -79,7 +80,7 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-black selection:text-white flex flex-col min-h-screen">
+<body class="font-sans antialiased selection:bg-white selection:text-black flex flex-col min-h-screen">
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
@@ -93,9 +94,9 @@
                     </svg>
                 </button>
 
-                <div class="absolute left-1/2 -translate-x-1/2">
+                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
                     <a href="index.html" class="block hover-scale">
-                        <img src="assets/Weißes Logo_2.png" alt="Flow Solutions Logo" class="h-7 sm:h-9 w-auto object-contain">
+                        <img src="/logo.png" alt="Flow Solutions Logo" class="h-7 sm:h-9 w-auto object-contain">
                     </a>
                 </div>
 
@@ -136,83 +137,83 @@
         <div class="max-w-4xl mx-auto">
             
             <div class="mb-10 text-center sm:text-left">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200 border border-neutral-300 text-xs font-semibold text-neutral-800 mb-4 hover-scale">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-neutral-300 mb-4 hover-scale">
                     <span>Rechtliche Informationen</span>
                 </div>
-                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-neutral-900 mb-3">
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3">
                     Datenschutz&shy;erklärung
                 </h1>
-                <p class="text-neutral-600 text-sm sm:text-base">
+                <p class="text-neutral-400 text-sm sm:text-base">
                     Informationen über die Erhebung und Verarbeitung Ihrer personenbezogenen Daten
                 </p>
             </div>
 
-            <div class="apple-card rounded-3xl p-8 sm:p-12 shadow-md space-y-12 text-neutral-700 text-sm sm:text-base leading-relaxed hover-scale">
+            <div class="apple-dark-card rounded-3xl p-8 sm:p-12 shadow-2xl space-y-12 text-neutral-300 text-sm sm:text-base leading-relaxed hover-scale">
                 
                 <section class="space-y-6">
-                    <h2 class="text-2xl font-bold text-neutral-900 border-b border-neutral-200 pb-3 flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-lg bg-neutral-900 text-white text-sm font-mono flex items-center justify-center shrink-0">1</span>
+                    <h2 class="text-2xl font-bold text-white border-b border-neutral-800 pb-3 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-white text-black text-sm font-mono flex items-center justify-center shrink-0 font-bold">1</span>
                         <span>Datenschutz auf einen Blick</span>
                     </h2>
 
                     <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-neutral-900">Allgemeine Hinweise</h3>
-                        <p class="text-neutral-600">
+                        <h3 class="text-lg font-semibold text-white">Allgemeine Hinweise</h3>
+                        <p class="text-neutral-400">
                             Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
                         </p>
                     </div>
                 </section>
 
-                <section class="space-y-6 pt-4 border-t border-neutral-200">
-                    <h2 class="text-2xl font-bold text-neutral-900 border-b border-neutral-200 pb-3 flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-lg bg-neutral-900 text-white text-sm font-mono flex items-center justify-center shrink-0">2</span>
+                <section class="space-y-6 pt-4 border-t border-neutral-800">
+                    <h2 class="text-2xl font-bold text-white border-b border-neutral-800 pb-3 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-white text-black text-sm font-mono flex items-center justify-center shrink-0 font-bold">2</span>
                         <span>Hosting</span>
                     </h2>
 
-                    <div class="p-5 bg-neutral-50 rounded-xl border border-neutral-200 space-y-3">
-                        <h3 class="text-lg font-semibold text-neutral-900">Externes Hosting</h3>
-                        <p class="text-neutral-600">
+                    <div class="p-5 bg-neutral-900/60 rounded-xl border border-neutral-800 space-y-3">
+                        <h3 class="text-lg font-semibold text-white">Externes Hosting</h3>
+                        <p class="text-neutral-400">
                             Diese Website wird extern gehostet bei Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA).
                         </p>
                     </div>
                 </section>
 
-                <section class="space-y-6 pt-4 border-t border-neutral-200">
-                    <h2 class="text-2xl font-bold text-neutral-900 border-b border-neutral-200 pb-3 flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-lg bg-neutral-900 text-white text-sm font-mono flex items-center justify-center shrink-0">3</span>
+                <section class="space-y-6 pt-4 border-t border-neutral-800">
+                    <h2 class="text-2xl font-bold text-white border-b border-neutral-800 pb-3 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-white text-black text-sm font-mono flex items-center justify-center shrink-0 font-bold">3</span>
                         <span>Verantwortliche Stelle</span>
                     </h2>
 
-                    <div class="p-5 bg-neutral-50 rounded-xl border border-neutral-200 space-y-3">
-                        <p class="text-neutral-900 font-semibold">Maximilian Reiser – Flow Solutions</p>
+                    <div class="p-5 bg-neutral-900/60 rounded-xl border border-neutral-800 space-y-3">
+                        <p class="text-white font-semibold">Maximilian Reiser – Flow Solutions</p>
                         <p>Brackenheimerweg 2, 73732 Esslingen am Neckar</p>
                         <p>E-Mail: flowsolutions.digital@gmail.com</p>
                     </div>
                 </section>
 
-                <div class="pt-4 text-xs text-neutral-500 font-mono border-t border-neutral-200">
-                    <p>Quelle: <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer" class="text-neutral-900 font-semibold hover:underline">https://www.e-recht24.de</a></p>
+                <div class="pt-4 text-xs text-neutral-500 font-mono border-t border-neutral-800">
+                    <p>Quelle: <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:underline">https://www.e-recht24.de</a></p>
                 </div>
 
             </div>
         </div>
     </main>
 
-    <footer class="relative z-10 bg-white border-t border-neutral-300 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+    <footer class="relative z-10 bg-neutral-950 border-t border-neutral-800 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
             <div class="flex items-center gap-3 hover-scale">
                 <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
                     <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
                 </div>
-                <span class="font-bold text-neutral-900">Flow Solutions</span>
+                <span class="font-bold text-white">Flow Solutions</span>
                 <span>© 2026. Alle Rechte vorbehalten.</span>
             </div>
             <div class="flex items-center gap-6">
-                <a href="index.html" class="hover:text-neutral-900 transition-colors hover-scale">Startseite</a>
-                <a href="ueber-uns.html" class="hover:text-neutral-900 transition-colors hover-scale">Über uns</a>
-                <a href="kontakt.html" class="hover:text-neutral-900 transition-colors hover-scale">Kontakt</a>
-                <a href="datenschutz.html" class="text-black font-semibold hover-scale">Datenschutz</a>
-                <a href="impressum.html" class="hover:text-neutral-900 transition-colors hover-scale">Impressum</a>
+                <a href="index.html" class="hover:text-white transition-colors hover-scale">Startseite</a>
+                <a href="ueber-uns.html" class="hover:text-white transition-colors hover-scale">Über uns</a>
+                <a href="kontakt.html" class="hover:text-white transition-colors hover-scale">Kontakt</a>
+                <a href="datenschutz.html" class="text-white font-semibold hover-scale">Datenschutz</a>
+                <a href="impressum.html" class="hover:text-white transition-colors hover-scale">Impressum</a>
             </div>
         </div>
     </footer>
