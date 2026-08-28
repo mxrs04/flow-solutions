@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt | Flow Solutions</title>
-    <meta name="description" content="Kontaktieren Sie Flow Solutions – Wir analysieren Ihr Potenzial für KI & Voice Automation.">
-    <meta property="og:title" content="Kontakt | Flow Solutions">
-    <link rel="icon" type="image/jpeg" href="assets/Logo 1zu1.jpg">
-    <link rel="apple-touch-icon" href="assets/Logo inverted 1zu1.jpeg">
+    <meta name="description" content="Sprechen Sie mit Flow Solutions über autonome Voice-Agenten und KI-Automatisierung für Ihr Unternehmen.">
+    <meta property="og:title" content="Flow Solutions">
+    <link rel="icon" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
     <link rel="manifest" href="site.webmanifest">
     <meta name="apple-mobile-web-app-title" content="Flow Solutions">
     <meta name="application-name" content="Flow Solutions">
@@ -37,8 +37,8 @@
             }
         }
         body {
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: #08080a;
+            color: #f5f5f7;
         }
         .liquid-glass-nav {
             background: rgba(10, 10, 10, 0.45);
@@ -57,11 +57,11 @@
             visibility: visible;
             transform: translateY(0);
         }
-        .apple-card {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        .apple-dark-card {
+            background: rgba(23, 23, 26, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(16px);
         }
         .hover-scale {
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -91,7 +91,7 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-black selection:text-white flex flex-col min-h-screen">
+<body class="font-sans antialiased selection:bg-white selection:text-black flex flex-col min-h-screen">
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
@@ -105,10 +105,8 @@
                     </svg>
                 </button>
 
-                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
-                    <a href="index.html" class="block hover-scale">
-                        <img src="/logo.png" alt="Flow Solutions Logo" class="h-7 sm:h-9 w-auto object-contain">
-                    </a>
+                <div class="absolute left-1/2 -translate-x-1/2">
+                    <a href="index.html"><img src="/logo.png" alt="Flow Solutions" class="h-7 sm:h-9 w-auto object-contain" /></a>
                 </div>
 
                 <div class="relative dropdown-wrapper">
@@ -171,94 +169,115 @@
 
     <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         
-        <div class="text-center mb-12">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200 border border-neutral-300 text-xs font-semibold text-neutral-800 mb-4 hover-scale">
-                <span data-i18n="contact_page_tag">Direkter Kontakt</span>
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-neutral-300 mb-4 hover-scale">
+                <span data-i18n="contact_page_tag">Persönliche Beratung & Erstgespräch</span>
             </div>
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-neutral-900 mb-4" data-i18n="contact_page_title">
-                Sprechen wir über Ihr Projekt
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6" data-i18n="contact_title">
+                Kontaktieren Sie uns
             </h1>
-            <p class="text-neutral-600 max-w-xl mx-auto text-base sm:text-lg" data-i18n="contact_page_sub">
-                Wir analysieren Ihr Automatisierungspotenzial und entwickeln die optimale KI-Architektur für Ihr Unternehmen.
+            <p class="text-neutral-300 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed" data-i18n="contact_sub">
+                Lassen Sie uns gemeinsam besprechen, wie wir Ihre Geschäftsprozesse mit autonomer KI automatisieren können.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            <div class="apple-card rounded-2xl p-6 text-center hover-scale">
-                <div class="w-12 h-12 rounded-xl bg-neutral-900 text-white flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                </div>
-                <div class="text-xs font-mono uppercase text-neutral-500 mb-1" data-i18n="phone_label">Telefon</div>
-                <a href="tel:+4915754656817" class="text-base font-bold text-neutral-900 hover:underline">+49 1575 4656817</a>
-            </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            
+            <div class="lg:col-span-1 space-y-6">
+                <div class="apple-dark-card rounded-3xl p-8 hover-scale">
+                    <h3 class="text-xl font-bold text-white mb-6" data-i18n="contact_direct_head">Direktkontakt</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center shrink-0 shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-400 font-mono uppercase tracking-wider mb-1" data-i18n="phone_label">Telefon</div>
+                                <a href="tel:+4915754656817" class="text-white hover:underline font-semibold text-sm sm:text-base transition-colors">+49 1575 4656817</a>
+                            </div>
+                        </div>
 
-            <div class="apple-card rounded-2xl p-6 text-center hover-scale">
-                <div class="w-12 h-12 rounded-xl bg-neutral-900 text-white flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <div class="text-xs font-mono uppercase text-neutral-500 mb-1" data-i18n="email_label">E-Mail</div>
-                <a href="mailto:flowsolutions.digital@gmail.com" class="text-base font-bold text-neutral-900 hover:underline break-all">flowsolutions.digital@gmail.com</a>
-            </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center shrink-0 shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-400 font-mono uppercase tracking-wider mb-1" data-i18n="email_label">E-Mail</div>
+                                <a href="mailto:flowsolutions.digital@gmail.com" class="text-white hover:underline font-semibold text-sm sm:text-base transition-colors break-all">flowsolutions.digital@gmail.com</a>
+                            </div>
+                        </div>
 
-            <div class="apple-card rounded-2xl p-6 text-center hover-scale">
-                <div class="w-12 h-12 rounded-xl bg-neutral-900 text-white flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                </div>
-                <div class="text-xs font-mono uppercase text-neutral-500 mb-1" data-i18n="address_label">Standort</div>
-                <div class="text-base font-bold text-neutral-900">73732 Esslingen am Neckar</div>
-            </div>
-        </div>
-
-        <div class="apple-card rounded-3xl p-8 sm:p-12 shadow-lg relative bg-white border border-neutral-300 hover-scale">
-            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                        <label for="name" class="block text-sm font-semibold text-neutral-900 mb-2" data-i18n="contact_name">Name</label>
-                        <input type="text" id="name" required placeholder="Max Mustermann" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-300 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all" />
+                        <div class="flex items-start gap-4 pt-4 border-t border-neutral-800">
+                            <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center shrink-0 shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-400 font-mono uppercase tracking-wider mb-1" data-i18n="location_label">Standort</div>
+                                <p class="text-neutral-300 text-sm leading-relaxed">
+                                    Esslingen am Neckar,<br />Deutschland
+                                </p>
+                            </div>
+                        </div>
                     </div>
-
-                    <div>
-                        <label for="email" class="block text-sm font-semibold text-neutral-900 mb-2" data-i18n="contact_email">E-Mail-Adresse</label>
-                        <input type="email" id="email" required placeholder="max@unternehmen.de" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-300 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all" />
-                    </div>
                 </div>
-
-                <div>
-                    <label for="message" class="block text-sm font-semibold text-neutral-900 mb-2" data-i18n="contact_msg">Nachricht</label>
-                    <textarea id="message" rows="5" required placeholder="Beschreiben Sie kurz Ihr Vorhaben..." class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-300 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all resize-none"></textarea>
-                </div>
-
-                <button type="submit" id="submitBtn" class="w-full inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-neutral-950 hover:bg-neutral-800 rounded-xl shadow-md transition-all hover-scale">
-                    <span data-i18n="contact_submit">Nachricht absenden</span>
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </button>
-            </form>
-
-            <div id="formSuccess" class="hidden text-center py-10">
-                <div class="w-14 h-14 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-700 flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                </div>
-                <h3 class="text-2xl font-bold text-neutral-900 mb-2" data-i18n="contact_success_title">Vielen Dank für Ihre Anfrage!</h3>
-                <p class="text-neutral-600 text-base" data-i18n="contact_success_msg">Wir haben Ihre Nachricht erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
             </div>
+
+            <div class="lg:col-span-2">
+                <div class="apple-dark-card rounded-3xl p-8 sm:p-12 hover-scale">
+                    <h3 class="text-2xl font-bold text-white mb-6" data-i18n="form_title">Nachricht senden</h3>
+                    <form onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anfrage! Wir melden uns in Kürze.');" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2" data-i18n="field_name">Ihr Name *</label>
+                                <input type="text" required placeholder="Maximilian Muster" class="w-full px-4 py-3.5 bg-neutral-900/90 border border-neutral-800 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-white transition-all text-sm" />
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2" data-i18n="field_company">Unternehmen</label>
+                                <input type="text" placeholder="Muster GmbH" class="w-full px-4 py-3.5 bg-neutral-900/90 border border-neutral-800 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-white transition-all text-sm" />
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2" data-i18n="field_email">E-Mail-Adresse *</label>
+                                <input type="email" required placeholder="name@unternehmen.de" class="w-full px-4 py-3.5 bg-neutral-900/90 border border-neutral-800 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-white transition-all text-sm" />
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2" data-i18n="field_phone">Telefonnummer</label>
+                                <input type="tel" placeholder="+49 123 456789" class="w-full px-4 py-3.5 bg-neutral-900/90 border border-neutral-800 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-white transition-all text-sm" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2" data-i18n="field_message">Ihre Nachricht *</label>
+                            <textarea rows="5" required placeholder="Beschreiben Sie kurz Ihr Vorhaben oder Ihre Fragen..." class="w-full px-4 py-3.5 bg-neutral-900/90 border border-neutral-800 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-white transition-all text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" data-i18n="btn_submit" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-neutral-200 text-neutral-950 font-bold rounded-full transition-all hover-scale shadow-md text-sm">
+                            Anfrage absenden
+                        </button>
+                    </form>
+                </div>
+            </div>
+
         </div>
 
     </main>
 
-    <footer class="relative z-10 bg-white border-t border-neutral-300 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+    <footer class="relative z-10 bg-neutral-950 border-t border-neutral-800 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
             <div class="flex items-center gap-3 hover-scale">
                 <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
                     <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
                 </div>
-                <span class="font-bold text-neutral-900">Flow Solutions</span>
+                <span class="font-bold text-white">Flow Solutions</span>
                 <span data-i18n="footer_rights">© 2026. Alle Rechte vorbehalten.</span>
             </div>
             <div class="flex items-center gap-6">
-                <a href="index.html" data-i18n="nav_home" class="hover:text-neutral-900 transition-colors hover-scale">Startseite</a>
-                <a href="ueber-uns.html" data-i18n="nav_about" class="hover:text-neutral-900 transition-colors hover-scale">Über uns</a>
-                <a href="datenschutz.html" data-i18n="footer_privacy" class="hover:text-neutral-900 transition-colors hover-scale">Datenschutz</a>
-                <a href="impressum.html" data-i18n="footer_imprint" class="hover:text-neutral-900 transition-colors hover-scale">Impressum</a>
+                <a href="index.html" data-i18n="nav_home" class="hover:text-white transition-colors hover-scale">Startseite</a>
+                <a href="ueber-uns.html" data-i18n="nav_about" class="hover:text-white transition-colors hover-scale">Über uns</a>
+                <a href="datenschutz.html" data-i18n="footer_privacy" class="hover:text-white transition-colors hover-scale">Datenschutz</a>
+                <a href="impressum.html" data-i18n="footer_imprint" class="hover:text-white transition-colors hover-scale">Impressum</a>
             </div>
         </div>
     </footer>
@@ -276,18 +295,20 @@
                 nav_services: 'Dienstleistungen',
                 nav_about: 'Über uns',
                 nav_contact: 'Kontakt',
-                contact_page_tag: 'Direkter Kontakt',
-                contact_page_title: 'Sprechen wir über Ihr Projekt',
-                contact_page_sub: 'Wir analysieren Ihr Automatisierungspotenzial und entwickeln die optimale KI-Architektur für Ihr Unternehmen.',
+                contact_page_tag: 'Persönliche Beratung & Erstgespräch',
+                contact_title: 'Kontaktieren Sie uns',
+                contact_sub: 'Lassen Sie uns gemeinsam besprechen, wie wir Ihre Geschäftsprozesse mit autonomer KI automatisieren können.',
+                contact_direct_head: 'Direktkontakt',
                 phone_label: 'Telefon',
                 email_label: 'E-Mail',
-                address_label: 'Standort',
-                contact_name: 'Name',
-                contact_email: 'E-Mail-Adresse',
-                contact_msg: 'Nachricht',
-                contact_submit: 'Nachricht absenden',
-                contact_success_title: 'Vielen Dank für Ihre Anfrage!',
-                contact_success_msg: 'Wir haben Ihre Nachricht erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.',
+                location_label: 'Standort',
+                form_title: 'Nachricht senden',
+                field_name: 'Ihr Name *',
+                field_company: 'Unternehmen',
+                field_email: 'E-Mail-Adresse *',
+                field_phone: 'Telefonnummer',
+                field_message: 'Ihre Nachricht *',
+                btn_submit: 'Anfrage absenden',
                 footer_rights: '© 2026. Alle Rechte vorbehalten.',
                 footer_privacy: 'Datenschutz',
                 footer_imprint: 'Impressum'
@@ -303,18 +324,20 @@
                 nav_services: 'Services',
                 nav_about: 'About Us',
                 nav_contact: 'Contact',
-                contact_page_tag: 'Direct Contact',
-                contact_page_title: 'Let\'s talk about your project',
-                contact_page_sub: 'We analyze your automation potential and build the optimal AI architecture for your enterprise.',
+                contact_page_tag: 'Personal Consultation',
+                contact_title: 'Get in Touch',
+                contact_sub: 'Let\'s discuss how custom AI agents can automate your business operations.',
+                contact_direct_head: 'Direct Contact',
                 phone_label: 'Phone',
                 email_label: 'Email',
-                address_label: 'Location',
-                contact_name: 'Name',
-                contact_email: 'Email Address',
-                contact_msg: 'Message',
-                contact_submit: 'Send Message',
-                contact_success_title: 'Thank you for contacting us!',
-                contact_success_msg: 'We\'ve received your message and will get back to you within 24 hours.',
+                location_label: 'Location',
+                form_title: 'Send a Message',
+                field_name: 'Your Name *',
+                field_company: 'Company',
+                field_email: 'Email Address *',
+                field_phone: 'Phone Number',
+                field_message: 'Your Message *',
+                btn_submit: 'Send Inquiry',
                 footer_rights: '© 2026. All rights reserved.',
                 footer_privacy: 'Privacy Policy',
                 footer_imprint: 'Legal Notice'
@@ -330,18 +353,20 @@
                 nav_services: 'Services',
                 nav_about: 'À propos',
                 nav_contact: 'Contact',
-                contact_page_tag: 'Contact Direct',
-                contact_page_title: 'Parlons de votre projet',
-                contact_page_sub: 'Nous analysons votre potentiel d\'automatisation et concevons l\'architecture IA idéale.',
+                contact_page_tag: 'Consultation Personnalisée',
+                contact_title: 'Contactez-nous',
+                contact_sub: 'Discutons ensemble de l\'automatisation de vos processus.',
+                contact_direct_head: 'Contact Direct',
                 phone_label: 'Téléphone',
                 email_label: 'E-mail',
-                address_label: 'Localisation',
-                contact_name: 'Nom',
-                contact_email: 'Adresse E-mail',
-                contact_msg: 'Message',
-                contact_submit: 'Envoyer le message',
-                contact_success_title: 'Merci pour votre demande !',
-                contact_success_msg: 'Nous avons bien reçu votre message et nous vous répondrons dans les 24 heures.',
+                location_label: 'Localisation',
+                form_title: 'Envoyer un Message',
+                field_name: 'Votre Nom *',
+                field_company: 'Entreprise',
+                field_email: 'Adresse E-mail *',
+                field_phone: 'Numéro de Téléphone',
+                field_message: 'Votre Message *',
+                btn_submit: 'Envoyer',
                 footer_rights: '© 2026. Tous droits réservés.',
                 footer_privacy: 'Confidentialité',
                 footer_imprint: 'Mentions Légales'
@@ -357,18 +382,20 @@
                 nav_services: 'Servizi',
                 nav_about: 'Chi siamo',
                 nav_contact: 'Contatto',
-                contact_page_tag: 'Contatto Diretto',
-                contact_page_title: 'Parliamo del tuo progetto',
-                contact_page_sub: 'Analizziamo il tuo potenziale di automazione e sviluppiamo l\'architettura IA ideale.',
+                contact_page_tag: 'Consulenza Personale',
+                contact_title: 'Contattaci',
+                contact_sub: 'Parliamo di come automatizzare i tuoi processi aziendali con l\'IA.',
+                contact_direct_head: 'Contatto Diretto',
                 phone_label: 'Telefono',
                 email_label: 'E-mail',
-                address_label: 'Sede',
-                contact_name: 'Nome',
-                contact_email: 'Indirizzo E-mail',
-                contact_msg: 'Messaggio',
-                contact_submit: 'Invia Messaggio',
-                contact_success_title: 'Grazie per averci contattato!',
-                contact_success_msg: 'Abbiamo ricevuto il tuo messaggio e ti risponderemo entro 24 ore.',
+                location_label: 'Posizione',
+                form_title: 'Invia un Messaggio',
+                field_name: 'Il Tuo Nome *',
+                field_company: 'Azienda',
+                field_email: 'Indirizzo E-mail *',
+                field_phone: 'Numero di Telefono',
+                field_message: 'Il Tuo Messaggio *',
+                btn_submit: 'Invia Richiesta',
                 footer_rights: '© 2026. Tutti i diritti riservati.',
                 footer_privacy: 'Privacy Policy',
                 footer_imprint: 'Note Legali'
@@ -384,18 +411,20 @@
                 nav_services: 'Hizmetler',
                 nav_about: 'Hakkımızda',
                 nav_contact: 'İletişim',
-                contact_page_tag: 'Doğrudan İletişim',
-                contact_page_title: 'Projenizi Konuşalım',
-                contact_page_sub: 'Otomasyon potansiyelinizi analiz ediyor ve şirketiniz için en uygun yapay zeka mimarisini geliştiriyoruz.',
+                contact_page_tag: 'Kişisel Danışmanlık',
+                contact_title: 'Bizimle İletişime Geçin',
+                contact_sub: 'İş süreçlerinizi otonom yapay zeka ile nasıl otomatikleştirebileceğimizi konuşalım.',
+                contact_direct_head: 'Doğrudan İletişim',
                 phone_label: 'Telefon',
-                email_label: 'E-Posta',
-                address_label: 'Konum',
-                contact_name: 'İsim',
-                contact_email: 'E-Posta Adresi',
-                contact_msg: 'Mesajınız',
-                contact_submit: 'Mesajı Gönder',
-                contact_success_title: 'Talebiniz İçin Teşekkür Ederiz!',
-                contact_success_msg: 'Mesajınızı aldık ve 24 saat içinde size geri dönüş yapacağız.',
+                email_label: 'E-posta',
+                location_label: 'Konum',
+                form_title: 'Mesaj Gönderin',
+                field_name: 'Adınız *',
+                field_company: 'Şirket',
+                field_email: 'E-posta Adresiniz *',
+                field_phone: 'Telefon Numarası',
+                field_message: 'Mesajınız *',
+                btn_submit: 'Talebi Gönder',
                 footer_rights: '© 2026. Tüm hakları saklıdır.',
                 footer_privacy: 'Gizlilik Politikası',
                 footer_imprint: 'Künye'
@@ -442,14 +471,6 @@
             menu.classList.add('-translate-x-full');
             backdrop.classList.remove('opacity-100', 'pointer-events-auto');
             backdrop.classList.add('opacity-0', 'pointer-events-none');
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = document.getElementById('contactForm');
-            const successMsg = document.getElementById('formSuccess');
-            form.classList.add('hidden');
-            successMsg.classList.remove('hidden');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
