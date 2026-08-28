@@ -41,10 +41,11 @@
             color: #1d1d1f;
         }
         .liquid-glass-nav {
-            background: rgba(10, 10, 10, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -74,19 +75,18 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 28px;
-            height: 28px;
-            border: 1.5px solid rgba(0, 0, 0, 0.7);
+            width: 22px;
+            height: 22px;
+            background-color: #ffffff;
             border-radius: 50%;
-            z-index: 9999;
+            z-index: 99999;
+            mix-blend-mode: difference;
             transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+            transition: width 0.2s, height 0.2s;
         }
         .custom-cursor.active {
-            width: 44px;
-            height: 44px;
-            background-color: rgba(0, 0, 0, 0.05);
-            border-color: rgba(0, 0, 0, 0.9);
+            width: 36px;
+            height: 36px;
         }
     </style>
 </head>
@@ -94,64 +94,77 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-20">
-                <a href="index.html" class="flex items-center gap-3 group hover-scale">
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md shrink-0">
-                        <img src="assets/Logo 1zu1.jpg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
-                    </div>
-                    <span class="text-lg sm:text-xl font-bold tracking-tight text-white">Flow <span class="text-neutral-400 font-medium">Solutions</span></span>
-                </a>
+            <div class="relative flex items-center justify-between h-16 sm:h-20">
+                
+                <button onclick="openMenu()" class="p-2 text-neutral-900 hover:text-black focus:outline-none hover-scale">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
 
-                <nav class="hidden md:flex items-center gap-6">
-                    <a href="index.html#services" data-i18n="nav_services" class="text-sm font-medium text-neutral-300 hover:text-white transition-colors hover-scale">Dienstleistungen</a>
-                    <a href="ueber-uns.html" data-i18n="nav_about" class="text-sm font-medium text-neutral-300 hover:text-white transition-colors hover-scale">Über uns</a>
-                    <a href="kontakt.html" data-i18n="nav_contact" class="text-sm font-semibold text-white hover-scale">Kontakt</a>
-                </nav>
-
-                <div class="flex items-center gap-4">
-                    <div class="relative dropdown-wrapper">
-                        <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-neutral-900 border border-neutral-700 overflow-hidden shadow-sm hover-scale">
-                            <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
-                                <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
-                            </span>
-                        </button>
-                        <div class="absolute right-0 top-full mt-2 dropdown-menu w-48 bg-white text-neutral-900 rounded-2xl shadow-2xl p-2 border border-neutral-200 text-xs">
-                            <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg></span>
-                                <span>Deutsch (DE)</span>
-                            </button>
-                            <button onclick="setLanguage('en-uk')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#00247d"/><path d="M0 0l512 512M512 0L0 512" stroke="#fff" stroke-width="60"/><path d="M0 0l512 512M512 0L0 512" stroke="#cf142b" stroke-width="40"/><path d="M256 0v512M0 256h512" stroke="#fff" stroke-width="100"/><path d="M256 0v512M0 256h512" stroke="#cf142b" stroke-width="60"/></svg></span>
-                                <span>English (UK)</span>
-                            </button>
-                            <button onclick="setLanguage('en-us')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><rect width="512" height="512" fill="#bf0a30"/><path d="M0 73h512M0 146h512M0 219h512M0 292h512M0 365h512M0 438h512" stroke="#fff" stroke-width="36"/><rect width="230" height="275" fill="#002868"/><circle cx="50" cy="50" r="12" fill="#fff"/><circle cx="115" cy="50" r="12" fill="#fff"/><circle cx="180" cy="50" r="12" fill="#fff"/><circle cx="82" cy="100" r="12" fill="#fff"/><circle cx="147" cy="100" r="12" fill="#fff"/><circle cx="50" cy="150" r="12" fill="#fff"/><circle cx="115" cy="150" r="12" fill="#fff"/><circle cx="180" cy="150" r="12" fill="#fff"/><circle cx="82" cy="200" r="12" fill="#fff"/><circle cx="147" cy="200" r="12" fill="#fff"/></svg></span>
-                                <span>English (US)</span>
-                            </button>
-                            <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg></span>
-                                <span>Français (FR)</span>
-                            </button>
-                            <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg></span>
-                                <span>Italiano (IT)</span>
-                            </button>
-                            <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M230 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><path d="M320 256l45 15-28-38 28-38-45 15-28-38 10 46-45 15 45 15-10 46z" fill="#fff"/></svg></span>
-                                <span>Türkçe (TR)</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <a href="index.html" data-i18n="nav_home" class="inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-sm hover-scale">
-                        Zurück zur Startseite
+                <div class="absolute left-1/2 -translate-x-1/2">
+                    <a href="index.html" class="block hover-scale">
+                        <img src="assets/Weißes Logo.png" alt="Flow Solutions Logo" class="h-6 sm:h-8 object-contain">
                     </a>
                 </div>
+
+                <div class="relative dropdown-wrapper">
+                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/80 border border-neutral-300 overflow-hidden shadow-sm hover-scale">
+                        <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
+                            <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                        </span>
+                    </button>
+                    <div class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-neutral-900 rounded-2xl shadow-2xl p-2 border border-neutral-200 text-xs">
+                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg></span>
+                            <span>Deutsch (DE)</span>
+                        </button>
+                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover"></span>
+                            <span>English (UK / US)</span>
+                        </button>
+                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg></span>
+                            <span>Français (FR)</span>
+                        </button>
+                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg></span>
+                            <span>Italiano (IT)</span>
+                        </button>
+                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M220 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><polygon points="310,215 320,248 354,248 326,268 337,301 310,281 283,301 294,268 266,248 300,248" fill="#fff"/></svg></span>
+                            <span>Türkçe (TR)</span>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
+
+    <div id="rrOverlayMenu" class="fixed inset-0 z-[100] bg-neutral-950/95 text-white backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-16 transition-opacity duration-300">
+        <div class="flex items-center justify-between">
+            <button onclick="closeMenu()" class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/40 text-xs font-mono tracking-widest text-white hover:bg-white hover:text-black transition-all hover-scale">
+                <span class="border border-current px-1">X</span>
+                <span>CLOSE</span>
+            </button>
+        </div>
+
+        <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
+            <a href="index.html" onclick="closeMenu()" data-i18n="menu_home" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
+            <a href="index.html#services" onclick="closeMenu()" data-i18n="menu_services" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="menu_about" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" data-i18n="menu_contact" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" data-i18n="menu_privacy" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" data-i18n="menu_imprint" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
+        </nav>
+
+        <div class="text-xs text-neutral-500 font-mono tracking-widest">
+            FLOW SOLUTIONS © 2026
+        </div>
+    </div>
 
     <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         
@@ -250,6 +263,12 @@
     <script>
         const translations = {
             'de': {
+                menu_home: 'STARTSEITE',
+                menu_services: 'DIENSTLEISTUNGEN',
+                menu_about: 'ÜBER UNS',
+                menu_contact: 'KONTAKT',
+                menu_privacy: 'DATENSCHUTZ',
+                menu_imprint: 'IMPRESSUM',
                 nav_home: 'Startseite',
                 nav_services: 'Dienstleistungen',
                 nav_about: 'Über uns',
@@ -270,28 +289,13 @@
                 footer_privacy: 'Datenschutz',
                 footer_imprint: 'Impressum'
             },
-            'en-uk': {
-                nav_home: 'Home',
-                nav_services: 'Services',
-                nav_about: 'About Us',
-                nav_contact: 'Contact',
-                contact_page_tag: 'Direct Contact',
-                contact_page_title: 'Let us discuss your project',
-                contact_page_sub: 'We analyse your automation potential and engineer the optimal AI architecture for your business.',
-                phone_label: 'Phone',
-                email_label: 'Email',
-                address_label: 'Location',
-                contact_name: 'Name',
-                contact_email: 'Email Address',
-                contact_msg: 'Message',
-                contact_submit: 'Send Message',
-                contact_success_title: 'Thank you for your enquiry!',
-                contact_success_msg: 'We have received your message and will respond within 24 hours.',
-                footer_rights: '© 2026. All rights reserved.',
-                footer_privacy: 'Privacy Policy',
-                footer_imprint: 'Legal Notice'
-            },
-            'en-us': {
+            'en': {
+                menu_home: 'HOME',
+                menu_services: 'SERVICES',
+                menu_about: 'ABOUT US',
+                menu_contact: 'CONTACT',
+                menu_privacy: 'PRIVACY POLICY',
+                menu_imprint: 'LEGAL NOTICE',
                 nav_home: 'Home',
                 nav_services: 'Services',
                 nav_about: 'About Us',
@@ -313,13 +317,19 @@
                 footer_imprint: 'Legal Notice'
             },
             'fr': {
+                menu_home: 'ACCUEIL',
+                menu_services: 'SERVICES',
+                menu_about: 'À PROPOS',
+                menu_contact: 'CONTACT',
+                menu_privacy: 'CONFIDENTIALITÉ',
+                menu_imprint: 'MENTIONS LÉGALES',
                 nav_home: 'Accueil',
                 nav_services: 'Services',
                 nav_about: 'À propos',
                 nav_contact: 'Contact',
                 contact_page_tag: 'Contact Direct',
                 contact_page_title: 'Parlons de votre projet',
-                contact_page_sub: 'Nous analysons votre potentiel d\'automatisation et concevons l\'architecture IA idéale pour votre entreprise.',
+                contact_page_sub: 'Nous analysons votre potentiel d\'automatisation et concevons l\'architecture IA idéale.',
                 phone_label: 'Téléphone',
                 email_label: 'E-mail',
                 address_label: 'Localisation',
@@ -334,13 +344,19 @@
                 footer_imprint: 'Mentions Légales'
             },
             'it': {
+                menu_home: 'HOME',
+                menu_services: 'SERVIZI',
+                menu_about: 'CHI SIAMO',
+                menu_contact: 'CONTATTO',
+                menu_privacy: 'PRIVACY POLICY',
+                menu_imprint: 'NOTE LEGALI',
                 nav_home: 'Home',
                 nav_services: 'Servizi',
                 nav_about: 'Chi siamo',
                 nav_contact: 'Contatto',
                 contact_page_tag: 'Contatto Diretto',
                 contact_page_title: 'Parliamo del tuo progetto',
-                contact_page_sub: 'Analizziamo il tuo potenziale di automazione e sviluppiamo l\'architettura IA ideale per la tua azienda.',
+                contact_page_sub: 'Analizziamo il tuo potenziale di automazione e sviluppiamo l\'architettura IA ideale.',
                 phone_label: 'Telefono',
                 email_label: 'E-mail',
                 address_label: 'Sede',
@@ -355,6 +371,12 @@
                 footer_imprint: 'Note Legali'
             },
             'tr': {
+                menu_home: 'ANA SAYFA',
+                menu_services: 'HİZMETLER',
+                menu_about: 'HAKKIMIZDA',
+                menu_contact: 'İLETİŞİM',
+                menu_privacy: 'GİZLİLİK POLİTİKASI',
+                menu_imprint: 'KÜNYE',
                 nav_home: 'Ana Sayfa',
                 nav_services: 'Hizmetler',
                 nav_about: 'Hakkımızda',
@@ -379,11 +401,10 @@
 
         const flagSVGs = {
             'de': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>',
-            'en-uk': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#00247d"/><path d="M0 0l512 512M512 0L0 512" stroke="#fff" stroke-width="60"/><path d="M0 0l512 512M512 0L0 512" stroke="#cf142b" stroke-width="40"/><path d="M256 0v512M0 256h512" stroke="#fff" stroke-width="100"/><path d="M256 0v512M0 256h512" stroke="#cf142b" stroke-width="60"/></svg>',
-            'en-us': '<svg class="w-full h-full" viewBox="0 0 512 512"><rect width="512" height="512" fill="#bf0a30"/><path d="M0 73h512M0 146h512M0 219h512M0 292h512M0 365h512M0 438h512" stroke="#fff" stroke-width="36"/><rect width="230" height="275" fill="#002868"/><circle cx="50" cy="50" r="12" fill="#fff"/><circle cx="115" cy="50" r="12" fill="#fff"/><circle cx="180" cy="50" r="12" fill="#fff"/><circle cx="82" cy="100" r="12" fill="#fff"/><circle cx="147" cy="100" r="12" fill="#fff"/><circle cx="50" cy="150" r="12" fill="#fff"/><circle cx="115" cy="150" r="12" fill="#fff"/><circle cx="180" cy="150" r="12" fill="#fff"/><circle cx="82" cy="200" r="12" fill="#fff"/><circle cx="147" cy="200" r="12" fill="#fff"/></svg>',
+            'en': '<img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover">',
             'fr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>',
             'it': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>',
-            'tr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M230 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><path d="M320 256l45 15-28-38 28-38-45 15-28-38 10 46-45 15 45 15-10 46z" fill="#fff"/></svg>'
+            'tr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M220 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><polygon points="310,215 320,248 354,248 326,268 337,301 310,281 283,301 294,268 266,248 300,248" fill="#fff"/></svg>'
         };
 
         function setLanguage(lang) {
@@ -400,6 +421,18 @@
                 currentFlagContainer.innerHTML = flagSVGs[lang];
             }
             localStorage.setItem('flow_lang', lang);
+        }
+
+        function openMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            menu.classList.remove('hidden');
+            menu.classList.add('flex');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
         }
 
         function handleFormSubmit(event) {

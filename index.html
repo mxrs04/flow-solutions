@@ -41,10 +41,11 @@
             color: #1d1d1f;
         }
         .liquid-glass-nav {
-            background: rgba(10, 10, 10, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -78,19 +79,18 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 28px;
-            height: 28px;
-            border: 1.5px solid rgba(0, 0, 0, 0.7);
+            width: 22px;
+            height: 22px;
+            background-color: #ffffff;
             border-radius: 50%;
-            z-index: 9999;
+            z-index: 99999;
+            mix-blend-mode: difference;
             transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+            transition: width 0.2s, height 0.2s;
         }
         .custom-cursor.active {
-            width: 44px;
-            height: 44px;
-            background-color: rgba(0, 0, 0, 0.05);
-            border-color: rgba(0, 0, 0, 0.9);
+            width: 36px;
+            height: 36px;
         }
     </style>
 </head>
@@ -98,92 +98,87 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-20">
-                <a href="index.html" class="flex items-center gap-3 group hover-scale">
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md shrink-0">
-                        <img src="assets/Logo 1zu1.jpg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
-                    </div>
-                    <span class="text-lg sm:text-xl font-bold tracking-tight text-white">Flow <span class="text-neutral-400 font-medium">Solutions</span></span>
-                </a>
+            <div class="relative flex items-center justify-between h-16 sm:h-20">
+                
+                <button onclick="openMenu()" class="p-2 text-neutral-900 hover:text-black focus:outline-none hover-scale">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
 
-                <nav class="hidden md:flex items-center gap-6">
-                    <a href="#services" data-i18n="nav_services" class="text-sm font-medium text-neutral-300 hover:text-white transition-colors hover-scale">Dienstleistungen</a>
-                    <a href="ueber-uns.html" data-i18n="nav_about" class="text-sm font-medium text-neutral-300 hover:text-white transition-colors hover-scale">Über uns</a>
-                    <a href="kontakt.html" data-i18n="nav_contact" class="text-sm font-medium text-neutral-300 hover:text-white transition-colors hover-scale">Kontakt</a>
-                </nav>
-
-                <div class="flex items-center gap-4">
-                    <div class="relative dropdown-wrapper">
-                        <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-neutral-900 border border-neutral-700 overflow-hidden shadow-sm hover-scale transition-transform">
-                            <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
-                                <svg class="w-6 h-6" viewBox="0 0 512 512">
-                                    <circle cx="256" cy="256" r="256" fill="#ffce00"/>
-                                    <path d="M0 170.7h512V0H0z" fill="#000"/>
-                                    <path d="M0 341.3h512V170.7H0z" fill="#d00"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="absolute right-0 top-full mt-2 dropdown-menu w-48 bg-white text-neutral-900 rounded-2xl shadow-2xl p-2 border border-neutral-200 text-xs">
-                            <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
-                                    <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
-                                </span>
-                                <span>Deutsch (DE)</span>
-                            </button>
-                            <button onclick="setLanguage('en-uk')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
-                                    <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#00247d"/><path d="M0 0l512 512M512 0L0 512" stroke="#fff" stroke-width="60"/><path d="M0 0l512 512M512 0L0 512" stroke="#cf142b" stroke-width="40"/><path d="M256 0v512M0 256h512" stroke="#fff" stroke-width="100"/><path d="M256 0v512M0 256h512" stroke="#cf142b" stroke-width="60"/></svg>
-                                </span>
-                                <span>English (UK)</span>
-                            </button>
-                            <button onclick="setLanguage('en-us')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
-                                    <svg class="w-full h-full" viewBox="0 0 512 512"><rect width="512" height="512" fill="#bf0a30"/><path d="M0 73h512M0 146h512M0 219h512M0 292h512M0 365h512M0 438h512" stroke="#fff" stroke-width="36"/><rect width="230" height="275" fill="#002868"/><circle cx="50" cy="50" r="12" fill="#fff"/><circle cx="115" cy="50" r="12" fill="#fff"/><circle cx="180" cy="50" r="12" fill="#fff"/><circle cx="82" cy="100" r="12" fill="#fff"/><circle cx="147" cy="100" r="12" fill="#fff"/><circle cx="50" cy="150" r="12" fill="#fff"/><circle cx="115" cy="150" r="12" fill="#fff"/><circle cx="180" cy="150" r="12" fill="#fff"/><circle cx="82" cy="200" r="12" fill="#fff"/><circle cx="147" cy="200" r="12" fill="#fff"/></svg>
-                                </span>
-                                <span>English (US)</span>
-                            </button>
-                            <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
-                                    <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>
-                                </span>
-                                <span>Français (FR)</span>
-                            </button>
-                            <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
-                                    <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>
-                                </span>
-                                <span>Italiano (IT)</span>
-                            </button>
-                            <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
-                                <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
-                                    <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M230 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><path d="M320 256l45 15-28-38 28-38-45 15-28-38 10 46-45 15 45 15-10 46z" fill="#fff"/></svg>
-                                </span>
-                                <span>Türkçe (TR)</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <a href="kontakt.html" data-i18n="nav_cta" class="inline-flex items-center justify-center px-4 py-2 text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-sm hover-scale">
-                        Jetzt anfragen
+                <div class="absolute left-1/2 -translate-x-1/2">
+                    <a href="index.html" class="block hover-scale">
+                        <img src="assets/Weißes Logo.png" alt="Flow Solutions Logo" class="h-6 sm:h-8 object-contain">
                     </a>
-
-                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-neutral-300 hover:text-white focus:outline-none hover-scale">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
                 </div>
+
+                <div class="relative dropdown-wrapper">
+                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/80 border border-neutral-300 overflow-hidden shadow-sm hover-scale">
+                        <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
+                            <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                        </span>
+                    </button>
+                    <div class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-neutral-900 rounded-2xl shadow-2xl p-2 border border-neutral-200 text-xs">
+                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
+                                <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                            </span>
+                            <span>Deutsch (DE)</span>
+                        </button>
+                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
+                                <img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover">
+                            </span>
+                            <span>English (UK / US)</span>
+                        </button>
+                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
+                                <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>
+                            </span>
+                            <span>Français (FR)</span>
+                        </button>
+                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
+                                <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>
+                            </span>
+                            <span>Italiano (IT)</span>
+                        </button>
+                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
+                                <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M220 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><polygon points="310,215 320,248 354,248 326,268 337,301 310,281 283,301 294,268 266,248 300,248" fill="#fff"/></svg>
+                            </span>
+                            <span>Türkçe (TR)</span>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-        <div id="mobileMenu" class="hidden md:hidden liquid-glass-nav border-t border-white/10 px-4 pt-2 pb-6 space-y-3">
-            <a href="#services" onclick="toggleMobileMenu()" data-i18n="nav_services" class="block py-2 text-base font-medium text-neutral-200 border-b border-white/10 hover-scale">Dienstleistungen</a>
-            <a href="ueber-uns.html" onclick="toggleMobileMenu()" data-i18n="nav_about" class="block py-2 text-base font-medium text-neutral-200 border-b border-white/10 hover-scale">Über uns</a>
-            <a href="kontakt.html" onclick="toggleMobileMenu()" data-i18n="nav_contact" class="block py-2 text-base font-medium text-neutral-200 hover-scale">Kontakt</a>
-        </div>
     </header>
+
+    <div id="rrOverlayMenu" class="fixed inset-0 z-[100] bg-neutral-950/95 text-white backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-16 transition-opacity duration-300">
+        <div class="flex items-center justify-between">
+            <button onclick="closeMenu()" class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/40 text-xs font-mono tracking-widest text-white hover:bg-white hover:text-black transition-all hover-scale">
+                <span class="border border-current px-1">X</span>
+                <span>CLOSE</span>
+            </button>
+        </div>
+
+        <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
+            <a href="index.html" onclick="closeMenu()" data-i18n="menu_home" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
+            <a href="#services" onclick="closeMenu()" data-i18n="menu_services" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="menu_about" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" data-i18n="menu_contact" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" data-i18n="menu_privacy" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" data-i18n="menu_imprint" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
+        </nav>
+
+        <div class="text-xs text-neutral-500 font-mono tracking-widest">
+            FLOW SOLUTIONS © 2026
+        </div>
+    </div>
 
     <main class="relative z-10 pt-20 sm:pt-24">
         
@@ -408,10 +403,15 @@
     <script>
         const translations = {
             'de': {
+                menu_home: 'STARTSEITE',
+                menu_services: 'DIENSTLEISTUNGEN',
+                menu_about: 'ÜBER UNS',
+                menu_contact: 'KONTAKT',
+                menu_privacy: 'DATENSCHUTZ',
+                menu_imprint: 'IMPRESSUM',
                 nav_services: 'Dienstleistungen',
                 nav_about: 'Über uns',
                 nav_contact: 'Kontakt',
-                nav_cta: 'Jetzt anfragen',
                 hero_badge: 'Next-Gen KI & Voice Automation',
                 hero_title1: 'KI-Lösungen,',
                 hero_title2: 'die Zeit sparen.',
@@ -450,20 +450,25 @@
                 footer_privacy: 'Datenschutz',
                 footer_imprint: 'Impressum'
             },
-            'en-uk': {
+            'en': {
+                menu_home: 'HOME',
+                menu_services: 'SERVICES',
+                menu_about: 'ABOUT US',
+                menu_contact: 'CONTACT',
+                menu_privacy: 'PRIVACY POLICY',
+                menu_imprint: 'LEGAL NOTICE',
                 nav_services: 'Services',
                 nav_about: 'About Us',
                 nav_contact: 'Contact',
-                nav_cta: 'Enquire Now',
                 hero_badge: 'Next-Gen AI & Voice Automation',
                 hero_title1: 'AI Solutions',
                 hero_title2: 'that save time.',
-                hero_sub: 'Automate complex business processes and customer interactions with high-precision voice agents and next-generation bespoke AI systems.',
+                hero_sub: 'Automate complex business processes and customer interactions with high-precision voice agents and custom AI systems.',
                 hero_cta_primary: 'Contact Us Now',
-                hero_cta_secondary: 'Discover Services',
+                hero_cta_secondary: 'Explore Services',
                 hero_card_tag: 'High Precision AI Architecture',
                 hero_card_title: 'Autonomous Workflows & Voice Assistants',
-                hero_card_desc: 'Seamless integration into your existing software environment – GDPR compliant, lightning fast, and operating 24/7.',
+                hero_card_desc: 'Seamless integration into your existing software environment – GDPR compliant, lightning fast, and operational 24/7.',
                 stat_rate: 'Accuracy Rate',
                 stat_avail: 'Availability',
                 stat_resp: 'Response Time',
@@ -472,9 +477,9 @@
                 google_reviews_sub: 'Outstanding Satisfaction & Maximum Reliability',
                 services_tag: 'Our Core Competencies',
                 services_title: 'Bespoke AI Systems for Maximum Scalability',
-                services_sub: 'Harness the full potential of modern Artificial Intelligence to optimise your business operations.',
+                services_sub: 'Harness the full potential of modern Artificial Intelligence to optimize your business operations.',
                 service1_title: 'Automated Voice Agents',
-                service1_desc: 'Intelligent phone assistants taking incoming client calls 24/7 with human-like quality, booking appointments, and capturing data directly.',
+                service1_desc: 'Intelligent phone assistants answering incoming customer calls 24/7 with human quality, booking appointments, and capturing data directly.',
                 service1_bullet1: 'Real-time Speech Recognition',
                 service1_bullet2: 'Seamless CRM & Calendar Integration',
                 service2_title: 'Workflow Automation',
@@ -487,60 +492,22 @@
                 service3_bullet2: 'Highest Data Protection Standards',
                 about_tag: 'About Flow Solutions',
                 about_title: 'Digital Edge through Intelligent Automation',
-                about_desc: 'We empower forward-thinking enterprises to eliminate repetitive tasks, drastically cut response times, and liberate valuable talent for strategic growth.',
+                about_desc: 'We empower forward-thinking enterprises to eliminate repetitive tasks, drastically cut response times, and liberate valuable talent for growth.',
                 about_cta: 'Learn More About Us',
                 footer_rights: '© 2026. All rights reserved.',
                 footer_privacy: 'Privacy Policy',
                 footer_imprint: 'Legal Notice'
             },
-            'en-us': {
-                nav_services: 'Services',
-                nav_about: 'About Us',
-                nav_contact: 'Contact',
-                nav_cta: 'Get Started',
-                hero_badge: 'Next-Gen AI & Voice Automation',
-                hero_title1: 'AI Solutions',
-                hero_title2: 'that save time.',
-                hero_sub: 'Automate complex business processes and customer interactions with high-precision voice agents and custom AI systems.',
-                hero_cta_primary: 'Contact Us Today',
-                hero_cta_secondary: 'Explore Services',
-                hero_card_tag: 'High Precision AI Architecture',
-                hero_card_title: 'Autonomous Workflows & Voice Assistants',
-                hero_card_desc: 'Seamless integration into your existing software stack – GDPR compliant, lightning fast, and operational 24/7.',
-                stat_rate: 'Accuracy Rate',
-                stat_avail: 'Availability',
-                stat_resp: 'Response Time',
-                google_reviews_badge: 'Google Reviews',
-                google_reviews_text: 'Over 120+ Satisfied B2B Clients',
-                google_reviews_sub: 'Exceptional Satisfaction & Top Reliability',
-                services_tag: 'Our Core Capabilities',
-                services_title: 'Custom AI Systems Built to Scale',
-                services_sub: 'Unlock the full power of artificial intelligence to optimize your enterprise workflows.',
-                service1_title: 'Automated Voice Agents',
-                service1_desc: 'Intelligent phone assistants answering inbound customer calls 24/7 with human quality, scheduling meetings, and logging data.',
-                service1_bullet1: 'Real-Time Speech Recognition',
-                service1_bullet2: 'Seamless CRM & Calendar Integration',
-                service2_title: 'Workflow Automation',
-                service2_desc: 'Connect your software stack with autonomous AI pipelines. From automated document parsing to intelligent ticket routing.',
-                service2_bullet1: 'Process Analysis & Custom Setup',
-                service2_bullet2: 'Flawless System Integration',
-                service3_title: 'Enterprise AI Assistants',
-                service3_desc: 'Custom-trained chat and knowledge assistants powered by your company data – 100% confidential and enterprise ready.',
-                service3_bullet1: 'Internal Knowledge Repositories',
-                service3_bullet2: 'Highest Privacy Standards',
-                about_tag: 'About Flow Solutions',
-                about_title: 'Digital Edge through Intelligent Automation',
-                about_desc: 'We empower modern enterprises to eliminate repetitive tasks, cut response times, and free up team bandwidth for growth.',
-                about_cta: 'Discover Our Story',
-                footer_rights: '© 2026. All rights reserved.',
-                footer_privacy: 'Privacy Policy',
-                footer_imprint: 'Legal Notice'
-            },
             'fr': {
+                menu_home: 'ACCUEIL',
+                menu_services: 'SERVICES',
+                menu_about: 'À PROPOS',
+                menu_contact: 'CONTACT',
+                menu_privacy: 'CONFIDENTIALITÉ',
+                menu_imprint: 'MENTIONS LÉGALES',
                 nav_services: 'Services',
                 nav_about: 'À propos',
                 nav_contact: 'Contact',
-                nav_cta: 'Demander une démo',
                 hero_badge: 'Automation IA & Vocale Nouvelle Génération',
                 hero_title1: 'Des Solutions IA,',
                 hero_title2: 'qui font gagner du temps.',
@@ -558,32 +525,37 @@
                 google_reviews_sub: 'Satisfaction remarquable & Fiabilité maximale',
                 services_tag: 'Nos Compétences Clés',
                 services_title: 'Systèmes IA Sur Mesure pour une Scalabilité Maximale',
-                services_sub: 'Exploitez tout le potentiel de l\'Intelligence Artificielle moderne pour optimiser vos opérations d\'entreprise.',
+                services_sub: 'Exploitez tout le potentiel de l\'IA moderne pour optimiser vos opérations.',
                 service1_title: 'Agents Vocaux Automatisés',
-                service1_desc: 'Assistants téléphoniques intelligents traitant les appels entrants 24/7 avec une qualité humaine, prenant des rendez-vous et enregistrant vos données.',
+                service1_desc: 'Assistants téléphoniques intelligents traitant les appels entrants 24/7 avec une qualité humaine.',
                 service1_bullet1: 'Reconnaissance vocale en temps réel',
                 service1_bullet2: 'Intégration CRM & Calendrier',
                 service2_title: 'Automatisation des Workflows',
-                service2_desc: 'Connexion de vos logiciels à des pipelines d\'IA autonomes. De l\'analyse de documents au routage intelligent des tickets.',
+                service2_desc: 'Connexion de vos logiciels à des pipelines d\'IA autonomes.',
                 service2_bullet1: 'Analyse de processus & Configuration',
                 service2_bullet2: 'Couplage système sans erreur',
                 service3_title: 'Assistants IA d\'Entreprise',
-                service3_desc: 'Assistants virtuels entraînés sur vos données internes – confidentialité absolue, conformité RGPD et opérationnels immédiatement.',
+                service3_desc: 'Assistants virtuels entraînés sur vos données internes.',
                 service3_bullet1: 'Bases de connaissances internes',
-                service3_bullet2: 'Normes de protection des données élevées',
+                service3_bullet2: 'Normes de protection élevées',
                 about_tag: 'À propos de Flow Solutions',
-                about_title: 'Avance Digitale grâce à l\'Automation Intelligente',
-                about_desc: 'Nous permettons aux entreprises d\'éliminer les tâches répétitives, de réduire drastiquement les délais de réponse et de libérer du temps pour la croissance.',
+                about_title: 'Avance Digitale grâce à l\'Automation',
+                about_desc: 'Nous permettons aux entreprises d\'éliminer les tâches répétitives.',
                 about_cta: 'En savoir plus sur nous',
                 footer_rights: '© 2026. Tous droits réservés.',
                 footer_privacy: 'Confidentialité',
                 footer_imprint: 'Mentions Légales'
             },
             'it': {
+                menu_home: 'HOME',
+                menu_services: 'SERVIZI',
+                menu_about: 'CHI SIAMO',
+                menu_contact: 'CONTATTO',
+                menu_privacy: 'PRIVACY POLICY',
+                menu_imprint: 'NOTE LEGALI',
                 nav_services: 'Servizi',
                 nav_about: 'Chi siamo',
                 nav_contact: 'Contatto',
-                nav_cta: 'Richiedi info',
                 hero_badge: 'Automazione IA & Vocale di Nuova Generazione',
                 hero_title1: 'Soluzioni IA,',
                 hero_title2: 'che fanno risparmiare tempo.',
@@ -603,30 +575,35 @@
                 services_title: 'Sistemi IA Su Misura per la Massima Scalabilità',
                 services_sub: 'Sfrutta tutto il potenziale dell\'Intelligenza Artificiale per ottimizzare la tua operatività aziendale.',
                 service1_title: 'Agenti Vocali Automatizzati',
-                service1_desc: 'Assistenti telefonici intelligenti che gestiscono le chiamate in entrata 24/7 con qualità umana, fissando appuntamenti e registrando dati.',
+                service1_desc: 'Assistenti telefonici intelligenti che gestiscono le chiamate in entrata 24/7 con qualità umana.',
                 service1_bullet1: 'Riconoscimento vocale in tempo reale',
                 service1_bullet2: 'Integrazione CRM & Calendario',
                 service2_title: 'Automazione dei Workflow',
-                service2_desc: 'Connetti i tuoi software a pipeline IA autonome. Dall\'analisi automatica dei documenti alla gestione dei ticket.',
+                service2_desc: 'Connetti i tuoi software a pipeline IA autonome.',
                 service2_bullet1: 'Analisi dei processi & Setup dedicato',
                 service2_bullet2: 'Integrazione di sistema senza errori',
                 service3_title: 'Assistenti IA Enterprise',
-                service3_desc: 'Assistenti di conoscenza addestrati sui tuoi dati aziendali – riservatezza assoluta, conformità GDPR e pronti all\'uso.',
+                service3_desc: 'Assistenti di conoscenza addestrati sui tuoi dati aziendali.',
                 service3_bullet1: 'Base di conoscenza interna',
                 service3_bullet2: 'Massimi standard di protezione dati',
                 about_tag: 'Chi Siamo',
-                about_title: 'Vantaggio Digitale tramite l\'Automazione Intelligente',
-                about_desc: 'Permettiamo alle aziende di eliminare compiti ripetitivi, ridurre drasticamente i tempi di risposta e liberare risorse per la crescita.',
+                about_title: 'Vantaggio Digitale tramite l\'Automazione',
+                about_desc: 'Permettiamo alle aziende di eliminare compiti ripetitivi e liberare risorse.',
                 about_cta: 'Scopri di più su di noi',
                 footer_rights: '© 2026. Tutti i diritti riservati.',
                 footer_privacy: 'Privacy Policy',
                 footer_imprint: 'Note Legali'
             },
             'tr': {
+                menu_home: 'ANA SAYFA',
+                menu_services: 'HİZMETLER',
+                menu_about: 'HAKKIMIZDA',
+                menu_contact: 'İLETİŞİM',
+                menu_privacy: 'GİZLİLİK POLİTİKASI',
+                menu_imprint: 'KÜNYE',
                 nav_services: 'Hizmetler',
                 nav_about: 'Hakkımızda',
                 nav_contact: 'İletişim',
-                nav_cta: 'Teklif Alın',
                 hero_badge: 'Yeni Nesil Yapay Zeka & Ses Otomasyonu',
                 hero_title1: 'Zaman Kazandıran',
                 hero_title2: 'Yapay Zeka Çözümleri.',
@@ -646,20 +623,20 @@
                 services_title: 'Ölçeklenebilirlik İçin Özel Yapay Zeka Sistemleri',
                 services_sub: 'İş süreçlerinizi optimize etmek için modern Yapay Zekanın tüm potansiyelinden yararlanın.',
                 service1_title: 'Otomatik Sesli Asistanlar',
-                service1_desc: 'Gelen müşteri aramalarını 7/24 insan kalitesinde yanıtlayan, randevu oluşturan ve verileri kaydeden akıllı telefon asistanları.',
+                service1_desc: 'Gelen müşteri aramalarını 7/24 insan kalitesinde yanıtlayan akıllı telefon asistanları.',
                 service1_bullet1: 'Gerçek Zamanlı Ses Tanıma',
                 service1_bullet2: 'Sorunsuz CRM & Takvim Entegrasyonu',
                 service2_title: 'İş Akışı Otomasyonu',
-                service2_desc: 'Yazılımlarınızı otonom yapay zeka hatlarına bağlayın. Belge analizinden akıllı bilet yönlendirmesine kadar.',
+                service2_desc: 'Yazılımlarınızı otonom yapay zeka hatlarına bağlayın.',
                 service2_bullet1: 'Süreç Analizi & Özel Kurulum',
                 service2_bullet2: 'Hatasız Sistem Entegrasyonu',
                 service3_title: 'Kurumsal Yapay Zeka Asistanları',
-                service3_desc: 'Şirket verilerinizle eğitilmiş sohbet ve bilgi asistanları – tamamen gizli, güvenli ve anında kullanıma hazır.',
+                service3_desc: 'Şirket verilerinizle eğitilmiş sohbet ve bilgi asistanları.',
                 service3_bullet1: 'Kurumsal Bilgi Bankaları',
                 service3_bullet2: 'En Yüksek Veri Koruma Standardı',
                 about_tag: 'Flow Solutions Hakkında',
                 about_title: 'Akıllı Otomasyon İle Dijital Üstünlük',
-                about_desc: 'Geleceğe odaklı şirketlerin tekrarlayan görevleri ortadan kaldırmasını, yanıt sürelerini düşürmesini ve büyümeye odaklanmasını sağlıyoruz.',
+                about_desc: 'Geleceğe odaklı şirketlerin tekrarlayan görevleri ortadan kaldırmasını sağlıyoruz.',
                 about_cta: 'Hakkımızda Daha Fazlası',
                 footer_rights: '© 2026. Tüm hakları saklıdır.',
                 footer_privacy: 'Gizlilik Politikası',
@@ -669,11 +646,10 @@
 
         const flagSVGs = {
             'de': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>',
-            'en-uk': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#00247d"/><path d="M0 0l512 512M512 0L0 512" stroke="#fff" stroke-width="60"/><path d="M0 0l512 512M512 0L0 512" stroke="#cf142b" stroke-width="40"/><path d="M256 0v512M0 256h512" stroke="#fff" stroke-width="100"/><path d="M256 0v512M0 256h512" stroke="#cf142b" stroke-width="60"/></svg>',
-            'en-us': '<svg class="w-full h-full" viewBox="0 0 512 512"><rect width="512" height="512" fill="#bf0a30"/><path d="M0 73h512M0 146h512M0 219h512M0 292h512M0 365h512M0 438h512" stroke="#fff" stroke-width="36"/><rect width="230" height="275" fill="#002868"/><circle cx="50" cy="50" r="12" fill="#fff"/><circle cx="115" cy="50" r="12" fill="#fff"/><circle cx="180" cy="50" r="12" fill="#fff"/><circle cx="82" cy="100" r="12" fill="#fff"/><circle cx="147" cy="100" r="12" fill="#fff"/><circle cx="50" cy="150" r="12" fill="#fff"/><circle cx="115" cy="150" r="12" fill="#fff"/><circle cx="180" cy="150" r="12" fill="#fff"/><circle cx="82" cy="200" r="12" fill="#fff"/><circle cx="147" cy="200" r="12" fill="#fff"/></svg>',
+            'en': '<img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover">',
             'fr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>',
             'it': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>',
-            'tr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M230 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><path d="M320 256l45 15-28-38 28-38-45 15-28-38 10 46-45 15 45 15-10 46z" fill="#fff"/></svg>'
+            'tr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M220 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><polygon points="310,215 320,248 354,248 326,268 337,301 310,281 283,301 294,268 266,248 300,248" fill="#fff"/></svg>'
         };
 
         function setLanguage(lang) {
@@ -692,9 +668,16 @@
             localStorage.setItem('flow_lang', lang);
         }
 
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+        function openMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            menu.classList.remove('hidden');
+            menu.classList.add('flex');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
         }
 
         document.addEventListener('DOMContentLoaded', () => {

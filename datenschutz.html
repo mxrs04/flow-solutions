@@ -41,10 +41,11 @@
             color: #1d1d1f;
         }
         .liquid-glass-nav {
-            background: rgba(10, 10, 10, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
         .apple-card {
             background: #ffffff;
@@ -62,19 +63,18 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 28px;
-            height: 28px;
-            border: 1.5px solid rgba(0, 0, 0, 0.7);
+            width: 22px;
+            height: 22px;
+            background-color: #ffffff;
             border-radius: 50%;
-            z-index: 9999;
+            z-index: 99999;
+            mix-blend-mode: difference;
             transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+            transition: width 0.2s, height 0.2s;
         }
         .custom-cursor.active {
-            width: 44px;
-            height: 44px;
-            background-color: rgba(0, 0, 0, 0.05);
-            border-color: rgba(0, 0, 0, 0.9);
+            width: 36px;
+            height: 36px;
         }
     </style>
 </head>
@@ -82,25 +82,52 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-3 group hover-scale">
-                    <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md shrink-0">
-                        <img src="assets/Logo 1zu1.jpg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
-                    </div>
-                    <span class="text-xl font-bold tracking-tight text-white">Flow <span class="text-neutral-400 font-medium">Solutions</span></span>
-                </a>
+            <div class="relative flex items-center justify-between h-16 sm:h-20">
+                
+                <button onclick="openMenu()" class="p-2 text-neutral-900 hover:text-black focus:outline-none hover-scale">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+
+                <div class="absolute left-1/2 -translate-x-1/2">
+                    <a href="index.html" class="block hover-scale">
+                        <img src="assets/Weißes Logo.png" alt="Flow Solutions Logo" class="h-6 sm:h-8 object-contain">
+                    </a>
+                </div>
 
                 <div>
-                    <a href="index.html" class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-sm hover-scale">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-                        <span>Zurück zur Startseite</span>
+                    <a href="index.html" class="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-sm hover-scale">
+                        <span>Zurück</span>
                     </a>
                 </div>
             </div>
         </div>
     </header>
+
+    <div id="rrOverlayMenu" class="fixed inset-0 z-[100] bg-neutral-950/95 text-white backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-16 transition-opacity duration-300">
+        <div class="flex items-center justify-between">
+            <button onclick="closeMenu()" class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/40 text-xs font-mono tracking-widest text-white hover:bg-white hover:text-black transition-all hover-scale">
+                <span class="border border-current px-1">X</span>
+                <span>CLOSE</span>
+            </button>
+        </div>
+
+        <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
+            <a href="index.html" onclick="closeMenu()" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
+            <a href="index.html#services" onclick="closeMenu()" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
+        </nav>
+
+        <div class="text-xs text-neutral-500 font-mono tracking-widest">
+            FLOW SOLUTIONS © 2026
+        </div>
+    </div>
 
     <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
@@ -188,6 +215,18 @@
     </footer>
 
     <script>
+        function openMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            menu.classList.remove('hidden');
+            menu.classList.add('flex');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const cursor = document.getElementById('customCursor');
             if (cursor && window.innerWidth >= 768) {
