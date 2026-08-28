@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung | Flow Solutions</title>
+    <meta name="description" content="Datenschutzerklärung von Flow Solutions – Informationen über die Verarbeitung Ihrer personenbezogenen Daten.">
+    <meta property="og:title" content="Flow Solutions">
+    <link rel="icon" type="image/jpeg" href="assets/Logo 1zu1.jpg">
+    <link rel="apple-touch-icon" href="assets/Logo inverted 1zu1.jpeg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="Flow Solutions">
+    <meta name="application-name" content="Flow Solutions">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0a0a">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media (min-width: 768px) {
+            html, body, a, button, input, textarea {
+                cursor: none !important;
+            }
+        }
+        body {
+            background-color: #08080a;
+            color: #f5f5f7;
+        }
+        .liquid-glass-nav {
+            background: rgba(10, 10, 10, 0.45);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .apple-dark-card {
+            background: rgba(23, 23, 26, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(16px);
+        }
+        .hover-scale {
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+        .custom-cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            border: 1.5px solid #ffffff;
+            border-radius: 50%;
+            z-index: 99999;
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, border-width 0.2s;
+        }
+        .custom-cursor.active {
+            width: 28px;
+            height: 28px;
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-white selection:text-black flex flex-col min-h-screen">
+
+    <div id="customCursor" class="custom-cursor hidden md:block"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16 sm:h-20">
+                
+                <button onclick="openMenu()" class="p-2 text-white hover:text-neutral-300 focus:outline-none hover-scale">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+
+                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+                    <a href="index.html" class="block hover-scale">
+                        <img src="/logo.png" alt="Flow Solutions Logo" class="h-7 sm:h-9 w-auto object-contain">
+                    </a>
+                </div>
+
+                <div>
+                    <a href="index.html" class="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-sm hover-scale">
+                        <span>Zurück</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-black/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-neutral-950/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl">
+        <div class="flex items-center justify-between">
+            <button onclick="closeMenu()" class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/40 text-xs font-mono tracking-widest text-white hover:bg-white hover:text-black transition-all hover-scale">
+                <span class="border border-current px-1">X</span>
+                <span>CLOSE</span>
+            </button>
+        </div>
+
+        <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
+            <a href="index.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
+            <a href="index.html#services" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
+        </nav>
+
+        <div class="text-xs text-neutral-500 font-mono tracking-widest">
+            FLOW SOLUTIONS © 2026
+        </div>
+    </div>
+
+    <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            
+            <div class="mb-10 text-center sm:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-neutral-300 mb-4 hover-scale">
+                    <span>Rechtliche Informationen</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3">
+                    Datenschutz&shy;erklärung
+                </h1>
+                <p class="text-neutral-400 text-sm sm:text-base">
+                    Informationen über die Erhebung und Verarbeitung Ihrer personenbezogenen Daten
+                </p>
+            </div>
+
+            <div class="apple-dark-card rounded-3xl p-8 sm:p-12 shadow-2xl space-y-12 text-neutral-300 text-sm sm:text-base leading-relaxed hover-scale">
+                
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-white border-b border-neutral-800 pb-3 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-white text-black text-sm font-mono flex items-center justify-center shrink-0 font-bold">1</span>
+                        <span>Datenschutz auf einen Blick</span>
+                    </h2>
+
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-white">Allgemeine Hinweise</h3>
+                        <p class="text-neutral-400">
+                            Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="space-y-6 pt-4 border-t border-neutral-800">
+                    <h2 class="text-2xl font-bold text-white border-b border-neutral-800 pb-3 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-white text-black text-sm font-mono flex items-center justify-center shrink-0 font-bold">2</span>
+                        <span>Hosting</span>
+                    </h2>
+
+                    <div class="p-5 bg-neutral-900/60 rounded-xl border border-neutral-800 space-y-3">
+                        <h3 class="text-lg font-semibold text-white">Externes Hosting</h3>
+                        <p class="text-neutral-400">
+                            Diese Website wird extern gehostet bei Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA).
+                        </p>
+                    </div>
+                </section>
+
+                <section class="space-y-6 pt-4 border-t border-neutral-800">
+                    <h2 class="text-2xl font-bold text-white border-b border-neutral-800 pb-3 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-white text-black text-sm font-mono flex items-center justify-center shrink-0 font-bold">3</span>
+                        <span>Verantwortliche Stelle</span>
+                    </h2>
+
+                    <div class="p-5 bg-neutral-900/60 rounded-xl border border-neutral-800 space-y-3">
+                        <p class="text-white font-semibold">Maximilian Reiser – Flow Solutions</p>
+                        <p>Brackenheimerweg 2, 73732 Esslingen am Neckar</p>
+                        <p>E-Mail: flowsolutions.digital@gmail.com</p>
+                    </div>
+                </section>
+
+                <div class="pt-4 text-xs text-neutral-500 font-mono border-t border-neutral-800">
+                    <p>Quelle: <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:underline">https://www.e-recht24.de</a></p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="relative z-10 bg-neutral-950 border-t border-neutral-800 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+            <div class="flex items-center gap-3 hover-scale">
+                <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+                    <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="font-bold text-white">Flow Solutions</span>
+                <span>© 2026. Alle Rechte vorbehalten.</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="hover:text-white transition-colors hover-scale">Startseite</a>
+                <a href="ueber-uns.html" class="hover:text-white transition-colors hover-scale">Über uns</a>
+                <a href="kontakt.html" class="hover:text-white transition-colors hover-scale">Kontakt</a>
+                <a href="datenschutz.html" class="text-white font-semibold hover-scale">Datenschutz</a>
+                <a href="impressum.html" class="hover:text-white transition-colors hover-scale">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            const backdrop = document.getElementById('rrMenuBackdrop');
+            menu.classList.remove('-translate-x-full');
+            menu.classList.add('translate-x-0');
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            const backdrop = document.getElementById('rrMenuBackdrop');
+            menu.classList.remove('translate-x-0');
+            menu.classList.add('-translate-x-full');
+            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.getElementById('customCursor');
+            if (cursor && window.innerWidth >= 768) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+                document.querySelectorAll('a, button, .hover-scale, input, textarea').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+                });
+            }
+        });
+    </script>
+</body>
+</html>

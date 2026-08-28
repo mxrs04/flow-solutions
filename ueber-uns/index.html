@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns | Flow Solutions</title>
+    <meta name="description" content="Erfahren Sie mehr über Flow Solutions, unsere Unternehmensmission und KI-Innovationen.">
+    <meta property="og:title" content="Über uns | Flow Solutions">
+    <link rel="icon" type="image/jpeg" href="assets/Logo 1zu1.jpg">
+    <link rel="apple-touch-icon" href="assets/Logo inverted 1zu1.jpeg">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="apple-mobile-web-app-title" content="Flow Solutions">
+    <meta name="application-name" content="Flow Solutions">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0a0a">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media (min-width: 768px) {
+            html, body, a, button, input, textarea {
+                cursor: none !important;
+            }
+        }
+        body {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+        .liquid-glass-nav {
+            background: rgba(10, 10, 10, 0.45);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .dropdown-menu {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+        }
+        .dropdown-wrapper:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .apple-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hover-scale {
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+        .custom-cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            border: 1.5px solid #ffffff;
+            border-radius: 50%;
+            z-index: 99999;
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, border-width 0.2s;
+        }
+        .custom-cursor.active {
+            width: 28px;
+            height: 28px;
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-black selection:text-white flex flex-col min-h-screen">
+
+    <div id="customCursor" class="custom-cursor hidden md:block"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16 sm:h-20">
+                
+                <button onclick="openMenu()" class="p-2 text-white hover:text-neutral-300 focus:outline-none hover-scale">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+
+                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+                    <a href="index.html" class="block hover-scale">
+                        <img src="/logo.png" alt="Flow Solutions Logo" class="h-7 sm:h-9 w-auto object-contain">
+                    </a>
+                </div>
+
+                <div class="relative dropdown-wrapper">
+                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-neutral-900/80 border border-neutral-700 overflow-hidden shadow-sm hover-scale">
+                        <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
+                            <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                        </span>
+                    </button>
+                    <div class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-neutral-900 rounded-2xl shadow-2xl p-2 border border-neutral-200 text-xs">
+                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg></span>
+                            <span>Deutsch (DE)</span>
+                        </button>
+                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover"></span>
+                            <span>English (UK / US)</span>
+                        </button>
+                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg></span>
+                            <span>Français (FR)</span>
+                        </button>
+                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg></span>
+                            <span>Italiano (IT)</span>
+                        </button>
+                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm border border-neutral-200"><img src="/IMG_2475.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover"></span>
+                            <span>Türkçe (TR)</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-black/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-neutral-950/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl">
+        <div class="flex items-center justify-between">
+            <button onclick="closeMenu()" class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/40 text-xs font-mono tracking-widest text-white hover:bg-white hover:text-black transition-all hover-scale">
+                <span class="border border-current px-1">X</span>
+                <span>CLOSE</span>
+            </button>
+        </div>
+
+        <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
+            <a href="index.html" onclick="closeMenu()" data-i18n="menu_home" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
+            <a href="index.html#services" onclick="closeMenu()" data-i18n="menu_services" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="menu_about" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" data-i18n="menu_contact" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" data-i18n="menu_privacy" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" data-i18n="menu_imprint" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
+        </nav>
+
+        <div class="text-xs text-neutral-500 font-mono tracking-widest">
+            FLOW SOLUTIONS © 2026
+        </div>
+    </div>
+
+    <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+        
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200 border border-neutral-300 text-xs font-semibold text-neutral-800 mb-4 hover-scale">
+                <span data-i18n="about_page_tag">Unternehmensprofil & Vision</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-neutral-900 mb-6" data-i18n="mission_title">
+                Unsere Mission & Vision
+            </h1>
+            <p class="text-neutral-600 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed" data-i18n="mission_text1">
+                Wir entwickeln maßgeschneiderte KI-Lösungen und autonome Voice-Agenten, die zeitraubende Routineaufgaben automatisieren.
+            </p>
+        </div>
+
+        <div class="relative rounded-3xl overflow-hidden apple-card mb-16 hover-scale">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80" alt="Flow Solutions Mission & Team" class="w-full h-[350px] sm:h-[450px] object-cover" />
+        </div>
+
+        <div class="space-y-12 mb-16">
+            <div class="apple-card rounded-3xl p-8 sm:p-12 hover-scale">
+                <h2 class="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4" data-i18n="val_title">Exzellenz durch Innovation & Präzision</h2>
+                <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-6" data-i18n="mission_text2">
+                    Bei Flow Solutions steht die fehlerfreie Verbindung von hochentwickelten KI-Modellen mit realen Unternehmensabläufen im Vordergrund.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-neutral-200">
+                    <div>
+                        <div class="text-xl font-bold text-neutral-900 mb-1" data-i18n="val1_head">DSGVO Konform</div>
+                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val1_desc">Höchster Datenschutzstandard und sichere Datenverarbeitung.</div>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold text-neutral-900 mb-1" data-i18n="val2_head">Echtzeit Automation</div>
+                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val2_desc">Reaktionszeiten unter 1 Sekunde.</div>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold text-neutral-900 mb-1" data-i18n="val3_head">Individuelles Setup</div>
+                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val3_desc">Perfekt auf Ihr CRM und Kalender abgestimmt.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="apple-card rounded-3xl p-8 sm:p-12 text-center bg-neutral-950 text-white hover-scale">
+            <h2 class="text-2xl sm:text-4xl font-extrabold mb-4" data-i18n="cta_box_title">Bereit für die KI-Transformation?</h2>
+            <p class="text-neutral-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-8" data-i18n="cta_box_sub">
+                Lassen Sie uns gemeinsam prüfen, wie autonome Voice-Agenten den Unterschied machen.
+            </p>
+            <a href="kontakt.html" data-i18n="nav_cta" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all hover-scale shadow-md">
+                Jetzt anfragen
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="relative z-10 bg-white border-t border-neutral-300 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+            <div class="flex items-center gap-3 hover-scale">
+                <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+                    <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="font-bold text-neutral-900">Flow Solutions</span>
+                <span data-i18n="footer_rights">© 2026. Alle Rechte vorbehalten.</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="index.html" data-i18n="nav_home" class="hover:text-neutral-900 transition-colors hover-scale">Startseite</a>
+                <a href="kontakt.html" data-i18n="nav_contact" class="hover:text-neutral-900 transition-colors hover-scale">Kontakt</a>
+                <a href="datenschutz.html" data-i18n="footer_privacy" class="hover:text-neutral-900 transition-colors hover-scale">Datenschutz</a>
+                <a href="impressum.html" data-i18n="footer_imprint" class="hover:text-neutral-900 transition-colors hover-scale">Impressum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            'de': {
+                menu_home: 'STARTSEITE',
+                menu_services: 'DIENSTLEISTUNGEN',
+                menu_about: 'ÜBER UNS',
+                menu_contact: 'KONTAKT',
+                menu_privacy: 'DATENSCHUTZ',
+                menu_imprint: 'IMPRESSUM',
+                nav_home: 'Startseite',
+                nav_services: 'Dienstleistungen',
+                nav_about: 'Über uns',
+                nav_contact: 'Kontakt',
+                nav_cta: 'Jetzt anfragen',
+                about_page_tag: 'Unternehmensprofil & Vision',
+                mission_title: 'Unsere Mission & Vision',
+                mission_text1: 'Wir entwickeln maßgeschneiderte KI-Lösungen und autonome Voice-Agenten, die zeitraubende Routineaufgaben automatisieren.',
+                mission_text2: 'Bei Flow Solutions steht die fehlerfreie Verbindung von hochentwickelten KI-Modellen mit realen Unternehmensabläufen im Vordergrund.',
+                val_title: 'Exzellenz durch Innovation & Präzision',
+                val1_head: 'DSGVO Konform',
+                val1_desc: 'Höchster Datenschutzstandard und sichere Datenverarbeitung.',
+                val2_head: 'Echtzeit Automation',
+                val2_desc: 'Reaktionszeiten unter 1 Sekunde.',
+                val3_head: 'Individuelles Setup',
+                val3_desc: 'Perfekt auf Ihr CRM und Kalender abgestimmt.',
+                cta_box_title: 'Bereit für die KI-Transformation?',
+                cta_box_sub: 'Lassen Sie uns gemeinsam prüfen, wie autonome Voice-Agenten den Unterschied machen.',
+                footer_rights: '© 2026. Alle Rechte vorbehalten.',
+                footer_privacy: 'Datenschutz',
+                footer_imprint: 'Impressum'
+            },
+            'en': {
+                menu_home: 'HOME',
+                menu_services: 'SERVICES',
+                menu_about: 'ABOUT US',
+                menu_contact: 'CONTACT',
+                menu_privacy: 'PRIVACY POLICY',
+                menu_imprint: 'LEGAL NOTICE',
+                nav_home: 'Home',
+                nav_services: 'Services',
+                nav_about: 'About Us',
+                nav_contact: 'Contact',
+                nav_cta: 'Enquire Now',
+                about_page_tag: 'Company Profile & Vision',
+                mission_title: 'Our Mission & Vision',
+                mission_text1: 'We engineer custom AI solutions and autonomous voice agents that automate routine tasks, giving modern enterprises a critical competitive edge.',
+                mission_text2: 'At Flow Solutions, our focus is seamlessly integrating state-of-the-art AI models with real business workflows.',
+                val_title: 'Excellence Through Innovation & Precision',
+                val1_head: 'GDPR Compliant',
+                val1_desc: 'Highest privacy standards under European regulations.',
+                val2_head: 'Real-Time Automation',
+                val2_desc: 'Sub-second response times for calls and data pipelines.',
+                val3_head: 'Custom Integration',
+                val3_desc: 'Tailored perfectly to your CRM and calendars.',
+                cta_box_title: 'Ready for AI Transformation?',
+                cta_box_sub: 'Let\'s evaluate together how autonomous voice agents can revolutionize your operations.',
+                footer_rights: '© 2026. All rights reserved.',
+                footer_privacy: 'Privacy Policy',
+                footer_imprint: 'Legal Notice'
+            },
+            'fr': {
+                menu_home: 'ACCUEIL',
+                menu_services: 'SERVICES',
+                menu_about: 'À PROPOS',
+                menu_contact: 'CONTACT',
+                menu_privacy: 'CONFIDENTIALITÉ',
+                menu_imprint: 'MENTIONS LÉGALES',
+                nav_home: 'Accueil',
+                nav_services: 'Services',
+                nav_about: 'À propos',
+                nav_contact: 'Contact',
+                nav_cta: 'Demander une démo',
+                about_page_tag: 'Profil d\'Entreprise & Vision',
+                mission_title: 'Notre Mission & Vision',
+                mission_text1: 'Nous concevons des solutions IA sur mesure et des agents vocaux autonomes.',
+                mission_text2: 'Chez Flow Solutions, l\'interconnexion parfaite entre modèles IA et processus métier est notre priorité.',
+                val_title: 'Excellence par l\'Innovation et la Précision',
+                val1_head: 'Conforme RGPD',
+                val1_desc: 'Normes de confidentialité élevées.',
+                val2_head: 'Automation Temps Réel',
+                val2_desc: 'Temps de réponse inférieurs à 1 seconde.',
+                val3_head: 'Configuration Sur Mesure',
+                val3_desc: 'Parfaitement adapté à votre CRM.',
+                cta_box_title: 'Prêt pour la Transformation IA ?',
+                cta_box_sub: 'Découvrons ensemble comment nos agents vocaux peuvent transformer votre entreprise.',
+                footer_rights: '© 2026. Tous droits réservés.',
+                footer_privacy: 'Confidentialité',
+                footer_imprint: 'Mentions Légales'
+            },
+            'it': {
+                menu_home: 'HOME',
+                menu_services: 'SERVIZI',
+                menu_about: 'CHI SIAMO',
+                menu_contact: 'CONTATTO',
+                menu_privacy: 'PRIVACY POLICY',
+                menu_imprint: 'NOTE LEGALI',
+                nav_home: 'Home',
+                nav_services: 'Servizi',
+                nav_about: 'Chi siamo',
+                nav_contact: 'Contatto',
+                nav_cta: 'Richiedi info',
+                about_page_tag: 'Profilo Aziendale & Vision',
+                mission_title: 'La Nostra Missione & Visione',
+                mission_text1: 'Sviluppiamo soluzioni IA su misura e agenti vocali autonomi per automatizzare compiti ripetitivi.',
+                mission_text2: 'In Flow Solutions, l\'integrazione perfetta tra modelli IA avanzati e operatività aziendale reale è al centro.',
+                val_title: 'Eccellenza tramite Innovazione & Precisione',
+                val1_head: 'Conforme GDPR',
+                val1_desc: 'Massimi standard di privacy.',
+                val2_head: 'Automazione in Tempo Reale',
+                val2_desc: 'Tempi di risposta sotto 1 secondo.',
+                val3_head: 'Integrazione Su Misura',
+                val3_desc: 'Perfettamente adattato al tuo CRM.',
+                cta_box_title: 'Pronto per la Trasformazione IA?',
+                cta_box_sub: 'Valutiamo insieme come gli agenti vocali autonomi possono fare la differenza.',
+                footer_rights: '© 2026. Tutti i diritti riservati.',
+                footer_privacy: 'Privacy Policy',
+                footer_imprint: 'Note Legali'
+            },
+            'tr': {
+                menu_home: 'ANA SAYFA',
+                menu_services: 'HİZMETLER',
+                menu_about: 'HAKKIMIZDA',
+                menu_contact: 'İLETİŞİM',
+                menu_privacy: 'GİZLİLİK POLİTİKASI',
+                menu_imprint: 'KÜNYE',
+                nav_home: 'Ana Sayfa',
+                nav_services: 'Hizmetler',
+                nav_about: 'Hakkımızda',
+                nav_contact: 'İletişim',
+                nav_cta: 'Teklif Alın',
+                about_page_tag: 'Şirket Profili & Vizyon',
+                mission_title: 'Misyonumuz & Vizyonumuz',
+                mission_text1: 'Rutin görevleri otomatikleştiren özel yapay zeka çözümleri ve otonom sesli asistanlar geliştiriyoruz.',
+                mission_text2: 'Flow Solutions olarak gelişmiş yapay zeka modellerini gerçek iş süreçleriyle birleştiriyoruz.',
+                val_title: 'Yenilik ve Hassasiyetle Mükemmellik',
+                val1_head: 'KVKK / GDPR Uyumlu',
+                val1_desc: 'En yüksek veri koruma standartları.',
+                val2_head: 'Gerçek Zamanlı Otomasyon',
+                val2_desc: '1 saniyenin altında yanıt süresi.',
+                val3_head: 'Özel Kurulum',
+                val3_desc: 'CRM ve takviminize mükemmel uyumlu.',
+                cta_box_title: 'Yapay Zeka Dönüşümüne Hazır Mısınız?',
+                cta_box_sub: 'Otonom sesli asistanların yaratacağı farkı birlikte değerlendirelim.',
+                footer_rights: '© 2026. Tüm hakları saklıdır.',
+                footer_privacy: 'Gizlilik Politikası',
+                footer_imprint: 'Künye'
+            }
+        };
+
+        const flagSVGs = {
+            'de': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>',
+            'en': '<img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover">',
+            'fr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>',
+            'it': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>',
+            'tr': '<img src="/IMG_2475.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover">'
+        };
+
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+            const dict = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                }
+            });
+            const currentFlagContainer = document.getElementById('currentFlagIcon');
+            if (currentFlagContainer && flagSVGs[lang]) {
+                currentFlagContainer.innerHTML = flagSVGs[lang];
+            }
+            localStorage.setItem('flow_lang', lang);
+        }
+
+        function openMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            const backdrop = document.getElementById('rrMenuBackdrop');
+            menu.classList.remove('-translate-x-full');
+            menu.classList.add('translate-x-0');
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('rrOverlayMenu');
+            const backdrop = document.getElementById('rrMenuBackdrop');
+            menu.classList.remove('translate-x-0');
+            menu.classList.add('-translate-x-full');
+            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.getElementById('customCursor');
+            if (cursor && window.innerWidth >= 768) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+                document.querySelectorAll('a, button, .hover-scale, input, textarea').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+                });
+            }
+            const savedLang = localStorage.getItem('flow_lang') || 'de';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
