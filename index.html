@@ -40,15 +40,26 @@
             background-color: #f5f5f7;
             color: #1d1d1f;
         }
-        .hero-dark-bg {
-            background: linear-gradient(-45deg, #0a0a0a, #141414, #08080a, #1a1a1e);
-            background-size: 400% 400%;
-            animation: darkGradient 18s ease infinite;
+        .tech-hero-bg {
+            position: relative;
+            background-color: #08080a;
+            background-image: 
+                radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 65%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            animation: techPulse 14s ease-in-out infinite alternate;
         }
-        @keyframes darkGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes techPulse {
+            0% {
+                background-position: 0% 0%, 0px 0px, 0px 0px;
+            }
+            50% {
+                background-position: 0% 0%, 20px 20px, 20px 20px;
+            }
+            100% {
+                background-position: 0% 0%, 40px 40px, 40px 40px;
+            }
         }
         .liquid-glass-nav {
             background: rgba(10, 10, 10, 0.45);
@@ -103,6 +114,22 @@
             height: 28px;
             border-width: 2px;
         }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 35s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        .marquee-container {
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-white selection:text-black">
@@ -121,7 +148,7 @@
 
                 <div class="absolute left-1/2 -translate-x-1/2">
                     <a href="index.html" class="block hover-scale">
-                        <img src="assets/Weißes Logo.png" alt="Flow Solutions Logo" class="h-6 sm:h-8 object-contain">
+                        <img src="assets/Weißes Logo_2.png" alt="Flow Solutions Logo" class="h-7 sm:h-9 w-auto object-contain">
                     </a>
                 </div>
 
@@ -157,8 +184,8 @@
                             <span>Italiano (IT)</span>
                         </button>
                         <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-neutral-100 hover-scale transition-all text-left font-medium">
-                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
-                                <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M220 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><polygon points="310,215 320,248 354,248 326,268 337,301 310,281 283,301 294,268 266,248 300,248" fill="#fff"/></svg>
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm border border-neutral-200">
+                                <img src="assets/image_7acedd.png" alt="Türkçe (TR)" class="w-full h-full object-cover">
                             </span>
                             <span>Türkçe (TR)</span>
                         </button>
@@ -195,7 +222,7 @@
 
     <main class="relative z-10">
         
-        <section class="hero-dark-bg text-white pt-28 pb-20 sm:pt-36 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-full text-center relative overflow-hidden border-b border-neutral-800">
+        <section class="tech-hero-bg text-white pt-28 pb-20 sm:pt-36 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-full text-center relative overflow-hidden border-b border-neutral-800">
             <div class="max-w-7xl mx-auto relative z-10">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-neutral-200 mb-8 hover-scale backdrop-blur-md">
                     <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
@@ -253,28 +280,231 @@
             </div>
         </section>
 
-        <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
-            <div class="inline-flex items-center gap-4 bg-white text-neutral-900 rounded-[28px] p-4 sm:p-5 shadow-xl border border-neutral-200/80 hover-scale">
-                <div class="w-12 h-12 rounded-2xl bg-white border border-neutral-100 shadow-md flex items-center justify-center p-2.5 shrink-0 relative">
-                    <svg class="w-full h-full" viewBox="0 0 24 24">
-                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                    </svg>
-                </div>
-                <div class="text-left">
-                    <div class="flex items-center gap-2">
-                        <span class="text-2xl font-extrabold text-neutral-900 leading-none">4.9</span>
-                        <div class="flex text-amber-400">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <section class="py-16 overflow-hidden max-w-full">
+            <div class="text-center mb-8 px-4">
+                <span class="text-xs font-mono font-bold tracking-widest text-neutral-500 uppercase block mb-1" data-i18n="google_reviews_badge">GOOGLE REVIEWS</span>
+                <h3 class="text-2xl font-bold text-neutral-900" data-i18n="reviews_heading">Das sagen unsere B2B Kunden</h3>
+            </div>
+
+            <div class="marquee-container w-full overflow-hidden">
+                <div class="marquee-track">
+                    
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Michael B.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
                         </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert!"</p>
                     </div>
-                    <span class="text-[11px] font-mono tracking-widest text-neutral-500 uppercase font-semibold block mt-0.5" data-i18n="google_reviews_badge">GOOGLE REVIEWS</span>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Sarah T.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Alexander K.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">4.9</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Unsere Kunden schwärmen von der natürlichen Sprachqualität des Telefonassistenten."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Stefan W.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung in unserem Unternehmen."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Laura M.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich 25+ Stunden wertvolle Arbeitszeit."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">David H.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">4.9</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Standardisierte Workflows laufen jetzt fehlerfrei und vollautonom im Hintergrund."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Michael B.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert!"</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Sarah T.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Alexander K.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">4.9</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Unsere Kunden schwärmen von der natürlichen Sprachqualität des Telefonassistenten."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Stefan W.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung in unserem Unternehmen."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">Laura M.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich 25+ Stunden wertvolle Arbeitszeit."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-neutral-200 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-neutral-900">David H.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-500 font-normal ml-1.5 text-[11px]">4.9</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-600 leading-relaxed font-normal">"Standardisierte Workflows laufen jetzt fehlerfrei und vollautonom im Hintergrund."</p>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -429,6 +659,7 @@
                 stat_avail: 'Verfügbarkeit',
                 stat_resp: 'Reaktionszeit',
                 google_reviews_badge: 'GOOGLE REVIEWS',
+                reviews_heading: 'Das sagen unsere B2B Kunden',
                 services_tag: 'Unsere Kernkompetenzen',
                 services_title: 'Maßgeschneiderte KI-Systeme für maximale Skalierung',
                 services_sub: 'Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.',
@@ -475,6 +706,7 @@
                 stat_avail: 'Availability',
                 stat_resp: 'Response Time',
                 google_reviews_badge: 'GOOGLE REVIEWS',
+                reviews_heading: 'What our B2B clients say',
                 services_tag: 'Our Core Competencies',
                 services_title: 'Bespoke AI Systems for Maximum Scalability',
                 services_sub: 'Harness the full potential of modern Artificial Intelligence to optimize your business operations.',
@@ -521,6 +753,7 @@
                 stat_avail: 'Disponibilité',
                 stat_resp: 'Temps de réponse',
                 google_reviews_badge: 'AVIS GOOGLE',
+                reviews_heading: 'Ce que disent nos clients B2B',
                 services_tag: 'Nos Compétences Clés',
                 services_title: 'Systèmes IA Sur Mesure pour une Scalabilité Maximale',
                 services_sub: 'Exploitez tout le potentiel de l\'IA moderne pour optimiser vos opérations.',
@@ -567,6 +800,7 @@
                 stat_avail: 'Disponibilità',
                 stat_resp: 'Tempo di risposta',
                 google_reviews_badge: 'RECENSIONI GOOGLE',
+                reviews_heading: 'Cosa dicono i nostri clienti B2B',
                 services_tag: 'Le Nostre Competenze',
                 services_title: 'Sistemi IA Su Misura per la Massima Scalabilità',
                 services_sub: 'Sfrutta tutto il potenziale dell\'Intelligenza Artificiale per ottimizzare la tua operatività aziendale.',
@@ -613,6 +847,7 @@
                 stat_avail: 'Erişilebilirlik',
                 stat_resp: 'Yanıt Süresi',
                 google_reviews_badge: 'GOOGLE DEĞERLENDİRMELERİ',
+                reviews_heading: 'B2B Müşterilerimizin Yorumları',
                 services_tag: 'Uzmanlık Alanlarımız',
                 services_title: 'Ölçeklenebilirlik İçin Özel Yapay Zeka Sistemleri',
                 services_sub: 'İş süreçlerinizi optimize etmek için modern Yapay Zekanın tüm potansiyelinden yararlanın.',
@@ -643,7 +878,7 @@
             'en': '<img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover">',
             'fr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>',
             'it': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>',
-            'tr': '<svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#e30a17"/><path d="M220 256a90 90 0 1 1 50-82 110 110 0 1 0 0 164 90 90 0 0 1-50-82z" fill="#fff"/><polygon points="310,215 320,248 354,248 326,268 337,301 310,281 283,301 294,268 266,248 300,248" fill="#fff"/></svg>'
+            'tr': '<img src="assets/image_7acedd.png" alt="Türkçe (TR)" class="w-full h-full object-cover">'
         };
 
         function setLanguage(lang) {
