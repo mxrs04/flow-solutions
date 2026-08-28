@@ -41,11 +41,10 @@
             color: #1d1d1f;
         }
         .liquid-glass-nav {
-            background: rgba(255, 255, 255, 0.45);
+            background: rgba(10, 10, 10, 0.45);
             backdrop-filter: blur(28px);
             -webkit-backdrop-filter: blur(28px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
         .apple-card {
             background: #ffffff;
@@ -63,18 +62,20 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 22px;
-            height: 22px;
-            background-color: #ffffff;
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            border: 1.5px solid #ffffff;
             border-radius: 50%;
             z-index: 99999;
             mix-blend-mode: difference;
             transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s;
+            transition: width 0.2s, height 0.2s, border-width 0.2s;
         }
         .custom-cursor.active {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
+            border-width: 2px;
         }
     </style>
 </head>
@@ -82,11 +83,11 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav">
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button onclick="openMenu()" class="p-2 text-neutral-900 hover:text-black focus:outline-none hover-scale">
+                <button onclick="openMenu()" class="p-2 text-white hover:text-neutral-300 focus:outline-none hover-scale">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -107,7 +108,9 @@
         </div>
     </header>
 
-    <div id="rrOverlayMenu" class="fixed inset-0 z-[100] bg-neutral-950/95 text-white backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-16 transition-opacity duration-300">
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-black/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-neutral-950/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl">
         <div class="flex items-center justify-between">
             <button onclick="closeMenu()" class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/40 text-xs font-mono tracking-widest text-white hover:bg-white hover:text-black transition-all hover-scale">
                 <span class="border border-current px-1">X</span>
@@ -116,12 +119,12 @@
         </div>
 
         <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
-            <a href="index.html" onclick="closeMenu()" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
-            <a href="index.html#services" onclick="closeMenu()" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
-            <a href="ueber-uns.html" onclick="closeMenu()" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
-            <a href="kontakt.html" onclick="closeMenu()" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
-            <a href="datenschutz.html" onclick="closeMenu()" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
-            <a href="impressum.html" onclick="closeMenu()" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
+            <a href="index.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
+            <a href="index.html#services" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
         </nav>
 
         <div class="text-xs text-neutral-500 font-mono tracking-widest">
@@ -244,14 +247,20 @@
     <script>
         function openMenu() {
             const menu = document.getElementById('rrOverlayMenu');
-            menu.classList.remove('hidden');
-            menu.classList.add('flex');
+            const backdrop = document.getElementById('rrMenuBackdrop');
+            menu.classList.remove('-translate-x-full');
+            menu.classList.add('translate-x-0');
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100', 'pointer-events-auto');
         }
 
         function closeMenu() {
             const menu = document.getElementById('rrOverlayMenu');
-            menu.classList.add('hidden');
-            menu.classList.remove('flex');
+            const backdrop = document.getElementById('rrMenuBackdrop');
+            menu.classList.remove('translate-x-0');
+            menu.classList.add('-translate-x-full');
+            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
         }
 
         document.addEventListener('DOMContentLoaded', () => {

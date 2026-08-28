@@ -41,11 +41,10 @@
             color: #1d1d1f;
         }
         .liquid-glass-nav {
-            background: rgba(255, 255, 255, 0.45);
+            background: rgba(10, 10, 10, 0.45);
             backdrop-filter: blur(28px);
             -webkit-backdrop-filter: blur(28px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -75,18 +74,20 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 22px;
-            height: 22px;
-            background-color: #ffffff;
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            border: 1.5px solid #ffffff;
             border-radius: 50%;
             z-index: 99999;
             mix-blend-mode: difference;
             transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s;
+            transition: width 0.2s, height 0.2s, border-width 0.2s;
         }
         .custom-cursor.active {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
+            border-width: 2px;
         }
     </style>
 </head>
@@ -94,11 +95,11 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav">
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button onclick="openMenu()" class="p-2 text-neutral-900 hover:text-black focus:outline-none hover-scale">
+                <button onclick="openMenu()" class="p-2 text-white hover:text-neutral-300 focus:outline-none hover-scale">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -111,7 +112,7 @@
                 </div>
 
                 <div class="relative dropdown-wrapper">
-                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-white/80 border border-neutral-300 overflow-hidden shadow-sm hover-scale">
+                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-neutral-900/80 border border-neutral-700 overflow-hidden shadow-sm hover-scale">
                         <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
                             <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
@@ -144,7 +145,9 @@
         </div>
     </header>
 
-    <div id="rrOverlayMenu" class="fixed inset-0 z-[100] bg-neutral-950/95 text-white backdrop-blur-2xl hidden flex-col justify-between p-8 sm:p-16 transition-opacity duration-300">
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-black/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-neutral-950/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl">
         <div class="flex items-center justify-between">
             <button onclick="closeMenu()" class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/40 text-xs font-mono tracking-widest text-white hover:bg-white hover:text-black transition-all hover-scale">
                 <span class="border border-current px-1">X</span>
@@ -153,12 +156,12 @@
         </div>
 
         <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
-            <a href="index.html" onclick="closeMenu()" data-i18n="menu_home" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
-            <a href="index.html#services" onclick="closeMenu()" data-i18n="menu_services" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
-            <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="menu_about" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
-            <a href="kontakt.html" onclick="closeMenu()" data-i18n="menu_contact" class="text-2xl sm:text-4xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
-            <a href="datenschutz.html" onclick="closeMenu()" data-i18n="menu_privacy" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
-            <a href="impressum.html" onclick="closeMenu()" data-i18n="menu_imprint" class="text-xl sm:text-2xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
+            <a href="index.html" onclick="closeMenu()" data-i18n="menu_home" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">STARTSEITE</a>
+            <a href="index.html#services" onclick="closeMenu()" data-i18n="menu_services" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="menu_about" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" data-i18n="menu_contact" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-white transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" data-i18n="menu_privacy" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" data-i18n="menu_imprint" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-white transition-colors hover-scale">IMPRESSUM</a>
         </nav>
 
         <div class="text-xs text-neutral-500 font-mono tracking-widest">
@@ -176,7 +179,7 @@
                 Unsere Mission & Vision
             </h1>
             <p class="text-neutral-600 max-w-2xl mx-auto text-lg sm:text-xl leading-relaxed" data-i18n="mission_text1">
-                Wir entwickeln maßgeschneiderte KI-Lösungen und autonome Voice-Agenten, die zeitraubende Routineaufgaben automatisieren und Unternehmen den entscheidenden digitalen Vorsprung verschaffen.
+                Wir entwickeln maßgeschneiderte KI-Lösungen und autonome Voice-Agenten, die zeitraubende Routineaufgaben automatisieren.
             </p>
         </div>
 
@@ -188,20 +191,20 @@
             <div class="apple-card rounded-3xl p-8 sm:p-12 hover-scale">
                 <h2 class="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4" data-i18n="val_title">Exzellenz durch Innovation & Präzision</h2>
                 <p class="text-neutral-600 text-base sm:text-lg leading-relaxed mb-6" data-i18n="mission_text2">
-                    Bei Flow Solutions steht die fehlerfreie Verbindung von hochentwickelten KI-Modellen mit realen Unternehmensabläufen im Vordergrund. Wir glauben daran, dass Künstliche Intelligenz nicht nur theoretisch beeindrucken muss, sondern im Alltag spürbare Zeit- und Kostenersparnisse erzeugen muss.
+                    Bei Flow Solutions steht die fehlerfreie Verbindung von hochentwickelten KI-Modellen mit realen Unternehmensabläufen im Vordergrund.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-neutral-200">
                     <div>
                         <div class="text-xl font-bold text-neutral-900 mb-1" data-i18n="val1_head">DSGVO Konform</div>
-                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val1_desc">Höchster Datenschutzstandard und sichere Datenverarbeitung nach europäischen Normen.</div>
+                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val1_desc">Höchster Datenschutzstandard und sichere Datenverarbeitung.</div>
                     </div>
                     <div>
                         <div class="text-xl font-bold text-neutral-900 mb-1" data-i18n="val2_head">Echtzeit Automation</div>
-                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val2_desc">Reaktionszeiten unter 1 Sekunde für Anrufe, Anfragen und Daten-Pipelines.</div>
+                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val2_desc">Reaktionszeiten unter 1 Sekunde.</div>
                     </div>
                     <div>
                         <div class="text-xl font-bold text-neutral-900 mb-1" data-i18n="val3_head">Individuelles Setup</div>
-                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val3_desc">Perfekt auf Ihr CRM, Kalender und bestehende Softwarelandschaft abgestimmt.</div>
+                        <div class="text-xs text-neutral-500 leading-relaxed" data-i18n="val3_desc">Perfekt auf Ihr CRM und Kalender abgestimmt.</div>
                     </div>
                 </div>
             </div>
@@ -210,7 +213,7 @@
         <div class="apple-card rounded-3xl p-8 sm:p-12 text-center bg-neutral-950 text-white hover-scale">
             <h2 class="text-2xl sm:text-4xl font-extrabold mb-4" data-i18n="cta_box_title">Bereit für die KI-Transformation?</h2>
             <p class="text-neutral-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-8" data-i18n="cta_box_sub">
-                Lassen Sie uns gemeinsam prüfen, wie autonome Voice-Agenten und KI-Workflows in Ihrem Unternehmen den Unterschied machen.
+                Lassen Sie uns gemeinsam prüfen, wie autonome Voice-Agenten den Unterschied machen.
             </p>
             <a href="kontakt.html" data-i18n="nav_cta" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-neutral-950 bg-white hover:bg-neutral-200 rounded-full transition-all hover-scale shadow-md">
                 Jetzt anfragen
@@ -412,14 +415,20 @@
 
         function openMenu() {
             const menu = document.getElementById('rrOverlayMenu');
-            menu.classList.remove('hidden');
-            menu.classList.add('flex');
+            const backdrop = document.getElementById('rrMenuBackdrop');
+            menu.classList.remove('-translate-x-full');
+            menu.classList.add('translate-x-0');
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100', 'pointer-events-auto');
         }
 
         function closeMenu() {
             const menu = document.getElementById('rrOverlayMenu');
-            menu.classList.add('hidden');
-            menu.classList.remove('flex');
+            const backdrop = document.getElementById('rrMenuBackdrop');
+            menu.classList.remove('translate-x-0');
+            menu.classList.add('-translate-x-full');
+            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
