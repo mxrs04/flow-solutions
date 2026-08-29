@@ -40,26 +40,6 @@
             background-color: #040711;
             color: #f8fafc;
         }
-        .tech-hero-bg {
-            position: relative;
-            background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.22) 0%, transparent 60%),
-                        radial-gradient(circle at 80% 60%, rgba(29, 78, 216, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 10% 80%, rgba(15, 23, 42, 0.9) 0%, transparent 50%),
-                        linear-gradient(180deg, #03050d 0%, #060a19 50%, #040612 100%);
-            background-size: 200% 200%, 200% 200%, 200% 200%, 100% 100%;
-            animation: darkMeshFlow 25s ease-in-out infinite alternate;
-        }
-        @keyframes darkMeshFlow {
-            0% {
-                background-position: 0% 0%, 100% 100%, 50% 20%, 0% 0%;
-            }
-            50% {
-                background-position: 100% 50%, 0% 50%, 20% 80%, 0% 0%;
-            }
-            100% {
-                background-position: 50% 100%, 50% 0%, 80% 30%, 0% 0%;
-            }
-        }
         .liquid-glass-nav {
             background: rgba(4, 7, 17, 0.65);
             backdrop-filter: blur(28px);
@@ -139,6 +119,11 @@
         .neon-blue-btn:hover {
             background-color: #3b82f6;
             box-shadow: 0 0 36px rgba(59, 130, 246, 0.65);
+        }
+        .partial-star-48 {
+            background: linear-gradient(90deg, #FFD700 80%, #4b5563 20%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
@@ -240,9 +225,13 @@
 
     <main class="relative z-10">
         
-        <section class="tech-hero-bg text-white pt-28 pb-20 sm:pt-36 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-full text-center relative overflow-hidden border-b border-blue-900/30">
+        <section class="relative text-white pt-32 pb-24 sm:pt-40 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-blue-900/30">
+            <div class="absolute inset-0 z-0">
+                <img src="IMG_2474.jpeg" alt="Hero Background" class="w-full h-full object-cover filter blur-md scale-105 opacity-30" />
+                <div class="absolute inset-0 bg-gradient-to-b from-[#040711]/90 via-[#040711]/75 to-[#040711]"></div>
+            </div>
+            
             <div class="max-w-7xl mx-auto relative z-10">
-
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08] max-w-4xl mx-auto">
                     <span data-i18n="hero_title1">KI-Lösungen,</span> <br class="hidden sm:inline" />
                     <span class="text-blue-400" data-i18n="hero_title2">die Zeit sparen.</span>
@@ -266,177 +255,6 @@
 
                 <div class="relative max-w-5xl mx-auto rounded-3xl overflow-hidden apple-card border border-blue-900/40 group hover-scale p-8 sm:p-12 flex items-center justify-center bg-[#070b19]">
                     <img src="Logo 1zu1.jpg" alt="Flow Solutions Logo" class="w-full max-h-[380px] sm:max-h-[480px] object-contain object-center transition-transform duration-700 group-hover:scale-105" />
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 overflow-hidden max-w-full">
-            <div class="text-center mb-6 px-4">
-                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-4" data-i18n="reviews_heading">Das sagen unsere B2B Kunden</h3>
-                
-                <div class="flex items-center justify-center gap-3 my-6 py-3.5 px-7 rounded-2xl bg-[#0c1229]/90 border border-blue-900/40 w-fit mx-auto shadow-lg backdrop-blur-md hover-scale">
-                    <div class="flex items-center gap-2.5">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24">
-                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                        </svg>
-                        <span class="text-white font-extrabold text-xl">4,8</span>
-                    </div>
-                    <div class="flex items-center gap-1 text-amber-400 text-lg">
-                        ★★★★★
-                    </div>
-                </div>
-            </div>
-
-            <div class="marquee-container w-full overflow-hidden mt-14">
-                <div class="marquee-track">
-                    
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-white">Michael B.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert!"</p>
-                    </div>
-
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-white">Sarah T.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb."</p>
-                    </div>
-
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-white">Alexander K.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★<span class="text-neutral-600">★</span> <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">4.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Unsere Kunden schwärmen von der natürlichen Sprachqualität des Telefonassistenten."</p>
-                    </div>
-
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-white">Stefan W.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung in unserem Unternehmen."</p>
-                    </div>
-
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-white">Laura M.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich 25+ Stunden wertvolle Arbeitszeit."</p>
-                    </div>
-
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-white">David H.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★<span class="text-neutral-600">★</span> <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">4.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Standardisierte Workflows laufen jetzt fehlerfrei und vollautonom im Hintergrund."</p>
-                    </div>
-
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-white">Michael B.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert!"</p>
-                    </div>
-
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-white">Sarah T.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb."</p>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -524,30 +342,230 @@
             </div>
         </section>
 
-        <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-            <div class="apple-card rounded-3xl p-8 sm:p-14 border border-blue-900/40 text-center hover-scale">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-12 tracking-tight">Über uns</h2>
+        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-blue-900/20">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Kostenersparnis & ROI</h2>
+                <p class="mt-4 text-neutral-300 text-base sm:text-lg">Messbarer Wert für Ihr Unternehmen im direkten Vergleich.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
-                    <div class="p-8 rounded-2xl bg-blue-950/30 border border-blue-900/40 hover-scale">
-                        <h3 class="text-2xl sm:text-3xl font-extrabold text-blue-400 mb-4">Vision</h3>
-                        <p class="text-neutral-200 text-base sm:text-lg leading-relaxed font-normal">
-                            Eine Geschäftswelt, in der Routineaufgaben unsichtbar im Hintergrund ablaufen, sodass Menschen ihr volles Potenzial für strategisches Wachstum entfalten können.
-                        </p>
+                <div class="apple-card rounded-3xl p-8 border border-red-900/30 hover-scale bg-[#120a14]/60">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-red-900/30">
+                        <h3 class="text-xl sm:text-2xl font-bold text-red-400">Traditioneller Support</h3>
+                        <span class="px-3 py-1 bg-red-950/80 text-red-300 text-xs font-mono rounded-full border border-red-800/40">Ineffizient</span>
                     </div>
 
-                    <div class="p-8 rounded-2xl bg-blue-950/30 border border-blue-900/40 hover-scale">
-                        <h3 class="text-2xl sm:text-3xl font-extrabold text-blue-400 mb-4">Mission</h3>
-                        <p class="text-neutral-200 text-base sm:text-lg leading-relaxed font-normal">
-                            Wir rüsten Unternehmen mit maßgeschneiderten KI-Systemen aus, um ineffiziente Prozesse zu eliminieren. Wir schaffen Lösungen, die den Arbeitsalltag messbar erleichtern und wertvolle Ressourcen freisetzen.
-                        </p>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="text-xs text-neutral-400 uppercase tracking-wider mb-1">Personalkosten / Monat</div>
+                            <div class="text-3xl font-extrabold text-white">~ 4.200 €</div>
+                            <div class="text-xs text-neutral-400 mt-1">Gehalt, Lohnnebenkosten & Arbeitsplatz</div>
+                        </div>
+
+                        <div class="pt-4 border-t border-red-900/20 grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="text-xs text-neutral-400 uppercase tracking-wider mb-1">Verfügbarkeit</div>
+                                <div class="text-lg font-bold text-red-300">40h / Woche</div>
+                                <div class="text-[11px] text-neutral-400">Mo-Fr 9-17 Uhr, Krankheitsausfälle</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-neutral-400 uppercase tracking-wider mb-1">Reaktionszeit</div>
+                                <div class="text-lg font-bold text-red-300">Stunden bis Tage</div>
+                                <div class="text-[11px] text-neutral-400">Manuelle Bearbeitung</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-red-900/20">
+                            <div class="text-xs text-neutral-400 uppercase tracking-wider mb-1">Skalierbarkeit</div>
+                            <div class="text-sm font-semibold text-neutral-300">Begrenzt & personalintensiv</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12">
-                    <a href="ueber-uns.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold neon-blue-btn rounded-full transition-all duration-200 hover-scale">
-                        Erfahren Sie mehr über uns
-                    </a>
+                <div class="apple-card rounded-3xl p-8 border border-blue-500/50 hover-scale bg-[#08132e]/90 shadow-[0_0_40px_rgba(37,99,235,0.25)] relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-36 h-36 bg-blue-600/20 rounded-full blur-2xl"></div>
+                    
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-blue-800/40 relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-400">Flow Solutions KI-Agent</h3>
+                        <span class="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded-full font-bold shadow-sm">Maximale Effizienz</span>
+                    </div>
+
+                    <div class="space-y-6 relative z-10">
+                        <div>
+                            <div class="text-xs text-blue-300 uppercase tracking-wider mb-1">Kosten / Monat</div>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-white">ab 390 €</div>
+                            <div class="text-xs text-blue-200 mt-1">Bis zu 90% Ersparnis gegenüber Vollzeitstelle</div>
+                        </div>
+
+                        <div class="pt-4 border-t border-blue-800/30 grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="text-xs text-blue-300 uppercase tracking-wider mb-1">Verfügbarkeit</div>
+                                <div class="text-xl font-extrabold text-blue-400">24/7 / 365 Tage</div>
+                                <div class="text-[11px] text-blue-200">Keine Feiertage, kein Ausfall</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-blue-300 uppercase tracking-wider mb-1">Reaktionszeit</div>
+                                <div class="text-xl font-extrabold text-blue-400">&lt; 1 Sekunde</div>
+                                <div class="text-[11px] text-blue-200">Echtzeit-Interaktion</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-blue-800/30">
+                            <div class="text-xs text-blue-300 uppercase tracking-wider mb-1">Skalierbarkeit</div>
+                            <div class="text-sm font-semibold text-white flex items-center gap-2">
+                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                Unbegrenzt & sofort einsatzbereit
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="py-24 overflow-hidden max-w-full border-t border-blue-900/20">
+            <div class="text-center mb-6 px-4">
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-6" data-i18n="reviews_heading">Das sagen unsere B2B Kunden</h3>
+                
+                <div class="flex flex-wrap items-center justify-center gap-4 my-6">
+                    
+                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-[#0c1229]/90 border border-blue-900/40 shadow-lg backdrop-blur-md hover-scale">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                            <span class="text-white font-extrabold text-xl">4,8</span>
+                        </div>
+                        <div class="flex items-center gap-1 text-amber-400 text-lg">
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span class="partial-star-48">★</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-[#0c1229]/90 border border-blue-900/40 shadow-lg backdrop-blur-md hover-scale">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-6 h-6 fill-[#00b67a]" viewBox="0 0 24 24">
+                                <path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/>
+                            </svg>
+                            <span class="text-white font-extrabold text-xl">Trustpilot</span>
+                        </div>
+                        <div class="flex items-center gap-1 text-[#00b67a] text-lg font-bold">
+                            ★★★★★
+                        </div>
+                        <span class="text-white font-extrabold text-sm">4.8 / 5</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="marquee-container w-full overflow-hidden mt-12">
+                <div class="marquee-track">
+                    
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-white">Michael B.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert!"</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-white">Sarah T.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
+                                <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-white">Alexander K.</div>
+                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Unsere Kunden schwärmen von der natürlichen Sprachqualität des Telefonassistenten."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-white">Stefan W.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung in unserem Unternehmen."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
+                                <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-white">Laura M.</div>
+                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich 25+ Stunden wertvolle Arbeitszeit."</p>
+                    </div>
+
+                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-white">David H.</div>
+                                <div class="flex text-amber-400 text-xs">★★★★<span class="text-neutral-600">★</span> <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">4.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Standardisierte Workflows laufen jetzt fehlerfrei und vollautonom im Hintergrund."</p>
+                    </div>
+
                 </div>
             </div>
         </section>
