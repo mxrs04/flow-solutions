@@ -14,6 +14,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#040711">
+    <link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +32,19 @@
         }
     </script>
     <style>
+        @font-face {
+            font-family: 'BubbledotICG-FinePos';
+            src: url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.eot");
+            src: url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.eot?#iefix") format("embedded-opentype"),
+                 url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.woff2") format("woff2"),
+                 url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.woff") format("woff"),
+                 url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.ttf") format("truetype"),
+                 url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.svg#BubbledotICG-FinePos") format("svg");
+        }
+        .font-dotmatrix {
+            font-family: 'BubbledotICG-FinePos', 'Plus Jakarta Sans', sans-serif !important;
+            color: #ffffff !important;
+        }
         @media (min-width: 768px) {
             html, body, a, button, input, textarea {
                 cursor: none !important;
@@ -226,20 +240,19 @@
     <main class="relative z-10">
         
         <section class="relative text-white min-h-[85vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-blue-900/30">
-            <div class="absolute inset-0 z-0">
-                <img src="Logo Landingpage16zu9.png" alt="Flow Solutions 16:9 Hero Background" class="w-full h-full object-cover object-center scale-100 opacity-65" />
-                <div class="absolute inset-0 bg-gradient-to-b from-[#040711]/80 via-[#040711]/50 to-[#040711]/90 backdrop-blur-[2px]"></div>
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0">
+                    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4" type="video/mp4" />
+                </video>
+                <div class="absolute inset-0 bg-[#003296]/45 mix-blend-multiply pointer-events-none z-[1]"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#040711]/85 via-[#040711]/60 to-[#040711]/95 backdrop-blur-[1px] pointer-events-none z-[2]"></div>
             </div>
             
             <div class="max-w-4xl mx-auto relative z-10 py-24 sm:py-32">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
-                    <span data-i18n="hero_title1">KI-Lösungen,</span> <br class="hidden sm:inline" />
-                    <span class="text-blue-400" data-i18n="hero_title2">die Zeit sparen.</span>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-10 leading-[1.12] font-dotmatrix">
+                    <span data-i18n="hero_title1">KI-LÖSUNGEN,</span> <br class="hidden sm:inline" />
+                    <span class="text-white" data-i18n="hero_title2">DIE ZEIT SPAREN.</span>
                 </h1>
-
-                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-neutral-200 mb-10 leading-relaxed font-normal drop-shadow-md" data-i18n="hero_sub">
-                    Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit hochpräzisen Voice-Agenten und maßgeschneiderten KI-Systemen der nächsten Generation.
-                </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold neon-blue-btn rounded-full transition-all duration-300 hover-scale">
@@ -335,6 +348,14 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <section id="text-reveal-section" class="relative h-[220vh] bg-[#040711] border-t border-b border-blue-900/30">
+            <div class="sticky top-0 h-screen flex items-center justify-center px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto overflow-hidden">
+                <p id="reveal-text" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-center leading-relaxed tracking-tight select-none">
+                    Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit hochpräzisen Voice-Agenten und maßgeschneiderten KI-Systemen der nächsten Generation.
+                </p>
             </div>
         </section>
 
@@ -636,6 +657,36 @@
                     el.addEventListener('mouseenter', () => cursor.classList.add('active'));
                     el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
                 });
+            }
+
+            const textRevealSec = document.getElementById('text-reveal-section');
+            const textRevealEl = document.getElementById('reveal-text');
+            if (textRevealSec && textRevealEl) {
+                const rawText = textRevealEl.textContent.trim();
+                const wordsArr = rawText.split(/\s+/);
+                textRevealEl.innerHTML = wordsArr.map(w => `<span class="inline-block mx-1.5 sm:mx-2 transition-colors duration-200 text-neutral-700 font-extrabold">${w}</span>`).join('');
+                const wordSpans = textRevealEl.querySelectorAll('span');
+
+                function updateTextReveal() {
+                    const rect = textRevealSec.getBoundingClientRect();
+                    const scrollableDist = textRevealSec.offsetHeight - window.innerHeight;
+                    if (scrollableDist <= 0) return;
+                    const progress = Math.min(Math.max(-rect.top / scrollableDist, 0), 1);
+                    const activeIndex = Math.floor(progress * (wordSpans.length + 1));
+                    
+                    wordSpans.forEach((span, idx) => {
+                        if (idx < activeIndex) {
+                            span.classList.remove('text-neutral-700');
+                            span.classList.add('text-white');
+                        } else {
+                            span.classList.remove('text-white');
+                            span.classList.add('text-neutral-700');
+                        }
+                    });
+                }
+
+                window.addEventListener('scroll', updateTextReveal, { passive: true });
+                updateTextReveal();
             }
         });
     </script>
