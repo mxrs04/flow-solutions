@@ -41,20 +41,18 @@
             color: #0f172a;
         }
         .liquid-glass-nav {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(8px);
         }
         .dropdown-wrapper:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto;
             transform: translateY(0);
         }
         .light-card {
@@ -99,51 +97,51 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-slate-900">
+    <header class="fixed top-0 left-0 right-0 z-[100] liquid-glass-nav text-slate-900 pointer-events-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button onclick="openMenu()" class="p-2 text-slate-900 hover:text-blue-600 focus:outline-none hover-scale flex items-center gap-2.5">
+                <button onclick="openMenu()" class="p-2 text-slate-900 hover:text-blue-600 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101]">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                     <span class="text-sm font-semibold tracking-wider uppercase">Menü</span>
                 </button>
 
-                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center" style="background-color: transparent !important;">
+                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
                         <img src="/logo.png" alt="Flow Solutions" class="h-16 sm:h-[74px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
-                <div class="relative dropdown-wrapper">
-                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-slate-100 border border-slate-200 overflow-hidden shadow-sm hover-scale">
-                        <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
+                <div class="relative dropdown-wrapper z-[110]">
+                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
+                        <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center pointer-events-none">
                             <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
                     </button>
-                    <div class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-slate-900 rounded-2xl shadow-2xl p-2 border border-slate-200 text-xs">
-                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-slate-900 rounded-2xl shadow-2xl p-2 border border-slate-200 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
+                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg></span>
                             <span>Deutsch (DE)</span>
                         </button>
-                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover"></span>
                             <span>English (UK / US)</span>
                         </button>
-                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg></span>
                             <span>Français (FR)</span>
                         </button>
-                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg></span>
                             <span>Italiano (IT)</span>
                         </button>
-                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg></span>
                             <span>Español (ES)</span>
                         </button>
-                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm border border-slate-200"><img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;"></span>
                             <span>Türkçe (TR)</span>
                         </button>
@@ -154,9 +152,9 @@
         </div>
     </header>
 
-    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-900/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-900/60 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
 
-    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-slate-950/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-slate-950/95 text-white backdrop-blur-2xl z-[200] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
         <div class="flex items-center justify-between">
             <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale" aria-label="Menü schließen">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -352,6 +350,52 @@
             backdrop.classList.remove('opacity-100', 'pointer-events-auto');
             backdrop.classList.add('opacity-0', 'pointer-events-none');
         }
+
+        function toggleLangDropdown(event) {
+            if (event) event.stopPropagation();
+            const langMenu = document.getElementById('langDropdownMenu');
+            if (langMenu) {
+                const isHidden = langMenu.classList.contains('invisible') || langMenu.classList.contains('opacity-0');
+                if (isHidden) {
+                    langMenu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+                    langMenu.classList.add('opacity-100', 'visible', 'pointer-events-auto');
+                } else {
+                    langMenu.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
+                    langMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+                }
+            }
+        }
+
+        function setLanguage(lang) {
+            const flagIcon = document.getElementById('currentFlagIcon');
+            const langMenu = document.getElementById('langDropdownMenu');
+            
+            const flags = {
+                'de': '<svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>',
+                'en': '<img src="assets/uk_us_flag.png" alt="UK/US" class="w-full h-full object-cover">',
+                'fr': '<svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>',
+                'it': '<svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>',
+                'es': '<svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>',
+                'tr': '<img src="/IMG_2475_2.jpeg" alt="TR" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">'
+            };
+
+            if (flagIcon && flags[lang]) {
+                flagIcon.innerHTML = flags[lang];
+            }
+            if (langMenu) {
+                langMenu.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
+                langMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+            }
+        }
+
+        document.addEventListener('click', (e) => {
+            const langBtn = document.getElementById('langSelectBtn');
+            const langMenu = document.getElementById('langDropdownMenu');
+            if (langBtn && langMenu && !langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                langMenu.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
+                langMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             const cursor = document.getElementById('customCursor');
