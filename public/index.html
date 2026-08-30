@@ -72,6 +72,22 @@
         .hover-scale:hover {
             transform: scale(1.025);
         }
+        .card-slide-in {
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+        .card-slide-left {
+            transform: translateX(-60px);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
+        }
+        .card-slide-right {
+            transform: translateX(60px);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
+        }
+        .card-slide-in.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
         .custom-cursor {
             pointer-events: none;
             position: fixed;
@@ -132,39 +148,51 @@
 
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img src="/logo.png" alt="Flow Solutions" class="h-16 sm:h-[74px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                        <img src="schwarzes Logo.png" alt="Flow Solutions" class="h-20 sm:h-[86px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
                 <div class="relative dropdown-wrapper z-[110]">
                     <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
-                        <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center pointer-events-none">
-                            <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                        <span id="currentFlagIcon" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
+                            <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
                     </button>
                     <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-slate-900 rounded-2xl shadow-2xl p-2 border border-slate-200 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
                         <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg></span>
+                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                            </span>
                             <span>Deutsch (DE)</span>
                         </button>
                         <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover"></span>
+                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover rounded-full">
+                            </span>
                             <span>English (UK / US)</span>
                         </button>
                         <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg></span>
+                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>
+                            </span>
                             <span>Français (FR)</span>
                         </button>
                         <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg></span>
+                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>
+                            </span>
                             <span>Italiano (IT)</span>
                         </button>
                         <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg></span>
+                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>
+                            </span>
                             <span>Español (ES)</span>
                         </button>
                         <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm border border-slate-200"><img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;"></span>
+                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">
+                            </span>
                             <span>Türkçe (TR)</span>
                         </button>
                     </div>
@@ -201,26 +229,26 @@
 
     <main class="relative z-10">
         
-        <section class="relative text-slate-900 pt-32 pb-16 sm:pt-40 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-slate-200 bg-slate-50 z-0">
-            <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-                <img src="Logo Landingpage16zu9_2.png" alt="Flow Solutions 16:9 Hero Background" class="w-full h-full object-contain sm:object-cover object-center opacity-90 scale-100" />
-                <div class="absolute inset-0 bg-gradient-to-b from-white/75 via-white/55 to-white/90"></div>
+        <section class="relative text-white pt-36 pb-20 sm:pt-44 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-slate-200 bg-slate-950 z-0">
+            <div class="absolute inset-0 z-0 pointer-events-none">
+                <img src="Logo Landingpage16zu9_2.png" alt="Flow Solutions Hero Background" class="w-full h-full object-contain sm:object-cover object-center" />
+                <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(15,23,42,0.85) 85%, rgba(15,23,42,0.98) 100%);"></div>
             </div>
             
-            <div class="max-w-4xl mx-auto relative z-10 py-8 sm:py-20">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.12]">
-                    <span>KI-LÖSUNGEN,</span> <br class="hidden sm:inline" />
-                    <span>DIE <span class="font-serif italic font-medium text-blue-600">ZEIT</span> SPAREN.</span>
+            <div class="max-w-4xl mx-auto relative z-10 py-8 sm:py-16">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.12]">
+                    <span data-i18n="hero_headline_1">KI-LÖSUNGEN,</span> <br class="hidden sm:inline" />
+                    <span data-i18n="hero_headline_2">DIE <span class="font-serif italic font-medium text-blue-400">ZEIT</span> SPAREN.</span>
                 </h1>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                    <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all duration-300 hover-scale shadow-lg shadow-blue-500/25">
+                    <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all duration-300 hover-scale shadow-lg shadow-blue-500/30">
                         <span>Jetzt kontaktieren</span>
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                         </svg>
                     </a>
-                    <a href="dienstleistungen.html" data-i18n="hero_cta_secondary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-slate-800 bg-white border border-slate-300 rounded-full transition-all duration-300 hover:bg-slate-100 hover-scale shadow-sm">
+                    <a href="dienstleistungen.html" data-i18n="hero_cta_secondary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-slate-900/80 hover:bg-slate-900 border border-slate-700 rounded-full transition-all duration-300 hover-scale shadow-sm">
                         Dienstleistungen entdecken
                     </a>
                 </div>
@@ -233,77 +261,83 @@
                 <p class="mt-4 text-slate-600 text-base sm:text-lg" data-i18n="services_sub">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex flex-col space-y-12 sm:space-y-16 max-w-5xl mx-auto">
                 
-                <div class="light-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale">
-                    <div class="h-56 overflow-hidden relative bg-slate-100">
-                        <img src="image_1464c8.png" alt="Automatisierte Voice-Agenten" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div class="p-8 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-3" data-i18n="service1_title">Automatisierte Voice-Agenten</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="service1_desc">
-                                Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.
-                            </p>
-                        </div>
-                        <ul class="space-y-2.5 text-xs text-slate-700 font-medium pt-4 border-t border-slate-100">
-                            <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                <span data-i18n="service1_bullet1">Echtzeit-Spracherkennung</span>
+                <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center card-slide-in card-slide-left">
+                    <div>
+                        <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-3" data-i18n="service1_badge">01 / AUTONOMOUS VOICE AGENTS</span>
+                        <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service1_title">Automatisierte Voice-Agenten</h3>
+                        <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service1_desc">
+                            Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 font-medium mb-8">
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
+                                <span data-i18n="service1_b1">Echtzeit-Spracherkennung</span>
                             </li>
-                            <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                <span data-i18n="service1_bullet2">Nahtlose CRM- & Kalender-Anbindung</span>
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
+                                <span data-i18n="service1_b2">Nahtlose CRM- & Kalender-Anbindung</span>
                             </li>
                         </ul>
+                        <a href="kontakt.html" data-i18n="service1_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-sm hover-scale shadow-md shadow-blue-500/20">
+                            Voice Agent anfragen
+                        </a>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-[280px] sm:h-[340px] bg-slate-100">
+                        <img src="image_1464c8.png" alt="Voice Agent" class="w-full h-full object-cover" />
                     </div>
                 </div>
 
-                <div class="light-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale">
-                    <div class="h-56 overflow-hidden relative bg-slate-100">
-                        <img src="image_14dd43.png" alt="Workflow-Automatisierung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center card-slide-in card-slide-right">
+                    <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-[280px] sm:h-[340px] bg-slate-100">
+                        <img src="image_14dd43.png" alt="Workflow Automatisierung" class="w-full h-full object-cover" />
                     </div>
-                    <div class="p-8 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-3" data-i18n="service2_title">Workflow-Automatisierung</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="service2_desc">
-                                Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.
-                            </p>
-                        </div>
-                        <ul class="space-y-2.5 text-xs text-slate-700 font-medium pt-4 border-t border-slate-100">
-                            <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                <span data-i18n="service2_bullet1">Prozessanalyse & Individual-Setup</span>
+                    <div class="order-1 lg:order-2">
+                        <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-3" data-i18n="service2_badge">02 / WORKFLOW PIPELINES</span>
+                        <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service2_title">Workflow-Automatisierung</h3>
+                        <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service2_desc">
+                            Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 font-medium mb-8">
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
+                                <span data-i18n="service2_b1">Prozessanalyse & Individual-Setup</span>
                             </li>
-                            <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                <span data-i18n="service2_bullet2">Fehlerfreie System-Kopplung</span>
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
+                                <span data-i18n="service2_b2">Fehlerfreie System-Kopplung</span>
                             </li>
                         </ul>
+                        <a href="kontakt.html" data-i18n="service2_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-sm hover-scale shadow-md shadow-blue-500/20">
+                            Workflow-Analyse buchen
+                        </a>
                     </div>
                 </div>
 
-                <div class="light-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale">
-                    <div class="h-56 overflow-hidden relative bg-slate-100">
-                        <img src="image_14dc89.png" alt="Enterprise KI-Assistenten" class="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div class="p-8 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-3" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="service3_desc">
-                                Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.
-                            </p>
-                        </div>
-                        <ul class="space-y-2.5 text-xs text-slate-700 font-medium pt-4 border-t border-slate-100">
-                            <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                <span data-i18n="service3_bullet1">Interne Wissensdatenbanken</span>
+                <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center card-slide-in card-slide-left">
+                    <div>
+                        <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-3" data-i18n="service3_badge">03 / ENTERPRISE KNOWLEDGE AI</span>
+                        <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
+                        <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service3_desc">
+                            Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 font-medium mb-8">
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
+                                <span data-i18n="service3_b1">Interne Wissensdatenbanken</span>
                             </li>
-                            <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                <span data-i18n="service3_bullet2">Höchster Datenschutzstandard</span>
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
+                                <span data-i18n="service3_b2">Höchster Datenschutzstandard</span>
                             </li>
                         </ul>
+                        <a href="kontakt.html" data-i18n="service3_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-sm hover-scale shadow-md shadow-blue-500/20">
+                            Enterprise KI anfragen
+                        </a>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-[280px] sm:h-[340px] bg-slate-100">
+                        <img src="image_14dc89.png" alt="Enterprise KI Assistenten" class="w-full h-full object-cover object-[center_15%]" />
                     </div>
                 </div>
 
@@ -320,8 +354,8 @@
 
         <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Qualitative Wertsteigerung & ROI</h2>
-                <p class="mt-4 text-slate-600 text-base sm:text-lg">Der direkte Vergleich zwischen traditionellem Aufwand und intelligenter Automation.</p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight" data-i18n="roi_title">Qualitative Wertsteigerung & ROI</h2>
+                <p class="mt-4 text-slate-600 text-base sm:text-lg" data-i18n="roi_sub">Der direkte Vergleich zwischen traditionellem Aufwand und intelligenter Automation.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -540,68 +574,6 @@
                         <p class="text-xs text-slate-600 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert und optimiert!"</p>
                     </div>
 
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-slate-900">Kunde Y</div>
-                                <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb unserer Abteilung."</p>
-                    </div>
-
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
-                                <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-slate-900">Partner Z</div>
-                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Unsere Endkunden schwärmen von der extrem natürlichen Sprachqualität und Zuverlässigkeit."</p>
-                    </div>
-
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
-                                <svg class="w-full h-full" viewBox="0 0 24 24">
-                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-slate-900">Digital Brand A</div>
-                                <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung im gesamten Unternehmen."</p>
-                    </div>
-
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
-                                <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
-                            </div>
-                            <div>
-                                <div class="font-bold text-sm text-slate-900">TechCorp B</div>
-                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich wertvolle Arbeitszeit."</p>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -637,16 +609,229 @@
             </div>
 
             <div class="flex items-center gap-6">
-                <a href="dienstleistungen.html" data-i18n="nav_services" class="hover:text-white transition-colors hover-scale">Dienstleistungen</a>
-                <a href="ueber-uns.html" data-i18n="nav_about" class="hover:text-white transition-colors hover-scale">Über uns</a>
-                <a href="kontakt.html" data-i18n="nav_contact" class="hover:text-white transition-colors hover-scale">Kontakt</a>
-                <a href="datenschutz.html" data-i18n="footer_privacy" class="hover:text-white transition-colors hover-scale">Datenschutz</a>
-                <a href="impressum.html" data-i18n="footer_imprint" class="hover:text-white transition-colors hover-scale">Impressum</a>
+                <a href="dienstleistungen.html" data-i18n="menu_services" class="hover:text-white transition-colors hover-scale">Dienstleistungen</a>
+                <a href="ueber-uns.html" data-i18n="menu_about" class="hover:text-white transition-colors hover-scale">Über uns</a>
+                <a href="kontakt.html" data-i18n="menu_contact" class="hover:text-white transition-colors hover-scale">Kontakt</a>
+                <a href="datenschutz.html" data-i18n="menu_privacy" class="hover:text-white transition-colors hover-scale">Datenschutz</a>
+                <a href="impressum.html" data-i18n="menu_imprint" class="hover:text-white transition-colors hover-scale">Impressum</a>
             </div>
         </div>
     </footer>
 
     <script>
+        const translations = {
+            de: {
+                menu_home: "STARTSEITE",
+                menu_services: "DIENSTLEISTUNGEN",
+                menu_about: "ÜBER UNS",
+                menu_contact: "KONTAKT",
+                menu_privacy: "DATENSCHUTZ",
+                menu_imprint: "IMPRESSUM",
+                hero_headline_1: "KI-LÖSUNGEN,",
+                hero_headline_2: "DIE <span class=\"font-serif italic font-medium text-blue-400\">ZEIT</span> SPAREN.",
+                hero_cta_primary: "Jetzt kontaktieren",
+                hero_cta_secondary: "Dienstleistungen entdecken",
+                services_title: "Maßgeschneiderte KI-Systeme für maximale Skalierung",
+                services_sub: "Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.",
+                service1_badge: "01 / AUTONOMOUS VOICE AGENTS",
+                service1_title: "Automatisierte Voice-Agenten",
+                service1_desc: "Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.",
+                service1_b1: "Echtzeit-Spracherkennung",
+                service1_b2: "Nahtlose CRM- & Kalender-Anbindung",
+                service1_btn: "Voice Agent anfragen",
+                service2_badge: "02 / WORKFLOW PIPELINES",
+                service2_title: "Workflow-Automatisierung",
+                service2_desc: "Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.",
+                service2_b1: "Prozessanalyse & Individual-Setup",
+                service2_b2: "Fehlerfreie System-Kopplung",
+                service2_btn: "Workflow-Analyse buchen",
+                service3_badge: "03 / ENTERPRISE KNOWLEDGE AI",
+                service3_title: "Enterprise KI-Assistenten",
+                service3_desc: "Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.",
+                service3_b1: "Interne Wissensdatenbanken",
+                service3_b2: "Höchster Datenschutzstandard",
+                service3_btn: "Enterprise KI anfragen",
+                roi_title: "Qualitative Wertsteigerung & ROI",
+                roi_sub: "Der direkte Vergleich zwischen traditionellem Aufwand und intelligenter Automation.",
+                reviews_heading: "Das sagen unsere B2B Kunden"
+            },
+            en: {
+                menu_home: "HOME",
+                menu_services: "SERVICES",
+                menu_about: "ABOUT US",
+                menu_contact: "CONTACT",
+                menu_privacy: "PRIVACY",
+                menu_imprint: "IMPRINT",
+                hero_headline_1: "AI SOLUTIONS,",
+                hero_headline_2: "THAT SAVE <span class=\"font-serif italic font-medium text-blue-400\">TIME</span>.",
+                hero_cta_primary: "Contact Us Now",
+                hero_cta_secondary: "Explore Services",
+                services_title: "Tailored AI Systems for Maximum Scaling",
+                services_sub: "Harness the full potential of modern artificial intelligence to optimize your business operations.",
+                service1_badge: "01 / AUTONOMOUS VOICE AGENTS",
+                service1_title: "Automated Voice Agents",
+                service1_desc: "Intelligent phone assistants taking customer calls 24/7 with human-like quality, scheduling appointments and capturing data directly.",
+                service1_b1: "Real-time speech recognition",
+                service1_b2: "Seamless CRM & Calendar integration",
+                service1_btn: "Request Voice Agent",
+                service2_badge: "02 / WORKFLOW PIPELINES",
+                service2_title: "Workflow Automation",
+                service2_desc: "Connecting your software ecosystem with autonomous AI pipelines. From automated document processing to smart ticket distribution.",
+                service2_b1: "Process analysis & custom setup",
+                service2_b2: "Error-free system integration",
+                service2_btn: "Book Workflow Audit",
+                service3_badge: "03 / ENTERPRISE KNOWLEDGE AI",
+                service3_title: "Enterprise AI Assistants",
+                service3_desc: "Custom-trained knowledge assistants powered by internal company data – fully confidential, GDPR-compliant and ready to deploy.",
+                service3_b1: "Internal knowledge repositories",
+                service3_b2: "Highest data security standards",
+                service3_btn: "Request Enterprise AI",
+                roi_title: "Qualitative Value Addition & ROI",
+                roi_sub: "Direct comparison between traditional manual effort and intelligent automation.",
+                reviews_heading: "What Our B2B Clients Say"
+            },
+            fr: {
+                menu_home: "ACCUEIL",
+                menu_services: "SERVICES",
+                menu_about: "À PROPOS",
+                menu_contact: "CONTACT",
+                menu_privacy: "CONFIDENTIALITÉ",
+                menu_imprint: "MENTIONS LÉGALES",
+                hero_headline_1: "SOLUTIONS IA,",
+                hero_headline_2: "QUI FONT GAGNER DU <span class=\"font-serif italic font-medium text-blue-400\">TEMPS</span>.",
+                hero_cta_primary: "Contactez-nous",
+                hero_cta_secondary: "Découvrir nos services",
+                services_title: "Systèmes IA sur mesure pour une croissance maximale",
+                services_sub: "Exploitez tout le potentiel de l'intelligence artificielle moderne pour optimiser vos processus d'entreprise.",
+                service1_badge: "01 / AGENTS VOCAUX AUTONOMES",
+                service1_title: "Agents Vocaux Automatisés",
+                service1_desc: "Assistants téléphoniques intelligents prenant en charge vos appels 24/7 avec une qualité humaine, la prise de rendez-vous et la saisie directe de données.",
+                service1_b1: "Reconnaissance vocale en temps réel",
+                service1_b2: "Intégration CRM et Calendrier fluide",
+                service1_btn: "Demander un Agent Vocal",
+                service2_badge: "02 / PIPELINES DE WORKFLOW",
+                service2_title: "Automatisations de Workflow",
+                service2_desc: "Connexion de vos logiciels métiers à des pipelines d'IA autonomes. De l'analyse de documents à la gestion intelligente des tickets.",
+                service2_b1: "Analyse de processus & configuration sur mesure",
+                service2_b2: "Couplage de systèmes sans erreur",
+                service2_btn: "Réserver une Analyse de Workflow",
+                service3_badge: "03 / IA D'ENTREPRISE",
+                service3_title: "Assistants IA d'Entreprise",
+                service3_desc: "Assistants intelligents entraînés sur vos données d'entreprise confidentielles – 100% conformes au RGPD et opérationnels immédiatement.",
+                service3_b1: "Bases de connaissances internes",
+                service3_b2: "Normes de sécurité des données les plus élevées",
+                service3_btn: "Demander l'IA d'Entreprise",
+                roi_title: "Création de Valeur & ROI",
+                roi_sub: "Comparaison directe entre efforts traditionnels et automatisation intelligente.",
+                reviews_heading: "Ce que disent nos clients B2B"
+            },
+            it: {
+                menu_home: "HOME",
+                menu_services: "SERVIZI",
+                menu_about: "CHI SIAMO",
+                menu_contact: "CONTATTI",
+                menu_privacy: "PRIVACY",
+                menu_imprint: "NOTE LEGALI",
+                hero_headline_1: "SOLUZIONI IA,",
+                hero_headline_2: "CHE FANNO RISPARMIARE <span class=\"font-serif italic font-medium text-blue-400\">TEMPO</span>.",
+                hero_cta_primary: "Contattaci ora",
+                hero_cta_secondary: "Scopri i servizi",
+                services_title: "Sistemi IA su misura per la massima scalabilità",
+                services_sub: "Sfrutta tutto il potenziale dell'intelligenza artificiale moderna per ottimizzare i processi aziendali.",
+                service1_badge: "01 / AGENTI VOCALI AUTONOMI",
+                service1_title: "Agenti Vocali Automatizzati",
+                service1_desc: "Assistenti telefonici intelligenti che gestiscono le chiamate 24/7 con qualità umana, fissano appuntamenti e registrano i dati direttamente.",
+                service1_b1: "Riconoscimento vocale in tempo reale",
+                service1_b2: "Integrazione perfetta con CRM e Calendario",
+                service1_btn: "Richiedi un Agente Vocale",
+                service2_badge: "02 / PIPELINE DI WORKFLOW",
+                service2_title: "Automazione dei Workflow",
+                service2_desc: "Collega i tuoi software aziendali a pipeline IA autonome. Dall'analisi dei documenti alla gestione intelligente dei ticket.",
+                service2_b1: "Analisi dei processi e configurazione personalizzata",
+                service2_b2: "Integrazione dei sistemi priva di errori",
+                service2_btn: "Prenota un'Analisi di Workflow",
+                service3_badge: "03 / IA AZIENDALE",
+                service3_title: "Assistenti IA per Aziende",
+                service3_desc: "Assistenti di conoscenza addestrati sui dati aziendali interni – completamente riservati, conformi al GDPR e subito operativi.",
+                service3_b1: "Database di conoscenza interni",
+                service3_b2: "Massimi standard di sicurezza dei dati",
+                service3_btn: "Richiedi IA Aziendale",
+                roi_title: "Valore Aggiunto & ROI",
+                roi_sub: "Confronto diretto tra gestione manuale tradizionale e automazione intelligente.",
+                reviews_heading: "Cosa dicono i nostri clienti B2B"
+            },
+            es: {
+                menu_home: "INICIO",
+                menu_services: "SERVICIOS",
+                menu_about: "NOSOTROS",
+                menu_contact: "CONTACTO",
+                menu_privacy: "PRIVACIDAD",
+                menu_imprint: "AVISO LEGAL",
+                hero_headline_1: "SOLUCIONES DE IA,",
+                hero_headline_2: "QUE AHORRAN <span class=\"font-serif italic font-medium text-blue-400\">TIEMPO</span>.",
+                hero_cta_primary: "Contactar ahora",
+                hero_cta_secondary: "Descubrir servicios",
+                services_title: "Sistemas de IA a medida para el máximo escalado",
+                services_sub: "Aproveche todo el potencial de la inteligencia artificial moderna para optimizar sus operaciones empresariales.",
+                service1_badge: "01 / AGENTES DE VOZ AUTÓNOMOS",
+                service1_title: "Agentes de Voz Automatizados",
+                service1_desc: "Asistentes telefónicos inteligentes que atienden llamadas 24/7 con calidad humana, agendan citas y registran datos directamente.",
+                service1_b1: "Reconocimiento de voz en tiempo real",
+                service1_b2: "Integración perfecta con CRM y Calendario",
+                service1_btn: "Solicitar Agente de Voz",
+                service2_badge: "02 / PIPELINES DE WORKFLOW",
+                service2_title: "Automatización de Procesos",
+                service2_desc: "Conecte su ecosistema de software con flujos autónomos de IA. Desde el procesamiento de documentos hasta la distribución de tickets.",
+                service2_b1: "Análisis de procesos y configuración personalizada",
+                service2_b2: "Integración de sistemas sin errores",
+                service2_btn: "Reservar Análisis de Flujo",
+                service3_badge: "03 / IA EMPRESARIAL",
+                service3_title: "Asistentes de IA Empresarial",
+                service3_desc: "Asistentes entrenados con sus propios datos corporativos – totalmente confidenciales, conformes al RGPD y listos para operar.",
+                service3_b1: "Bases de conocimiento internas",
+                service3_b2: "Máximos estándares de seguridad de datos",
+                service3_btn: "Solicitar IA Empresarial",
+                roi_title: "Incremento de Valor & ROI",
+                roi_sub: "Comparación directa entre esfuerzo manual tradicional y automatización inteligente.",
+                reviews_heading: "Lo que dicen nuestros clientes B2B"
+            },
+            tr: {
+                menu_home: "ANA SAYFA",
+                menu_services: "HİZMETLER",
+                menu_about: "HAKKIMIZDA",
+                menu_contact: "İLETİŞİM",
+                menu_privacy: "GİZLİLİK",
+                menu_imprint: "YASAL BİLDİRİM",
+                hero_headline_1: "YAPAY ZEKA ÇÖZÜMLERİ,",
+                hero_headline_2: "<span class=\"font-serif italic font-medium text-blue-400\">ZAMAN</span> TASARRUFU SAĞLAR.",
+                hero_cta_primary: "Hemen İletişime Geçin",
+                hero_cta_secondary: "Hizmetleri Keşfedin",
+                services_title: "Maksimum Ölçekleme İçin Özel Yapay Zeka Sistemleri",
+                services_sub: "İş süreçlerinizi optimize etmek için modern yapay zekanın tüm potansiyelinden yararlanın.",
+                service1_badge: "01 / OTONOM SESLİ ASİSTANLAR",
+                service1_title: "Otomatik Sesli Asistanlar",
+                service1_desc: "Gelen müşteri aramalarını 7/24 insan kalitesinde yanıtlayan, randevu oluşturan ve verileri doğrudan kaydeden akıllı telefon asistanları.",
+                service1_b1: "Gerçek zamanlı konuşma tanıma",
+                service1_b2: "Sorunsuz CRM ve Takvim entegrasyonu",
+                service1_btn: "Sesli Asistan Talep Et",
+                service2_badge: "02 / İŞ AKIŞI OTOMASYONU",
+                service2_title: "İş Akışı Otomasyonu",
+                service2_desc: "Yazılımlarınızı otonom çalışan yapay zeka hatlarına bağlayın. Belge analizinden akıllı bilet dağıtımına kadar.",
+                service2_b1: "Süreç analizi ve özel kurulum",
+                service2_b2: "Hatasız sistem entegrasyonu",
+                service2_btn: "İş Akışı Analizi Alın",
+                service3_badge: "03 / KURUMSAL YAPAY ZEKA",
+                service3_title: "Kurumsal Yapay Zeka Asistanları",
+                service3_desc: "Şirket içi verilerinizle eğitilmiş özel bilgi asistanları – tam gizli, KVKK/GDPR uyumlu ve anında kullanıma hazır.",
+                service3_b1: "Dahili bilgi havuzları",
+                service3_b2: "En yüksek veri güvenliği standartları",
+                service3_btn: "Kurumsal YZ Talep Et",
+                roi_title: "Değer Artışı ve ROI",
+                roi_sub: "Geleneksel manuel çaba ile akıllı otomasyon arasındaki doğrudan karşılaştırma.",
+                reviews_heading: "B2B Müşterilerimizin Yorumları"
+            }
+        };
+
         function openMenu() {
             const menu = document.getElementById('rrOverlayMenu');
             const backdrop = document.getElementById('rrMenuBackdrop');
@@ -685,17 +870,26 @@
             const langMenu = document.getElementById('langDropdownMenu');
             
             const flags = {
-                'de': '<svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>',
-                'en': '<img src="assets/uk_us_flag.png" alt="UK/US" class="w-full h-full object-cover">',
-                'fr': '<svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>',
-                'it': '<svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>',
-                'es': '<svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>',
-                'tr': '<img src="/IMG_2475_2.jpeg" alt="TR" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">'
+                'de': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>',
+                'en': '<img src="assets/uk_us_flag.png" alt="UK/US" class="w-full h-full object-cover rounded-full">',
+                'fr': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>',
+                'it': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>',
+                'es': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>',
+                'tr': '<img src="/IMG_2475_2.jpeg" alt="TR" class="w-full h-full object-cover rounded-full">'
             };
 
             if (flagIcon && flags[lang]) {
                 flagIcon.innerHTML = flags[lang];
             }
+
+            const dict = translations[lang] || translations['de'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerHTML = dict[key];
+                }
+            });
+
             if (langMenu) {
                 langMenu.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
                 langMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
@@ -724,6 +918,18 @@
                 });
             }
 
+            const slideObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.card-slide-in').forEach(card => {
+                slideObserver.observe(card);
+            });
+
             const textRevealSec = document.getElementById('text-reveal-section');
             const textRevealEl = document.getElementById('reveal-text');
             if (textRevealSec && textRevealEl) {
@@ -734,13 +940,10 @@
 
                 function updateTextReveal() {
                     const rect = textRevealSec.getBoundingClientRect();
-                    const winHeight = window.innerHeight;
+                    const winH = window.innerHeight;
+                    const secCenter = rect.top + rect.height / 2;
                     
-                    const startPoint = winHeight * (2 / 3);
-                    const endPoint = winHeight * 0.4;
-                    
-                    const totalDist = startPoint - endPoint;
-                    let progress = (startPoint - rect.top) / totalDist;
+                    let progress = (winH - secCenter) / winH;
                     progress = Math.min(Math.max(progress, 0), 1);
                     
                     const activeIndex = Math.floor(progress * (wordSpans.length + 1));
