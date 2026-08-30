@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerklärung | Flow Solutions</title>
-    <meta name="description" content="Datenschutzerklärung von Flow Solutions – Informationen über die Verarbeitung Ihrer personenbezogenen Daten.">
-    <meta property="og:title" content="Flow Solutions">
+    <meta name="description" content="Datenschutzerklärung von Flow Solutions gemäß DSGVO.">
+    <meta property="og:title" content="Flow Solutions - Datenschutz">
     <link rel="icon" type="image/jpeg" href="Logo inverted 1zu1_2.jpeg" />
     <link rel="apple-touch-icon" href="Logo inverted 1zu1_2.jpeg" />
     <link rel="manifest" href="site.webmanifest">
     <meta name="apple-mobile-web-app-title" content="Flow Solutions">
     <meta name="application-name" content="Flow Solutions">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#040711">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#ffffff">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,73 +37,37 @@
             }
         }
         body {
-            background-color: #040711;
-            color: #f8fafc;
+            background-color: #f8fafc;
+            color: #0f172a;
         }
         .liquid-glass-nav {
-            background: rgba(4, 7, 17, 0.65);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
-        .apple-dark-card {
-            background: rgba(12, 18, 41, 0.85);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(16px);
+        .dropdown-menu {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
         }
-        .legal-content h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 1.5rem;
+        .dropdown-wrapper:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
-        .legal-content h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(37, 99, 235, 0.3);
-            padding-bottom: 0.5rem;
-        }
-        .legal-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #60a5fa;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        .legal-content h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #e2e8f0;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        .legal-content p {
-            color: #cbd5e1;
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-        .legal-content ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: #cbd5e1;
-        }
-        .legal-content li {
-            margin-bottom: 0.5rem;
-        }
-        .legal-content a {
-            color: #60a5fa;
-            text-decoration: underline;
+        .light-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .hover-scale {
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .hover-scale:hover {
-            transform: scale(1.03);
+            transform: scale(1.025);
         }
         .custom-cursor {
             pointer-events: none;
@@ -113,10 +77,9 @@
             width: 16px;
             height: 16px;
             background-color: transparent;
-            border: 1.5px solid #60a5fa;
+            border: 1.5px solid #2563eb;
             border-radius: 50%;
             z-index: 99999;
-            mix-blend-mode: difference;
             transform: translate(-50%, -50%);
             transition: width 0.2s, height 0.2s, border-width 0.2s;
         }
@@ -124,16 +87,7 @@
             width: 28px;
             height: 28px;
             border-width: 2px;
-        }
-        .neon-blue-btn {
-            background-color: #2563eb;
-            color: #ffffff;
-            box-shadow: 0 0 24px rgba(37, 99, 235, 0.45);
-            transition: all 0.3s ease;
-        }
-        .neon-blue-btn:hover {
-            background-color: #3b82f6;
-            box-shadow: 0 0 36px rgba(59, 130, 246, 0.65);
+            background-color: rgba(37, 99, 235, 0.1);
         }
     </style>
 </head>
@@ -141,11 +95,11 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button onclick="openMenu()" class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2.5">
+                <button onclick="openMenu()" class="p-2 text-slate-900 hover:text-blue-600 focus:outline-none hover-scale flex items-center gap-2.5">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -158,20 +112,49 @@
                     </a>
                 </div>
 
-                <div>
-                    <a href="index.html" class="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold neon-blue-btn rounded-full transition-all duration-200 shadow-sm hover-scale">
-                        <span>Zurück</span>
-                    </a>
+                <div class="relative dropdown-wrapper">
+                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-slate-100 border border-slate-200 overflow-hidden shadow-sm hover-scale">
+                        <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
+                            <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                        </span>
+                    </button>
+                    <div class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-slate-900 rounded-2xl shadow-2xl p-2 border border-slate-200 text-xs">
+                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg></span>
+                            <span>Deutsch (DE)</span>
+                        </button>
+                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover"></span>
+                            <span>English (UK / US)</span>
+                        </button>
+                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg></span>
+                            <span>Français (FR)</span>
+                        </button>
+                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg></span>
+                            <span>Italiano (IT)</span>
+                        </button>
+                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm"><svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg></span>
+                            <span>Español (ES)</span>
+                        </button>
+                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm border border-slate-200"><img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;"></span>
+                            <span>Türkçe (TR)</span>
+                        </button>
+                    </div>
                 </div>
+
             </div>
         </div>
     </header>
 
-    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-black/80 z-[90] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-900/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
 
-    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-[#050816]/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-blue-900/30">
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-slate-950/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
         <div class="flex items-center justify-between">
-            <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-neutral-900 border border-blue-900/40 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale" aria-label="Menü schließen">
+            <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale" aria-label="Menü schließen">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -179,114 +162,58 @@
         </div>
 
         <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
-            <a href="index.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-blue-400 transition-colors hover-scale">STARTSEITE</a>
-            <a href="dienstleistungen.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-blue-400 transition-colors hover-scale">DIENSTLEISTUNGEN</a>
-            <a href="ueber-uns.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-blue-400 transition-colors hover-scale">ÜBER UNS</a>
-            <a href="kontakt.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-blue-400 transition-colors hover-scale">KONTAKT</a>
-            <a href="datenschutz.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-blue-400 transition-colors hover-scale">DATENSCHUTZ</a>
-            <a href="impressum.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-blue-400 transition-colors hover-scale">IMPRESSUM</a>
+            <a href="index.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">STARTSEITE</a>
+            <a href="dienstleistungen.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">IMPRESSUM</a>
         </nav>
 
-        <div class="text-xs text-neutral-500 font-mono tracking-widest">
+        <div class="text-xs text-slate-500 font-mono tracking-widest">
             FLOW SOLUTIONS © 2026
         </div>
     </div>
 
-    <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-            
-            <div class="apple-dark-card rounded-3xl p-8 sm:p-12 shadow-2xl legal-content hover-scale">
-                <h1>Datenschutz&shy;erkl&auml;rung</h1>
-                <h2>1. Datenschutz auf einen Blick</h2>
-                <h3>Allgemeine Hinweise</h3>
-                <p>Die folgenden Hinweise geben einen einfachen &Uuml;berblick dar&uuml;ber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie pers&ouml;nlich identifiziert werden k&ouml;nnen. Ausf&uuml;hrliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgef&uuml;hrten Datenschutzerkl&auml;rung.</p>
-                <h3>Datenerfassung auf dieser Website</h3>
-                <h4>Wer ist verantwortlich f&uuml;r die Datenerfassung auf dieser Website?</h4>
-                <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten k&ouml;nnen Sie dem Abschnitt &bdquo;Hinweis zur verantwortlichen Stelle&ldquo; in dieser Datenschutzerkl&auml;rung entnehmen.</p>
-                <h4>Wie erfassen wir Ihre Daten?</h4>
-                <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.&nbsp;B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
-                <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.&nbsp;B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
-                <h4>Wof&uuml;r nutzen wir Ihre Daten?</h4>
-                <p>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gew&auml;hrleisten. Andere Daten k&ouml;nnen zur Analyse Ihres Nutzerverhaltens verwendet werden. Sofern &uuml;ber die Website Vertr&auml;ge geschlossen oder angebahnt werden k&ouml;nnen, werden die &uuml;bermittelten Daten auch f&uuml;r Vertragsangebote, Bestellungen oder sonstige Auftragsanfragen verarbeitet.</p>
-                <h4>Welche Rechte haben Sie bez&uuml;glich Ihrer Daten?</h4>
-                <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft &uuml;ber Herkunft, Empf&auml;nger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben au&szlig;erdem ein Recht, die Berichtigung oder L&ouml;schung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, k&ouml;nnen Sie diese Einwilligung jederzeit f&uuml;r die Zukunft widerrufen. Au&szlig;erdem haben Sie das Recht, unter bestimmten Umst&auml;nden die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zust&auml;ndigen Aufsichtsbeh&ouml;rde zu.</p>
-                <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz k&ouml;nnen Sie sich jederzeit an uns wenden.</p>
-                <h2>2. Hosting</h2>
-                <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
-                <h3>Externes Hosting</h3>
-                <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters / der Hoster gespeichert. Hierbei kann es sich v.&nbsp;a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die &uuml;ber eine Website generiert werden, handeln.</p>
-                <p>Das externe Hosting erfolgt zum Zwecke der Vertragserf&uuml;llung gegen&uuml;ber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO). Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschlie&szlig;lich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und &sect; 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endger&auml;t des Nutzers (z.&nbsp;B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.</p>
-                <p>Unser(e) Hoster wird bzw. werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erf&uuml;llung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen.</p>
-                <p>Wir setzen folgende(n) Hoster ein:</p>
-                <p>Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
-                <h4>Auftragsverarbeitung</h4>
-                <p>Wir haben einen Vertrag &uuml;ber Auftragsverarbeitung (AVV) zur Nutzung des oben genannten Dienstes geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gew&auml;hrleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.</p>
-                <h2>3. Allgemeine Hinweise und Pflicht&shy;informationen</h2>
-                <h3>Datenschutz</h3>
-                <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer pers&ouml;nlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerkl&auml;rung.</p>
-                <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie pers&ouml;nlich identifiziert werden k&ouml;nnen. Die vorliegende Datenschutzerkl&auml;rung erl&auml;utert, welche Daten wir erheben und wof&uuml;r wir sie nutzen. Sie erl&auml;utert auch, wie und zu welchem Zweck das geschieht.</p>
-                <p>Wir weisen darauf hin, dass die Daten&uuml;bertragung im Internet (z.&nbsp;B. bei der Kommunikation per E-Mail) Sicherheitsl&uuml;cken aufweisen kann. Ein l&uuml;ckenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht m&ouml;glich.</p>
-                <h3>Hinweis zur verantwortlichen Stelle</h3>
-                <p>Die verantwortliche Stelle f&uuml;r die Datenverarbeitung auf dieser Website ist:</p>
-                <p>Maximilian Reiser<br />Brackenheimerweg 2<br />73732 Esslingen am Neckar</p>
-                <p>Telefon: +49 1575 4656817<br />E-Mail: flowsolutions.digital@gmail.com</p>
-                <p>Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen, E-Mail-Adressen o.&nbsp;&Auml;.) entscheidet.</p>
-                <h3>Speicherdauer</h3>
-                <p>Soweit innerhalb dieser Datenschutzerkl&auml;rung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck f&uuml;r die Datenverarbeitung entf&auml;llt. Wenn Sie ein berechtigtes L&ouml;schersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gel&ouml;scht, sofern wir keine anderen rechtlich zul&auml;ssigen Gr&uuml;nde f&uuml;r die Speicherung Ihrer personenbezogenen Daten haben (z.&nbsp;B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die L&ouml;schung nach Fortfall dieser Gr&uuml;nde.</p>
-                <h3>Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf dieser Website</h3>
-                <p>Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO, sofern besondere Datenkategorien nach Art. 9 Abs. 1 DSGVO verarbeitet werden. Im Falle einer ausdr&uuml;cklichen Einwilligung in die &Uuml;bertragung personenbezogener Daten in Drittstaaten erfolgt die Datenverarbeitung au&szlig;erdem auf Grundlage von Art. 49 Abs. 1 lit. a DSGVO. Sofern Sie in die Speicherung von Cookies oder in den Zugriff auf Informationen in Ihr Endger&auml;t (z.&nbsp;B. via Device-Fingerprinting) eingewilligt haben, erfolgt die Datenverarbeitung zus&auml;tzlich auf Grundlage von &sect; 25 Abs. 1 TDDDG. Die Einwilligung ist jederzeit widerrufbar. Sind Ihre Daten zur Vertragserf&uuml;llung oder zur Durchf&uuml;hrung vorvertraglicher Ma&szlig;nahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erf&uuml;llung einer rechtlichen Verpflichtung erforderlich sind, auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO. Die Datenverarbeitung kann ferner auf Grundlage unseres berechtigten Interesses nach Art. 6 Abs. 1 lit. f DSGVO erfolgen. &Uuml;ber die jeweils im Einzelfall einschl&auml;gigen Rechtsgrundlagen wird in den folgenden Abs&auml;tzen dieser Datenschutzerkl&auml;rung informiert.</p>
-                <h3>Empf&auml;nger von personenbezogenen Daten</h3>
-                <p>Im Rahmen unserer Gesch&auml;ftst&auml;tigkeit arbeiten wir mit verschiedenen externen Stellen zusammen. Dabei ist teilweise auch eine &Uuml;bermittlung von personenbezogenen Daten an diese externen Stellen erforderlich. Wir geben personenbezogene Daten nur dann an externe Stellen weiter, wenn dies im Rahmen einer Vertragserf&uuml;llung erforderlich ist, wenn wir gesetzlich hierzu verpflichtet sind (z.&nbsp;B. Weitergabe von Daten an Steuerbeh&ouml;rden), wenn wir ein berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO an der Weitergabe haben oder wenn eine sonstige Rechtsgrundlage die Datenweitergabe erlaubt. Beim Einsatz von Auftragsverarbeitern geben wir personenbezogene Daten unserer Kunden nur auf Grundlage eines g&uuml;ltigen Vertrags &uuml;ber Auftragsverarbeitung weiter. Im Falle einer gemeinsamen Verarbeitung wird ein Vertrag &uuml;ber gemeinsame Verarbeitung geschlossen.</p>
-                <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
-                <p>Viele Datenverarbeitungsvorg&auml;nge sind nur mit Ihrer ausdr&uuml;cklichen Einwilligung m&ouml;glich. Sie k&ouml;nnen eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtm&auml;&szlig;igkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unber&uuml;hrt.</p>
-                <h3>Widerspruchsrecht gegen die Datenerhebung in besonderen F&auml;llen sowie gegen Direktwerbung (Art. 21 DSGVO)</h3>
-                <p>WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GR&Uuml;NDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; DIES GILT AUCH F&Uuml;R EIN AUF DIESE BESTIMMUNGEN GEST&UUBTZTES PROFILING. DIE JEWEILIGE RECHTSGRUNDLAGE, AUF DENEN EINE VERARBEITUNG BERUHT, ENTNEHMEN SIE DIESER DATENSCHUTZERKL&Auml;RUNG. WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES SEI DENN, WIR K&Ouml;NNEN ZWINGENDE SCHUTZW&Uuml;RDIGE GR&Uuml;NDE F&Uuml;R DIE VERARBEITUNG NACHWEISEN, DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN &UUBERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG, AUS&UUBUNG ODER VERTEIDIGUNG VON RECHTSANSPR&UUBCHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).</p>
-                <p>WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN; DIES GILT AUCH F&Uuml;R DAS PROFILING, SOWEIT ES MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. WENN SIE WIDERSPRECHEN, WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21 ABS. 2 DSGVO).</p>
-                <h3>Beschwerde&shy;recht bei der zust&auml;ndigen Aufsichts&shy;beh&ouml;rde</h3>
-                <p>Im Falle von Verst&ouml;&szlig;en gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbeh&ouml;rde, insbesondere in dem Mitgliedstaat ihres gew&ouml;hnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutma&szlig;lichen Versto&szlig;es zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>
-                <h3>Recht auf Daten&shy;&uuml;bertrag&shy;barkeit</h3>
-                <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erf&uuml;llung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem g&auml;ngigen, maschinenlesbaren Format aush&auml;ndigen zu lassen. Sofern Sie die direkte &Uuml;bertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.</p>
-                <h3>Auskunft, Berichtigung und L&ouml;schung</h3>
-                <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft &uuml;ber Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empf&auml;nger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder L&ouml;schung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten k&ouml;nnen Sie sich jederzeit an uns wenden.</p>
-                <h3>Recht auf Einschr&auml;nkung der Verarbeitung</h3>
-                <p>Sie haben das Recht, die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu k&ouml;nnen Sie sich jederzeit an uns wenden. Das Recht auf Einschr&auml;nkung der Verarbeitung besteht in folgenden F&auml;llen:</p>
-                <ul>
-                  <li>Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, ben&ouml;tigen wir in der Regel Zeit, um dies zu &uuml;berpr&uuml;fen. F&uuml;r die Dauer der Pr&uuml;fung haben Sie das Recht, die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
-                  <li>Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtm&auml;&szlig;ig geschah/geschieht, k&ouml;nnen Sie statt der L&ouml;schung die Einschr&auml;nkung der Datenverarbeitung verlangen.</li>
-                  <li>Wenn wir Ihre personenbezogenen Daten nicht mehr ben&ouml;tigen, Sie sie jedoch zur Aus&uuml;bung, Verteidigung oder Geltendmachung von Rechtsanspr&uuml;chen ben&ouml;tigen, haben Sie das Recht, statt der L&ouml;schung die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
-                  <li>Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abw&auml;gung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen &uuml;berwiegen, haben Sie das Recht, die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
-                </ul>
-                <p>Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschr&auml;nkt haben, d&uuml;rfen diese Daten &ndash; von ihrer Speicherung abgesehen &ndash; nur mit Ihrer Einwilligung oder zur Geltendmachung, Aus&uuml;bung oder Verteidigung von Rechtsanspr&uuml;chen oder zum Schutz der Rechte einer anderen nat&uuml;rlichen oder juristischen Person oder aus Gr&uuml;nden eines wichtigen &ouml;ffentlichen Interesses der Europ&auml;ischen Union oder eines Mitgliedstaats verarbeitet werden.</p>
-                <h3>SSL- bzw. TLS-Verschl&uuml;sselung</h3>
-                <p>Diese Seite nutzt aus Sicherheitsgr&uuml;nden und zum Schutz der &Uuml;bertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschl&uuml;sselung. Eine verschl&uuml;sselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von &bdquo;http://&ldquo; auf &bdquo;https://&ldquo; wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
-                <p>Wenn die SSL- bzw. TLS-Verschl&uuml;sselung aktiviert ist, k&ouml;nnen die Daten, die Sie an uns &uuml;bermitteln, nicht von Dritten mitgelesen werden.</p>
-                <h3>Widerspruch gegen Werbe-E-Mails</h3>
-                <p>Der Nutzung von im Rahmen der Impressumspflicht ver&ouml;ffentlichten Kontaktdaten zur &Uuml;bersendung von nicht ausdr&uuml;cklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdr&uuml;cklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.</p>
-                <h2>4. Datenerfassung auf dieser Website</h2>
-                <h3>Server-Log-Dateien</h3>
-                <p>Der Provider der Seiten erh&auml;lt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns &uuml;bermittelt. Dies sind:</p>
-                <ul>
-                  <li>Browsertyp und Browserversion</li>
-                  <li>verwendetes Betriebssystem</li>
-                  <li>Referrer URL</li>
-                  <li>Hostname des zugreifenden Rechners</li>
-                  <li>Uhrzeit der Serveranfrage</li>
-                  <li>IP-Adresse</li>
-                </ul>
-                <p>Eine Zusammenf&uuml;hrung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
-                <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website &ndash; hierzu m&uuml;ssen die Server-Log-Files erfasst werden.</p>
-                <h3>Anfrage per E-Mail, Telefon oder Telefax</h3>
-                <p>Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-                <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erf&uuml;llung eines Vertrags zusammenh&auml;ngt oder zur Durchf&uuml;hrung vorvertraglicher Ma&szlig;nahmen erforderlich ist. In allen &uuml;brigen F&auml;llen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.</p>
-                <p>Die von Ihnen an uns per Kontaktanfragen &uuml;bersandten Daten verbleiben bei uns, bis Sie uns zur L&ouml;schung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck f&uuml;r die Datenspeicherung entf&auml;llt (z.&nbsp;B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen &ndash; insbesondere gesetzliche Aufbewahrungsfristen &ndash; bleiben unber&uuml;hrt.</p>
-                <p class="pt-4 border-t border-blue-900/40 text-xs text-neutral-500 font-mono">Quelle: <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer">https://www.e-recht24.de</a></p>
+    <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+        
+        <div class="text-center mb-16">
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
+                Datenschutzerklärung
+            </h1>
+        </div>
+
+        <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200 space-y-8 text-slate-700 leading-relaxed text-sm sm:text-base">
+            <div>
+                <h2 class="text-xl font-bold text-slate-900 mb-3">1. Datenschutz auf einen Blick</h2>
+                <p class="mb-4">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
             </div>
 
+            <div class="pt-6 border-t border-slate-100">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">2. Verantwortliche Stelle</h2>
+                <p class="font-semibold text-slate-900">Flow Solutions</p>
+                <p>Maximilian Reiser</p>
+                <p>Pfaffenwaldring 57</p>
+                <p>70569 Stuttgart</p>
+                <p>E-Mail: kontakt@flowsolutions.digital</p>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">3. Datenerfassung auf unserer Website</h2>
+                <p class="mb-3">Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+                <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">4. Ihre Rechte</h2>
+                <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.</p>
+            </div>
         </div>
+
     </main>
 
-    <footer class="relative z-10 bg-[#02040a] border-t border-blue-900/30 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+    <footer class="relative z-10 bg-slate-950 text-slate-400 border-t border-slate-800 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
             <div class="flex items-center gap-3 hover-scale">
                 <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
                     <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
@@ -295,29 +222,29 @@
                 <span>© 2026. Alle Rechte vorbehalten.</span>
             </div>
 
-            <div class="flex items-center gap-4 text-neutral-300">
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="LinkedIn">
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="LinkedIn">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.47 1.47 0 0 0-1.47 1.47c0 .81.66 1.47 1.47 1.47a1.47 1.47 0 0 0 1.47-1.47c0-.81-.66-1.47-1.47-1.47Z"/></svg>
                 </a>
-                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="TikTok">
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="TikTok">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.5 2.73 2.73 0 0 1 1.01.2V9.96a5.72 5.72 0 0 0-.96-.08 5.67 5.67 0 1 0 5.67 5.67V9.02a7.33 7.33 0 0 0 4.33 1.41V7.32a4.34 4.34 0 0 1-3.3-1.5z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/flowsolutions.digital?utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Instagram">
+                <a href="https://www.instagram.com/flowsolutions.digital?utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Instagram">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
-                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Pinterest">
+                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Pinterest">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z"/></svg>
                 </a>
-                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="YouTube">
+                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="YouTube">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 </a>
             </div>
 
             <div class="flex items-center gap-6">
                 <a href="index.html" class="hover:text-white transition-colors hover-scale">Startseite</a>
+                <a href="dienstleistungen.html" class="hover:text-white transition-colors hover-scale">Dienstleistungen</a>
                 <a href="ueber-uns.html" class="hover:text-white transition-colors hover-scale">Über uns</a>
                 <a href="kontakt.html" class="hover:text-white transition-colors hover-scale">Kontakt</a>
-                <a href="datenschutz.html" class="text-white font-semibold hover-scale">Datenschutz</a>
                 <a href="impressum.html" class="hover:text-white transition-colors hover-scale">Impressum</a>
             </div>
         </div>

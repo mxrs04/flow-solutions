@@ -12,19 +12,19 @@
     <meta name="apple-mobile-web-app-title" content="Flow Solutions">
     <meta name="application-name" content="Flow Solutions">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#040711">
-    <link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     }
                 }
@@ -32,33 +32,20 @@
         }
     </script>
     <style>
-        @font-face {
-            font-family: 'BubbledotICG-FinePos';
-            src: url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.eot");
-            src: url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.eot?#iefix") format("embedded-opentype"),
-                 url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.woff2") format("woff2"),
-                 url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.woff") format("woff"),
-                 url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.ttf") format("truetype"),
-                 url("https://db.onlinewebfonts.com/t/8cb707a9b8a73f8a7403336b861c3074.svg#BubbledotICG-FinePos") format("svg");
-        }
-        .font-dotmatrix {
-            font-family: 'BubbledotICG-FinePos', 'Plus Jakarta Sans', sans-serif !important;
-            color: #ffffff !important;
-        }
         @media (min-width: 768px) {
             html, body, a, button, input, textarea {
                 cursor: none !important;
             }
         }
         body {
-            background-color: #040711;
-            color: #f8fafc;
+            background-color: #f8fafc;
+            color: #0f172a;
         }
         .liquid-glass-nav {
-            background: rgba(4, 7, 17, 0.65);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
         }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -71,22 +58,21 @@
             visibility: visible;
             transform: translateY(0);
         }
-        .apple-card {
-            background: rgba(12, 18, 41, 0.85);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(16px);
+        .light-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .apple-card:hover {
-            box-shadow: 0 12px 40px -4px rgba(37, 99, 235, 0.3);
-            border-color: rgba(59, 130, 246, 0.5);
+        .light-card:hover {
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.12);
+            border-color: #cbd5e1;
         }
         .hover-scale {
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .hover-scale:hover {
-            transform: scale(1.03);
+            transform: scale(1.025);
         }
         .custom-cursor {
             pointer-events: none;
@@ -96,10 +82,9 @@
             width: 16px;
             height: 16px;
             background-color: transparent;
-            border: 1.5px solid #60a5fa;
+            border: 1.5px solid #2563eb;
             border-radius: 50%;
             z-index: 99999;
-            mix-blend-mode: difference;
             transform: translate(-50%, -50%);
             transition: width 0.2s, height 0.2s, border-width 0.2s;
         }
@@ -107,35 +92,26 @@
             width: 28px;
             height: 28px;
             border-width: 2px;
+            background-color: rgba(37, 99, 235, 0.1);
         }
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
+        @keyframes infiniteMarquee {
+            0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
         .marquee-track {
             display: flex;
             width: max-content;
-            animation: marquee 35s linear infinite;
+            animation: infiniteMarquee 38s linear infinite;
         }
         .marquee-track:hover {
             animation-play-state: paused;
         }
         .marquee-container {
-            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-        }
-        .neon-blue-btn {
-            background-color: #2563eb;
-            color: #ffffff;
-            box-shadow: 0 0 24px rgba(37, 99, 235, 0.45);
-            transition: all 0.3s ease;
-        }
-        .neon-blue-btn:hover {
-            background-color: #3b82f6;
-            box-shadow: 0 0 36px rgba(59, 130, 246, 0.65);
+            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
         }
         .partial-star-48 {
-            background: linear-gradient(90deg, #FFD700 80%, #4b5563 20%);
+            background: linear-gradient(90deg, #f59e0b 80%, #cbd5e1 20%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -145,11 +121,11 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-white">
+    <header class="fixed top-0 left-0 right-0 z-50 liquid-glass-nav text-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button onclick="openMenu()" class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2.5">
+                <button onclick="openMenu()" class="p-2 text-slate-900 hover:text-blue-600 focus:outline-none hover-scale flex items-center gap-2.5">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -163,44 +139,44 @@
                 </div>
 
                 <div class="relative dropdown-wrapper">
-                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-neutral-900/90 border border-blue-900/50 overflow-hidden shadow-sm hover-scale">
+                    <button id="langSelectBtn" class="flex items-center justify-center w-9 h-9 rounded-full bg-slate-100 border border-slate-200 overflow-hidden shadow-sm hover-scale">
                         <span id="currentFlagIcon" class="w-full h-full flex items-center justify-center">
                             <svg class="w-6 h-6" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
                     </button>
-                    <div class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-[#0c1229] text-white rounded-2xl shadow-2xl p-2 border border-blue-900/50 text-xs">
-                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-950/60 hover-scale transition-all text-left font-medium">
+                    <div class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-slate-900 rounded-2xl shadow-2xl p-2 border border-slate-200 text-xs">
+                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
                                 <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                             </span>
                             <span>Deutsch (DE)</span>
                         </button>
-                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-950/60 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
                                 <img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover">
                             </span>
                             <span>English (UK / US)</span>
                         </button>
-                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-950/60 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
                                 <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>
                             </span>
                             <span>Français (FR)</span>
                         </button>
-                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-950/60 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
                                 <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>
                             </span>
                             <span>Italiano (IT)</span>
                         </button>
-                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-950/60 hover-scale transition-all text-left font-medium">
+                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
                             <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm">
                                 <svg class="w-full h-full" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>
                             </span>
                             <span>Español (ES)</span>
                         </button>
-                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-950/60 hover-scale transition-all text-left font-medium">
-                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm border border-neutral-700">
+                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium">
+                            <span class="w-6 h-6 rounded-full overflow-hidden shrink-0 shadow-sm border border-slate-200">
                                 <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">
                             </span>
                             <span>Türkçe (TR)</span>
@@ -212,11 +188,11 @@
         </div>
     </header>
 
-    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-black/80 z-[90] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-900/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
 
-    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-[#050816]/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-blue-900/30">
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-slate-950/95 text-white backdrop-blur-2xl z-[100] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
         <div class="flex items-center justify-between">
-            <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-neutral-900 border border-blue-900/40 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale" aria-label="Menü schließen">
+            <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale" aria-label="Menü schließen">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -224,44 +200,41 @@
         </div>
 
         <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
-            <a href="index.html" onclick="closeMenu()" data-i18n="menu_home" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-blue-400 transition-colors hover-scale">STARTSEITE</a>
-            <a href="dienstleistungen.html" onclick="closeMenu()" data-i18n="menu_services" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-blue-400 transition-colors hover-scale">DIENSTLEISTUNGEN</a>
-            <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="menu_about" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-blue-400 transition-colors hover-scale">ÜBER UNS</a>
-            <a href="kontakt.html" onclick="closeMenu()" data-i18n="menu_contact" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-neutral-300 hover:text-blue-400 transition-colors hover-scale">KONTAKT</a>
-            <a href="datenschutz.html" onclick="closeMenu()" data-i18n="menu_privacy" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-blue-400 transition-colors hover-scale">DATENSCHUTZ</a>
-            <a href="impressum.html" onclick="closeMenu()" data-i18n="menu_imprint" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-neutral-500 hover:text-blue-400 transition-colors hover-scale">IMPRESSUM</a>
+            <a href="index.html" onclick="closeMenu()" data-i18n="menu_home" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">STARTSEITE</a>
+            <a href="dienstleistungen.html" onclick="closeMenu()" data-i18n="menu_services" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="menu_about" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">ÜBER UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()" data-i18n="menu_contact" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()" data-i18n="menu_privacy" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()" data-i18n="menu_imprint" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">IMPRESSUM</a>
         </nav>
 
-        <div class="text-xs text-neutral-500 font-mono tracking-widest">
+        <div class="text-xs text-slate-500 font-mono tracking-widest">
             FLOW SOLUTIONS © 2026
         </div>
     </div>
 
     <main class="relative z-10">
         
-        <section class="relative text-white min-h-[85vh] sm:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-blue-900/30">
-            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0">
-                    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4" type="video/mp4" />
-                </video>
-                <div class="absolute inset-0 bg-[#003296]/45 mix-blend-multiply pointer-events-none z-[1]"></div>
-                <div class="absolute inset-0 bg-gradient-to-b from-[#040711]/85 via-[#040711]/60 to-[#040711]/95 backdrop-blur-[1px] pointer-events-none z-[2]"></div>
+        <section class="relative text-slate-900 pt-32 pb-16 sm:pt-40 sm:pb-28 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-slate-200 bg-slate-50">
+            <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+                <img src="Logo Landingpage16zu9_2.png" alt="Flow Solutions 16:9 Hero Background" class="w-full h-full object-contain sm:object-cover object-center opacity-90 scale-100" />
+                <div class="absolute inset-0 bg-gradient-to-b from-white/75 via-white/55 to-white/90"></div>
             </div>
             
-            <div class="max-w-4xl mx-auto relative z-10 py-24 sm:py-32">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-10 leading-[1.12] font-dotmatrix">
-                    <span data-i18n="hero_title1">KI-LÖSUNGEN,</span> <br class="hidden sm:inline" />
-                    <span class="text-white" data-i18n="hero_title2">DIE ZEIT SPAREN.</span>
+            <div class="max-w-4xl mx-auto relative z-10 py-8 sm:py-20">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.12]">
+                    <span>KI-LÖSUNGEN,</span> <br class="hidden sm:inline" />
+                    <span>DIE <span class="font-serif italic font-medium text-blue-600">ZEIT</span> SPAREN.</span>
                 </h1>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold neon-blue-btn rounded-full transition-all duration-300 hover-scale">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+                    <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all duration-300 hover-scale shadow-lg shadow-blue-500/25">
                         <span>Jetzt kontaktieren</span>
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                         </svg>
                     </a>
-                    <a href="dienstleistungen.html" data-i18n="hero_cta_secondary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-blue-950/60 border border-blue-500/50 rounded-full transition-all duration-300 hover:bg-blue-900/80 hover-scale backdrop-blur-md">
+                    <a href="dienstleistungen.html" data-i18n="hero_cta_secondary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-slate-800 bg-white border border-slate-300 rounded-full transition-all duration-300 hover:bg-slate-100 hover-scale shadow-sm">
                         Dienstleistungen entdecken
                     </a>
                 </div>
@@ -270,78 +243,78 @@
 
         <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="services_title">Maßgeschneiderte KI-Systeme für maximale Skalierung</h2>
-                <p class="mt-4 text-neutral-300 text-base sm:text-lg" data-i18n="services_sub">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight" data-i18n="services_title">Maßgeschneiderte KI-Systeme für maximale Skalierung</h2>
+                <p class="mt-4 text-slate-600 text-base sm:text-lg" data-i18n="services_sub">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="apple-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale border border-blue-900/30">
-                    <div class="h-56 overflow-hidden relative">
+                <div class="light-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale">
+                    <div class="h-56 overflow-hidden relative bg-slate-100">
                         <img src="image_1464c8.png" alt="Automatisierte Voice-Agenten" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div class="p-8 flex-grow flex flex-col justify-between">
                         <div>
-                            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="service1_title">Automatisierte Voice-Agenten</h3>
-                            <p class="text-neutral-300 text-sm leading-relaxed mb-6" data-i18n="service1_desc">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3" data-i18n="service1_title">Automatisierte Voice-Agenten</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="service1_desc">
                                 Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.
                             </p>
                         </div>
-                        <ul class="space-y-2.5 text-xs text-neutral-300 font-medium pt-4 border-t border-blue-900/40">
+                        <ul class="space-y-2.5 text-xs text-slate-700 font-medium pt-4 border-t border-slate-100">
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                                 <span data-i18n="service1_bullet1">Echtzeit-Spracherkennung</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                                 <span data-i18n="service1_bullet2">Nahtlose CRM- & Kalender-Anbindung</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="apple-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale border border-blue-900/30">
-                    <div class="h-56 overflow-hidden relative">
+                <div class="light-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale">
+                    <div class="h-56 overflow-hidden relative bg-slate-100">
                         <img src="image_14dd43.png" alt="Workflow-Automatisierung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div class="p-8 flex-grow flex flex-col justify-between">
                         <div>
-                            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="service2_title">Workflow-Automatisierung</h3>
-                            <p class="text-neutral-300 text-sm leading-relaxed mb-6" data-i18n="service2_desc">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3" data-i18n="service2_title">Workflow-Automatisierung</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="service2_desc">
                                 Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.
                             </p>
                         </div>
-                        <ul class="space-y-2.5 text-xs text-neutral-300 font-medium pt-4 border-t border-blue-900/40">
+                        <ul class="space-y-2.5 text-xs text-slate-700 font-medium pt-4 border-t border-slate-100">
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                                 <span data-i18n="service2_bullet1">Prozessanalyse & Individual-Setup</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                                 <span data-i18n="service2_bullet2">Fehlerfreie System-Kopplung</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="apple-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale border border-blue-900/30">
-                    <div class="h-56 overflow-hidden relative">
+                <div class="light-card rounded-3xl overflow-hidden flex flex-col justify-between group hover-scale">
+                    <div class="h-56 overflow-hidden relative bg-slate-100">
                         <img src="image_14dc89.png" alt="Enterprise KI-Assistenten" class="w-full h-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div class="p-8 flex-grow flex flex-col justify-between">
                         <div>
-                            <h3 class="text-2xl font-bold text-white mb-3" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
-                            <p class="text-neutral-300 text-sm leading-relaxed mb-6" data-i18n="service3_desc">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="service3_desc">
                                 Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.
                             </p>
                         </div>
-                        <ul class="space-y-2.5 text-xs text-neutral-300 font-medium pt-4 border-t border-blue-900/40">
+                        <ul class="space-y-2.5 text-xs text-slate-700 font-medium pt-4 border-t border-slate-100">
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                                 <span data-i18n="service3_bullet1">Interne Wissensdatenbanken</span>
                             </li>
                             <li class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                                 <span data-i18n="service3_bullet2">Höchster Datenschutzstandard</span>
                             </li>
                         </ul>
@@ -351,88 +324,84 @@
             </div>
         </section>
 
-        <section id="text-reveal-section" class="relative h-[220vh] bg-[#040711] border-t border-b border-blue-900/30">
-            <div class="sticky top-0 h-screen flex items-center justify-center px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto overflow-hidden">
-                <p id="reveal-text" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-center leading-relaxed tracking-tight select-none">
-                    Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit hochpräzisen Voice-Agenten und maßgeschneiderten KI-Systemen der nächsten Generation.
-                </p>
-            </div>
+        <section id="text-reveal-section" class="py-24 sm:py-36 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center border-t border-slate-200">
+            <p id="reveal-text" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-center leading-relaxed tracking-tight select-none">
+                Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit hochpräzisen Voice-Agenten und maßgeschneiderten KI-Systemen der nächsten Generation.
+            </p>
         </section>
 
-        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-blue-900/20">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Kostenersparnis & ROI</h2>
-                <p class="mt-4 text-neutral-300 text-base sm:text-lg">Messbarer Wert für Ihr Unternehmen im direkten Vergleich.</p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Qualitative Wertsteigerung & ROI</h2>
+                <p class="mt-4 text-slate-600 text-base sm:text-lg">Der direkte Vergleich zwischen traditionellem Aufwand und intelligenter Automation.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 
-                <div class="apple-card rounded-3xl p-8 border border-red-900/30 hover-scale bg-[#120a14]/60">
-                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-red-900/30">
-                        <h3 class="text-xl sm:text-2xl font-bold text-red-400">Traditioneller Support</h3>
-                        <span class="px-3 py-1 bg-red-950/80 text-red-300 text-xs font-mono rounded-full border border-red-800/40">Ineffizient</span>
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover-scale">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                        <h3 class="text-xl sm:text-2xl font-bold text-rose-600">Traditioneller Support</h3>
+                        <span class="px-3 py-1 bg-rose-50 text-rose-700 text-xs font-mono rounded-full border border-rose-200 font-semibold">Ineffizient</span>
                     </div>
 
                     <div class="space-y-6">
                         <div>
-                            <div class="text-xs text-neutral-400 uppercase tracking-wider mb-1">Personalkosten / Monat</div>
-                            <div class="text-3xl font-extrabold text-white">~ 4.200 €</div>
-                            <div class="text-xs text-neutral-400 mt-1">Gehalt, Lohnnebenkosten & Arbeitsplatz</div>
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Kostenstruktur</div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">Hohe manuelle Fixkosten</div>
+                            <div class="text-xs text-slate-500 mt-1">Personalkapazität, Lohnnebenkosten & Infrastruktur</div>
                         </div>
 
-                        <div class="pt-4 border-t border-red-900/20 grid grid-cols-2 gap-4">
+                        <div class="pt-4 border-t border-slate-100 grid grid-cols-2 gap-4">
                             <div>
-                                <div class="text-xs text-neutral-400 uppercase tracking-wider mb-1">Verfügbarkeit</div>
-                                <div class="text-lg font-bold text-red-300">40h / Woche</div>
-                                <div class="text-[11px] text-neutral-400">Mo-Fr 9-17 Uhr, Krankheitsausfälle</div>
+                                <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Verfügbarkeit</div>
+                                <div class="text-base font-bold text-rose-700">Begrenzte Kapazität</div>
+                                <div class="text-[11px] text-slate-500">Bürozeiten, Urlaub & Krankheit</div>
                             </div>
                             <div>
-                                <div class="text-xs text-neutral-400 uppercase tracking-wider mb-1">Reaktionszeit</div>
-                                <div class="text-lg font-bold text-red-300">Stunden bis Tage</div>
-                                <div class="text-[11px] text-neutral-400">Manuelle Bearbeitung</div>
+                                <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Reaktionszeit</div>
+                                <div class="text-base font-bold text-rose-700">Stundenlange Verzögerung</div>
+                                <div class="text-[11px] text-slate-500">Manuelle Bearbeitungsstaus</div>
                             </div>
                         </div>
 
-                        <div class="pt-4 border-t border-red-900/20">
-                            <div class="text-xs text-neutral-400 uppercase tracking-wider mb-1">Skalierbarkeit</div>
-                            <div class="text-sm font-semibold text-neutral-300">Begrenzt & personalintensiv</div>
+                        <div class="pt-4 border-t border-slate-100">
+                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Skalierbarkeit</div>
+                            <div class="text-sm font-semibold text-slate-700">Personalintensiv & schwer skalierbar</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="apple-card rounded-3xl p-8 border border-blue-500/50 hover-scale bg-[#08132e]/90 shadow-[0_0_40px_rgba(37,99,235,0.25)] relative overflow-hidden">
-                    <div class="absolute -top-10 -right-10 w-36 h-36 bg-blue-600/20 rounded-full blur-2xl"></div>
-                    
-                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-blue-800/40 relative z-10">
-                        <h3 class="text-xl sm:text-2xl font-bold text-blue-400">Flow Solutions KI-Agent</h3>
+                <div class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-3xl p-8 border border-blue-700 shadow-2xl hover-scale relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-blue-800/60 relative z-10">
+                        <h3 class="text-xl sm:text-2xl font-bold text-blue-300">Flow Solutions KI-Agent</h3>
                         <span class="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded-full font-bold shadow-sm">Maximale Effizienz</span>
                     </div>
 
                     <div class="space-y-6 relative z-10">
                         <div>
-                            <div class="text-xs text-blue-300 uppercase tracking-wider mb-1">Kosten / Monat</div>
-                            <div class="text-3xl sm:text-4xl font-extrabold text-white">ab 390 €</div>
-                            <div class="text-xs text-blue-200 mt-1">Bis zu 90% Ersparnis gegenüber Vollzeitstelle</div>
+                            <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Kostenstruktur</div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">Ressourcenoptimierung</div>
+                            <div class="text-xs text-blue-200 mt-1">Gezielte Budgetnutzung ohne Personalkopfschmerzen</div>
                         </div>
 
-                        <div class="pt-4 border-t border-blue-800/30 grid grid-cols-2 gap-4">
+                        <div class="pt-4 border-t border-blue-800/60 grid grid-cols-2 gap-4">
                             <div>
-                                <div class="text-xs text-blue-300 uppercase tracking-wider mb-1">Verfügbarkeit</div>
-                                <div class="text-xl font-extrabold text-blue-400">24/7 / 365 Tage</div>
-                                <div class="text-[11px] text-blue-200">Keine Feiertage, kein Ausfall</div>
+                                <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Verfügbarkeit</div>
+                                <div class="text-lg font-bold text-blue-300">24/7 / 365 Tage</div>
+                                <div class="text-[11px] text-blue-200">Lückenlos & fehlerfrei</div>
                             </div>
                             <div>
-                                <div class="text-xs text-blue-300 uppercase tracking-wider mb-1">Reaktionszeit</div>
-                                <div class="text-xl font-extrabold text-blue-400">&lt; 1 Sekunde</div>
-                                <div class="text-[11px] text-blue-200">Echtzeit-Interaktion</div>
+                                <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Reaktionszeit</div>
+                                <div class="text-lg font-bold text-blue-300">Reaktion in Echtzeit</div>
+                                <div class="text-[11px] text-blue-200">Sub-Sekunden Antworthaltung</div>
                             </div>
                         </div>
 
-                        <div class="pt-4 border-t border-blue-800/30">
-                            <div class="text-xs text-blue-300 uppercase tracking-wider mb-1">Skalierbarkeit</div>
+                        <div class="pt-4 border-t border-blue-800/60">
+                            <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Skalierbarkeit</div>
                             <div class="text-sm font-semibold text-white flex items-center gap-2">
                                 <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                Unbegrenzt & sofort einsatzbereit
+                                Endlose & sofortige Skalierbarkeit
                             </div>
                         </div>
                     </div>
@@ -441,13 +410,13 @@
             </div>
         </section>
 
-        <section class="py-24 overflow-hidden max-w-full border-t border-blue-900/20">
+        <section class="py-24 overflow-hidden max-w-full border-t border-slate-200 bg-slate-100/50">
             <div class="text-center mb-6 px-4">
-                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-6" data-i18n="reviews_heading">Das sagen unsere B2B Kunden</h3>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-6" data-i18n="reviews_heading">Das sagen unsere B2B Kunden</h3>
                 
                 <div class="flex flex-wrap items-center justify-center gap-4 my-6">
                     
-                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-[#0c1229]/90 border border-blue-900/40 shadow-lg backdrop-blur-md hover-scale">
+                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-white border border-slate-200 shadow-md hover-scale">
                         <div class="flex items-center gap-2">
                             <svg class="w-6 h-6" viewBox="0 0 24 24">
                                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -455,9 +424,9 @@
                                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
                                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
                             </svg>
-                            <span class="text-white font-extrabold text-xl">4,8</span>
+                            <span class="text-slate-900 font-extrabold text-xl">4,8</span>
                         </div>
-                        <div class="flex items-center gap-1 text-amber-400 text-lg">
+                        <div class="flex items-center gap-1 text-amber-500 text-lg">
                             <span>★</span>
                             <span>★</span>
                             <span>★</span>
@@ -466,17 +435,17 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-[#0c1229]/90 border border-blue-900/40 shadow-lg backdrop-blur-md hover-scale">
+                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-white border border-slate-200 shadow-md hover-scale">
                         <div class="flex items-center gap-2">
                             <svg class="w-6 h-6 fill-[#00b67a]" viewBox="0 0 24 24">
                                 <path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/>
                             </svg>
-                            <span class="text-white font-extrabold text-xl">Trustpilot</span>
+                            <span class="text-slate-900 font-extrabold text-xl">Trustpilot</span>
                         </div>
                         <div class="flex items-center gap-1 text-[#00b67a] text-lg font-bold">
                             ★★★★★
                         </div>
-                        <span class="text-white font-extrabold text-sm">4.8 / 5</span>
+                        <span class="text-slate-900 font-extrabold text-sm">4.8 / 5</span>
                     </div>
 
                 </div>
@@ -485,9 +454,9 @@
             <div class="marquee-container w-full overflow-hidden mt-12">
                 <div class="marquee-track">
                     
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -496,16 +465,16 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-white">Michael B.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                                <div class="font-bold text-sm text-slate-900">Unternehmen X</div>
+                                <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert!"</p>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert und optimiert!"</p>
                     </div>
 
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -514,29 +483,29 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-white">Sarah T.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                                <div class="font-bold text-sm text-slate-900">Kunde Y</div>
+                                <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb."</p>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb unserer Abteilung."</p>
                     </div>
 
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
                                 <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-white">Alexander K.</div>
-                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                                <div class="font-bold text-sm text-slate-900">Partner Z</div>
+                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Unsere Kunden schwärmen von der natürlichen Sprachqualität des Telefonassistenten."</p>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Unsere Endkunden schwärmen von der extrem natürlichen Sprachqualität und Zuverlässigkeit."</p>
                     </div>
 
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -545,29 +514,29 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-white">Stefan W.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                                <div class="font-bold text-sm text-slate-900">Digital Brand A</div>
+                                <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung in unserem Unternehmen."</p>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung im gesamten Unternehmen."</p>
                     </div>
 
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
                                 <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-white">Laura M.</div>
-                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                                <div class="font-bold text-sm text-slate-900">TechCorp B</div>
+                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich 25+ Stunden wertvolle Arbeitszeit."</p>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich wertvolle Arbeitszeit."</p>
                     </div>
 
-                    <div class="apple-card rounded-2xl p-5 shadow-lg border border-blue-900/30 w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -576,11 +545,73 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-white">David H.</div>
-                                <div class="flex text-amber-400 text-xs">★★★★<span class="text-neutral-600">★</span> <span class="text-neutral-400 font-normal ml-1.5 text-[11px]">4.0</span></div>
+                                <div class="font-bold text-sm text-slate-900">Unternehmen X</div>
+                                <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-neutral-300 leading-relaxed font-normal">"Standardisierte Workflows laufen jetzt fehlerfrei und vollautonom im Hintergrund."</p>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert und optimiert!"</p>
+                    </div>
+
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900">Kunde Y</div>
+                                <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb unserer Abteilung."</p>
+                    </div>
+
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
+                                <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900">Partner Z</div>
+                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Unsere Endkunden schwärmen von der extrem natürlichen Sprachqualität und Zuverlässigkeit."</p>
+                    </div>
+
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                                <svg class="w-full h-full" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900">Digital Brand A</div>
+                                <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung im gesamten Unternehmen."</p>
+                    </div>
+
+                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
+                                <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-bold text-sm text-slate-900">TechCorp B</div>
+                                <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich wertvolle Arbeitszeit."</p>
                     </div>
 
                 </div>
@@ -589,8 +620,8 @@
 
     </main>
 
-    <footer class="relative z-10 bg-[#02040a] border-t border-blue-900/30 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-neutral-400">
+    <footer class="relative z-10 bg-slate-950 text-slate-400 border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs">
             <div class="flex items-center gap-3 hover-scale">
                 <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
                     <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
@@ -599,20 +630,20 @@
                 <span data-i18n="footer_rights">© 2026. Alle Rechte vorbehalten.</span>
             </div>
             
-            <div class="flex items-center gap-4 text-neutral-300">
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="LinkedIn">
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="LinkedIn">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.47 1.47 0 0 0-1.47 1.47c0 .81.66 1.47 1.47 1.47a1.47 1.47 0 0 0 1.47-1.47c0-.81-.66-1.47-1.47-1.47Z"/></svg>
                 </a>
-                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="TikTok">
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="TikTok">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.5 2.73 2.73 0 0 1 1.01.2V9.96a5.72 5.72 0 0 0-.96-.08 5.67 5.67 0 1 0 5.67 5.67V9.02a7.33 7.33 0 0 0 4.33 1.41V7.32a4.34 4.34 0 0 1-3.3-1.5z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/flowsolutions.digital?utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Instagram">
+                <a href="https://www.instagram.com/flowsolutions.digital?utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Instagram">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
-                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Pinterest">
+                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Pinterest">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z"/></svg>
                 </a>
-                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="YouTube">
+                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="YouTube">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 </a>
             </div>
@@ -664,23 +695,27 @@
             if (textRevealSec && textRevealEl) {
                 const rawText = textRevealEl.textContent.trim();
                 const wordsArr = rawText.split(/\s+/);
-                textRevealEl.innerHTML = wordsArr.map(w => `<span class="inline-block mx-1.5 sm:mx-2 transition-colors duration-200 text-neutral-700 font-extrabold">${w}</span>`).join('');
+                textRevealEl.innerHTML = wordsArr.map(w => `<span class="inline-block mx-1.5 sm:mx-2 transition-colors duration-200 text-slate-300 font-extrabold">${w}</span>`).join('');
                 const wordSpans = textRevealEl.querySelectorAll('span');
 
                 function updateTextReveal() {
                     const rect = textRevealSec.getBoundingClientRect();
-                    const scrollableDist = textRevealSec.offsetHeight - window.innerHeight;
-                    if (scrollableDist <= 0) return;
-                    const progress = Math.min(Math.max(-rect.top / scrollableDist, 0), 1);
+                    const winHeight = window.innerHeight;
+                    const startPoint = winHeight * 0.85;
+                    const endPoint = winHeight * 0.25;
+                    
+                    let progress = (startPoint - rect.top) / (startPoint - endPoint);
+                    progress = Math.min(Math.max(progress, 0), 1);
+                    
                     const activeIndex = Math.floor(progress * (wordSpans.length + 1));
                     
                     wordSpans.forEach((span, idx) => {
                         if (idx < activeIndex) {
-                            span.classList.remove('text-neutral-700');
-                            span.classList.add('text-white');
+                            span.classList.remove('text-slate-300');
+                            span.classList.add('text-slate-900');
                         } else {
-                            span.classList.remove('text-white');
-                            span.classList.add('text-neutral-700');
+                            span.classList.remove('text-slate-900');
+                            span.classList.add('text-slate-300');
                         }
                     });
                 }
