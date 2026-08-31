@@ -530,13 +530,13 @@
             <div id="roi-cards-container" class="roi-cards-container relative grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto items-stretch pt-4">
                 <div id="dynamic-island-pill" class="dynamic-island-pill"></div>
 
-                <div class="roi-card-left relative bg-gradient-to-b from-[#2a0d14] via-[#1a080d] to-[#120508] rounded-[2.5rem] p-8 sm:p-10 border border-rose-900/50 shadow-2xl hover-scale flex flex-col justify-between overflow-hidden">
-                    <div class="roi-card-content h-full flex flex-col justify-between">
-                        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-600 border-4 border-[#0C0C0C] flex items-center justify-center text-white text-base font-bold shadow-xl z-10">
-                            ✕
-                        </div>
+                <div class="roi-card-left relative bg-gradient-to-b from-[#2a0d14] via-[#1a080d] to-[#120508] rounded-[2.5rem] p-8 sm:p-10 border border-rose-900/50 shadow-2xl hover-scale flex flex-col justify-between">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-600 border-4 border-[#0C0C0C] flex items-center justify-center text-white text-base font-bold shadow-xl z-30">
+                        ✕
+                    </div>
+                    <div class="roi-card-content h-full flex flex-col justify-between pt-2">
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-rose-900/40 pb-5 pt-2">
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-rose-900/40 pb-5">
                                 ANDERE ANSÄTZE
                             </h3>
                             <div class="space-y-6">
@@ -561,13 +561,13 @@
                     </div>
                 </div>
 
-                <div class="roi-card-right relative bg-gradient-to-b from-[#0e275d] via-[#0a1b42] to-[#07112b] rounded-[2.5rem] p-8 sm:p-10 border border-blue-500/50 shadow-2xl hover-scale flex flex-col justify-between overflow-hidden">
-                    <div class="roi-card-content h-full flex flex-col justify-between">
-                        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500 border-4 border-[#0C0C0C] flex items-center justify-center text-slate-950 text-base font-black shadow-xl z-10">
-                            ✓
-                        </div>
+                <div class="roi-card-right relative bg-gradient-to-b from-[#0e275d] via-[#0a1b42] to-[#07112b] rounded-[2.5rem] p-8 sm:p-10 border border-blue-500/50 shadow-2xl hover-scale flex flex-col justify-between">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500 border-4 border-[#0C0C0C] flex items-center justify-center text-slate-950 text-base font-black shadow-xl z-30">
+                        ✓
+                    </div>
+                    <div class="roi-card-content h-full flex flex-col justify-between pt-2">
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-blue-800/40 pb-5 pt-2 leading-tight">
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-blue-800/40 pb-5 leading-tight">
                                 FLOW SOLUTIONS<br>KI-AGENT
                             </h3>
                             <div class="space-y-6">
@@ -1288,14 +1288,18 @@
             const roiContainer = document.getElementById('roi-cards-container');
             const pillEl = document.getElementById('dynamic-island-pill');
             if (roiContainer) {
+                let animTimer = null;
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             if (pillEl) pillEl.classList.add('anim-start');
-                            setTimeout(() => {
+                            animTimer = setTimeout(() => {
                                 roiContainer.classList.add('animated');
                             }, 180);
-                            observer.unobserve(entry.target);
+                        } else {
+                            if (animTimer) clearTimeout(animTimer);
+                            roiContainer.classList.remove('animated');
+                            if (pillEl) pillEl.classList.remove('anim-start');
                         }
                     });
                 }, { threshold: 0.2 });
