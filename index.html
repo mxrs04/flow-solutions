@@ -124,6 +124,76 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .dynamic-island-pill {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 60px;
+            height: 24px;
+            background: #1e293b;
+            border-radius: 9999px;
+            z-index: 40;
+            pointer-events: none;
+            opacity: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        .dynamic-island-pill.anim-start {
+            opacity: 1;
+            animation: dynamicIslandBreath 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes dynamicIslandBreath {
+            0% { transform: translate(-50%, -50%) scale(0.6); width: 60px; }
+            50% { transform: translate(-50%, -50%) scale(1.2); width: 95px; }
+            100% { transform: translate(-50%, -50%) scale(1); width: 120px; opacity: 0; }
+        }
+
+        .roi-card-left,
+        .roi-card-right {
+            opacity: 0;
+            transform-origin: center center;
+            transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        opacity 0.4s ease-out, 
+                        border-radius 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: transform, opacity, border-radius;
+        }
+
+        .roi-card-left {
+            transform: translate3d(calc(50% + 16px), 0, 0) scale(0.08, 0.05);
+            border-radius: 9999px;
+        }
+
+        .roi-card-right {
+            transform: translate3d(calc(-50% - 16px), 0, 0) scale(0.08, 0.05);
+            border-radius: 9999px;
+        }
+
+        .roi-cards-container.animated .roi-card-left {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            border-radius: 2.5rem;
+        }
+
+        .roi-cards-container.animated .roi-card-right {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            border-radius: 2.5rem;
+        }
+
+        .roi-card-content {
+            opacity: 0;
+            transform: translate3d(0, 16px, 0);
+            transition: opacity 0.35s ease-out 0.45s, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s;
+            will-change: transform, opacity;
+        }
+
+        .roi-cards-container.animated .roi-card-content {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
     </style>
 </head>
 
@@ -451,104 +521,75 @@
             </div>
         </section>
 
-        <section id="roi"
-            class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#0C0C0C]">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="roi_title">
-                    Return on Investment</h2>
-                <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="roi_sub">Traditioneller Aufwand vs.
-                    intelligente Automation.</p>
+        <section id="roi" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#0C0C0C]">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="roi_title">Return on Investment</h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="roi_sub">Traditioneller Aufwand vs. intelligente Automation.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div id="roi-cards-container" class="roi-cards-container relative grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto items-stretch pt-4">
+                <div id="dynamic-island-pill" class="dynamic-island-pill"></div>
 
-                <div class="bg-slate-900/60 rounded-3xl p-8 border border-slate-800 shadow-xl hover-scale">
-                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
-                        <h3 class="text-xl sm:text-2xl font-bold text-rose-500">Traditioneller Support</h3>
-                        <span
-                            class="px-3 py-1 bg-rose-950/60 text-rose-300 text-xs font-mono rounded-full border border-rose-800/60 font-semibold">Personalintensiv</span>
-                    </div>
-
-                    <div class="space-y-6">
+                <div class="roi-card-left relative bg-gradient-to-b from-[#2a0d14] via-[#1a080d] to-[#120508] rounded-[2.5rem] p-8 sm:p-10 border border-rose-900/50 shadow-2xl hover-scale flex flex-col justify-between overflow-hidden">
+                    <div class="roi-card-content h-full flex flex-col justify-between">
+                        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-600 border-4 border-[#0C0C0C] flex items-center justify-center text-white text-base font-bold shadow-xl z-10">
+                            ✕
+                        </div>
                         <div>
-                            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Kostenstruktur</div>
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white">Feste Personalkosten</div>
-                            <div class="text-xs text-slate-400 mt-1">Stabile Fixkosten unabhängig vom Anfragenvolumen
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-slate-800 grid grid-cols-2 gap-4">
-                            <div>
-                                <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Verfügbarkeit</div>
-                                <div class="text-base font-bold text-rose-400">An Arbeitszeiten gebunden</div>
-                                <div class="text-[11px] text-slate-400">Bearbeitung abhängig von Dienstplänen</div>
-                            </div>
-                            <div>
-                                <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Bearbeitung</div>
-                                <div class="text-base font-bold text-rose-400">Sequenzielle Abwicklung</div>
-                                <div class="text-[11px] text-slate-400">Anfragen werden nacheinander abgearbeitet</div>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-slate-800">
-                            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Kapazität</div>
-                            <div class="text-sm font-semibold text-slate-300">Linear an verfügbares Personal gebunden
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-rose-900/40 pb-5 pt-2">
+                                ANDERE ANSÄTZE
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 border-b border-rose-900/30 pb-5">
+                                    <span class="text-rose-500 font-bold text-lg">✕</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">Hohe Fixkosten</span>
+                                </div>
+                                <div class="flex items-center gap-4 border-b border-rose-900/30 pb-5">
+                                    <span class="text-rose-500 font-bold text-lg">✕</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">Begrenzte Verfügbarkeit</span>
+                                </div>
+                                <div class="flex items-center gap-4 border-b border-rose-900/30 pb-5">
+                                    <span class="text-rose-500 font-bold text-lg">✕</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">Langsame Bearbeitung</span>
+                                </div>
+                                <div class="flex items-center gap-4 pt-1">
+                                    <span class="text-rose-500 font-bold text-lg">✕</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">Limitierte Kapazität</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div
-                    class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-3xl p-8 border border-blue-600/80 shadow-2xl hover-scale relative overflow-hidden flex flex-col justify-between">
-                    <div>
-                        <div
-                            class="flex items-center justify-between mb-6 pb-4 border-b border-blue-800/60 relative z-10">
-                            <h3 class="text-xl sm:text-2xl font-bold text-blue-300">Flow Solutions KI-Agent</h3>
-                            <span
-                                class="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded-full font-bold shadow-sm">Strukturell
-                                flexibel</span>
+                <div class="roi-card-right relative bg-gradient-to-b from-[#0e275d] via-[#0a1b42] to-[#07112b] rounded-[2.5rem] p-8 sm:p-10 border border-blue-500/50 shadow-2xl hover-scale flex flex-col justify-between overflow-hidden">
+                    <div class="roi-card-content h-full flex flex-col justify-between">
+                        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500 border-4 border-[#0C0C0C] flex items-center justify-center text-slate-950 text-base font-black shadow-xl z-10">
+                            ✓
                         </div>
-
-                        <div class="space-y-6 relative z-10">
-                            <div>
-                                <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Kostenstruktur</div>
-                                <div class="text-2xl sm:text-3xl font-extrabold text-white">Skalierbare Nutzung</div>
-                                <div class="text-xs text-blue-200 mt-1">Ressourceneinsatz passt sich dem Anfragenvolumen
-                                    an</div>
-                            </div>
-
-                            <div class="pt-4 border-t border-blue-800/60 grid grid-cols-2 gap-4">
-                                <div>
-                                    <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Verfügbarkeit</div>
-                                    <div class="text-lg font-bold text-blue-300">Durchgehende Einsatzbereitschaft</div>
-                                    <div class="text-[11px] text-blue-200">Unabhängig von starren Dienstzeiten</div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-blue-800/40 pb-5 pt-2 leading-tight">
+                                FLOW SOLUTIONS<br>KI-AGENT
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">Skalierbare Kosten</span>
                                 </div>
-                                <div>
-                                    <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Bearbeitung</div>
-                                    <div class="text-lg font-bold text-blue-300">Parallele Verarbeitung</div>
-                                    <div class="text-[11px] text-blue-200">Simultane Bearbeitung mehrerer Anfragen</div>
+                                <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">24/7 Sofort-Verfügbarkeit</span>
                                 </div>
-                            </div>
-
-                            <div class="pt-4 border-t border-blue-800/60">
-                                <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Kapazität</div>
-                                <div class="text-sm font-semibold text-white flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Dynamische Auslastungsanpassung
+                                <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">Hohe Effizienz</span>
+                                </div>
+                                <div class="flex items-center gap-4 pt-1">
+                                    <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">Unbegrenzte Kapazität</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <p
-                        class="mt-8 text-[11px] text-slate-400 text-right italic leading-snug border-t border-blue-800/40 pt-3">
-                        Konkrete Einsparungen hängen vom individuellen Anwendungsfall ab – wir berechnen das gerne
-                        gemeinsam in einem Erstgespräch.
-                    </p>
                 </div>
 
             </div>
@@ -1242,6 +1283,23 @@
 
                 window.addEventListener('scroll', updateTextReveal, { passive: true });
                 updateTextReveal();
+            }
+
+            const roiContainer = document.getElementById('roi-cards-container');
+            const pillEl = document.getElementById('dynamic-island-pill');
+            if (roiContainer) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            if (pillEl) pillEl.classList.add('anim-start');
+                            setTimeout(() => {
+                                roiContainer.classList.add('animated');
+                            }, 180);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.2 });
+                observer.observe(roiContainer);
             }
         });
     </script>
