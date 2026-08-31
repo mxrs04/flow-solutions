@@ -137,7 +137,7 @@
             z-index: 40;
             pointer-events: none;
             opacity: 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
         .dynamic-island-pill.anim-start {
@@ -146,18 +146,30 @@
         }
 
         @keyframes dynamicIslandBreath {
-            0% { transform: translate(-50%, -50%) scale(0.6); width: 60px; }
-            50% { transform: translate(-50%, -50%) scale(1.2); width: 95px; }
-            100% { transform: translate(-50%, -50%) scale(1); width: 120px; opacity: 0; }
+            0% {
+                transform: translate(-50%, -50%) scale(0.6);
+                width: 60px;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                width: 95px;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                width: 120px;
+                opacity: 0;
+            }
         }
 
         .roi-card-left,
         .roi-card-right {
             opacity: 0;
             transform-origin: center center;
-            transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                        opacity 0.4s ease-out, 
-                        border-radius 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.4s ease-out,
+                border-radius 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
             will-change: transform, opacity, border-radius;
         }
 
@@ -365,10 +377,10 @@
                     <h1
                         class="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.25] overflow-visible">
                         <span id="hero-line1" class="hero-anim-element block mb-2 sm:mb-4 overflow-visible"
-                            data-i18n="hero_headline_1">KI-LÖSUNGEN,</span>
+                            data-i18n="hero_headline_1">WENIGER AUFWAND,</span>
                         <span id="hero-line2" class="hero-anim-element block overflow-visible"
-                            data-i18n="hero_headline_2">DIE <span
-                                class="font-serif italic font-medium text-blue-400">ZEIT</span> SPAREN.</span>
+                            data-i18n="hero_headline_2">MEHR <span
+                                class="font-serif italic font-medium text-blue-400">FLOW</span>.</span>
                     </h1>
                 </div>
 
@@ -521,22 +533,29 @@
             </div>
         </section>
 
-        <section id="roi" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#0C0C0C]">
+        <section id="roi"
+            class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#0C0C0C]">
             <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="roi_title">Return on Investment</h2>
-                <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="roi_sub">Traditioneller Aufwand vs. intelligente Automation.</p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="roi_title">Return
+                    on Investment</h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="roi_sub">Traditioneller Aufwand vs.
+                    intelligente Automation.</p>
             </div>
 
-            <div id="roi-cards-container" class="roi-cards-container relative grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto items-stretch pt-4">
+            <div id="roi-cards-container"
+                class="roi-cards-container relative grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto items-stretch pt-4">
                 <div id="dynamic-island-pill" class="dynamic-island-pill"></div>
 
-                <div class="roi-card-left relative bg-gradient-to-b from-[#2a0d14] via-[#1a080d] to-[#120508] rounded-[2.5rem] p-8 sm:p-10 border border-rose-900/50 shadow-2xl hover-scale flex flex-col justify-between">
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-600 border-4 border-[#0C0C0C] flex items-center justify-center text-white text-base font-bold shadow-xl z-30">
+                <div
+                    class="roi-card-left relative bg-gradient-to-b from-[#2a0d14] via-[#1a080d] to-[#120508] rounded-[2.5rem] p-8 sm:p-10 border border-rose-900/50 shadow-2xl hover-scale flex flex-col justify-between">
+                    <div
+                        class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-600 border-4 border-[#0C0C0C] flex items-center justify-center text-white text-base font-bold shadow-xl z-30">
                         ✕
                     </div>
                     <div class="roi-card-content h-full flex flex-col justify-between pt-2">
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-rose-900/40 pb-5">
+                            <h3
+                                class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-rose-900/40 pb-5">
                                 ANDERE ANSÄTZE
                             </h3>
                             <div class="space-y-6">
@@ -561,30 +580,38 @@
                     </div>
                 </div>
 
-                <div class="roi-card-right relative bg-gradient-to-b from-[#0e275d] via-[#0a1b42] to-[#07112b] rounded-[2.5rem] p-8 sm:p-10 border border-blue-500/50 shadow-2xl hover-scale flex flex-col justify-between">
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500 border-4 border-[#0C0C0C] flex items-center justify-center text-slate-950 text-base font-black shadow-xl z-30">
+                <div
+                    class="roi-card-right relative bg-gradient-to-b from-[#0e275d] via-[#0a1b42] to-[#07112b] rounded-[2.5rem] p-8 sm:p-10 border border-blue-500/50 shadow-2xl hover-scale flex flex-col justify-between">
+                    <div
+                        class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500 border-4 border-[#0C0C0C] flex items-center justify-center text-slate-950 text-base font-black shadow-xl z-30">
                         ✓
                     </div>
                     <div class="roi-card-content h-full flex flex-col justify-between pt-2">
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-blue-800/40 pb-5 leading-tight">
+                            <h3
+                                class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-blue-800/40 pb-5 leading-tight">
                                 FLOW SOLUTIONS<br>KI-AGENT
                             </h3>
                             <div class="space-y-6">
                                 <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
-                                    <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
+                                    <span
+                                        class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
                                     <span class="text-white font-bold text-lg sm:text-xl">Skalierbare Kosten</span>
                                 </div>
                                 <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
-                                    <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">24/7 Sofort-Verfügbarkeit</span>
+                                    <span
+                                        class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
+                                    <span class="text-white font-bold text-lg sm:text-xl">24/7
+                                        Sofort-Verfügbarkeit</span>
                                 </div>
                                 <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
-                                    <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
+                                    <span
+                                        class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
                                     <span class="text-white font-bold text-lg sm:text-xl">Hohe Effizienz</span>
                                 </div>
                                 <div class="flex items-center gap-4 pt-1">
-                                    <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
+                                    <span
+                                        class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
                                     <span class="text-white font-bold text-lg sm:text-xl">Unbegrenzte Kapazität</span>
                                 </div>
                             </div>
@@ -912,8 +939,8 @@
                 menu_contact: "CONTACT",
                 menu_privacy: "PRIVACY",
                 menu_imprint: "IMPRINT",
-                hero_headline_1: "AI SOLUTIONS,",
-                hero_headline_2: "THAT SAVE <span class=\"font-serif italic font-medium text-blue-400\">TIME</span>.",
+                hero_headline_1: "LESS EFFORT,",
+                hero_headline_2: "MORE <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
                 hero_cta_primary: "Contact Us Now",
                 hero_cta_secondary: "Explore Services",
                 services_title: "Tailored AI Systems for Maximum Scaling",
@@ -944,8 +971,8 @@
                 menu_contact: "CONTACT",
                 menu_privacy: "CONFIDENTIALITÉ",
                 menu_imprint: "MENTIONS LÉGALES",
-                hero_headline_1: "SOLUTIONS IA,",
-                hero_headline_2: "QUI FONT GAGNER DU <span class=\"font-serif italic font-medium text-blue-400\">TEMPS</span>.",
+                hero_headline_1: "MOINS D'EFFORT,",
+                hero_headline_2: "PLUS DE <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
                 hero_cta_primary: "Contactez-nous",
                 hero_cta_secondary: "Découvrir les services",
                 services_title: "Systèmes IA sur mesure pour un développement maximal",
@@ -976,8 +1003,8 @@
                 menu_contact: "CONTATTI",
                 menu_privacy: "PRIVACY",
                 menu_imprint: "NOTE LEGALI",
-                hero_headline_1: "SOLUZIONI IA,",
-                hero_headline_2: "CHE FANNO RISPARMIARE <span class=\"font-serif italic font-medium text-blue-400\">TEMPO</span>.",
+                hero_headline_1: "MENO SFORZO,",
+                hero_headline_2: "PIÙ <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
                 hero_cta_primary: "Contattaci ora",
                 hero_cta_secondary: "Scopri i servizi",
                 services_title: "Sistemi IA su misura per la massima crescita",
@@ -1008,8 +1035,8 @@
                 menu_contact: "CONTACTO",
                 menu_privacy: "PRIVACIDAD",
                 menu_imprint: "AVISO LEGAL",
-                hero_headline_1: "SOLUCIONES DE IA,",
-                hero_headline_2: "QUE AHORRAN <span class=\"font-serif italic font-medium text-blue-400\">TIEMPO</span>.",
+                hero_headline_1: "MENOS ESFUERZO,",
+                hero_headline_2: "MÁS <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
                 hero_cta_primary: "Contactar ahora",
                 hero_cta_secondary: "Descubrir servicios",
                 services_title: "Sistemas de IA a medida para el máximo escalado",
@@ -1040,8 +1067,8 @@
                 menu_contact: "İLETİŞİM",
                 menu_privacy: "GİZLİLİK",
                 menu_imprint: "KÜNYE",
-                hero_headline_1: "YAPAY ZEKA ÇÖZÜMLERİ,",
-                hero_headline_2: "<span class=\"font-serif italic font-medium text-blue-400\">ZAMAN</span> TASARRUFU SAĞLAR.",
+                hero_headline_1: "DAHA AZ ÇABA,",
+                hero_headline_2: "DAHA FAZLA <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
                 hero_cta_primary: "Hemen İletişime Geçin",
                 hero_cta_secondary: "Hizmetleri Keşfedin",
                 services_title: "Maksimum Büyüme İçin Özel Yapay Zeka Sistemleri",
@@ -1288,22 +1315,28 @@
             const roiContainer = document.getElementById('roi-cards-container');
             const pillEl = document.getElementById('dynamic-island-pill');
             if (roiContainer) {
-                let animTimer = null;
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            if (pillEl) pillEl.classList.add('anim-start');
-                            animTimer = setTimeout(() => {
+                let roiAnimTimer = null;
+                function updateRoiScroll() {
+                    const rect = roiContainer.getBoundingClientRect();
+                    const blockMid = rect.top + rect.height / 2;
+                    const winH = window.innerHeight;
+
+                    if (blockMid <= winH && rect.bottom >= 0) {
+                        if (pillEl && !pillEl.classList.contains('anim-start') && !roiContainer.classList.contains('animated')) {
+                            pillEl.classList.add('anim-start');
+                            if (roiAnimTimer) clearTimeout(roiAnimTimer);
+                            roiAnimTimer = setTimeout(() => {
                                 roiContainer.classList.add('animated');
                             }, 180);
-                        } else {
-                            if (animTimer) clearTimeout(animTimer);
-                            roiContainer.classList.remove('animated');
-                            if (pillEl) pillEl.classList.remove('anim-start');
                         }
-                    });
-                }, { threshold: 0.2 });
-                observer.observe(roiContainer);
+                    } else {
+                        if (roiAnimTimer) clearTimeout(roiAnimTimer);
+                        roiContainer.classList.remove('animated');
+                        if (pillEl) pillEl.classList.remove('anim-start');
+                    }
+                }
+                window.addEventListener('scroll', updateRoiScroll, { passive: true });
+                updateRoiScroll();
             }
         });
     </script>
