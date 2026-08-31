@@ -44,13 +44,14 @@
             color: #ffffff;
         }
         .dropdown-menu {
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .dropdown-wrapper:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: translateY(0);
+        .dropdown-wrapper:hover .dropdown-menu,
+        .dropdown-wrapper:focus-within .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: translateY(0) !important;
         }
         .hover-scale {
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -101,13 +102,13 @@
                     </a>
                 </div>
 
-                <div class="relative dropdown-wrapper z-[110]">
+                <div class="relative dropdown-wrapper z-[110] py-2">
                     <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
                         <span id="currentFlagIcon" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
                             <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
                     </button>
-                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
+                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-1 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
                         <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>

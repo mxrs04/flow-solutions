@@ -45,13 +45,14 @@
             color: #ffffff;
         }
         .dropdown-menu {
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .dropdown-wrapper:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: translateY(0);
+        .dropdown-wrapper:hover .dropdown-menu,
+        .dropdown-wrapper:focus-within .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: translateY(0) !important;
         }
         .hover-scale {
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -124,13 +125,13 @@
                     </a>
                 </div>
 
-                <div class="relative dropdown-wrapper z-[110]">
+                <div class="relative dropdown-wrapper z-[110] py-2">
                     <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
                         <span id="currentFlagIcon" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
                             <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
                     </button>
-                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
+                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-1 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
                         <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
@@ -668,6 +669,134 @@
                 roi_title: "Qualitative Value Addition & ROI",
                 roi_sub: "Direct comparison between traditional manual effort and intelligent automation.",
                 reviews_heading: "What Our B2B Clients Say"
+            },
+            fr: {
+                menu_home: "ACCUEIL",
+                menu_services: "SERVICES",
+                menu_about: "À PROPOS",
+                menu_contact: "CONTACT",
+                menu_privacy: "CONFIDENTIALITÉ",
+                menu_imprint: "MENTIONS LÉGALES",
+                hero_headline_1: "SOLUTIONS IA,",
+                hero_headline_2: "QUI FONT GAGNER DU <span class=\"font-serif italic font-medium text-blue-400\">TEMPS</span>.",
+                hero_cta_primary: "Contactez-nous",
+                hero_cta_secondary: "Découvrir les services",
+                services_title: "Systèmes IA sur mesure pour un développement maximal",
+                services_sub: "Exploitez tout le potentiel de l'intelligence artificielle moderne pour optimiser vos opérations.",
+                service1_title: "Agents vocaux automatisés",
+                service1_desc: "Assistants téléphoniques intelligents qui répondent 24/7 avec une qualité humaine, prennent des rendez-vous et enregistrent directement les données.",
+                service1_b1: "Reconnaissance vocale en temps réel",
+                service1_b2: "Intégration fluide CRM & Calendrier",
+                service1_btn: "Demander un agent vocal",
+                service2_title: "Automates de flux de travail",
+                service2_desc: "Connexion de votre écosystème logiciel avec des pipelines d'IA autonomes. De l'analyse de documents au traitement des tickets.",
+                service2_b1: "Analyse de processus & configuration sur mesure",
+                service2_b2: "Intégration système sans erreur",
+                service2_btn: "Réserver une analyse",
+                service3_title: "Assistants IA d'entreprise",
+                service3_desc: "Assistants virtuels entraînés sur vos données d'entreprise – confidentiels, conformes au RGPD et immédiatement opérationnels.",
+                service3_b1: "Bases de connaissances internes",
+                service3_b2: "Norme maximale de sécurité des données",
+                service3_btn: "Demander l'IA d'entreprise",
+                roi_title: "Création de valeur qualitative & ROI",
+                roi_sub: "Comparaison directe entre l'effort traditionnel et l'automatisation intelligente.",
+                reviews_heading: "Ce que disent nos clients B2B"
+            },
+            it: {
+                menu_home: "HOME",
+                menu_services: "SERVIZI",
+                menu_about: "CHI SIAMO",
+                menu_contact: "CONTATTI",
+                menu_privacy: "PRIVACY",
+                menu_imprint: "NOTE LEGALI",
+                hero_headline_1: "SOLUZIONI IA,",
+                hero_headline_2: "CHE FANNO RISPARMIARE <span class=\"font-serif italic font-medium text-blue-400\">TEMPO</span>.",
+                hero_cta_primary: "Contattaci ora",
+                hero_cta_secondary: "Scopri i servizi",
+                services_title: "Sistemi IA su misura per la massima crescita",
+                services_sub: "Sfrutta tutto il potenziale dell'intelligenza artificiale moderna per ottimizzare i processi aziendali.",
+                service1_title: "Agenti vocali automatizzati",
+                service1_desc: "Assistenti telefonici intelligenti che rispondono 24/7 con qualità umana, fissano appuntamenti e registrano i dati.",
+                service1_b1: "Riconoscimento vocale in tempo reale",
+                service1_b2: "Integrazione perfetta CRM e calendario",
+                service1_btn: "Richiedi Agente Vocale",
+                service2_title: "Automazione dei flussi di lavoro",
+                service2_desc: "Connessione dei tuoi software con pipeline IA autonome. Dall'analisi documenti alla gestione ticket.",
+                service2_b1: "Analisi dei processi e configurazione personalizzata",
+                service2_b2: "Integrazione di sistema senza errori",
+                service2_btn: "Prenota analisi workflow",
+                service3_title: "Assistenti IA Enterprise",
+                service3_desc: "Assistenti addestrati sui dati aziendali – riservati, conformi al GDPR e pronti all'uso.",
+                service3_b1: "Database di conoscenza interni",
+                service3_b2: "Massimo standard di protezione dati",
+                service3_btn: "Richiedi IA Enterprise",
+                roi_title: "Aumento di valore qualitativo e ROI",
+                roi_sub: "Confronto diretto tra impegno tradizionale e automazione intelligente.",
+                reviews_heading: "Cosa dicono i nostri clienti B2B"
+            },
+            es: {
+                menu_home: "INICIO",
+                menu_services: "SERVICIOS",
+                menu_about: "NOSOTROS",
+                menu_contact: "CONTACTO",
+                menu_privacy: "PRIVACIDAD",
+                menu_imprint: "AVISO LEGAL",
+                hero_headline_1: "SOLUCIONES DE IA,",
+                hero_headline_2: "QUE AHORRAN <span class=\"font-serif italic font-medium text-blue-400\">TIEMPO</span>.",
+                hero_cta_primary: "Contactar ahora",
+                hero_cta_secondary: "Descubrir servicios",
+                services_title: "Sistemas de IA a medida para el máximo escalado",
+                services_sub: "Aproveche todo el potencial de la inteligencia artificial moderna para optimizar sus procesos empresariales.",
+                service1_title: "Agentes de voz automatizados",
+                service1_desc: "Asistentes telefónicos inteligentes que atienden llamadas 24/7 con calidad humana, agendan citas y registran datos.",
+                service1_b1: "Reconocimiento de voz en tiempo real",
+                service1_b2: "Integración perfecta con CRM y calendario",
+                service1_btn: "Solicitar agente de voz",
+                service2_title: "Automatización de flujos de trabajo",
+                service2_desc: "Conexión de su ecosistema de software con tuberías de IA autónomas. Desde procesamiento de documentos hasta gestión de tickets.",
+                service2_b1: "Análisis de procesos y configuración personalizada",
+                service2_b2: "Integración de sistemas sin errores",
+                service2_btn: "Reservar análisis de procesos",
+                service3_title: "Asistentes de IA Enterprise",
+                service3_desc: "Asistentes entrenados con datos internos de su empresa – confidenciales, conformes al RGPD y listos para usar.",
+                service3_b1: "Bases de conocimiento internas",
+                service3_b2: "Máximo estándar de seguridad de datos",
+                service3_btn: "Solicitar IA Enterprise",
+                roi_title: "Aumento de valor cualitativo y ROI",
+                roi_sub: "Comparación directa entre el esfuerzo tradicional y la automatización inteligente.",
+                reviews_heading: "Lo que dicen nuestros clientes B2B"
+            },
+            tr: {
+                menu_home: "ANA SAYFA",
+                menu_services: "HİZMETLER",
+                menu_about: "HAKKIMIZDA",
+                menu_contact: "İLETİŞİM",
+                menu_privacy: "GİZLİLİK",
+                menu_imprint: "KÜNYE",
+                hero_headline_1: "YAPAY ZEKA ÇÖZÜMLERİ,",
+                hero_headline_2: "<span class=\"font-serif italic font-medium text-blue-400\">ZAMAN</span> TASARRUFU SAĞLAR.",
+                hero_cta_primary: "Hemen İletişime Geçin",
+                hero_cta_secondary: "Hizmetleri Keşfedin",
+                services_title: "Maksimum Büyüme İçin Özel Yapay Zeka Sistemleri",
+                services_sub: "İş süreçlerinizi optimize etmek için modern yapay zekanın tüm potansiyelinden yararlanın.",
+                service1_title: "Otomatik Sesli Asistanlar",
+                service1_desc: "Gelen müşteri aramalarını 24/7 insan kalitesinde yanıtlayan, randevu oluşturan ve verileri doğrudan kaydeden akıllı telefon asistanları.",
+                service1_b1: "Gerçek zamanlı ses tanıma",
+                service1_b2: "Sorunsuz CRM ve takvim entegrasyonu",
+                service1_btn: "Sesli Asistan Talebi",
+                service2_title: "İş Akışı Otomasyonu",
+                service2_desc: "Yazılımlarınızı otonom yapay zeka hatlarıyla bağlama. Belge analizinden akıllı bilet dağıtımına kadar.",
+                service2_b1: "Süreç analizi ve özel kurulum",
+                service2_b2: "Hatasız sistem entegrasyonu",
+                service2_btn: "İş Akışı Analizi Alın",
+                service3_title: "Kurumsal Yapay Zeka Asistanları",
+                service3_desc: "Şirket verilerinizle özel olarak eğitilmiş bilgi asistanları – gizli, KVKK/GDPR uyumlu ve kullanıma hazır.",
+                service3_b1: "Dahili bilgi veritabanları",
+                service3_b2: "En yüksek veri güvenliği standardı",
+                service3_btn: "Kurumsal Yapay Zeka Talebi",
+                roi_title: "Niteliksel Değer Artışı ve ROI",
+                roi_sub: "Geleneksel çaba ile akıllı otomasyon arasındaki doğrudan karşılaştırma.",
+                reviews_heading: "B2B Müşterilerimizin Yorumları"
             }
         };
 
