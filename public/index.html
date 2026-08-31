@@ -13,7 +13,7 @@
     <meta name="application-name" content="Flow Solutions">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#0C0C0C">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -22,6 +22,9 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        darkbg: '#0C0C0C',
+                    },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         serif: ['Playfair Display', 'Georgia', 'serif'],
@@ -38,8 +41,8 @@
             }
         }
         body {
-            background-color: #f8fafc;
-            color: #0f172a;
+            background-color: #0C0C0C;
+            color: #ffffff;
         }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -50,37 +53,15 @@
             pointer-events: auto;
             transform: translateY(0);
         }
-        .light-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .light-card:hover {
-            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.12);
-            border-color: #cbd5e1;
-        }
         .hover-scale {
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .hover-scale:hover {
             transform: scale(1.025);
         }
-        .card-slide-in {
-            opacity: 0;
+        .stacked-card {
             will-change: transform, opacity;
-        }
-        .card-slide-left {
-            transform: translateX(-60px);
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
-        }
-        .card-slide-right {
-            transform: translateX(60px);
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
-        }
-        .card-slide-in.active {
-            transform: translateX(0);
-            opacity: 1;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;
         }
         @keyframes flyInLeft {
             0% { transform: translateX(-120px); opacity: 0; }
@@ -110,7 +91,7 @@
             width: 16px;
             height: 16px;
             background-color: transparent;
-            border: 1.5px solid #2563eb;
+            border: 1.5px solid #3b82f6;
             border-radius: 50%;
             z-index: 99999;
             transform: translate(-50%, -50%);
@@ -120,40 +101,28 @@
             width: 28px;
             height: 28px;
             border-width: 2px;
-            background-color: rgba(37, 99, 235, 0.1);
+            background-color: rgba(59, 130, 246, 0.15);
         }
-        @keyframes infiniteMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            animation: infiniteMarquee 38s linear infinite;
-        }
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-        .marquee-container {
-            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+        .marquee-track-container {
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
         }
         .partial-star-48 {
-            background: linear-gradient(90deg, #f59e0b 80%, #cbd5e1 20%);
+            background: linear-gradient(90deg, #f59e0b 80%, #475569 20%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-blue-600 selection:text-white">
+<body class="font-sans antialiased selection:bg-blue-600 selection:text-white bg-[#0C0C0C] text-white">
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 border-b border-slate-800/80 pointer-events-auto bg-transparent backdrop-blur-md">
+    <header class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button id="menuBtn" onclick="openMenu()" class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101] transition-colors duration-300">
+                <button id="menuBtn" onclick="openMenu()" class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101] transition-colors">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -162,48 +131,48 @@
 
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img id="navLogoImg" src="weißes_logo_dick.png" alt="Flow Solutions" class="h-20 sm:h-[86px] w-auto object-contain transition-opacity duration-300" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions" class="h-16 sm:h-[76px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
                 <div class="relative dropdown-wrapper z-[110]">
-                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900/60 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111] transition-colors duration-300">
+                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
                         <span id="currentFlagIcon" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
                             <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
                     </button>
-                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-slate-900 rounded-2xl shadow-2xl p-2 border border-slate-200 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
-                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
+                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                             </span>
                             <span>Deutsch (DE)</span>
                         </button>
-                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover rounded-full">
                             </span>
                             <span>English (UK / US)</span>
                         </button>
-                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>
                             </span>
                             <span>Français (FR)</span>
                         </button>
-                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>
                             </span>
                             <span>Italiano (IT)</span>
                         </button>
-                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>
                             </span>
                             <span>Español (ES)</span>
                         </button>
-                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">
                             </span>
@@ -216,9 +185,9 @@
         </div>
     </header>
 
-    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-900/60 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-950/70 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
 
-    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-slate-950/95 text-white backdrop-blur-2xl z-[200] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-[#0C0C0C]/95 text-white backdrop-blur-2xl z-[200] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
         <div class="flex items-center justify-between">
             <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale" aria-label="Menü schließen">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -241,12 +210,12 @@
         </div>
     </div>
 
-    <main class="relative z-10">
+    <main class="relative z-10 bg-[#0C0C0C]">
         
-        <section id="hero-section" class="relative text-white pt-36 pb-20 sm:pt-44 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-slate-800 bg-slate-950 z-0">
+        <section id="hero-section" class="relative text-white pt-36 pb-20 sm:pt-44 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-slate-800/80 bg-[#0C0C0C] z-0">
             <div class="absolute inset-0 z-0 pointer-events-none">
-                <img src="Logo Landingpage16zu9_2.png" alt="Flow Solutions Hero Background" class="w-full h-full object-contain sm:object-cover object-center" />
-                <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(15,23,42,0.85) 85%, rgba(15,23,42,0.98) 100%);"></div>
+                <img src="Logo Landingpage16zu9_2.png" alt="Flow Solutions Hero Background" class="w-full h-full object-contain sm:object-cover object-center opacity-85" />
+                <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(12,12,12,0.85) 85%, rgba(12,12,12,1) 100%);"></div>
             </div>
             
             <div class="max-w-4xl mx-auto relative z-10 py-8 sm:py-16">
@@ -256,106 +225,112 @@
                 </h1>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                    <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all duration-300 hover-scale shadow-lg shadow-blue-500/30">
+                    <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all duration-300 hover-scale shadow-lg shadow-blue-600/30">
                         <span>Jetzt kontaktieren</span>
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                         </svg>
                     </a>
-                    <a href="dienstleistungen.html" data-i18n="hero_cta_secondary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-slate-900/80 hover:bg-slate-900 border border-slate-700 rounded-full transition-all duration-300 hover-scale shadow-sm">
+                    <a href="dienstleistungen.html" data-i18n="hero_cta_secondary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded-full transition-all duration-300 hover-scale shadow-sm">
                         Dienstleistungen entdecken
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight" data-i18n="services_title">Maßgeschneiderte KI-Systeme für maximale Skalierung</h2>
-                <p class="mt-4 text-slate-600 text-base sm:text-lg" data-i18n="services_sub">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
+        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="services_title">Maßgeschneiderte KI-Systeme für maximale Skalierung</h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="services_sub">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
             </div>
 
-            <div class="flex flex-col space-y-12 sm:space-y-16 max-w-5xl mx-auto">
+            <div id="stacked-cards-container" class="space-y-[15vh] relative pb-20">
                 
-                <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center card-slide-in card-slide-left">
-                    <div>
-                        <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service1_title">Automatisierte Voice-Agenten</h3>
-                        <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service1_desc">
-                            Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.
-                        </p>
-                        <ul class="space-y-3 text-sm text-slate-700 font-medium mb-8">
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
-                                <span data-i18n="service1_b1">Echtzeit-Spracherkennung</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
-                                <span data-i18n="service1_b2">Nahtlose CRM- & Kalender-Anbindung</span>
-                            </li>
-                        </ul>
-                        <a href="kontakt.html" data-i18n="service1_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-sm hover-scale shadow-md shadow-blue-500/20">
-                            Voice Agent anfragen
-                        </a>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-[280px] sm:h-[340px] bg-slate-100">
-                        <img src="image_1464c8.png" alt="Voice Agent" class="w-full h-full object-cover" />
-                    </div>
-                </div>
-
-                <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center card-slide-in card-slide-right">
-                    <div class="order-2 lg:order-1 rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-[280px] sm:h-[340px] bg-slate-100">
-                        <img src="image_14dd43.png" alt="Workflow Automatisierung" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="order-1 lg:order-2">
-                        <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service2_title">Workflow-Automatisierung</h3>
-                        <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service2_desc">
-                            Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.
-                        </p>
-                        <ul class="space-y-3 text-sm text-slate-700 font-medium mb-8">
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
-                                <span data-i18n="service2_b1">Prozessanalyse & Individual-Setup</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
-                                <span data-i18n="service2_b2">Fehlerfreie System-Kopplung</span>
-                            </li>
-                        </ul>
-                        <a href="kontakt.html" data-i18n="service2_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-sm hover-scale shadow-md shadow-blue-500/20">
-                            Workflow-Analyse buchen
-                        </a>
+                <div class="h-[85vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 0px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" data-index="0">
+                        <div>
+                            <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service1_title">Automatisierte Voice-Agenten</h3>
+                            <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service1_desc">
+                                Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.
+                            </p>
+                            <ul class="space-y-3 text-sm text-slate-300 font-medium mb-8">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span data-i18n="service1_b1">Echtzeit-Spracherkennung</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span data-i18n="service1_b2">Nahtlose CRM- & Kalender-Anbindung</span>
+                                </li>
+                            </ul>
+                            <a href="kontakt.html" data-i18n="service1_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30">
+                                Voice Agent anfragen
+                            </a>
+                        </div>
+                        <div class="rounded-3xl overflow-hidden border border-slate-800 h-[280px] sm:h-[340px] bg-slate-900">
+                            <img src="image_1464c8.png" alt="Voice Agent" class="w-full h-full object-cover" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center card-slide-in card-slide-left">
-                    <div>
-                        <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
-                        <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service3_desc">
-                            Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.
-                        </p>
-                        <ul class="space-y-3 text-sm text-slate-700 font-medium mb-8">
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
-                                <span data-i18n="service3_b1">Interne Wissensdatenbanken</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">✓</span>
-                                <span data-i18n="service3_b2">Höchster Datenschutzstandard</span>
-                            </li>
-                        </ul>
-                        <a href="kontakt.html" data-i18n="service3_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold text-sm hover-scale shadow-md shadow-blue-500/20">
-                            Enterprise KI anfragen
-                        </a>
+                <div class="h-[85vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 28px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" data-index="1">
+                        <div class="order-2 lg:order-1 rounded-3xl overflow-hidden border border-slate-800 h-[280px] sm:h-[340px] bg-slate-900">
+                            <img src="image_14dd43.png" alt="Workflow Automatisierung" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="order-1 lg:order-2">
+                            <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service2_title">Workflow-Automatisierung</h3>
+                            <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service2_desc">
+                                Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.
+                            </p>
+                            <ul class="space-y-3 text-sm text-slate-300 font-medium mb-8">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span data-i18n="service2_b1">Prozessanalyse & Individual-Setup</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span data-i18n="service2_b2">Fehlerfreie System-Kopplung</span>
+                                </li>
+                            </ul>
+                            <a href="kontakt.html" data-i18n="service2_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30">
+                                Workflow-Analyse buchen
+                            </a>
+                        </div>
                     </div>
-                    <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-[280px] sm:h-[340px] bg-slate-100">
-                        <img src="image_14dc89.png" alt="Enterprise KI Assistenten" class="w-full h-full object-cover object-[center_15%]" />
+                </div>
+
+                <div class="h-[85vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 56px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" data-index="2">
+                        <div>
+                            <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
+                            <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service3_desc">
+                                Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.
+                            </p>
+                            <ul class="space-y-3 text-sm text-slate-300 font-medium mb-8">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span data-i18n="service3_b1">Interne Wissensdatenbanken</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span data-i18n="service3_b2">Höchster Datenschutzstandard</span>
+                                </li>
+                            </ul>
+                            <a href="kontakt.html" data-i18n="service3_btn" class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30">
+                                Enterprise KI anfragen
+                            </a>
+                        </div>
+                        <div class="rounded-3xl overflow-hidden border border-slate-800 h-[280px] sm:h-[340px] bg-slate-900">
+                            <img src="image_14dc89.png" alt="Enterprise KI Assistenten" class="w-full h-full object-cover object-[center_15%]" />
+                        </div>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <section id="text-reveal-section" class="py-28 sm:py-40 px-4 sm:px-6 lg:px-8 max-w-full bg-slate-950 border-y border-slate-800 text-white relative overflow-hidden">
+        <section id="text-reveal-section" class="py-28 sm:py-40 px-4 sm:px-6 lg:px-8 max-w-full bg-[#0C0C0C] border-y border-slate-800/80 text-white relative overflow-hidden">
             <div class="max-w-5xl mx-auto text-center">
                 <p id="reveal-text" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-center leading-relaxed tracking-tight select-none">
                     Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit hochpräzisen Voice-Agenten und maßgeschneiderten KI-Systemen der nächsten Generation.
@@ -363,48 +338,48 @@
             </div>
         </section>
 
-        <section id="roi" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200">
+        <section id="roi" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#0C0C0C]">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight" data-i18n="roi_title">Qualitative Wertsteigerung & ROI</h2>
-                <p class="mt-4 text-slate-600 text-base sm:text-lg" data-i18n="roi_sub">Der direkte Vergleich zwischen traditionellem Aufwand und intelligenter Automation.</p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="roi_title">Qualitative Wertsteigerung & ROI</h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="roi_sub">Der direkte Vergleich zwischen traditionellem Aufwand und intelligenter Automation.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 
-                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover-scale">
-                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
-                        <h3 class="text-xl sm:text-2xl font-bold text-rose-600">Traditioneller Support</h3>
-                        <span class="px-3 py-1 bg-rose-50 text-rose-700 text-xs font-mono rounded-full border border-rose-200 font-semibold">Ineffizient</span>
+                <div class="bg-slate-900/60 rounded-3xl p-8 border border-slate-800 shadow-xl hover-scale">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
+                        <h3 class="text-xl sm:text-2xl font-bold text-rose-500">Traditioneller Support</h3>
+                        <span class="px-3 py-1 bg-rose-950/60 text-rose-300 text-xs font-mono rounded-full border border-rose-800/60 font-semibold">Ineffizient</span>
                     </div>
 
                     <div class="space-y-6">
                         <div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Kostenstruktur</div>
-                            <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">Hohe manuelle Fixkosten</div>
-                            <div class="text-xs text-slate-500 mt-1">Personalkapazität, Lohnnebenkosten & Infrastruktur</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Kostenstruktur</div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">Hohe manuelle Fixkosten</div>
+                            <div class="text-xs text-slate-400 mt-1">Personalkapazität, Lohnnebenkosten & Infrastruktur</div>
                         </div>
 
-                        <div class="pt-4 border-t border-slate-100 grid grid-cols-2 gap-4">
+                        <div class="pt-4 border-t border-slate-800 grid grid-cols-2 gap-4">
                             <div>
-                                <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Verfügbarkeit</div>
-                                <div class="text-base font-bold text-rose-700">Begrenzte Kapazität</div>
-                                <div class="text-[11px] text-slate-500">Bürozeiten, Urlaub & Krankheit</div>
+                                <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Verfügbarkeit</div>
+                                <div class="text-base font-bold text-rose-400">Begrenzte Kapazität</div>
+                                <div class="text-[11px] text-slate-400">Bürozeiten, Urlaub & Krankheit</div>
                             </div>
                             <div>
-                                <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Reaktionszeit</div>
-                                <div class="text-base font-bold text-rose-700">Stundenlange Verzögerung</div>
-                                <div class="text-[11px] text-slate-500">Manuelle Bearbeitungsstaus</div>
+                                <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Reaktionszeit</div>
+                                <div class="text-base font-bold text-rose-400">Stundenlange Verzögerung</div>
+                                <div class="text-[11px] text-slate-400">Manuelle Bearbeitungsstaus</div>
                             </div>
                         </div>
 
-                        <div class="pt-4 border-t border-slate-100">
-                            <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Skalierbarkeit</div>
-                            <div class="text-sm font-semibold text-slate-700">Personalintensiv & schwer skalierbar</div>
+                        <div class="pt-4 border-t border-slate-800">
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Skalierbarkeit</div>
+                            <div class="text-sm font-semibold text-slate-300">Personalintensiv & schwer skalierbar</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-3xl p-8 border border-blue-700 shadow-2xl hover-scale relative overflow-hidden">
+                <div class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-3xl p-8 border border-blue-600/80 shadow-2xl hover-scale relative overflow-hidden">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-blue-800/60 relative z-10">
                         <h3 class="text-xl sm:text-2xl font-bold text-blue-300">Flow Solutions KI-Agent</h3>
                         <span class="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded-full font-bold shadow-sm">Maximale Effizienz</span>
@@ -443,13 +418,13 @@
             </div>
         </section>
 
-        <section id="reviews" class="py-24 overflow-hidden max-w-full border-t border-slate-200 bg-slate-100/50">
+        <section id="reviews" class="py-24 overflow-hidden max-w-full border-t border-slate-800/80 bg-[#0C0C0C]">
             <div class="text-center mb-6 px-4">
-                <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-6" data-i18n="reviews_heading">Das sagen unsere B2B Kunden</h3>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-6" data-i18n="reviews_heading">Das sagen unsere B2B Kunden</h3>
                 
                 <div class="flex flex-wrap items-center justify-center gap-4 my-6">
                     
-                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-white border border-slate-200 shadow-md hover-scale">
+                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-md hover-scale">
                         <div class="flex items-center gap-2">
                             <svg class="w-6 h-6" viewBox="0 0 24 24">
                                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -457,7 +432,7 @@
                                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
                                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
                             </svg>
-                            <span class="text-slate-900 font-extrabold text-xl">4,8</span>
+                            <span class="text-white font-extrabold text-xl">4,8</span>
                         </div>
                         <div class="flex items-center gap-1 text-amber-500 text-lg">
                             <span>★</span>
@@ -468,28 +443,28 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-white border border-slate-200 shadow-md hover-scale">
+                    <div class="flex items-center gap-3 py-3.5 px-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-md hover-scale">
                         <div class="flex items-center gap-2">
                             <svg class="w-6 h-6 fill-[#00b67a]" viewBox="0 0 24 24">
                                 <path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/>
                             </svg>
-                            <span class="text-slate-900 font-extrabold text-xl">Trustpilot</span>
+                            <span class="text-white font-extrabold text-xl">Trustpilot</span>
                         </div>
                         <div class="flex items-center gap-1 text-[#00b67a] text-lg font-bold">
                             ★★★★★
                         </div>
-                        <span class="text-slate-900 font-extrabold text-sm">4.8 / 5</span>
+                        <span class="text-white font-extrabold text-sm">4.8 / 5</span>
                     </div>
 
                 </div>
             </div>
 
-            <div class="marquee-container w-full overflow-hidden mt-12">
-                <div class="marquee-track">
+            <div class="marquee-track-container w-full overflow-hidden mt-12 py-4">
+                <div id="marquee-track-el" class="flex gap-6 w-max whitespace-nowrap will-change-transform">
                     
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 shadow-lg w-[300px] sm:w-[340px] shrink-0 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center p-2 shadow-sm shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -498,16 +473,16 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-slate-900">Unternehmen X</div>
+                                <div class="font-bold text-sm text-white">Unternehmen X</div>
                                 <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert und optimiert!"</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal whitespace-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert und optimiert!"</p>
                     </div>
 
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 shadow-lg w-[300px] sm:w-[340px] shrink-0 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center p-2 shadow-sm shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -516,29 +491,29 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-slate-900">Kunde Y</div>
+                                <div class="font-bold text-sm text-white">Kunde Y</div>
                                 <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb unserer Abteilung."</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal whitespace-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb unserer Abteilung."</p>
                     </div>
 
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 shadow-lg w-[300px] sm:w-[340px] shrink-0 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
                                 <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-slate-900">Partner Z</div>
+                                <div class="font-bold text-sm text-white">Partner Z</div>
                                 <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Unsere Endkunden schwärmen von der extrem natürlichen Sprachqualität und Zuverlässigkeit."</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal whitespace-normal">"Unsere Endkunden schwärmen von der extrem natürlichen Sprachqualität und Zuverlässigkeit."</p>
                     </div>
 
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 shadow-lg w-[300px] sm:w-[340px] shrink-0 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center p-2 shadow-sm shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -547,29 +522,29 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-slate-900">Digital Brand A</div>
+                                <div class="font-bold text-sm text-white">Digital Brand A</div>
                                 <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung im gesamten Unternehmen."</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal whitespace-normal">"Extrem professionelle Beratung und 100% DSGVO-konforme Umsetzung im gesamten Unternehmen."</p>
                     </div>
 
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 shadow-lg w-[300px] sm:w-[340px] shrink-0 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
                             <div class="w-10 h-10 rounded-xl bg-[#00b67a] flex items-center justify-center p-2 shadow-sm shrink-0 text-white">
                                 <svg class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M12 0l3.69 7.48L24 8.69l-6 5.85 1.42 8.26L12 18.9l-7.42 3.9 1.42-8.26-6-5.85 8.31-1.21z"/></svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-slate-900">TechCorp B</div>
+                                <div class="font-bold text-sm text-white">TechCorp B</div>
                                 <div class="flex text-[#00b67a] text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich wertvolle Arbeitszeit."</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal whitespace-normal">"Prozessautomatisierung auf höchstem Niveau. Wir sparen wöchentlich wertvolle Arbeitszeit."</p>
                     </div>
 
-                    <div class="light-card rounded-2xl p-5 shadow-sm w-[300px] sm:w-[340px] shrink-0 mx-3 hover-scale">
+                    <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 shadow-lg w-[300px] sm:w-[340px] shrink-0 hover-scale">
                         <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center p-2 shadow-sm shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center p-2 shadow-sm shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -578,11 +553,11 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-bold text-sm text-slate-900">Unternehmen X</div>
+                                <div class="font-bold text-sm text-white">Unternehmen X</div>
                                 <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert und optimiert!"</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal whitespace-normal">"Die Voice-Agenten von Flow Solutions haben unsere Anrufabwicklung vollständig revolutioniert und optimiert!"</p>
                     </div>
 
                 </div>
@@ -591,7 +566,7 @@
 
     </main>
 
-    <footer class="relative z-10 bg-slate-950 text-slate-400 border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
+    <footer class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs">
             <div class="flex items-center gap-3 hover-scale">
                 <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
@@ -898,63 +873,69 @@
             }
         });
 
-        function updateNavbarTheme() {
-            const navHeader = document.querySelector('header');
-            const navLogoImg = document.getElementById('navLogoImg');
-            const menuBtn = document.getElementById('menuBtn');
-            const langBtn = document.getElementById('langSelectBtn');
+        function updateCardStacking() {
+            const cards = document.querySelectorAll('.stacked-card');
+            const totalCards = cards.length;
             
-            if (!navHeader) return;
-            
-            const navRect = navHeader.getBoundingClientRect();
-            const navCenterY = navRect.top + navRect.height / 2;
-            
-            const sections = document.querySelectorAll('section, footer');
-            let isDarkBg = true;
-            
-            sections.forEach(sec => {
-                const sRect = sec.getBoundingClientRect();
-                if (sRect.top <= navCenterY && sRect.bottom >= navCenterY) {
-                    if (sec.id === 'services' || sec.id === 'roi' || sec.id === 'reviews' || sec.classList.contains('bg-white') || sec.classList.contains('bg-slate-100/50')) {
-                        isDarkBg = false;
-                    } else if (sec.id === 'hero-section' || sec.id === 'text-reveal-section' || sec.tagName === 'FOOTER' || sec.classList.contains('bg-slate-950')) {
-                        isDarkBg = true;
-                    }
+            cards.forEach((card, index) => {
+                const parentContainer = card.parentElement;
+                const winH = window.innerHeight;
+                
+                if (index < totalCards - 1) {
+                    const nextParent = cards[index + 1].parentElement;
+                    const nextRect = nextParent.getBoundingClientRect();
+                    
+                    let overlapProgress = (winH - nextRect.top) / (winH * 0.75);
+                    overlapProgress = Math.min(Math.max(overlapProgress, 0), 1);
+                    
+                    const maxScaleDelta = (totalCards - 1 - index) * 0.03;
+                    const targetScale = 1 - maxScaleDelta * overlapProgress;
+                    
+                    card.style.transform = `scale(${targetScale})`;
+                } else {
+                    card.style.transform = 'scale(1)';
                 }
             });
-
-            if (isDarkBg) {
-                if (navLogoImg) navLogoImg.src = 'weißes_logo_dick.png';
-                navHeader.classList.remove('border-slate-200/80');
-                navHeader.classList.add('border-slate-800/80');
-                if (menuBtn) {
-                    menuBtn.classList.remove('text-slate-900');
-                    menuBtn.classList.add('text-white');
-                }
-                if (langBtn) {
-                    langBtn.classList.remove('bg-slate-100', 'border-slate-300', 'text-slate-900');
-                    langBtn.classList.add('bg-slate-900/60', 'border-slate-700', 'text-white');
-                }
-            } else {
-                if (navLogoImg) navLogoImg.src = 'Logo_Dick.png';
-                navHeader.classList.remove('border-slate-800/80');
-                navHeader.classList.add('border-slate-200/80');
-                if (menuBtn) {
-                    menuBtn.classList.remove('text-white');
-                    menuBtn.classList.add('text-slate-900');
-                }
-                if (langBtn) {
-                    langBtn.classList.remove('bg-slate-900/60', 'border-slate-700', 'text-white');
-                    langBtn.classList.add('bg-slate-100', 'border-slate-300', 'text-slate-900');
-                }
-            }
         }
 
-        window.addEventListener('scroll', updateNavbarTheme, { passive: true });
-        window.addEventListener('resize', updateNavbarTheme);
+        window.addEventListener('scroll', updateCardStacking, { passive: true });
+
+        let marqueePos = 0;
+        let marqueeVel = 1.2;
+        let targetVel = 1.2;
+        let lastScrollTop = window.scrollY;
+
+        function animateMarquee() {
+            const st = window.scrollY;
+            const scrollDelta = st - lastScrollTop;
+            lastScrollTop = st;
+
+            if (scrollDelta > 0) {
+                targetVel = 1.8 + Math.min(scrollDelta * 0.12, 12);
+            } else if (scrollDelta < 0) {
+                targetVel = -1.8 + Math.max(scrollDelta * 0.12, -12);
+            } else {
+                if (targetVel > 0) targetVel = 1.2;
+                else targetVel = -1.2;
+            }
+
+            marqueeVel += (targetVel - marqueeVel) * 0.18;
+            marqueePos += marqueeVel;
+
+            const track = document.getElementById('marquee-track-el');
+            if (track) {
+                const halfWidth = track.scrollWidth / 2;
+                if (marqueePos >= halfWidth) marqueePos = 0;
+                if (marqueePos < 0) marqueePos = halfWidth + marqueePos;
+                track.style.transform = `translate3d(${-marqueePos}px, 0, 0)`;
+            }
+
+            requestAnimationFrame(animateMarquee);
+        }
+        requestAnimationFrame(animateMarquee);
 
         document.addEventListener('DOMContentLoaded', () => {
-            updateNavbarTheme();
+            updateCardStacking();
 
             const cursor = document.getElementById('customCursor');
             if (cursor && window.innerWidth >= 768) {
@@ -967,18 +948,6 @@
                     el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
                 });
             }
-
-            const slideObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.12 });
-
-            document.querySelectorAll('.card-slide-in').forEach(card => {
-                slideObserver.observe(card);
-            });
 
             const textRevealSec = document.getElementById('text-reveal-section');
             const textRevealEl = document.getElementById('reveal-text');

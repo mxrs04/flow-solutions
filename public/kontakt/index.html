@@ -13,7 +13,7 @@
     <meta name="application-name" content="Flow Solutions">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#0C0C0C">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,9 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        darkbg: '#0C0C0C',
+                    },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
@@ -37,8 +40,8 @@
             }
         }
         body {
-            background-color: #f8fafc;
-            color: #0f172a;
+            background-color: #0C0C0C;
+            color: #ffffff;
         }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -48,16 +51,6 @@
             visibility: visible;
             pointer-events: auto;
             transform: translateY(0);
-        }
-        .light-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .light-card:hover {
-            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.12);
-            border-color: #cbd5e1;
         }
         .hover-scale {
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -72,7 +65,7 @@
             background-color: #2563eb;
             color: #ffffff;
             border-color: #2563eb;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
         .custom-cursor {
             pointer-events: none;
@@ -82,7 +75,7 @@
             width: 16px;
             height: 16px;
             background-color: transparent;
-            border: 1.5px solid #2563eb;
+            border: 1.5px solid #3b82f6;
             border-radius: 50%;
             z-index: 99999;
             transform: translate(-50%, -50%);
@@ -92,19 +85,19 @@
             width: 28px;
             height: 28px;
             border-width: 2px;
-            background-color: rgba(37, 99, 235, 0.1);
+            background-color: rgba(59, 130, 246, 0.15);
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen">
+<body class="font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen bg-[#0C0C0C] text-white">
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 border-b border-slate-200/80 pointer-events-auto bg-transparent backdrop-blur-md">
+    <header class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button id="menuBtn" onclick="openMenu()" class="p-2 text-slate-900 hover:text-blue-600 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101] transition-colors duration-300">
+                <button id="menuBtn" onclick="openMenu()" class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101] transition-colors">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -113,48 +106,48 @@
 
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img id="navLogoImg" src="Logo_Dick.png" alt="Flow Solutions" class="h-20 sm:h-[86px] w-auto object-contain transition-opacity duration-300" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions" class="h-16 sm:h-[76px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
                 <div class="relative dropdown-wrapper z-[110]">
-                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-300 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111] transition-colors duration-300">
+                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
                         <span id="currentFlagIcon" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
                             <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
                     </button>
-                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-white text-slate-900 rounded-2xl shadow-2xl p-2 border border-slate-200 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
-                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
+                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                             </span>
                             <span>Deutsch (DE)</span>
                         </button>
-                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover rounded-full">
                             </span>
                             <span>English (UK / US)</span>
                         </button>
-                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>
                             </span>
                             <span>Français (FR)</span>
                         </button>
-                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>
                             </span>
                             <span>Italiano (IT)</span>
                         </button>
-                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>
                             </span>
                             <span>Español (ES)</span>
                         </button>
-                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 hover-scale transition-all text-left font-medium cursor-pointer">
+                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
                                 <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">
                             </span>
@@ -167,9 +160,9 @@
         </div>
     </header>
 
-    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-900/60 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
+    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-950/70 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
 
-    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-slate-950/95 text-white backdrop-blur-2xl z-[200] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
+    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-[#0C0C0C]/95 text-white backdrop-blur-2xl z-[200] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
         <div class="flex items-center justify-between">
             <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale" aria-label="Menü schließen">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -192,65 +185,65 @@
         </div>
     </div>
 
-    <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+    <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full bg-[#0C0C0C]">
         
         <div class="text-center mb-16">
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
                 Kontaktieren Sie uns
             </h1>
-            <p class="text-slate-600 max-w-xl mx-auto text-base sm:text-lg">
+            <p class="text-slate-400 max-w-xl mx-auto text-base sm:text-lg">
                 Haben Sie Fragen zu unseren KI-Lösungen oder möchten Sie ein unverbindliches Erstgespräch vereinbaren? Schreiben Sie uns direkt.
             </p>
         </div>
 
-        <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200">
+        <div class="bg-slate-900/80 rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-2xl">
             <form action="#" method="POST" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label for="first-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Vorname</label>
-                        <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="w-full px-4 py-3.5 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all text-sm">
+                        <label for="first-name" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Vorname</label>
+                        <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm">
                     </div>
                     <div>
-                        <label for="last-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nachname</label>
-                        <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="w-full px-4 py-3.5 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all text-sm">
+                        <label for="last-name" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Nachname</label>
+                        <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm">
                     </div>
                 </div>
 
                 <div>
-                    <label for="email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">E-Mail-Adresse</label>
-                    <input type="email" name="email" id="email" autocomplete="email" class="w-full px-4 py-3.5 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all text-sm">
+                    <label for="email" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">E-Mail-Adresse</label>
+                    <input type="email" name="email" id="email" autocomplete="email" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Interessierte Produkte (Mehrfachauswahl möglich)</label>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Interessierte Produkte (Mehrfachauswahl möglich)</label>
                     <div class="flex flex-wrap gap-3" id="productToggleGroup">
-                        <button type="button" onclick="toggleProductChip(this, 'voice_agents')" class="toggle-chip px-5 py-2.5 rounded-full text-xs font-bold border border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">
+                        <button type="button" onclick="toggleProductChip(this, 'voice_agents')" class="toggle-chip px-5 py-2.5 rounded-full text-xs font-bold border border-slate-700 bg-slate-950 text-slate-300 hover:bg-slate-800 cursor-pointer">
                             Voice agents
                         </button>
-                        <button type="button" onclick="toggleProductChip(this, 'workflow')" class="toggle-chip px-5 py-2.5 rounded-full text-xs font-bold border border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">
+                        <button type="button" onclick="toggleProductChip(this, 'workflow')" class="toggle-chip px-5 py-2.5 rounded-full text-xs font-bold border border-slate-700 bg-slate-950 text-slate-300 hover:bg-slate-800 cursor-pointer">
                             Workflow Automatisierung
                         </button>
-                        <button type="button" onclick="toggleProductChip(this, 'enterprise_ai')" class="toggle-chip px-5 py-2.5 rounded-full text-xs font-bold border border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">
+                        <button type="button" onclick="toggleProductChip(this, 'enterprise_ai')" class="toggle-chip px-5 py-2.5 rounded-full text-xs font-bold border border-slate-700 bg-slate-950 text-slate-300 hover:bg-slate-800 cursor-pointer">
                             Enterprise KI-Assistent
                         </button>
-                        <button type="button" onclick="toggleProductChip(this, 'sonstiges')" class="toggle-chip px-5 py-2.5 rounded-full text-xs font-bold border border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">
+                        <button type="button" onclick="toggleProductChip(this, 'sonstiges')" class="toggle-chip px-5 py-2.5 rounded-full text-xs font-bold border border-slate-700 bg-slate-950 text-slate-300 hover:bg-slate-800 cursor-pointer">
                             Sonstiges
                         </button>
                     </div>
                 </div>
 
                 <div id="sonstigesContainer" class="hidden transition-all duration-300">
-                    <label for="sonstigesText" class="block text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">Beschreibung (Sonstiges)</label>
-                    <input type="text" id="sonstigesText" name="sonstigesText" placeholder="Bitte beschreiben Sie Ihr Anliegen kurz..." class="w-full px-4 py-3.5 bg-blue-50/50 border border-blue-200 rounded-xl text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all text-sm">
+                    <label for="sonstigesText" class="block text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">Beschreibung (Sonstiges)</label>
+                    <input type="text" id="sonstigesText" name="sonstigesText" placeholder="Bitte beschreiben Sie Ihr Anliegen kurz..." class="w-full px-4 py-3.5 bg-blue-950/30 border border-blue-800 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm">
                 </div>
 
                 <div>
-                    <label for="message" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Ihre Nachricht</label>
-                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-3.5 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all text-sm"></textarea>
+                    <label for="message" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Ihre Nachricht</label>
+                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"></textarea>
                 </div>
 
                 <div>
-                    <button type="submit" class="w-full inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-sm hover-scale shadow-lg shadow-blue-500/25 transition-all">
+                    <button type="submit" class="w-full inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm hover-scale shadow-lg shadow-blue-600/30 transition-all">
                         Nachricht absenden
                     </button>
                 </div>
@@ -259,7 +252,7 @@
 
     </main>
 
-    <footer class="relative z-10 bg-slate-950 text-slate-400 border-t border-slate-800 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
+    <footer class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
             <div class="flex items-center gap-3 hover-scale">
                 <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
