@@ -61,7 +61,7 @@
         }
         .stacked-card {
             will-change: transform, opacity;
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         @keyframes flyInLeft {
             0% { transform: translateX(-120px); opacity: 0; }
@@ -118,7 +118,7 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl">
+    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
@@ -131,7 +131,7 @@
 
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions" class="h-16 sm:h-[76px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions" class="h-16 sm:h-[76px] w-auto object-contain transition-opacity duration-300" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
@@ -212,16 +212,16 @@
 
     <main class="relative z-10 bg-[#0C0C0C]">
         
-        <section id="hero-section" class="relative text-white pt-36 pb-20 sm:pt-44 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-slate-800/80 bg-[#0C0C0C] z-0">
-            <div class="absolute inset-0 z-0 pointer-events-none">
+        <section id="hero-section" class="relative text-white pt-36 pb-20 sm:pt-44 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-visible bg-[#0C0C0C] z-0">
+            <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                 <img src="Logo Landingpage16zu9_2.png" alt="Flow Solutions Hero Background" class="w-full h-full object-contain sm:object-cover object-center opacity-85" />
                 <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(12,12,12,0.85) 85%, rgba(12,12,12,1) 100%);"></div>
             </div>
             
-            <div class="max-w-4xl mx-auto relative z-10 py-8 sm:py-16">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.12] overflow-hidden">
-                    <span class="animate-title-left block mb-2" data-i18n="hero_headline_1">KI-LÖSUNGEN,</span>
-                    <span class="animate-title-right block" data-i18n="hero_headline_2">DIE <span class="font-serif italic font-medium text-blue-400">ZEIT</span> SPAREN.</span>
+            <div class="max-w-5xl mx-auto relative z-10 py-10 sm:py-20 px-4 overflow-visible">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.3] overflow-visible py-4">
+                    <span class="animate-title-left block mb-3 py-2 px-3 overflow-visible" data-i18n="hero_headline_1">KI-LÖSUNGEN,</span>
+                    <span class="animate-title-right block py-2 px-3 overflow-visible" data-i18n="hero_headline_2">DIE <span class="font-serif italic font-medium text-blue-400">ZEIT</span> SPAREN.</span>
                 </h1>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
@@ -244,7 +244,7 @@
                 <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="services_sub">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
             </div>
 
-            <div id="stacked-cards-container" class="space-y-[15vh] relative pb-20">
+            <div id="stacked-cards-container" class="relative pb-24 space-y-[12vh]">
                 
                 <div class="h-[85vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 0px);">
                     <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" data-index="0">
@@ -300,7 +300,7 @@
                     </div>
                 </div>
 
-                <div class="h-[85vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 56px);">
+                <div class="h-[95vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 56px);">
                     <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" data-index="2">
                         <div>
                             <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
@@ -327,6 +327,8 @@
                     </div>
                 </div>
 
+                <div class="h-[40vh] pointer-events-none"></div>
+
             </div>
         </section>
 
@@ -349,70 +351,76 @@
                 <div class="bg-slate-900/60 rounded-3xl p-8 border border-slate-800 shadow-xl hover-scale">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
                         <h3 class="text-xl sm:text-2xl font-bold text-rose-500">Traditioneller Support</h3>
-                        <span class="px-3 py-1 bg-rose-950/60 text-rose-300 text-xs font-mono rounded-full border border-rose-800/60 font-semibold">Ineffizient</span>
+                        <span class="px-3 py-1 bg-rose-950/60 text-rose-300 text-xs font-mono rounded-full border border-rose-800/60 font-semibold">Personalintensiv</span>
                     </div>
 
                     <div class="space-y-6">
                         <div>
                             <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Kostenstruktur</div>
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white">Hohe manuelle Fixkosten</div>
-                            <div class="text-xs text-slate-400 mt-1">Personalkapazität, Lohnnebenkosten & Infrastruktur</div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white">Feste Personalkosten</div>
+                            <div class="text-xs text-slate-400 mt-1">Stabile Fixkosten unabhängig vom Anfragenvolumen</div>
                         </div>
 
                         <div class="pt-4 border-t border-slate-800 grid grid-cols-2 gap-4">
                             <div>
                                 <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Verfügbarkeit</div>
-                                <div class="text-base font-bold text-rose-400">Begrenzte Kapazität</div>
-                                <div class="text-[11px] text-slate-400">Bürozeiten, Urlaub & Krankheit</div>
+                                <div class="text-base font-bold text-rose-400">An Arbeitszeiten gebunden</div>
+                                <div class="text-[11px] text-slate-400">Bearbeitung abhängig von Dienstplänen</div>
                             </div>
                             <div>
-                                <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Reaktionszeit</div>
-                                <div class="text-base font-bold text-rose-400">Stundenlange Verzögerung</div>
-                                <div class="text-[11px] text-slate-400">Manuelle Bearbeitungsstaus</div>
+                                <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Bearbeitung</div>
+                                <div class="text-base font-bold text-rose-400">Sequenzielle Abwicklung</div>
+                                <div class="text-[11px] text-slate-400">Anfragen werden nacheinander abgearbeitet</div>
                             </div>
                         </div>
 
                         <div class="pt-4 border-t border-slate-800">
-                            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Skalierbarkeit</div>
-                            <div class="text-sm font-semibold text-slate-300">Personalintensiv & schwer skalierbar</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Kapazität</div>
+                            <div class="text-sm font-semibold text-slate-300">Linear an verfügbares Personal gebunden</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-3xl p-8 border border-blue-600/80 shadow-2xl hover-scale relative overflow-hidden">
-                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-blue-800/60 relative z-10">
-                        <h3 class="text-xl sm:text-2xl font-bold text-blue-300">Flow Solutions KI-Agent</h3>
-                        <span class="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded-full font-bold shadow-sm">Maximale Effizienz</span>
+                <div class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-3xl p-8 border border-blue-600/80 shadow-2xl hover-scale relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6 pb-4 border-b border-blue-800/60 relative z-10">
+                            <h3 class="text-xl sm:text-2xl font-bold text-blue-300">Flow Solutions KI-Agent</h3>
+                            <span class="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded-full font-bold shadow-sm">Strukturell flexibel</span>
+                        </div>
+
+                        <div class="space-y-6 relative z-10">
+                            <div>
+                                <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Kostenstruktur</div>
+                                <div class="text-2xl sm:text-3xl font-extrabold text-white">Skalierbare Nutzung</div>
+                                <div class="text-xs text-blue-200 mt-1">Ressourceneinsatz passt sich dem Anfragenvolumen an</div>
+                            </div>
+
+                            <div class="pt-4 border-t border-blue-800/60 grid grid-cols-2 gap-4">
+                                <div>
+                                    <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Verfügbarkeit</div>
+                                    <div class="text-lg font-bold text-blue-300">Durchgehende Einsatzbereitschaft</div>
+                                    <div class="text-[11px] text-blue-200">Unabhängig von starren Dienstzeiten</div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Bearbeitung</div>
+                                    <div class="text-lg font-bold text-blue-300">Parallele Verarbeitung</div>
+                                    <div class="text-[11px] text-blue-200">Simultane Bearbeitung mehrerer Anfragen</div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-blue-800/60">
+                                <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Kapazität</div>
+                                <div class="text-sm font-semibold text-white flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                                    Dynamische Auslastungsanpassung
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="space-y-6 relative z-10">
-                        <div>
-                            <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Kostenstruktur</div>
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white">Ressourcenoptimierung</div>
-                            <div class="text-xs text-blue-200 mt-1">Gezielte Budgetnutzung ohne Personalkopfschmerzen</div>
-                        </div>
-
-                        <div class="pt-4 border-t border-blue-800/60 grid grid-cols-2 gap-4">
-                            <div>
-                                <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Verfügbarkeit</div>
-                                <div class="text-lg font-bold text-blue-300">24/7 / 365 Tage</div>
-                                <div class="text-[11px] text-blue-200">Lückenlos & fehlerfrei</div>
-                            </div>
-                            <div>
-                                <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Reaktionszeit</div>
-                                <div class="text-lg font-bold text-blue-300">Reaktion in Echtzeit</div>
-                                <div class="text-[11px] text-blue-200">Sub-Sekunden Antworthaltung</div>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-blue-800/60">
-                            <div class="text-xs text-blue-200 uppercase tracking-wider mb-1">Skalierbarkeit</div>
-                            <div class="text-sm font-semibold text-white flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                                Endlose & sofortige Skalierbarkeit
-                            </div>
-                        </div>
-                    </div>
+                    <p class="mt-8 text-[11px] text-slate-400 text-right italic leading-snug border-t border-blue-800/40 pt-3">
+                        Konkrete Einsparungen hängen vom individuellen Anwendungsfall ab – wir berechnen das gerne gemeinsam in einem Erstgespräch.
+                    </p>
                 </div>
 
             </div>
@@ -495,7 +503,7 @@
                                 <div class="flex text-amber-500 text-xs">★★★★★ <span class="text-slate-400 font-normal ml-1.5 text-[11px]">5.0</span></div>
                             </div>
                         </div>
-                        <p class="text-xs text-slate-300 leading-relaxed font-normal whitespace-normal">"Erstklassige KI-Integration. Reaktionszeiten unter einer Sekunde im täglichen Praxisbetrieb unserer Abteilung."</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal whitespace-normal">"Erstklassige KI-Integration. Schnelle Bearbeitungszeiten im täglichen Praxisbetrieb unserer Abteilung."</p>
                     </div>
 
                     <div class="bg-slate-900/80 rounded-2xl p-5 border border-slate-800 shadow-lg w-[300px] sm:w-[340px] shrink-0 hover-scale">
@@ -669,134 +677,6 @@
                 roi_title: "Qualitative Value Addition & ROI",
                 roi_sub: "Direct comparison between traditional manual effort and intelligent automation.",
                 reviews_heading: "What Our B2B Clients Say"
-            },
-            fr: {
-                menu_home: "ACCUEIL",
-                menu_services: "SERVICES",
-                menu_about: "À PROPOS",
-                menu_contact: "CONTACT",
-                menu_privacy: "CONFIDENTIALITÉ",
-                menu_imprint: "MENTIONS LÉGALES",
-                hero_headline_1: "SOLUTIONS IA,",
-                hero_headline_2: "QUI FONT GAGNER DU <span class=\"font-serif italic font-medium text-blue-400\">TEMPS</span>.",
-                hero_cta_primary: "Contactez-nous",
-                hero_cta_secondary: "Découvrir nos services",
-                services_title: "Systèmes IA sur mesure pour une croissance maximale",
-                services_sub: "Exploitez tout le potentiel de l'intelligence artificielle moderne pour optimiser vos processus d'entreprise.",
-                service1_title: "Agents Vocaux Automatisés",
-                service1_desc: "Assistants téléphoniques intelligents prenant en charge vos appels 24/7 avec une qualité humaine, la prise de rendez-vous et la saisie directe de données.",
-                service1_b1: "Reconnaissance vocale en temps réel",
-                service1_b2: "Intégration CRM et Calendrier fluide",
-                service1_btn: "Demander un Agent Vocal",
-                service2_title: "Automatisations de Workflow",
-                service2_desc: "Connexion de vos logiciels métiers à des pipelines d'IA autonomes. De l'analyse de documents à la gestion intelligente des tickets.",
-                service2_b1: "Analyse de processus & configuration sur mesure",
-                service2_b2: "Couplage de systèmes sans erreur",
-                service2_btn: "Réserver une Analyse de Workflow",
-                service3_title: "Assistants IA d'Entreprise",
-                service3_desc: "Assistants intelligents entraînés sur vos données d'entreprise confidentielles – 100% conformes au RGPD et opérationnels immédiatement.",
-                service3_b1: "Bases de connaissances internes",
-                service3_b2: "Normes de sécurité des données les plus élevées",
-                service3_btn: "Demander l'IA d'Entreprise",
-                roi_title: "Création de Valeur & ROI",
-                roi_sub: "Comparaison directe entre efforts traditionnels et automatisation intelligente.",
-                reviews_heading: "Ce que disent nos clients B2B"
-            },
-            it: {
-                menu_home: "HOME",
-                menu_services: "SERVIZI",
-                menu_about: "CHI SIAMO",
-                menu_contact: "CONTATTI",
-                menu_privacy: "PRIVACY",
-                menu_imprint: "NOTE LEGALI",
-                hero_headline_1: "SOLUZIONI IA,",
-                hero_headline_2: "CHE FANNO RISPARMIARE <span class=\"font-serif italic font-medium text-blue-400\">TEMPO</span>.",
-                hero_cta_primary: "Contattaci ora",
-                hero_cta_secondary: "Scopri i servizi",
-                services_title: "Sistemi IA su misura per la massima scalabilità",
-                services_sub: "Sfrutta tutto il potenziale dell'intelligenza artificiale moderna per ottimizzare i processi aziendali.",
-                service1_title: "Agenti Vocali Automatizzati",
-                service1_desc: "Assistenti telefonici intelligenti che gestiscono le chiamate 24/7 con qualità umana, fissano appuntamenti e registrano i dati direttamente.",
-                service1_b1: "Riconoscimento vocale in tempo reale",
-                service1_b2: "Integrazione perfetta con CRM e Calendario",
-                service1_btn: "Richiedi un Agente Vocale",
-                service2_title: "Automazione dei Workflow",
-                service2_desc: "Collega i tuoi software aziendali a pipeline IA autonome. Dall'analisi dei documenti alla gestione intelligente dei ticket.",
-                service2_b1: "Analisi dei processi e configurazione personalizzata",
-                service2_b2: "Integrazione dei sistemi priva di errori",
-                service2_btn: "Prenota un'Analisi di Workflow",
-                service3_title: "Assistenti IA per Aziende",
-                service3_desc: "Assistenti di conoscenza addestrati sui dati aziendali interni – completamente riservati, conformi al GDPR e subito operativi.",
-                service3_b1: "Database di conoscenza interni",
-                service3_b2: "Massimi standard di sicurezza dei dati",
-                service3_btn: "Richiedi IA Aziendale",
-                roi_title: "Valore Aggiunto & ROI",
-                roi_sub: "Confronto diretto tra gestione manuale tradizionale e automazione intelligente.",
-                reviews_heading: "Cosa dicono i nostri clienti B2B"
-            },
-            es: {
-                menu_home: "INICIO",
-                menu_services: "SERVICIOS",
-                menu_about: "NOSOTROS",
-                menu_contact: "CONTACTO",
-                menu_privacy: "PRIVACIDAD",
-                menu_imprint: "AVISO LEGAL",
-                hero_headline_1: "SOLUCIONES DE IA,",
-                hero_headline_2: "QUE AHORRAN <span class=\"font-serif italic font-medium text-blue-400\">TIEMPO</span>.",
-                hero_cta_primary: "Contactar ahora",
-                hero_cta_secondary: "Descubrir servicios",
-                services_title: "Sistemas de IA a medida para el máximo escalado",
-                services_sub: "Aproveche todo el potencial de la inteligencia artificial moderna para optimizar sus operaciones empresariales.",
-                service1_title: "Agentes de Voz Automatizados",
-                service1_desc: "Asistentes telefónicos inteligentes que atienden llamadas 24/7 con calidad humana, agendan citas y registran datos directamente.",
-                service1_b1: "Reconocimiento de voz en tiempo real",
-                service1_b2: "Integración perfecta con CRM y Calendario",
-                service1_btn: "Solicitar Agente de Voz",
-                service2_title: "Automatización de Procesos",
-                service2_desc: "Conecte su ecosistema de software con flujos autónomos de IA. Desde el procesamiento de documentos hasta la distribución de tickets.",
-                service2_b1: "Análisis de procesos y configuración personalizada",
-                service2_b2: "Integración de sistemas sin errores",
-                service2_btn: "Reservar Análisis de Flujo",
-                service3_title: "Asistentes de IA Empresarial",
-                service3_desc: "Asistentes entrenados con sus propios datos corporativos – totalmente confidenciales, conformes al RGPD y listos para operar.",
-                service3_b1: "Bases de conocimiento internas",
-                service3_b2: "Máximos estándares de seguridad de datos",
-                service3_btn: "Solicitar IA Empresarial",
-                roi_title: "Incremento de Valor & ROI",
-                roi_sub: "Comparación directa entre esfuerzo manual tradicional y automatización inteligente.",
-                reviews_heading: "Lo que dicen nuestros clientes B2B"
-            },
-            tr: {
-                menu_home: "ANA SAYFA",
-                menu_services: "HİZMETLER",
-                menu_about: "HAKKIMIZDA",
-                menu_contact: "İLETİŞİM",
-                menu_privacy: "GİZLİLİK",
-                menu_imprint: "YASAL BİLDİRİM",
-                hero_headline_1: "YAPAY ZEKA ÇÖZÜMLERİ,",
-                hero_headline_2: "<span class=\"font-serif italic font-medium text-blue-400\">ZAMAN</span> TASARRUFU SAĞLAR.",
-                hero_cta_primary: "Hemen İletişime Geçin",
-                hero_cta_secondary: "Hizmetleri Keşfedin",
-                services_title: "Maksimum Ölçekleme İçin Özel Yapay Zeka Sistemleri",
-                services_sub: "İş süreçlerinizi optimize etmek için modern yapay zekanın tüm potansiyelinden yararlanın.",
-                service1_title: "Otomatik Sesli Asistanlar",
-                service1_desc: "Gelen müşteri aramalarını 7/24 insan kalitesinde yanıtlayan, randevu oluşturan ve verileri doğrudan kaydeden akıllı telefon asistanları.",
-                service1_b1: "Gerçek zamanlı konuşma tanıma",
-                service1_b2: "Sorunsuz CRM ve Takvim entegrasyonu",
-                service1_btn: "Sesli Asistan Talep Et",
-                service2_title: "İş Akışı Otomasyonu",
-                service2_desc: "Yazılımlarınızı otonom çalışan yapay zeka hatlarına bağlayın. Belge analizinden akıllı bilet dağıtımına kadar.",
-                service2_b1: "Süreç analizi ve özel kurulum",
-                service2_b2: "Hatasız sistem entegrasyonu",
-                service2_btn: "İş Akışı Analizi Alın",
-                service3_title: "Kurumsal Yapay Zeka Asistanları",
-                service3_desc: "Şirket içi verilerinizle eğitilmiş özel bilgi asistanları – tam gizli, KVKK/GDPR uyumlu ve anında kullanıma hazır.",
-                service3_b1: "Dahili bilgi havuzları",
-                service3_b2: "En yüksek veri güvenliği standartları",
-                service3_btn: "Kurumsal YZ Talep Et",
-                roi_title: "Değer Artışı ve ROI",
-                roi_sub: "Geleneksel manuel çaba ile akıllı otomasyon arasındaki doğrudan karşılaştırma.",
-                reviews_heading: "B2B Müşterilerimizin Yorumları"
             }
         };
 
@@ -873,19 +753,59 @@
             }
         });
 
+        function updateNavbarTheme() {
+            const header = document.getElementById('mainHeader');
+            const navLogo = document.getElementById('navLogoImg');
+            const menuText = document.getElementById('menuText');
+            const menuBtn = document.getElementById('menuBtn');
+            if (!header || !navLogo) return;
+
+            const headerRect = header.getBoundingClientRect();
+            const testY = headerRect.top + headerRect.height / 2;
+            const sections = document.querySelectorAll('section, footer');
+            let isLight = false;
+
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if (rect.top <= testY && rect.bottom >= testY) {
+                    if (sec.classList.contains('bg-white') || sec.classList.contains('bg-slate-100') || sec.dataset.theme === 'light') {
+                        isLight = true;
+                    }
+                }
+            });
+
+            if (isLight) {
+                navLogo.src = 'Logo Dick.png';
+                menuText.classList.remove('text-white');
+                menuText.classList.add('text-slate-900');
+                menuBtn.classList.remove('text-white');
+                menuBtn.classList.add('text-slate-900');
+                header.classList.remove('border-slate-800/80', 'bg-[#0C0C0C]/85');
+                header.classList.add('border-slate-300/80', 'bg-white/85');
+            } else {
+                navLogo.src = 'weißes logo dick.png';
+                menuText.classList.remove('text-slate-900');
+                menuText.classList.add('text-white');
+                menuBtn.classList.remove('text-slate-900');
+                menuBtn.classList.add('text-white');
+                header.classList.remove('border-slate-300/80', 'bg-white/85');
+                header.classList.add('border-slate-800/80', 'bg-[#0C0C0C]/85');
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbarTheme, { passive: true });
+
         function updateCardStacking() {
             const cards = document.querySelectorAll('.stacked-card');
             const totalCards = cards.length;
+            const winH = window.innerHeight;
             
             cards.forEach((card, index) => {
-                const parentContainer = card.parentElement;
-                const winH = window.innerHeight;
-                
                 if (index < totalCards - 1) {
                     const nextParent = cards[index + 1].parentElement;
                     const nextRect = nextParent.getBoundingClientRect();
                     
-                    let overlapProgress = (winH - nextRect.top) / (winH * 0.75);
+                    let overlapProgress = (winH - nextRect.top) / (winH * 0.70);
                     overlapProgress = Math.min(Math.max(overlapProgress, 0), 1);
                     
                     const maxScaleDelta = (totalCards - 1 - index) * 0.03;
@@ -893,6 +813,14 @@
                     
                     card.style.transform = `scale(${targetScale})`;
                 } else {
+                    const parentContainer = card.parentElement;
+                    const rect = parentContainer.getBoundingClientRect();
+                    const prevParent = cards[index - 1].parentElement;
+                    const prevRect = prevParent.getBoundingClientRect();
+                    
+                    let overlapProgress = (winH - rect.top) / (winH * 0.75);
+                    overlapProgress = Math.min(Math.max(overlapProgress, 0), 1);
+                    
                     card.style.transform = 'scale(1)';
                 }
             });
@@ -936,6 +864,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             updateCardStacking();
+            updateNavbarTheme();
 
             const cursor = document.getElementById('customCursor');
             if (cursor && window.innerWidth >= 768) {

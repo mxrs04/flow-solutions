@@ -84,7 +84,7 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl">
+    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
@@ -97,7 +97,7 @@
 
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions" class="h-16 sm:h-[76px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions" class="h-16 sm:h-[76px] w-auto object-contain transition-opacity duration-300" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
@@ -191,7 +191,7 @@
             <div>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">Gründer & Unternehmensvision</h2>
                 <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
-                    Hallo, ich bin Maximilian, 21 Jahre alt und studiere Wirtschaftsinformatik an der Universität Stuttgart. Neben meinem Studium und meiner Erfahrung im IT-Betrieb einer großen Bank habe ich Flow Solutions gegründet, um mein technisches Wissen direkt in messbaren Wert für die Praxis zu verwandeln. Ich habe einen starken Fokus auf Produktivität und Prozessoptimierung – mein Ziel ist es, Unternehmen dabei zu helfen, Zeit zu sparen, Fehler zu reduzieren und durch den gezielten Einsatz intelligenter KI-Lösungen und Automatisierungen effizienter zu skalieren.
+                    Flow Solutions wurde gegründet, um technisches Know-how in echten, messbaren Mehrwert für Unternehmen zu verwandeln. Unser Fokus liegt auf Produktivität und Prozessoptimierung: Wir helfen Unternehmen dabei, Zeit zu sparen, Fehler zu reduzieren und durch den gezielten Einsatz intelligenter KI-Lösungen und Automatisierungen effizienter zu skalieren.
                 </p>
             </div>
             <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800 h-[360px] sm:h-[420px] bg-slate-950">
@@ -305,6 +305,48 @@
             }
         }
 
+        function updateNavbarTheme() {
+            const header = document.getElementById('mainHeader');
+            const navLogo = document.getElementById('navLogoImg');
+            const menuText = document.getElementById('menuText');
+            const menuBtn = document.getElementById('menuBtn');
+            if (!header || !navLogo) return;
+
+            const headerRect = header.getBoundingClientRect();
+            const testY = headerRect.top + headerRect.height / 2;
+            const sections = document.querySelectorAll('section, footer, main');
+            let isLight = false;
+
+            sections.forEach(sec => {
+                const rect = sec.getBoundingClientRect();
+                if (rect.top <= testY && rect.bottom >= testY) {
+                    if (sec.classList.contains('bg-white') || sec.classList.contains('bg-slate-100') || sec.dataset.theme === 'light') {
+                        isLight = true;
+                    }
+                }
+            });
+
+            if (isLight) {
+                navLogo.src = 'Logo Dick.png';
+                menuText.classList.remove('text-white');
+                menuText.classList.add('text-slate-900');
+                menuBtn.classList.remove('text-white');
+                menuBtn.classList.add('text-slate-900');
+                header.classList.remove('border-slate-800/80', 'bg-[#0C0C0C]/85');
+                header.classList.add('border-slate-300/80', 'bg-white/85');
+            } else {
+                navLogo.src = 'weißes logo dick.png';
+                menuText.classList.remove('text-slate-900');
+                menuText.classList.add('text-white');
+                menuBtn.classList.remove('text-slate-900');
+                menuBtn.classList.add('text-white');
+                header.classList.remove('border-slate-300/80', 'bg-white/85');
+                header.classList.add('border-slate-800/80', 'bg-[#0C0C0C]/85');
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbarTheme, { passive: true });
+
         document.addEventListener('click', (e) => {
             const langBtn = document.getElementById('langSelectBtn');
             const langMenu = document.getElementById('langDropdownMenu');
@@ -315,6 +357,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
+            updateNavbarTheme();
             const cursor = document.getElementById('customCursor');
             if (cursor && window.innerWidth >= 768) {
                 document.addEventListener('mousemove', (e) => {
