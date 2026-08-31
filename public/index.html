@@ -68,25 +68,9 @@
             image-rendering: -webkit-optimize-contrast;
             image-rendering: high-quality;
         }
-        @keyframes flyInLeft {
-            0% { transform: translateX(-120px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes flyInRight {
-            0% { transform: translateX(120px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        .animate-title-left {
-            display: inline-block;
-            animation: flyInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards, floatSlow 4.5s ease-in-out 0.9s infinite alternate;
-        }
-        .animate-title-right {
-            display: inline-block;
-            animation: flyInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards, floatSlow 5s ease-in-out 1s infinite alternate;
+        .hero-anim-element {
+            will-change: transform, opacity;
+            transition: transform 0.1s linear, opacity 0.1s linear;
         }
         .custom-cursor {
             pointer-events: none;
@@ -134,9 +118,9 @@
                     <span id="menuText" class="text-sm font-semibold tracking-wider uppercase">Menü</span>
                 </button>
 
-                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
-                    <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions" class="h-16 sm:h-[76px] w-auto object-contain transition-opacity duration-300" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]">
+                    <a href="index.html" class="block hover-scale text-white font-extrabold text-xl sm:text-2xl tracking-[0.2em] uppercase font-sans">
+                        FLOW SOLUTIONS
                     </a>
                 </div>
 
@@ -179,7 +163,7 @@
                         </button>
                         <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
                             <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">
+                                <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full">
                             </span>
                             <span>Türkçe (TR)</span>
                         </button>
@@ -217,26 +201,28 @@
 
     <main class="relative z-10 bg-[#0C0C0C]">
         
-        <section id="hero-section" class="relative text-white pt-36 pb-20 sm:pt-44 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-visible bg-[#0C0C0C] z-0">
+        <section id="hero-section" class="relative text-white min-h-[85vh] sm:min-h-screen flex flex-col justify-between pt-28 sm:pt-36 pb-10 sm:pb-16 px-4 sm:px-8 lg:px-12 max-w-full overflow-hidden bg-[#0C0C0C] z-0">
             <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                 <img src="Logo_Landingpage_4K.png" srcset="Logo_Landingpage_2K.png 2560w, Logo_Landingpage_4K.png 3840w" sizes="100vw" alt="Flow Solutions Hero Background" class="w-full h-full object-contain sm:object-cover object-center opacity-90 crisp-hero-bg" style="image-rendering: -webkit-optimize-contrast;" />
-                <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(12,12,12,0.85) 85%, rgba(12,12,12,1) 100%);"></div>
+                <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 35%, rgba(12,12,12,0.85) 85%, rgba(12,12,12,1) 100%);"></div>
             </div>
             
-            <div class="max-w-5xl mx-auto relative z-10 py-10 sm:py-20 px-4 overflow-visible">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.3] overflow-visible py-4">
-                    <span class="animate-title-left block mb-3 py-2 px-3 overflow-visible" data-i18n="hero_headline_1">KI-LÖSUNGEN,</span>
-                    <span class="animate-title-right block py-2 px-3 overflow-visible" data-i18n="hero_headline_2">DIE <span class="font-serif italic font-medium text-blue-400">ZEIT</span> SPAREN.</span>
-                </h1>
+            <div class="relative z-10 w-full max-w-7xl mx-auto mt-auto flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-4 sm:pb-8">
+                <div id="hero-title-container" class="text-left max-w-3xl overflow-visible">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.25] overflow-visible">
+                        <span id="hero-line1" class="hero-anim-element block mb-2 sm:mb-4 overflow-visible" data-i18n="hero_headline_1">KI-LÖSUNGEN,</span>
+                        <span id="hero-line2" class="hero-anim-element block overflow-visible" data-i18n="hero_headline_2">DIE <span class="font-serif italic font-medium text-blue-400">ZEIT</span> SPAREN.</span>
+                    </h1>
+                </div>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                    <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all duration-300 hover-scale shadow-lg shadow-blue-600/30">
+                <div id="hero-cta-container" class="hero-anim-element flex flex-col sm:flex-row items-center gap-4 shrink-0 lg:mb-2 w-full lg:w-auto">
+                    <a href="kontakt.html" data-i18n="hero_cta_primary" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all duration-300 hover-scale shadow-lg shadow-blue-600/30">
                         <span>Jetzt kontaktieren</span>
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                         </svg>
                     </a>
-                    <a href="dienstleistungen.html" data-i18n="hero_cta_secondary" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 rounded-full transition-all duration-300 hover-scale shadow-sm">
+                    <a href="dienstleistungen.html" data-i18n="hero_cta_secondary" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 text-base font-semibold text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-full transition-all duration-300 hover-scale shadow-sm backdrop-blur-md">
                         Dienstleistungen entdecken
                     </a>
                 </div>
@@ -758,47 +744,36 @@
             }
         });
 
-        function updateNavbarTheme() {
-            const header = document.getElementById('mainHeader');
-            const navLogo = document.getElementById('navLogoImg');
-            const menuText = document.getElementById('menuText');
-            const menuBtn = document.getElementById('menuBtn');
-            if (!header || !navLogo) return;
+        function updateHeroScrollAnimations() {
+            const heroSec = document.getElementById('hero-section');
+            const line1 = document.getElementById('hero-line1');
+            const line2 = document.getElementById('hero-line2');
+            const cta = document.getElementById('hero-cta-container');
 
-            const headerRect = header.getBoundingClientRect();
-            const testY = headerRect.top + headerRect.height / 2;
-            const sections = document.querySelectorAll('section, footer');
-            let isLight = false;
+            if (!heroSec || !line1 || !line2 || !cta) return;
 
-            sections.forEach(sec => {
-                const rect = sec.getBoundingClientRect();
-                if (rect.top <= testY && rect.bottom >= testY) {
-                    if (sec.classList.contains('bg-white') || sec.classList.contains('bg-slate-100') || sec.dataset.theme === 'light') {
-                        isLight = true;
-                    }
-                }
-            });
+            const scrollY = window.scrollY;
+            const heroH = heroSec.offsetHeight || 600;
+            
+            let p = scrollY / (heroH * 0.65);
+            p = Math.min(Math.max(p, 0), 1);
 
-            if (isLight) {
-                navLogo.src = 'Logo Dick.png';
-                menuText.classList.remove('text-white');
-                menuText.classList.add('text-slate-900');
-                menuBtn.classList.remove('text-white');
-                menuBtn.classList.add('text-slate-900');
-                header.classList.remove('border-slate-800/80', 'bg-[#0C0C0C]/85');
-                header.classList.add('border-slate-300/80', 'bg-white/85');
-            } else {
-                navLogo.src = 'weißes logo dick.png';
-                menuText.classList.remove('text-slate-900');
-                menuText.classList.add('text-white');
-                menuBtn.classList.remove('text-slate-900');
-                menuBtn.classList.add('text-white');
-                header.classList.remove('border-slate-300/80', 'bg-white/85');
-                header.classList.add('border-slate-800/80', 'bg-[#0C0C0C]/85');
-            }
+            const line1X = -p * 100;
+            const line2X = p * 100;
+            const ctaY = p * 120;
+            const opacity = Math.max(1 - p * 1.25, 0);
+
+            line1.style.transform = `translate3d(${line1X}%, 0, 0)`;
+            line1.style.opacity = opacity;
+
+            line2.style.transform = `translate3d(${line2X}%, 0, 0)`;
+            line2.style.opacity = opacity;
+
+            cta.style.transform = `translate3d(0, ${ctaY}px, 0)`;
+            cta.style.opacity = opacity;
         }
 
-        window.addEventListener('scroll', updateNavbarTheme, { passive: true });
+        window.addEventListener('scroll', updateHeroScrollAnimations, { passive: true });
 
         function updateCardStacking() {
             const cards = document.querySelectorAll('.stacked-card');
@@ -862,8 +837,8 @@
         requestAnimationFrame(animateMarquee);
 
         document.addEventListener('DOMContentLoaded', () => {
+            updateHeroScrollAnimations();
             updateCardStacking();
-            updateNavbarTheme();
 
             const cursor = document.getElementById('customCursor');
             if (cursor && window.innerWidth >= 768) {
