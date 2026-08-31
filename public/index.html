@@ -1216,26 +1216,14 @@
                 const wordSpans = textRevealEl.querySelectorAll('span');
 
                 function updateTextReveal() {
-                    const rect = textRevealSec.getBoundingClientRect();
                     const winH = window.innerHeight;
-                    const totalWords = wordSpans.length;
+                    const centerPivot = winH * 0.55;
 
-                    const startReveal = winH * 0.85;
-                    const endReveal = winH * 0.40;
-                    
-                    let progress = (startReveal - rect.top) / (startReveal - endReveal);
-                    progress = Math.min(Math.max(progress, 0), 1);
+                    wordSpans.forEach((span) => {
+                        const rect = span.getBoundingClientRect();
+                        const wordMid = rect.top + rect.height / 2;
 
-                    if (rect.bottom < winH * 0.35) {
-                        let fadeOutProgress = rect.bottom / (winH * 0.35);
-                        fadeOutProgress = Math.min(Math.max(fadeOutProgress, 0), 1);
-                        progress = progress * fadeOutProgress;
-                    }
-
-                    const activeCount = Math.floor(progress * totalWords);
-
-                    wordSpans.forEach((span, idx) => {
-                        if (idx < activeCount) {
+                        if (wordMid <= centerPivot) {
                             span.classList.remove('text-slate-600');
                             span.classList.add('text-white');
                         } else {
