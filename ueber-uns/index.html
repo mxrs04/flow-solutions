@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über uns | Flow Solutions</title>
-    <meta name="description" content="Lernen Sie Maximilian und die Vision hinter Flow Solutions kennen – Innovative KI-Lösungen aus Stuttgart.">
+    <meta name="description"
+        content="Lernen Sie Maximilian und die Vision hinter Flow Solutions kennen – Innovative KI-Lösungen aus Stuttgart.">
     <meta property="og:title" content="Flow Solutions - Über uns">
     <link rel="icon" type="image/jpeg" href="Logo inverted 1zu1_2.jpeg" />
     <link rel="apple-touch-icon" href="Logo inverted 1zu1_2.jpeg" />
@@ -17,7 +19,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -35,29 +39,41 @@
     </script>
     <style>
         @media (min-width: 768px) {
-            html, body, a, button, input, textarea {
+
+            html,
+            body,
+            a,
+            button,
+            input,
+            textarea {
                 cursor: none !important;
             }
         }
+
         body {
             background-color: #0C0C0C;
             color: #ffffff;
         }
+
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .dropdown-wrapper:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
             transform: translateY(0);
         }
+
         .hover-scale {
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .hover-scale:hover {
             transform: scale(1.025);
         }
+
         .custom-cursor {
             pointer-events: none;
             position: fixed;
@@ -72,6 +88,7 @@
             transform: translate(-50%, -50%);
             transition: width 0.2s, height 0.2s, border-width 0.2s;
         }
+
         .custom-cursor.active {
             width: 28px;
             height: 28px;
@@ -80,67 +97,112 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen bg-[#0C0C0C] text-white">
+
+<body
+    class="font-sans antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen bg-[#0C0C0C] text-white">
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl transition-colors duration-300">
+    <header
+        class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
-                
-                <button id="menuBtn" onclick="openMenu()" class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101] transition-colors">
+
+                <button id="menuBtn" onclick="openMenu()"
+                    class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101] transition-colors">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                     <span id="menuText" class="text-sm font-semibold tracking-wider uppercase">Menü</span>
                 </button>
 
-                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
+                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]"
+                    style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions" class="h-16 sm:h-[76px] w-auto object-contain transition-opacity duration-300" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                        <img id="navLogoImg" src="weißes logo dick.png" alt="Flow Solutions"
+                            class="h-16 sm:h-[76px] w-auto object-contain"
+                            style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
                 <div class="relative dropdown-wrapper z-[110]">
-                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
-                        <span id="currentFlagIcon" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
-                            <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen"
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
+                        <span id="currentFlagIcon"
+                            class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
+                            <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
+                                <circle cx="256" cy="256" r="256" fill="#ffce00" />
+                                <path d="M0 170.7h512V0H0z" fill="#000" />
+                                <path d="M0 341.3h512V170.7H0z" fill="#d00" />
+                            </svg>
                         </span>
                     </button>
-                    <div id="langDropdownMenu" class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
-                        <button onclick="setLanguage('de')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
+                    <div id="langDropdownMenu"
+                        class="absolute right-0 top-full mt-2 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
+                        <button onclick="setLanguage('de')"
+                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
+                            <span
+                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
+                                    <circle cx="256" cy="256" r="256" fill="#ffce00" />
+                                    <path d="M0 170.7h512V0H0z" fill="#000" />
+                                    <path d="M0 341.3h512V170.7H0z" fill="#d00" />
+                                </svg>
                             </span>
                             <span>Deutsch (DE)</span>
                         </button>
-                        <button onclick="setLanguage('en')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <img src="assets/uk_us_flag.png" alt="English UK/US Flag" class="w-full h-full object-cover rounded-full">
+                        <button onclick="setLanguage('en')"
+                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
+                            <span
+                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <img src="assets/uk_us_flag.png" alt="English UK/US Flag"
+                                    class="w-full h-full object-cover rounded-full">
                             </span>
                             <span>English (UK / US)</span>
                         </button>
-                        <button onclick="setLanguage('fr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>
+                        <button onclick="setLanguage('fr')"
+                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
+                            <span
+                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
+                                    <circle cx="256" cy="256" r="256" fill="#fff" />
+                                    <path d="M0 0h170.7v512H0z" fill="#002395" />
+                                    <path d="M341.3 0H512v512H341.3z" fill="#ed2939" />
+                                </svg>
                             </span>
                             <span>Français (FR)</span>
                         </button>
-                        <button onclick="setLanguage('it')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>
+                        <button onclick="setLanguage('it')"
+                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
+                            <span
+                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
+                                    <circle cx="256" cy="256" r="256" fill="#fff" />
+                                    <path d="M0 0h170.7v512H0z" fill="#009246" />
+                                    <path d="M341.3 0H512v512H341.3z" fill="#ce2b37" />
+                                </svg>
                             </span>
                             <span>Italiano (IT)</span>
                         </button>
-                        <button onclick="setLanguage('es')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>
+                        <button onclick="setLanguage('es')"
+                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
+                            <span
+                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
+                                    <circle cx="256" cy="256" r="256" fill="#c60b1e" />
+                                    <path d="M0 128h512v256H0z" fill="#ffc400" />
+                                </svg>
                             </span>
                             <span>Español (ES)</span>
                         </button>
-                        <button onclick="setLanguage('tr')" class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)" class="w-full h-full object-cover rounded-full" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">
+                        <button onclick="setLanguage('tr')"
+                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
+                            <span
+                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
+                                <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)"
+                                    class="w-full h-full object-cover rounded-full"
+                                    style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">
                             </span>
                             <span>Türkçe (TR)</span>
                         </button>
@@ -151,11 +213,16 @@
         </div>
     </header>
 
-    <div id="rrMenuBackdrop" onclick="closeMenu()" class="fixed inset-0 bg-slate-950/70 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
+    <div id="rrMenuBackdrop" onclick="closeMenu()"
+        class="fixed inset-0 bg-slate-950/70 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+    </div>
 
-    <div id="rrOverlayMenu" class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-[#0C0C0C]/95 text-white backdrop-blur-2xl z-[200] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
+    <div id="rrOverlayMenu"
+        class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-[#0C0C0C]/95 text-white backdrop-blur-2xl z-[200] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
         <div class="flex items-center justify-between">
-            <button onclick="closeMenu()" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale" aria-label="Menü schließen">
+            <button onclick="closeMenu()"
+                class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale"
+                aria-label="Menü schließen">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -163,12 +230,19 @@
         </div>
 
         <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
-            <a href="index.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">STARTSEITE</a>
-            <a href="dienstleistungen.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">DIENSTLEISTUNGEN</a>
-            <a href="ueber-uns.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">ÜBER UNS</a>
-            <a href="kontakt.html" onclick="closeMenu()" class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">KONTAKT</a>
-            <a href="datenschutz.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">DATENSCHUTZ</a>
-            <a href="impressum.html" onclick="closeMenu()" class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">IMPRESSUM</a>
+            <a href="index.html" onclick="closeMenu()"
+                class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">STARTSEITE</a>
+            <a href="dienstleistungen.html" onclick="closeMenu()"
+                class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">DIENSTLEISTUNGEN</a>
+            <a href="ueber-uns.html" onclick="closeMenu()"
+                class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">ÜBER
+                UNS</a>
+            <a href="kontakt.html" onclick="closeMenu()"
+                class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">KONTAKT</a>
+            <a href="datenschutz.html" onclick="closeMenu()"
+                class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">DATENSCHUTZ</a>
+            <a href="impressum.html" onclick="closeMenu()"
+                class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">IMPRESSUM</a>
         </nav>
 
         <div class="text-xs text-slate-500 font-mono tracking-widest">
@@ -177,7 +251,7 @@
     </div>
 
     <main class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full bg-[#0C0C0C]">
-        
+
         <div class="text-center mb-16">
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
                 Über Flow Solutions
@@ -187,61 +261,101 @@
             </p>
         </div>
 
-        <div class="bg-slate-900/80 rounded-3xl p-8 sm:p-12 border border-slate-800 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center hover-scale shadow-2xl mb-16">
+        <div
+            class="bg-slate-900/80 rounded-3xl p-8 sm:p-12 border border-slate-800 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center hover-scale shadow-2xl mb-16">
             <div>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">Gründer & Unternehmensvision</h2>
                 <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
-                    Flow Solutions wurde gegründet, um technisches Know-how in echten, messbaren Mehrwert für Unternehmen zu verwandeln. Unser Fokus liegt auf Produktivität und Prozessoptimierung: Wir helfen Unternehmen dabei, Zeit zu sparen, Fehler zu reduzieren und durch den gezielten Einsatz intelligenter KI-Lösungen und Automatisierungen effizienter zu skalieren.
+                    Hallo, ich bin Maximilian, 21 Jahre alt und studiere Wirtschaftsinformatik an der Universität
+                    Stuttgart. Neben meinem Studium und meiner Erfahrung im IT-Betrieb einer großen Bank habe ich Flow
+                    Solutions gegründet, um mein technisches Wissen direkt in messbaren Wert für die Praxis zu
+                    verwandeln. Ich habe einen starken Fokus auf Produktivität und Prozessoptimierung – mein Ziel ist
+                    es, Unternehmen dabei zu helfen, Zeit zu sparen, Fehler zu reduzieren und durch den gezielten
+                    Einsatz intelligenter KI-Lösungen und Automatisierungen effizienter zu skalieren.
                 </p>
             </div>
-            <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800 h-[360px] sm:h-[420px] bg-slate-950">
-                <img src="IMG_6964.jpeg" alt="Maximilian - Gründer von Flow Solutions" class="w-full h-full object-cover object-top" />
+            <div
+                class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800 h-[360px] sm:h-[420px] bg-slate-950">
+                <img src="IMG_6964.jpeg" alt="Maximilian - Gründer von Flow Solutions"
+                    class="w-full h-full object-cover object-top" />
             </div>
         </div>
 
-        <div class="bg-gradient-to-br from-blue-900 to-slate-900 rounded-3xl p-8 sm:p-12 text-center text-white border border-blue-600/80 shadow-2xl hover-scale">
+        <div
+            class="bg-gradient-to-br from-blue-900 to-slate-900 rounded-3xl p-8 sm:p-12 text-center text-white border border-blue-600/80 shadow-2xl hover-scale">
             <h2 class="text-2xl sm:text-4xl font-extrabold mb-4">Möchten Sie Ihre Prozesse gemeinsam optimieren?</h2>
             <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-8">
-                Lassen Sie uns in einem persönlichen Gespräch evaluieren, wie KI-Automatisierungen Ihr Unternehmen voranbringen.
+                Lassen Sie uns in einem persönlichen Gespräch evaluieren, wie KI-Automatisierungen Ihr Unternehmen
+                voranbringen.
             </p>
-            <a href="kontakt.html" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all hover-scale shadow-lg shadow-blue-600/30">
+            <a href="kontakt.html"
+                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all hover-scale shadow-lg shadow-blue-600/30">
                 Jetzt Erstgespräch vereinbaren
             </a>
         </div>
 
     </main>
 
-    <footer class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
+    <footer
+        class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 py-8 px-4 sm:px-6 lg:px-8 mt-auto">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
             <div class="flex items-center gap-3 hover-scale">
                 <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
-                    <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo" class="w-full h-full object-cover">
+                    <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo"
+                        class="w-full h-full object-cover">
                 </div>
                 <span class="font-bold text-white">Flow Solutions</span>
                 <span>© 2026. Alle Rechte vorbehalten.</span>
             </div>
 
             <div class="flex items-center gap-4 text-slate-300">
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="LinkedIn">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.47 1.47 0 0 0-1.47 1.47c0 .81.66 1.47 1.47 1.47a1.47 1.47 0 0 0 1.47-1.47c0-.81-.66-1.47-1.47-1.47Z"/></svg>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale"
+                    aria-label="LinkedIn">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.47 1.47 0 0 0-1.47 1.47c0 .81.66 1.47 1.47 1.47a1.47 1.47 0 0 0 1.47-1.47c0-.81-.66-1.47-1.47-1.47Z" />
+                    </svg>
                 </a>
-                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="TikTok">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.5 2.73 2.73 0 0 1 1.01.2V9.96a5.72 5.72 0 0 0-.96-.08 5.67 5.67 0 1 0 5.67 5.67V9.02a7.33 7.33 0 0 0 4.33 1.41V7.32a4.34 4.34 0 0 1-3.3-1.5z"/></svg>
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale"
+                    aria-label="TikTok">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.5 2.73 2.73 0 0 1 1.01.2V9.96a5.72 5.72 0 0 0-.96-.08 5.67 5.67 0 1 0 5.67 5.67V9.02a7.33 7.33 0 0 0 4.33 1.41V7.32a4.34 4.34 0 0 1-3.3-1.5z" />
+                    </svg>
                 </a>
-                <a href="https://www.instagram.com/flowsolutions.digital?utm_source=qr" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Instagram">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <a href="https://www.instagram.com/flowsolutions.digital?utm_source=qr" target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale"
+                    aria-label="Instagram">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
                 </a>
-                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="Pinterest">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z"/></svg>
+                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale"
+                    aria-label="Pinterest">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z" />
+                    </svg>
                 </a>
-                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale" aria-label="YouTube">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale"
+                    aria-label="YouTube">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
                 </a>
             </div>
 
             <div class="flex items-center gap-6">
                 <a href="index.html" class="hover:text-white transition-colors hover-scale">Startseite</a>
-                <a href="dienstleistungen.html" class="hover:text-white transition-colors hover-scale">Dienstleistungen</a>
+                <a href="dienstleistungen.html"
+                    class="hover:text-white transition-colors hover-scale">Dienstleistungen</a>
                 <a href="kontakt.html" class="hover:text-white transition-colors hover-scale">Kontakt</a>
                 <a href="datenschutz.html" class="hover:text-white transition-colors hover-scale">Datenschutz</a>
                 <a href="impressum.html" class="hover:text-white transition-colors hover-scale">Impressum</a>
@@ -286,7 +400,7 @@
         function setLanguage(lang) {
             const flagIcon = document.getElementById('currentFlagIcon');
             const langMenu = document.getElementById('langDropdownMenu');
-            
+
             const flags = {
                 'de': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>',
                 'en': '<img src="assets/uk_us_flag.png" alt="UK/US" class="w-full h-full object-cover rounded-full">',
@@ -305,48 +419,6 @@
             }
         }
 
-        function updateNavbarTheme() {
-            const header = document.getElementById('mainHeader');
-            const navLogo = document.getElementById('navLogoImg');
-            const menuText = document.getElementById('menuText');
-            const menuBtn = document.getElementById('menuBtn');
-            if (!header || !navLogo) return;
-
-            const headerRect = header.getBoundingClientRect();
-            const testY = headerRect.top + headerRect.height / 2;
-            const sections = document.querySelectorAll('section, footer, main');
-            let isLight = false;
-
-            sections.forEach(sec => {
-                const rect = sec.getBoundingClientRect();
-                if (rect.top <= testY && rect.bottom >= testY) {
-                    if (sec.classList.contains('bg-white') || sec.classList.contains('bg-slate-100') || sec.dataset.theme === 'light') {
-                        isLight = true;
-                    }
-                }
-            });
-
-            if (isLight) {
-                navLogo.src = 'Logo Dick.png';
-                menuText.classList.remove('text-white');
-                menuText.classList.add('text-slate-900');
-                menuBtn.classList.remove('text-white');
-                menuBtn.classList.add('text-slate-900');
-                header.classList.remove('border-slate-800/80', 'bg-[#0C0C0C]/85');
-                header.classList.add('border-slate-300/80', 'bg-white/85');
-            } else {
-                navLogo.src = 'weißes logo dick.png';
-                menuText.classList.remove('text-slate-900');
-                menuText.classList.add('text-white');
-                menuBtn.classList.remove('text-slate-900');
-                menuBtn.classList.add('text-white');
-                header.classList.remove('border-slate-300/80', 'bg-white/85');
-                header.classList.add('border-slate-800/80', 'bg-[#0C0C0C]/85');
-            }
-        }
-
-        window.addEventListener('scroll', updateNavbarTheme, { passive: true });
-
         document.addEventListener('click', (e) => {
             const langBtn = document.getElementById('langSelectBtn');
             const langMenu = document.getElementById('langDropdownMenu');
@@ -357,7 +429,6 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
-            updateNavbarTheme();
             const cursor = document.getElementById('customCursor');
             if (cursor && window.innerWidth >= 768) {
                 document.addEventListener('mousemove', (e) => {
@@ -372,4 +443,5 @@
         });
     </script>
 </body>
+
 </html>

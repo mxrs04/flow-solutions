@@ -60,8 +60,9 @@
             transform: scale(1.025);
         }
         .stacked-card {
-            will-change: transform, opacity;
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+            transform-origin: top center !important;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         @keyframes flyInLeft {
             0% { transform: translateX(-120px); opacity: 0; }
@@ -244,10 +245,10 @@
                 <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="services_sub">Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.</p>
             </div>
 
-            <div id="stacked-cards-container" class="relative pb-24 space-y-[12vh]">
+            <div id="stacked-cards-container" class="relative pb-24 space-y-[10vh]">
                 
-                <div class="h-[85vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 0px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" data-index="0">
+                <div class="h-[85vh] sticky flex items-center justify-center z-10" style="top: calc(96px + 0px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" style="transform-origin: top center;" data-index="0">
                         <div>
                             <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service1_title">Automatisierte Voice-Agenten</h3>
                             <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service1_desc">
@@ -273,8 +274,8 @@
                     </div>
                 </div>
 
-                <div class="h-[85vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 28px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" data-index="1">
+                <div class="h-[85vh] sticky flex items-center justify-center z-20" style="top: calc(96px + 22px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" style="transform-origin: top center;" data-index="1">
                         <div class="order-2 lg:order-1 rounded-3xl overflow-hidden border border-slate-800 h-[280px] sm:h-[340px] bg-slate-900">
                             <img src="image_14dd43.png" alt="Workflow Automatisierung" class="w-full h-full object-cover" />
                         </div>
@@ -300,8 +301,8 @@
                     </div>
                 </div>
 
-                <div class="h-[95vh] sticky top-24 md:top-32 flex items-center justify-center" style="top: calc(96px + 56px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" data-index="2">
+                <div class="h-[95vh] sticky flex items-center justify-center z-30" style="top: calc(96px + 44px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center" style="transform-origin: top center;" data-index="2">
                         <div>
                             <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
                             <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service3_desc">
@@ -801,11 +802,13 @@
             const winH = window.innerHeight;
             
             cards.forEach((card, index) => {
+                card.style.transformOrigin = 'top center';
+                
                 if (index < totalCards - 1) {
                     const nextParent = cards[index + 1].parentElement;
                     const nextRect = nextParent.getBoundingClientRect();
                     
-                    let overlapProgress = (winH - nextRect.top) / (winH * 0.70);
+                    let overlapProgress = (winH - nextRect.top) / (winH * 0.65);
                     overlapProgress = Math.min(Math.max(overlapProgress, 0), 1);
                     
                     const maxScaleDelta = (totalCards - 1 - index) * 0.03;
@@ -813,14 +816,6 @@
                     
                     card.style.transform = `scale(${targetScale})`;
                 } else {
-                    const parentContainer = card.parentElement;
-                    const rect = parentContainer.getBoundingClientRect();
-                    const prevParent = cards[index - 1].parentElement;
-                    const prevRect = prevParent.getBoundingClientRect();
-                    
-                    let overlapProgress = (winH - rect.top) / (winH * 0.75);
-                    overlapProgress = Math.min(Math.max(overlapProgress, 0), 1);
-                    
                     card.style.transform = 'scale(1)';
                 }
             });
