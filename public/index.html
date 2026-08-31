@@ -41,12 +41,6 @@
             background-color: #f8fafc;
             color: #0f172a;
         }
-        .liquid-glass-nav {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -87,6 +81,26 @@
         .card-slide-in.active {
             transform: translateX(0);
             opacity: 1;
+        }
+        @keyframes flyInLeft {
+            0% { transform: translateX(-120px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes flyInRight {
+            0% { transform: translateX(120px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-title-left {
+            display: inline-block;
+            animation: flyInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards, floatSlow 4.5s ease-in-out 0.9s infinite alternate;
+        }
+        .animate-title-right {
+            display: inline-block;
+            animation: flyInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards, floatSlow 5s ease-in-out 1s infinite alternate;
         }
         .custom-cursor {
             pointer-events: none;
@@ -135,25 +149,25 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-[100] liquid-glass-nav text-slate-900 pointer-events-auto">
+    <header class="fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 border-b border-slate-800/80 pointer-events-auto bg-transparent backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button onclick="openMenu()" class="p-2 text-slate-900 hover:text-blue-600 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101]">
+                <button id="menuBtn" onclick="openMenu()" class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101] transition-colors duration-300">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
-                    <span class="text-sm font-semibold tracking-wider uppercase">Menü</span>
+                    <span id="menuText" class="text-sm font-semibold tracking-wider uppercase">Menü</span>
                 </button>
 
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img src="schwarzes Logo.png" alt="Flow Solutions" class="h-20 sm:h-[86px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                        <img id="navLogoImg" src="weißes_logo_dick.png" alt="Flow Solutions" class="h-20 sm:h-[86px] w-auto object-contain transition-opacity duration-300" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
                 <div class="relative dropdown-wrapper z-[110]">
-                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
+                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-900/60 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111] transition-colors duration-300">
                         <span id="currentFlagIcon" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
                             <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
@@ -229,16 +243,16 @@
 
     <main class="relative z-10">
         
-        <section class="relative text-white pt-36 pb-20 sm:pt-44 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-slate-200 bg-slate-950 z-0">
+        <section id="hero-section" class="relative text-white pt-36 pb-20 sm:pt-44 sm:pb-32 px-4 sm:px-6 lg:px-8 max-w-full text-center overflow-hidden border-b border-slate-800 bg-slate-950 z-0">
             <div class="absolute inset-0 z-0 pointer-events-none">
                 <img src="Logo Landingpage16zu9_2.png" alt="Flow Solutions Hero Background" class="w-full h-full object-contain sm:object-cover object-center" />
                 <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(15,23,42,0.85) 85%, rgba(15,23,42,0.98) 100%);"></div>
             </div>
             
             <div class="max-w-4xl mx-auto relative z-10 py-8 sm:py-16">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.12]">
-                    <span data-i18n="hero_headline_1">KI-LÖSUNGEN,</span> <br class="hidden sm:inline" />
-                    <span data-i18n="hero_headline_2">DIE <span class="font-serif italic font-medium text-blue-400">ZEIT</span> SPAREN.</span>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.12] overflow-hidden">
+                    <span class="animate-title-left block mb-2" data-i18n="hero_headline_1">KI-LÖSUNGEN,</span>
+                    <span class="animate-title-right block" data-i18n="hero_headline_2">DIE <span class="font-serif italic font-medium text-blue-400">ZEIT</span> SPAREN.</span>
                 </h1>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
@@ -265,7 +279,6 @@
                 
                 <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center card-slide-in card-slide-left">
                     <div>
-                        <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-3" data-i18n="service1_badge">01 / AUTONOMOUS VOICE AGENTS</span>
                         <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service1_title">Automatisierte Voice-Agenten</h3>
                         <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service1_desc">
                             Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.
@@ -294,7 +307,6 @@
                         <img src="image_14dd43.png" alt="Workflow Automatisierung" class="w-full h-full object-cover" />
                     </div>
                     <div class="order-1 lg:order-2">
-                        <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-3" data-i18n="service2_badge">02 / WORKFLOW PIPELINES</span>
                         <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service2_title">Workflow-Automatisierung</h3>
                         <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service2_desc">
                             Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.
@@ -317,7 +329,6 @@
 
                 <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xl shadow-slate-900/5 bg-white grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center card-slide-in card-slide-left">
                     <div>
-                        <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-3" data-i18n="service3_badge">03 / ENTERPRISE KNOWLEDGE AI</span>
                         <h3 class="text-3xl font-extrabold text-slate-900 mb-4" data-i18n="service3_title">Enterprise KI-Assistenten</h3>
                         <p class="text-slate-600 text-base leading-relaxed mb-6" data-i18n="service3_desc">
                             Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.
@@ -352,7 +363,7 @@
             </div>
         </section>
 
-        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200">
+        <section id="roi" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight" data-i18n="roi_title">Qualitative Wertsteigerung & ROI</h2>
                 <p class="mt-4 text-slate-600 text-base sm:text-lg" data-i18n="roi_sub">Der direkte Vergleich zwischen traditionellem Aufwand und intelligenter Automation.</p>
@@ -432,7 +443,7 @@
             </div>
         </section>
 
-        <section class="py-24 overflow-hidden max-w-full border-t border-slate-200 bg-slate-100/50">
+        <section id="reviews" class="py-24 overflow-hidden max-w-full border-t border-slate-200 bg-slate-100/50">
             <div class="text-center mb-6 px-4">
                 <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-6" data-i18n="reviews_heading">Das sagen unsere B2B Kunden</h3>
                 
@@ -633,19 +644,16 @@
                 hero_cta_secondary: "Dienstleistungen entdecken",
                 services_title: "Maßgeschneiderte KI-Systeme für maximale Skalierung",
                 services_sub: "Nutzen Sie das volle Potenzial moderner Künstlicher Intelligenz zur Optimierung Ihrer Unternehmensabläufe.",
-                service1_badge: "01 / AUTONOMOUS VOICE AGENTS",
                 service1_title: "Automatisierte Voice-Agenten",
                 service1_desc: "Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr in menschlicher Qualität annehmen, Termine vereinbaren und Daten direkt erfassen.",
                 service1_b1: "Echtzeit-Spracherkennung",
                 service1_b2: "Nahtlose CRM- & Kalender-Anbindung",
                 service1_btn: "Voice Agent anfragen",
-                service2_badge: "02 / WORKFLOW PIPELINES",
                 service2_title: "Workflow-Automatisierung",
                 service2_desc: "Verknüpfung Ihrer Softwarelandschaft mit autonom arbeitenden KI-Pipelines. Von automatischer Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.",
                 service2_b1: "Prozessanalyse & Individual-Setup",
                 service2_b2: "Fehlerfreie System-Kopplung",
                 service2_btn: "Workflow-Analyse buchen",
-                service3_badge: "03 / ENTERPRISE KNOWLEDGE AI",
                 service3_title: "Enterprise KI-Assistenten",
                 service3_desc: "Individuell trainierte Chat- und Wissens-Assistenten auf Basis eigener Unternehmensdaten – absolut vertraulich, DSGVO-konform und sofort nutzbar.",
                 service3_b1: "Interne Wissensdatenbanken",
@@ -668,19 +676,16 @@
                 hero_cta_secondary: "Explore Services",
                 services_title: "Tailored AI Systems for Maximum Scaling",
                 services_sub: "Harness the full potential of modern artificial intelligence to optimize your business operations.",
-                service1_badge: "01 / AUTONOMOUS VOICE AGENTS",
                 service1_title: "Automated Voice Agents",
                 service1_desc: "Intelligent phone assistants taking customer calls 24/7 with human-like quality, scheduling appointments and capturing data directly.",
                 service1_b1: "Real-time speech recognition",
                 service1_b2: "Seamless CRM & Calendar integration",
                 service1_btn: "Request Voice Agent",
-                service2_badge: "02 / WORKFLOW PIPELINES",
                 service2_title: "Workflow Automation",
                 service2_desc: "Connecting your software ecosystem with autonomous AI pipelines. From automated document processing to smart ticket distribution.",
                 service2_b1: "Process analysis & custom setup",
                 service2_b2: "Error-free system integration",
                 service2_btn: "Book Workflow Audit",
-                service3_badge: "03 / ENTERPRISE KNOWLEDGE AI",
                 service3_title: "Enterprise AI Assistants",
                 service3_desc: "Custom-trained knowledge assistants powered by internal company data – fully confidential, GDPR-compliant and ready to deploy.",
                 service3_b1: "Internal knowledge repositories",
@@ -703,19 +708,16 @@
                 hero_cta_secondary: "Découvrir nos services",
                 services_title: "Systèmes IA sur mesure pour une croissance maximale",
                 services_sub: "Exploitez tout le potentiel de l'intelligence artificielle moderne pour optimiser vos processus d'entreprise.",
-                service1_badge: "01 / AGENTS VOCAUX AUTONOMES",
                 service1_title: "Agents Vocaux Automatisés",
                 service1_desc: "Assistants téléphoniques intelligents prenant en charge vos appels 24/7 avec une qualité humaine, la prise de rendez-vous et la saisie directe de données.",
                 service1_b1: "Reconnaissance vocale en temps réel",
                 service1_b2: "Intégration CRM et Calendrier fluide",
                 service1_btn: "Demander un Agent Vocal",
-                service2_badge: "02 / PIPELINES DE WORKFLOW",
                 service2_title: "Automatisations de Workflow",
                 service2_desc: "Connexion de vos logiciels métiers à des pipelines d'IA autonomes. De l'analyse de documents à la gestion intelligente des tickets.",
                 service2_b1: "Analyse de processus & configuration sur mesure",
                 service2_b2: "Couplage de systèmes sans erreur",
                 service2_btn: "Réserver une Analyse de Workflow",
-                service3_badge: "03 / IA D'ENTREPRISE",
                 service3_title: "Assistants IA d'Entreprise",
                 service3_desc: "Assistants intelligents entraînés sur vos données d'entreprise confidentielles – 100% conformes au RGPD et opérationnels immédiatement.",
                 service3_b1: "Bases de connaissances internes",
@@ -738,19 +740,16 @@
                 hero_cta_secondary: "Scopri i servizi",
                 services_title: "Sistemi IA su misura per la massima scalabilità",
                 services_sub: "Sfrutta tutto il potenziale dell'intelligenza artificiale moderna per ottimizzare i processi aziendali.",
-                service1_badge: "01 / AGENTI VOCALI AUTONOMI",
                 service1_title: "Agenti Vocali Automatizzati",
                 service1_desc: "Assistenti telefonici intelligenti che gestiscono le chiamate 24/7 con qualità umana, fissano appuntamenti e registrano i dati direttamente.",
                 service1_b1: "Riconoscimento vocale in tempo reale",
                 service1_b2: "Integrazione perfetta con CRM e Calendario",
                 service1_btn: "Richiedi un Agente Vocale",
-                service2_badge: "02 / PIPELINE DI WORKFLOW",
                 service2_title: "Automazione dei Workflow",
                 service2_desc: "Collega i tuoi software aziendali a pipeline IA autonome. Dall'analisi dei documenti alla gestione intelligente dei ticket.",
                 service2_b1: "Analisi dei processi e configurazione personalizzata",
                 service2_b2: "Integrazione dei sistemi priva di errori",
                 service2_btn: "Prenota un'Analisi di Workflow",
-                service3_badge: "03 / IA AZIENDALE",
                 service3_title: "Assistenti IA per Aziende",
                 service3_desc: "Assistenti di conoscenza addestrati sui dati aziendali interni – completamente riservati, conformi al GDPR e subito operativi.",
                 service3_b1: "Database di conoscenza interni",
@@ -773,19 +772,16 @@
                 hero_cta_secondary: "Descubrir servicios",
                 services_title: "Sistemas de IA a medida para el máximo escalado",
                 services_sub: "Aproveche todo el potencial de la inteligencia artificial moderna para optimizar sus operaciones empresariales.",
-                service1_badge: "01 / AGENTES DE VOZ AUTÓNOMOS",
                 service1_title: "Agentes de Voz Automatizados",
                 service1_desc: "Asistentes telefónicos inteligentes que atienden llamadas 24/7 con calidad humana, agendan citas y registran datos directamente.",
                 service1_b1: "Reconocimiento de voz en tiempo real",
                 service1_b2: "Integración perfecta con CRM y Calendario",
                 service1_btn: "Solicitar Agente de Voz",
-                service2_badge: "02 / PIPELINES DE WORKFLOW",
                 service2_title: "Automatización de Procesos",
                 service2_desc: "Conecte su ecosistema de software con flujos autónomos de IA. Desde el procesamiento de documentos hasta la distribución de tickets.",
                 service2_b1: "Análisis de procesos y configuración personalizada",
                 service2_b2: "Integración de sistemas sin errores",
                 service2_btn: "Reservar Análisis de Flujo",
-                service3_badge: "03 / IA EMPRESARIAL",
                 service3_title: "Asistentes de IA Empresarial",
                 service3_desc: "Asistentes entrenados con sus propios datos corporativos – totalmente confidenciales, conformes al RGPD y listos para operar.",
                 service3_b1: "Bases de conocimiento internas",
@@ -808,19 +804,16 @@
                 hero_cta_secondary: "Hizmetleri Keşfedin",
                 services_title: "Maksimum Ölçekleme İçin Özel Yapay Zeka Sistemleri",
                 services_sub: "İş süreçlerinizi optimize etmek için modern yapay zekanın tüm potansiyelinden yararlanın.",
-                service1_badge: "01 / OTONOM SESLİ ASİSTANLAR",
                 service1_title: "Otomatik Sesli Asistanlar",
                 service1_desc: "Gelen müşteri aramalarını 7/24 insan kalitesinde yanıtlayan, randevu oluşturan ve verileri doğrudan kaydeden akıllı telefon asistanları.",
                 service1_b1: "Gerçek zamanlı konuşma tanıma",
                 service1_b2: "Sorunsuz CRM ve Takvim entegrasyonu",
                 service1_btn: "Sesli Asistan Talep Et",
-                service2_badge: "02 / İŞ AKIŞI OTOMASYONU",
                 service2_title: "İş Akışı Otomasyonu",
                 service2_desc: "Yazılımlarınızı otonom çalışan yapay zeka hatlarına bağlayın. Belge analizinden akıllı bilet dağıtımına kadar.",
                 service2_b1: "Süreç analizi ve özel kurulum",
                 service2_b2: "Hatasız sistem entegrasyonu",
                 service2_btn: "İş Akışı Analizi Alın",
-                service3_badge: "03 / KURUMSAL YAPAY ZEKA",
                 service3_title: "Kurumsal Yapay Zeka Asistanları",
                 service3_desc: "Şirket içi verilerinizle eğitilmiş özel bilgi asistanları – tam gizli, KVKK/GDPR uyumlu ve anında kullanıma hazır.",
                 service3_b1: "Dahili bilgi havuzları",
@@ -905,7 +898,64 @@
             }
         });
 
+        function updateNavbarTheme() {
+            const navHeader = document.querySelector('header');
+            const navLogoImg = document.getElementById('navLogoImg');
+            const menuBtn = document.getElementById('menuBtn');
+            const langBtn = document.getElementById('langSelectBtn');
+            
+            if (!navHeader) return;
+            
+            const navRect = navHeader.getBoundingClientRect();
+            const navCenterY = navRect.top + navRect.height / 2;
+            
+            const sections = document.querySelectorAll('section, footer');
+            let isDarkBg = true;
+            
+            sections.forEach(sec => {
+                const sRect = sec.getBoundingClientRect();
+                if (sRect.top <= navCenterY && sRect.bottom >= navCenterY) {
+                    if (sec.id === 'services' || sec.id === 'roi' || sec.id === 'reviews' || sec.classList.contains('bg-white') || sec.classList.contains('bg-slate-100/50')) {
+                        isDarkBg = false;
+                    } else if (sec.id === 'hero-section' || sec.id === 'text-reveal-section' || sec.tagName === 'FOOTER' || sec.classList.contains('bg-slate-950')) {
+                        isDarkBg = true;
+                    }
+                }
+            });
+
+            if (isDarkBg) {
+                if (navLogoImg) navLogoImg.src = 'weißes_logo_dick.png';
+                navHeader.classList.remove('border-slate-200/80');
+                navHeader.classList.add('border-slate-800/80');
+                if (menuBtn) {
+                    menuBtn.classList.remove('text-slate-900');
+                    menuBtn.classList.add('text-white');
+                }
+                if (langBtn) {
+                    langBtn.classList.remove('bg-slate-100', 'border-slate-300', 'text-slate-900');
+                    langBtn.classList.add('bg-slate-900/60', 'border-slate-700', 'text-white');
+                }
+            } else {
+                if (navLogoImg) navLogoImg.src = 'Logo_Dick.png';
+                navHeader.classList.remove('border-slate-800/80');
+                navHeader.classList.add('border-slate-200/80');
+                if (menuBtn) {
+                    menuBtn.classList.remove('text-white');
+                    menuBtn.classList.add('text-slate-900');
+                }
+                if (langBtn) {
+                    langBtn.classList.remove('bg-slate-900/60', 'border-slate-700', 'text-white');
+                    langBtn.classList.add('bg-slate-100', 'border-slate-300', 'text-slate-900');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbarTheme, { passive: true });
+        window.addEventListener('resize', updateNavbarTheme);
+
         document.addEventListener('DOMContentLoaded', () => {
+            updateNavbarTheme();
+
             const cursor = document.getElementById('customCursor');
             if (cursor && window.innerWidth >= 768) {
                 document.addEventListener('mousemove', (e) => {
@@ -935,21 +985,59 @@
             if (textRevealSec && textRevealEl) {
                 const rawText = textRevealEl.textContent.trim();
                 const wordsArr = rawText.split(/\s+/);
-                textRevealEl.innerHTML = wordsArr.map(w => `<span class="inline-block mx-1.5 sm:mx-2 transition-colors duration-150 text-slate-600 font-extrabold">${w}</span>`).join('');
+                textRevealEl.innerHTML = wordsArr.map(w => `<span class="inline-block mx-1.5 sm:mx-2 transition-colors duration-200 text-slate-600 font-extrabold">${w}</span>`).join('');
                 const wordSpans = textRevealEl.querySelectorAll('span');
 
+                let lastScrollY = window.scrollY;
+
                 function updateTextReveal() {
+                    const currentScrollY = window.scrollY;
+                    const isScrollingDown = currentScrollY >= lastScrollY;
+                    lastScrollY = currentScrollY;
+
                     const rect = textRevealSec.getBoundingClientRect();
                     const winH = window.innerHeight;
-                    const secCenter = rect.top + rect.height / 2;
-                    
-                    let progress = (winH - secCenter) / winH;
-                    progress = Math.min(Math.max(progress, 0), 1);
-                    
-                    const activeIndex = Math.floor(progress * (wordSpans.length + 1));
-                    
+                    const totalWords = wordSpans.length;
+
+                    let activeCount = 0;
+
+                    if (isScrollingDown) {
+                        const startY = winH * 0.85;
+                        const endY = winH * 0.5 - rect.height;
+                        
+                        let progress = (startY - rect.top) / (startY - endY);
+                        progress = Math.min(Math.max(progress, 0), 1);
+
+                        if (progress > 0) {
+                            activeCount = Math.max(Math.floor(progress * totalWords), Math.floor(totalWords * 0.15));
+                        } else {
+                            activeCount = 0;
+                        }
+
+                        if (rect.bottom <= winH * 0.5) {
+                            activeCount = totalWords;
+                        }
+                    } else {
+                        const startY = winH * 0.90;
+                        const endY = winH * 0.40;
+                        let progress = (startY - rect.top) / (startY - endY);
+                        progress = Math.min(Math.max(progress, 0), 1);
+
+                        if (rect.top >= winH * 0.85) {
+                            activeCount = 0;
+                        } else if (rect.top >= winH * 0.65) {
+                            activeCount = Math.max(Math.floor(progress * totalWords), Math.floor(totalWords * 0.15));
+                        } else {
+                            activeCount = Math.floor(progress * totalWords);
+                        }
+
+                        if (rect.bottom > winH * 0.5) {
+                            activeCount = Math.min(activeCount, Math.floor(totalWords * 0.85));
+                        }
+                    }
+
                     wordSpans.forEach((span, idx) => {
-                        if (idx < activeIndex) {
+                        if (idx < activeCount) {
                             span.classList.remove('text-slate-600');
                             span.classList.add('text-white');
                         } else {

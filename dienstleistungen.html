@@ -40,12 +40,6 @@
             background-color: #f8fafc;
             color: #0f172a;
         }
-        .liquid-glass-nav {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
         .dropdown-menu {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -97,25 +91,25 @@
 
     <div id="customCursor" class="custom-cursor hidden md:block"></div>
 
-    <header class="fixed top-0 left-0 right-0 z-[100] liquid-glass-nav text-slate-900 pointer-events-auto">
+    <header class="fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 border-b border-slate-200/80 pointer-events-auto bg-transparent backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
                 
-                <button onclick="openMenu()" class="p-2 text-slate-900 hover:text-blue-600 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101]">
+                <button id="menuBtn" onclick="openMenu()" class="p-2 text-slate-900 hover:text-blue-600 focus:outline-none hover-scale flex items-center gap-2.5 cursor-pointer z-[101] transition-colors duration-300">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
-                    <span class="text-sm font-semibold tracking-wider uppercase">Menü</span>
+                    <span id="menuText" class="text-sm font-semibold tracking-wider uppercase">Menü</span>
                 </button>
 
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]" style="background-color: transparent !important;">
                     <a href="index.html" class="block hover-scale" style="background-color: transparent !important;">
-                        <img src="schwarzes Logo.png" alt="Flow Solutions" class="h-20 sm:h-[86px] w-auto object-contain" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
+                        <img id="navLogoImg" src="Logo_Dick.png" alt="Flow Solutions" class="h-20 sm:h-[86px] w-auto object-contain transition-opacity duration-300" style="background-color: transparent !important; filter: none !important; mix-blend-mode: normal !important;" />
                     </a>
                 </div>
 
                 <div class="relative dropdown-wrapper z-[110]">
-                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
+                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-300 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111] transition-colors duration-300">
                         <span id="currentFlagIcon" class="w-7 h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
                             <svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>
                         </span>
@@ -204,7 +198,6 @@
             
             <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center hover-scale">
                 <div>
-                    <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-2">01 / AUTONOMOUS VOICE AGENTS</span>
                     <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Automatisierte Voice-Agenten</h2>
                     <p class="text-slate-600 text-base leading-relaxed mb-6">
                         Unsere KI-Telefonassistenten übernehmen eingehende und ausgehende Kundenanrufe rund um die Uhr. Dank natürlich klingender Sprachsynthese und Sub-Sekunden-Reaktionszeiten führen sie vollständige Beratungsgespräche, erfassen Kontaktdaten und buchen Termine direkt in Ihrem Kalender.
@@ -237,7 +230,6 @@
                     <img src="image_14dd43.png" alt="Workflow Automatisierung Diagramm" class="w-full h-full object-cover" />
                 </div>
                 <div class="order-1 lg:order-2">
-                    <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-2">02 / WORKFLOW PIPELINES</span>
                     <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Workflow-Automatisierung</h2>
                     <p class="text-slate-600 text-base leading-relaxed mb-6">
                         Wir verbinden Ihre genutzten Softwarelösungen (CRM, E-Mail-Systeme, Datenbanken) zu nahtlosen, fehlerfreien Automatisierungs-Pipelines. Manuelle Dateneingaben, Rechnungsverarbeitung oder Ticket-Klassifizierungen werden vollständig durch autonome Workflows abgewickelt.
@@ -264,7 +256,6 @@
 
             <div class="light-card rounded-3xl p-8 sm:p-12 border border-slate-200 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center hover-scale">
                 <div>
-                    <span class="text-xs font-mono font-bold tracking-widest text-blue-600 uppercase block mb-2">03 / ENTERPRISE KNOWLEDGE AI</span>
                     <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Enterprise KI-Assistenten</h2>
                     <p class="text-slate-600 text-base leading-relaxed mb-6">
                         Wir entwickeln maßgeschneiderte Wissens-Assistenten, die speziell auf Ihren internen Unternehmensdaten trainiert werden. Mitarbeiter und Geschäftsführer erhalten sekundenschnelle Antworten auf komplexe Fachfragen, Verträge oder interne Dokumentationen.
