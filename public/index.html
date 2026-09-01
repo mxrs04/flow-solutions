@@ -533,6 +533,14 @@
             </div>
         </section>
 
+        <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#0C0C0C] border-t border-b border-slate-800/80">
+            <div class="max-w-5xl mx-auto text-center">
+                <p class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                    Bis zu <span id="savingsCounter" class="savings-counter text-blue-400" data-target="40">0</span> Stunden/Woche Ersparnis
+                </p>
+            </div>
+        </section>
+
         <section id="roi"
             class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#0C0C0C]">
             <div class="text-center max-w-3xl mx-auto mb-20">
@@ -1337,6 +1345,36 @@
                 }
                 window.addEventListener('scroll', updateRoiScroll, { passive: true });
                 updateRoiScroll();
+            }
+
+            const savingsCounterEl = document.querySelector('.savings-counter');
+            if (savingsCounterEl) {
+                let savingsAnimated = false;
+                const savingsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !savingsAnimated) {
+                            savingsAnimated = true;
+                            const targetVal = parseInt(savingsCounterEl.getAttribute('data-target') || '40', 10);
+                            const duration = 2200;
+                            const startTime = performance.now();
+
+                            function animateSavings(currentTime) {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                                const current = Math.floor(easeOutQuart * targetVal);
+                                savingsCounterEl.textContent = current;
+                                if (progress < 1) {
+                                    requestAnimationFrame(animateSavings);
+                                } else {
+                                    savingsCounterEl.textContent = targetVal;
+                                }
+                            }
+                            requestAnimationFrame(animateSavings);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                savingsObserver.observe(savingsCounterEl);
             }
         });
     </script>
