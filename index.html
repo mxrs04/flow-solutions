@@ -105,6 +105,7 @@
             z-index: 99999;
             transform: translate(-50%, -50%);
             transition: width 0.2s, height 0.2s, border-width 0.2s;
+            mix-blend-mode: difference;
         }
 
         .custom-cursor.active {
@@ -443,10 +444,14 @@
 
             <div id="stacked-cards-container" class="relative pb-24 space-y-[10vh]">
 
-                <div class="h-[85vh] sticky flex items-center justify-center z-10" style="top: calc(96px + 0px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center"
+                <div class="md:h-[85vh] md:sticky flex items-center justify-center z-10 mb-12 md:mb-0" style="top: calc(96px + 0px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] shadow-2xl transition-all duration-300 relative overflow-hidden p-0 flex flex-col min-h-[500px] lg:min-h-[600px]"
                         style="transform-origin: top center;" data-index="0">
-                        <div>
+                        <img src="Gemini_Generated_Image_r1zncbr1zncbr1zn.jpeg"
+                            alt="Dashboard eines KI Voice-Agenten zur automatisierten Terminbuchung im B2B"
+                            class="absolute inset-0 w-full h-full object-cover z-0" />
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-[#0C0C0C] via-[#0C0C0C]/90 to-transparent"></div>
+                        <div class="relative z-20 w-full lg:w-1/2 p-8 sm:p-12 flex flex-col justify-end h-full mt-auto lg:ml-auto">
                             <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service1_title">
                                 Automatisierte Voice-Agenten</h3>
                             <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service1_desc">
@@ -462,32 +467,24 @@
                                 <li class="flex items-center gap-3">
                                     <span
                                         class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
-                                    <span data-i18n="service1_b2">Nahtlose CRM- & Kalender-Anbindung</span>
+                                    <span data-i18n="service1_b2">Nahtlose CRM- &amp; Kalender-Anbindung</span>
                                 </li>
                             </ul>
                             <a href="kontakt.html" data-i18n="service1_btn"
-                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30">
+                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30 w-max">
                                 Voice Agent anfragen
                             </a>
-                        </div>
-                        <div
-                            class="rounded-3xl overflow-hidden border border-slate-800 h-[280px] sm:h-[340px] bg-slate-900">
-                            <img src="image_1464c8_v2.png"
-                                alt="Dashboard eines KI Voice-Agenten zur automatisierten Terminbuchung im B2B"
-                                class="w-full h-full object-cover" />
                         </div>
                     </div>
                 </div>
 
-                <div class="h-[85vh] sticky flex items-center justify-center z-20" style="top: calc(96px + 24px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center"
+                <div class="md:h-[85vh] md:sticky flex items-center justify-center z-20 mb-12 md:mb-0" style="top: calc(96px + 24px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] shadow-2xl transition-all duration-300 relative overflow-hidden p-0 flex flex-col min-h-[500px] lg:min-h-[600px]"
                         style="transform-origin: top center;" data-index="1">
-                        <div
-                            class="order-2 lg:order-1 rounded-3xl overflow-hidden border border-slate-800 h-[280px] sm:h-[340px] bg-slate-900">
-                            <img src="image_14dd43_v2.png" alt="Workflow Automatisierung"
-                                class="w-full h-full object-cover" />
-                        </div>
-                        <div class="order-1 lg:order-2">
+                        <img src="Gemini_Generated_Image_1gx7cw1gx7cw1gx7.jpg" alt="Workflow Automatisierung"
+                            class="absolute inset-0 w-full h-full object-cover z-0" />
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-l from-[#0C0C0C] via-[#0C0C0C]/90 to-transparent"></div>
+                        <div class="relative z-20 w-full lg:w-1/2 p-8 sm:p-12 flex flex-col justify-end h-full mt-auto lg:mr-auto">
                             <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service2_title">
                                 Workflow-Automatisierung</h3>
                             <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service2_desc">
@@ -498,7 +495,7 @@
                                 <li class="flex items-center gap-3">
                                     <span
                                         class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
-                                    <span data-i18n="service2_b1">Prozessanalyse & Individual-Setup</span>
+                                    <span data-i18n="service2_b1">Prozessanalyse &amp; Individual-Setup</span>
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <span
@@ -507,17 +504,20 @@
                                 </li>
                             </ul>
                             <a href="kontakt.html" data-i18n="service2_btn"
-                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30">
+                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30 w-max">
                                 Workflow-Analyse buchen
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="h-[85vh] sticky flex items-center justify-center z-30" style="top: calc(96px + 48px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-8 sm:p-12 shadow-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center"
+                <div class="md:h-[85vh] md:sticky flex items-center justify-center z-30 mb-12 md:mb-0" style="top: calc(96px + 48px);">
+                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] shadow-2xl transition-all duration-300 relative overflow-hidden p-0 flex flex-col min-h-[500px] lg:min-h-[600px]"
                         style="transform-origin: top center;" data-index="2">
-                        <div>
+                        <img src="Gemini_Generated_Image_y2qzuey2qzuey2qz.jpeg" alt="Enterprise KI Assistenten"
+                            class="absolute inset-0 w-full h-full object-cover z-0" />
+                        <div class="absolute inset-0 z-10 bg-gradient-to-t lg:bg-gradient-to-r from-[#0C0C0C] via-[#0C0C0C]/90 to-transparent"></div>
+                        <div class="relative z-20 w-full lg:w-1/2 p-8 sm:p-12 flex flex-col justify-end h-full mt-auto lg:ml-auto">
                             <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service3_title">Enterprise
                                 KI-Assistenten</h3>
                             <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service3_desc">
@@ -537,14 +537,9 @@
                                 </li>
                             </ul>
                             <a href="kontakt.html" data-i18n="service3_btn"
-                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30">
+                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30 w-max">
                                 Enterprise KI anfragen
                             </a>
-                        </div>
-                        <div
-                            class="rounded-3xl overflow-hidden border border-slate-800 h-[280px] sm:h-[340px] bg-slate-900">
-                            <img src="image_14dc89_v2.png" alt="Enterprise KI Assistenten"
-                                class="w-full h-full object-cover object-[center_15%]" />
                         </div>
                     </div>
                 </div>
@@ -1348,6 +1343,8 @@
         window.addEventListener('resize', updateHeroScrollAnimations, { passive: true });
 
         function updateCardStacking() {
+            if (window.innerWidth < 768) return;
+
             const cards = document.querySelectorAll('.stacked-card');
             const totalCards = cards.length;
             const winH = window.innerHeight;
