@@ -122,6 +122,7 @@
         .partial-star-48 {
             background: linear-gradient(90deg, #f59e0b 80%, #475569 20%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -375,7 +376,7 @@
                 <div class="flex justify-end w-full pt-4 sm:pt-6">
                     <div id="hero-title-container" class="text-right max-w-2xl sm:max-w-3xl overflow-visible">
                         <h2
-                            classs="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.25] overflow-visible text-right">
+                            class="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.25] overflow-visible text-right">
                             <span id="hero-line1" class="hero-anim-element block mb-2 sm:mb-4 overflow-visible"
                                 data-i18n="hero_headline_1">WENIGER AUFWAND,</span>
                             <span id="hero-line2" class="hero-anim-element block overflow-visible"
@@ -1308,7 +1309,7 @@
             const textRevealSec = document.getElementById('text-reveal-section');
             const textRevealEl = document.getElementById('reveal-text');
             if (textRevealSec && textRevealEl) {
-                const processNode = (node) => {
+                const processNode = (node, parentIsLink = false) => {
                     if (node.nodeType === 3) {
                         const text = node.textContent;
                         if (!text.trim()) return document.createTextNode(text);
@@ -1320,16 +1321,20 @@
                                 frag.appendChild(document.createTextNode(w));
                             } else {
                                 const span = document.createElement('span');
-                                span.className = 'inline-block mx-1.5 sm:mx-2 transition-colors duration-200 text-slate-600 font-extrabold';
+                                span.className = 'inline-block mx-1.5 sm:mx-2 transition-colors duration-200 text-slate-600 font-extrabold' + (parentIsLink ? ' group-hover:text-blue-400' : '');
                                 span.textContent = w;
                                 frag.appendChild(span);
                             }
                         });
                         return frag;
                     } else if (node.nodeType === 1) {
+                        const isLink = node.tagName === 'A';
+                        if (isLink) {
+                            node.classList.add('group');
+                        }
                         const clone = node.cloneNode(false);
                         Array.from(node.childNodes).forEach(child => {
-                            clone.appendChild(processNode(child));
+                            clone.appendChild(processNode(child, parentIsLink || isLink));
                         });
                         return clone;
                     }
