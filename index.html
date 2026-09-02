@@ -382,14 +382,12 @@
 
         <section id="hero-section"
             class="relative text-white min-h-[85vh] sm:min-h-screen flex flex-col justify-between pt-24 sm:pt-36 pb-8 sm:pb-16 px-4 sm:px-8 lg:px-12 max-w-full overflow-hidden bg-[#0C0C0C] z-0">
-            <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
-                <img src="Logo_Landingpage_4K.png" srcset="Logo_Landingpage_2K.png 2560w, Logo_Landingpage_4K.png 3840w"
-                    sizes="100vw" alt="Flow Solutions Hero Background"
-                    class="w-full h-full object-contain scale-110 sm:scale-100 sm:object-cover object-center opacity-90 crisp-hero-bg"
-                    style="image-rendering: -webkit-optimize-contrast;" />
-                <div class="absolute inset-0"
-                    style="background: linear-gradient(to bottom, transparent 35%, rgba(12,12,12,0.85) 85%, rgba(12,12,12,1) 100%);">
-                </div>
+            <picture class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center w-full h-full">
+                <source media="(max-width: 767px)" srcset="IMG_6984.jpeg">
+                <img src="Logo_Landingpage_4K.png" srcset="Logo_Landingpage_2K.png 2560w, Logo_Landingpage_4K.png 3840w" sizes="100vw" alt="Flow Solutions Hero Background" class="w-full h-full object-contain scale-110 sm:scale-100 sm:object-cover object-center opacity-90 crisp-hero-bg" style="image-rendering: -webkit-optimize-contrast;" />
+            </picture>
+            <div class="absolute inset-0 pointer-events-none"
+                style="background: linear-gradient(to bottom, transparent 35%, rgba(12,12,12,0.85) 85%, rgba(12,12,12,1) 100%);">
             </div>
 
             <div class="relative z-10 w-full max-w-7xl mx-auto flex-1 flex flex-col justify-between">
@@ -1304,60 +1302,84 @@
 
             if (!heroSec || !line1 || !line2 || !cta) return;
 
-            const scrollY = window.scrollY;
-            const heroH = heroSec.offsetHeight || 600;
+            if (window.innerWidth >= 768) {
+                const scrollY = window.scrollY;
+                const heroH = heroSec.offsetHeight || 600;
 
-            let p = scrollY / (heroH * 0.65);
-            p = Math.min(Math.max(p, 0), 1);
+                let p = scrollY / (heroH * 0.65);
+                p = Math.min(Math.max(p, 0), 1);
 
-            const line1X = -p * 100;
-            const line2X = p * 100;
-            const ctaY = p * 120;
-            const opacity = Math.max(1 - p * 1.25, 0);
+                const line1X = -p * 100;
+                const line2X = p * 100;
+                const ctaY = p * 120;
+                const opacity = Math.max(1 - p * 1.25, 0);
 
-            line1.style.transform = `translate3d(${line1X}%, 0, 0)`;
-            line1.style.opacity = opacity;
+                line1.style.transform = `translate3d(${line1X}%, 0, 0)`;
+                line1.style.opacity = opacity;
 
-            line2.style.transform = `translate3d(${line2X}%, 0, 0)`;
-            line2.style.opacity = opacity;
+                line2.style.transform = `translate3d(${line2X}%, 0, 0)`;
+                line2.style.opacity = opacity;
 
-            cta.style.transform = `translate3d(0, ${ctaY}px, 0)`;
-            cta.style.opacity = opacity;
+                cta.style.transform = `translate3d(0, ${ctaY}px, 0)`;
+                cta.style.opacity = opacity;
 
-            if (heroH1) {
-                heroH1.style.transform = `translate3d(0, ${ctaY}px, 0)`;
-                heroH1.style.opacity = opacity;
+                if (heroH1) {
+                    heroH1.style.transform = `translate3d(0, ${ctaY}px, 0)`;
+                    heroH1.style.opacity = opacity;
+                }
+            } else {
+                line1.style.transform = 'translate3d(0, 0, 0)';
+                line1.style.opacity = '1';
+
+                line2.style.transform = 'translate3d(0, 0, 0)';
+                line2.style.opacity = '1';
+
+                cta.style.transform = 'translate3d(0, 0, 0)';
+                cta.style.opacity = '1';
+
+                if (heroH1) {
+                    heroH1.style.transform = 'translate3d(0, 0, 0)';
+                    heroH1.style.opacity = '1';
+                }
             }
         }
 
         window.addEventListener('scroll', updateHeroScrollAnimations, { passive: true });
+        window.addEventListener('resize', updateHeroScrollAnimations, { passive: true });
 
         function updateCardStacking() {
             const cards = document.querySelectorAll('.stacked-card');
             const totalCards = cards.length;
             const winH = window.innerHeight;
 
-            cards.forEach((card, index) => {
-                card.style.transformOrigin = 'top center';
+            if (window.innerWidth >= 768) {
+                cards.forEach((card, index) => {
+                    card.style.transformOrigin = 'top center';
 
-                if (index < totalCards - 1) {
-                    const nextParent = cards[index + 1].parentElement;
-                    const nextRect = nextParent.getBoundingClientRect();
+                    if (index < totalCards - 1) {
+                        const nextParent = cards[index + 1].parentElement;
+                        const nextRect = nextParent.getBoundingClientRect();
 
-                    let overlapProgress = (winH - nextRect.top) / (winH * 0.65);
-                    overlapProgress = Math.min(Math.max(overlapProgress, 0), 1);
+                        let overlapProgress = (winH - nextRect.top) / (winH * 0.65);
+                        overlapProgress = Math.min(Math.max(overlapProgress, 0), 1);
 
-                    const maxScaleDelta = (totalCards - 1 - index) * 0.03;
-                    const targetScale = 1 - maxScaleDelta * overlapProgress;
+                        const maxScaleDelta = (totalCards - 1 - index) * 0.03;
+                        const targetScale = 1 - maxScaleDelta * overlapProgress;
 
-                    card.style.transform = `scale(${targetScale})`;
-                } else {
+                        card.style.transform = `scale(${targetScale})`;
+                    } else {
+                        card.style.transform = 'scale(1)';
+                    }
+                });
+            } else {
+                cards.forEach(card => {
                     card.style.transform = 'scale(1)';
-                }
-            });
+                });
+            }
         }
 
         window.addEventListener('scroll', updateCardStacking, { passive: true });
+        window.addEventListener('resize', updateCardStacking, { passive: true });
 
         let marqueePos = 0;
         let marqueeVel = 1.2;
