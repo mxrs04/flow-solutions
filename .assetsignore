@@ -1,0 +1,16 @@
+# Dateien, die nicht auf der Website ausgeliefert werden
+.git
+.gitignore
+.assetsignore
+.wrangler
+.DS_Store
+node_modules
+src
+package.json
+package-lock.json
+tailwind.config.js
+wrangler.jsonc
+vercel.json
+# Unbenutzte Originalgrafiken (> 25 MB, Limit von Cloudflare)
+Logo Landingpage16zu9.png
+Logo Landingpage16zu9_2.png

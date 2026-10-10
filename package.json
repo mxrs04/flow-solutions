@@ -1,0 +1,11 @@
+{
+  "name": "flow-solutions",
+  "private": true,
+  "scripts": {
+    "build:css": "node node_modules/tailwindcss/lib/cli.js -i src/tailwind.css -o assets/css/styles.css --minify",
+    "watch:css": "node node_modules/tailwindcss/lib/cli.js -i src/tailwind.css -o assets/css/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
