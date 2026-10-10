@@ -123,18 +123,18 @@
                 transform-origin: center center;
                 transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1),
                     opacity 0.4s ease-out,
-                    border-radius 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+                    border-radius 0.6s cubic-bezier(0.22, 1, 0.36, 1);
                 will-change: transform, opacity, border-radius;
             }
 
             .roi-card-left {
                 transform: translate3d(calc(50% + 16px), 0, 0) scale(0.08, 0.05);
-                border-radius: 9999px;
+                border-radius: 320px;
             }
 
             .roi-card-right {
                 transform: translate3d(calc(-50% - 16px), 0, 0) scale(0.08, 0.05);
-                border-radius: 9999px;
+                border-radius: 320px;
             }
 
             .roi-cards-container.animated .roi-card-left {
@@ -1105,18 +1105,23 @@
                 const scrollY = window.scrollY;
                 const heroH = heroSec.offsetHeight || 600;
 
-                let p = scrollY / (heroH * 0.65);
+                // Animation läuft auf den ersten 40 % der Hero-Höhe ab; der Slogan
+                // wird währenddessen mitgeführt, damit er sichtbar bleibt.
+                const range = heroH * 0.4;
+                let p = scrollY / range;
                 p = Math.min(Math.max(p, 0), 1);
+                const eased = p * p * (3 - 2 * p);
+                const pinY = Math.min(Math.max(scrollY, 0), range);
 
-                const line1X = -p * 100;
-                const line2X = p * 100;
+                const line1X = -eased * 100;
+                const line2X = eased * 100;
                 const ctaY = p * 120;
-                const opacity = Math.max(1 - p * 1.25, 0);
+                const opacity = Math.max(1 - p * 1.1, 0);
 
-                line1.style.transform = `translate3d(${line1X}%, 0, 0)`;
+                line1.style.transform = `translate3d(${line1X}%, ${pinY}px, 0)`;
                 line1.style.opacity = opacity;
 
-                line2.style.transform = `translate3d(${line2X}%, 0, 0)`;
+                line2.style.transform = `translate3d(${line2X}%, ${pinY}px, 0)`;
                 line2.style.opacity = opacity;
 
                 cta.style.transform = `translate3d(0, ${ctaY}px, 0)`;
