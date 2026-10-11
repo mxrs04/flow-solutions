@@ -161,6 +161,53 @@
                 transform: translate3d(0, 0, 0);
             }
         }
+
+        /* Sanftes Einblenden beim Scrollen (Klasse wird per JS gesetzt, ohne JS bleibt alles sichtbar) */
+        .reveal {
+            opacity: 0;
+            transform: translate3d(0, 28px, 0);
+            transition: opacity 0.7s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+            opacity: 0;
+            padding-bottom: 0 !important;
+            transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, padding-bottom 0.35s ease;
+        }
+
+        .faq-answer > div {
+            overflow: hidden;
+        }
+
+        .faq-item.is-open .faq-answer {
+            grid-template-rows: 1fr;
+            opacity: 1;
+            padding-bottom: 1.5rem !important;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal,
+            .faq-answer,
+            .faq-icon {
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -650,8 +697,8 @@
                             </svg>
                         </span>
                     </button>
-                    <div class="faq-answer hidden px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        In einem kostenlosen Erstgespräch (ca. 30 Minuten) schauen wir uns gemeinsam Ihre aktuellen Abläufe an und finden zeitaufwendige Engpässe. Anschließend erhalten Sie einen klaren Vorschlag, welche Prozesse sich mit KI und Voice-Agenten sinnvoll automatisieren lassen – und ein Festpreis-Angebot.
+                    <div class="faq-answer px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+                        <div>In einem kostenlosen Erstgespräch (ca. 30 Minuten) schauen wir uns gemeinsam Ihre aktuellen Abläufe an und finden zeitaufwendige Engpässe. Anschließend erhalten Sie einen klaren Vorschlag, welche Prozesse sich mit KI und Voice-Agenten sinnvoll automatisieren lassen – und ein Festpreis-Angebot.</div>
                     </div>
                 </div>
 
@@ -664,8 +711,8 @@
                             </svg>
                         </span>
                     </button>
-                    <div class="faq-answer hidden px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Das hängt von der Komplexität ab. Ein Basis-Setup für Terminbuchungen und Standardanfragen kann je nach Umfang oft innerhalb von ein bis zwei Wochen einsatzbereit sein. Einen realistischen Zeitplan erhalten Sie nach dem Erstgespräch.
+                    <div class="faq-answer px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+                        <div>Das hängt von der Komplexität ab. Ein Basis-Setup für Terminbuchungen und Standardanfragen kann je nach Umfang oft innerhalb von ein bis zwei Wochen einsatzbereit sein. Einen realistischen Zeitplan erhalten Sie nach dem Erstgespräch.</div>
                     </div>
                 </div>
 
@@ -678,8 +725,8 @@
                             </svg>
                         </span>
                     </button>
-                    <div class="faq-answer hidden px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Datenschutz ist bei uns von Anfang an Teil der Planung. Wir setzen die Lösungen DSGVO-orientiert um, wählen – wo möglich und gewünscht – Anbieter mit Servern in der EU und schließen mit den eingesetzten Dienstleistern Auftragsverarbeitungsverträge. Welche Anbieter für Ihr Projekt infrage kommen, besprechen wir transparent im Erstgespräch.
+                    <div class="faq-answer px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+                        <div>Datenschutz ist bei uns von Anfang an Teil der Planung. Wir setzen die Lösungen DSGVO-orientiert um, wählen – wo möglich und gewünscht – Anbieter mit Servern in der EU und schließen mit den eingesetzten Dienstleistern Auftragsverarbeitungsverträge. Welche Anbieter für Ihr Projekt infrage kommen, besprechen wir transparent im Erstgespräch.</div>
                     </div>
                 </div>
 
@@ -692,8 +739,8 @@
                             </svg>
                         </span>
                     </button>
-                    <div class="faq-answer hidden px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Nein. Wir übernehmen die technische Einrichtung, die Konfiguration der KI und auf Wunsch die laufende Betreuung. Sie erhalten von uns ein einsatzbereites System und eine verständliche Einweisung für Ihr Team.
+                    <div class="faq-answer px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+                        <div>Nein. Wir übernehmen die technische Einrichtung, die Konfiguration der KI und auf Wunsch die laufende Betreuung. Sie erhalten von uns ein einsatzbereites System und eine verständliche Einweisung für Ihr Team.</div>
                     </div>
                 </div>
             </div>
@@ -1308,13 +1355,60 @@
             const calcInputs = ['calcCalls', 'calcMinutes', 'calcDays'].map(id => document.getElementById(id));
             const calcResult = document.getElementById('calcResult');
             if (calcResult && calcInputs.every(Boolean)) {
+                const formatHours = h => h.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+                let shownHours = 0;
+                let calcAnim = null;
                 function updateCalc() {
                     const [calls, minutes, days] = calcInputs.map(el => Math.max(parseFloat(el.value) || 0, 0));
-                    const hours = calls * minutes * days / 60;
-                    calcResult.textContent = hours.toLocaleString('de-DE', { maximumFractionDigits: 1 });
+                    const target = calls * minutes * days / 60;
+                    const from = shownHours;
+                    const start = performance.now();
+                    clearInterval(calcAnim);
+                    calcAnim = setInterval(() => {
+                        const t = Math.min((performance.now() - start) / 400, 1);
+                        shownHours = from + (target - from) * (1 - Math.pow(1 - t, 3));
+                        calcResult.textContent = formatHours(shownHours);
+                        if (t === 1) clearInterval(calcAnim);
+                    }, 16);
                 }
                 calcInputs.forEach(el => el.addEventListener('input', updateCalc));
                 updateCalc();
+            }
+
+            const revealGroups = [
+                '#services > div:first-child',
+                '#savings > div > *',
+                '#roi > div:first-child',
+                '#faq > div:first-child',
+                '#faq .faq-item',
+                '#faq > div:last-child',
+                '#ablauf > div > div:first-child',
+                '#ablauf .grid > div',
+                '#ablauf .grid + div',
+            ];
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            el.classList.add('is-visible');
+                            revealObserver.unobserve(el);
+                            // Danach aufräumen, damit Hover- und Farbübergänge wieder normal greifen
+                            setTimeout(() => {
+                                el.classList.remove('reveal', 'is-visible');
+                                el.style.transitionDelay = '';
+                            }, 1400);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+                revealGroups.forEach(selector => {
+                    document.querySelectorAll(selector).forEach((el, i) => {
+                        el.classList.add('reveal');
+                        el.style.transitionDelay = `${Math.min(i, 5) * 90}ms`;
+                        revealObserver.observe(el);
+                    });
+                });
             }
 
             const faqItems = document.querySelectorAll('.faq-item');
@@ -1323,20 +1417,22 @@
                 const ans = item.querySelector('.faq-answer');
                 const icon = item.querySelector('.faq-icon');
                 if (btn && ans) {
+                    btn.setAttribute('aria-expanded', 'false');
                     btn.addEventListener('click', () => {
-                        const isOpen = !ans.classList.contains('hidden');
+                        const isOpen = item.classList.contains('is-open');
 
                         faqItems.forEach(otherItem => {
-                            const otherAns = otherItem.querySelector('.faq-answer');
                             const otherIcon = otherItem.querySelector('.faq-icon');
-                            if (otherAns) otherAns.classList.add('hidden');
+                            otherItem.classList.remove('is-open');
+                            otherItem.querySelector('.faq-button')?.setAttribute('aria-expanded', 'false');
                             if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
                             otherItem.classList.remove('border-blue-500/50');
                             otherItem.classList.add('border-slate-800');
                         });
 
                         if (!isOpen) {
-                            ans.classList.remove('hidden');
+                            item.classList.add('is-open');
+                            btn.setAttribute('aria-expanded', 'true');
                             if (icon) icon.style.transform = 'rotate(45deg)';
                             item.classList.remove('border-slate-800');
                             item.classList.add('border-blue-500/50');
