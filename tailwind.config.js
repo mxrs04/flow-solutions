@@ -1,10 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./*.html'],
+  content: ['./*.html', './partials/*.html', './assets/js/*.js'],
   theme: {
     extend: {
       colors: {
         darkbg: '#0C0C0C',
+        lexia: {
+          DEFAULT: '#32F3DD',
+          deep: '#14b8a6',
+        },
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],

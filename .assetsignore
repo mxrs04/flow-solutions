@@ -10,6 +10,8 @@ package.json
 package-lock.json
 tailwind.config.js
 wrangler.jsonc
+partials
+scripts
 # Unbenutzte Originalgrafiken (> 25 MB, Limit von Cloudflare)
 Logo Landingpage16zu9.png
 Logo Landingpage16zu9_2.png

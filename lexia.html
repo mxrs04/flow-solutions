@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEXIA | Das KI-Betriebssystem für das Wissen Ihrer Firma</title>
+    <meta name="description" content="LEXIA beantwortet Fragen aus Ihrem Firmenwissen – immer mit Quelle, nur mit dem, was die fragende Person sehen darf. Mit Wissensbasis, Prozessen, Organigramm und Nachweisen auf Knopfdruck.">
+    <link rel="canonical" href="https://ai-flow-solutions.de/lexia">
+    <meta property="og:title" content="LEXIA – Das Wissen Ihrer Firma: gefragt, gefunden, abgehakt.">
+    <meta property="og:description" content="Antworten mit Quellen, Rechte wie in der Firma, Nachweise auf Knopfdruck. Ein Produkt von Flow Solutions.">
+    <meta property="og:url" content="https://ai-flow-solutions.de/lexia">
+    <!-- @head -->
+    <link rel="icon" href="/favicon.ico?v=5" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96.png?v=5">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png?v=5">
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png?v=5">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0C0C0C">
+    <meta name="apple-mobile-web-app-title" content="Flow Solutions">
+    <meta property="og:site_name" content="Flow Solutions">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="https://ai-flow-solutions.de/assets/og-lexia.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" href="/assets/fonts/plus-jakarta-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="/assets/js/site.js" defer></script>
+    <!-- /@head -->
+</head>
+
+<body class="theme-lexia font-sans antialiased selection:bg-lexia selection:text-black flex flex-col min-h-screen">
+    <!-- @header -->
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[300] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg">Zum Inhalt springen</a>
+    <div id="customCursor" class="custom-cursor hidden" aria-hidden="true"></div>
+
+    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 bg-[#0C0C0C]/85 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16 sm:h-20">
+                <button id="menuBtn" type="button" aria-controls="siteMenu" aria-expanded="false"
+                    class="p-2 -ml-2 text-white hover:text-lexia flex items-center gap-2 sm:gap-2.5 z-[101] transition-colors">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <span class="hidden sm:inline text-sm font-semibold tracking-wider uppercase">Menü</span>
+                    <span class="sr-only sm:hidden">Menü öffnen</span>
+                </button>
+
+                <a href="/" class="absolute left-1/2 -translate-x-1/2 hover-scale text-white font-extrabold text-sm sm:text-2xl tracking-widest sm:tracking-[0.2em] uppercase whitespace-nowrap z-[101]">
+                    Flow Solutions
+                </a>
+
+                <a href="/kontakt?anliegen=demo"
+                    class="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-lexia text-[#04201d] hover:bg-white transition-colors hover-scale shadow-[0_0_24px_rgba(50,243,221,0.25)] z-[101]">
+                    <span class="sm:hidden">Demo</span><span class="hidden sm:inline">Demo anfragen</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div id="menuBackdrop" class="fixed inset-0 bg-slate-950/70 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
+
+    <nav id="siteMenu" aria-label="Hauptmenü" inert
+        class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] sm:min-w-[380px] bg-[#0C0C0C]/95 backdrop-blur-2xl z-[200] -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 border-r border-slate-800">
+        <button id="menuClose" type="button" aria-label="Menü schließen"
+            class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-lexia hover:text-[#04201d] flex items-center justify-center transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <ul class="flex flex-col gap-6 sm:gap-8 my-auto">
+            <li><a href="/" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">Startseite</a></li>
+            <li><a href="/lexia" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">LEXIA</a></li>
+            <li><a href="/abo" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">Abo</a></li>
+            <li><a href="/ueber-uns" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">Über uns</a></li>
+            <li><a href="/kontakt" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">Kontakt</a></li>
+            <li class="pt-4 flex gap-6">
+                <a href="/datenschutz" class="menu-link text-sm font-bold tracking-[0.15em] uppercase text-slate-500 hover:text-lexia transition-colors">Datenschutz</a>
+                <a href="/impressum" class="menu-link text-sm font-bold tracking-[0.15em] uppercase text-slate-500 hover:text-lexia transition-colors">Impressum</a>
+            </li>
+        </ul>
+
+        <p class="text-xs text-slate-500 font-mono tracking-widest">FLOW SOLUTIONS © 2026</p>
+    </nav>
+    <!-- /@header -->
+
+    <main id="main" class="relative z-10 overflow-x-hidden">
+
+        <!-- Hero -->
+        <section class="relative min-h-[92vh] flex items-center pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <svg class="glow-wave absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2 w-[160%] sm:w-[115%] max-w-none text-lexia opacity-90 pointer-events-none" viewBox="-5 -15 1435 460" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                    <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                    <path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                </g>
+            </svg>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(12,12,12,0.55)_0%,transparent_45%,#0C0C0C_95%)] pointer-events-none"></div>
+
+            <div class="relative max-w-5xl mx-auto text-center">
+                <svg class="w-[78%] sm:w-[620px] h-auto mx-auto text-white" viewBox="0 0 1221 229" role="img" aria-label="LEXIA" fill="currentColor">
+                    <rect x="0" y="0" width="52" height="229"/><rect x="0" y="183" width="187" height="46"/>
+                    <rect x="257" y="0" width="192" height="46"/><rect x="257" y="91" width="192" height="46"/><rect x="257" y="183" width="192" height="46"/>
+                    <polygon points="529,0 592,0 765,229 702,229"/><polygon points="702,0 765,0 592,229 529,229"/>
+                    <rect x="846" y="0" width="51" height="229"/>
+                    <polygon points="969,229 1069,0 1121,0 1221,229 1166,229 1094,60 1024,229"/>
+                </svg>
+                <p class="mt-6 inline-flex items-center gap-2.5 text-xs font-mono uppercase tracking-[0.25em] text-slate-400">
+                    <svg class="w-7 h-auto text-lexia" viewBox="-5 -15 1435 460" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"><path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/><path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/><path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/></g></svg>
+                    Ein Produkt von Flow Solutions
+                </p>
+                <h1 class="mt-10 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">Das Wissen Ihrer Firma – <span class="text-glow">gefragt, gefunden, abgehakt.</span></h1>
+                <p class="mt-6 text-slate-300 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed">LEXIA beantwortet Fragen aus Ihrem Firmenwissen – immer mit Quelle, und nur mit dem, was die fragende Person sehen darf.</p>
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                    <a href="/abo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">Preise ansehen</a>
+                    <a href="/kontakt?anliegen=demo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold border border-slate-700 bg-slate-900/80 hover:border-lexia hover:text-lexia rounded-full transition-colors hover-scale">Demo anfragen</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live-Demo -->
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div data-reveal>
+                    <p class="text-xs font-mono uppercase tracking-[0.2em] text-lexia mb-4">So fühlt es sich an</p>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">Fragen wie einer Kollegin. <span class="text-glow">Antworten mit Quelle.</span></h2>
+                    <p class="mt-6 text-slate-400 text-base sm:text-lg leading-relaxed">Ihr Team fragt in eigenen Worten. LEXIA antwortet aus Ihren Dokumenten, Prozessen und dem Organigramm – zeigt, woher die Antwort stammt, und wer zuständig ist.</p>
+                    <ul class="mt-8 space-y-3 text-slate-300">
+                        <li class="flex gap-3"><span class="text-lexia" aria-hidden="true">✓</span>Quellen-Chips zum Nachlesen</li>
+                        <li class="flex gap-3"><span class="text-lexia" aria-hidden="true">✓</span>Direkter Verweis auf die zuständige Person</li>
+                        <li class="flex gap-3"><span class="text-lexia" aria-hidden="true">✓</span>Jeden Ablauf als Checkliste starten</li>
+                    </ul>
+                </div>
+
+                <figure id="chatDemo" class="rounded-3xl border border-slate-800 bg-[#0f1214] shadow-[0_30px_80px_-20px_rgba(50,243,221,0.18)] overflow-hidden" data-reveal>
+                    <div class="flex items-center gap-2 px-5 py-3.5 border-b border-slate-800 bg-slate-900/60">
+                        <span class="w-3 h-3 rounded-full bg-slate-700"></span><span class="w-3 h-3 rounded-full bg-slate-700"></span><span class="w-3 h-3 rounded-full bg-slate-700"></span>
+                        <span class="ml-3 text-xs font-semibold tracking-[0.2em] text-slate-400">LEXIA · CHAT</span>
+                        <span class="ml-auto text-[10px] uppercase tracking-wider text-slate-500">Beispiel</span>
+                    </div>
+                    <div id="chatBody" class="h-[360px] sm:h-[400px] overflow-hidden flex flex-col justify-end gap-3 p-5 text-sm" aria-live="off"></div>
+                    <div class="border-t border-slate-800 p-4">
+                        <div class="flex items-center gap-3 rounded-2xl bg-slate-900 border border-slate-800 px-4 py-3">
+                            <span id="chatInput" class="flex-1 min-h-[1.25rem] text-sm text-white"></span>
+                            <span class="w-8 h-8 rounded-full bg-lexia text-[#04201d] flex items-center justify-center" aria-hidden="true">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <figcaption class="sr-only">Beispiel: LEXIA beantwortet die Frage „Wer ist zuständig für Reklamationen?“ mit Quellen und der zuständigen Person.</figcaption>
+                </figure>
+                <script type="application/json" id="chatScenes">
+                    [
+                        {
+                            "greeting": "Guten Morgen, Anna. Wobei kann ich helfen?",
+                            "question": "Wer ist zuständig für Reklamationen?",
+                            "answer": "Für Reklamationen ist der Vertrieb zuständig. Erste Ansprechperson ist Ben, Leitung Vertrieb. Den Ablauf finden Sie im Prozess „Reklamation bearbeiten“.",
+                            "sources": ["Organigramm", "Prozess: Reklamation bearbeiten"],
+                            "action": "Zuständig: Vertrieb · Ben (Leitung)"
+                        },
+                        {
+                            "greeting": "Guten Morgen, Anna. Wobei kann ich helfen?",
+                            "question": "Wie beantrage ich Urlaub?",
+                            "answer": "Urlaub beantragen Sie mit dem Formular im Personalbereich, möglichst zwei Wochen vorher. Ihre Führungskraft gibt den Antrag frei.",
+                            "sources": ["Handbuch Personal", "Prozess: Urlaubsantrag"],
+                            "action": "Als Checkliste starten"
+                        }
+                    ]
+                </script>
+            </div>
+        </section>
+
+        <!-- Alle Quellen. Eine Antwort. -->
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-y border-slate-800/80 bg-[radial-gradient(ellipse_at_70%_50%,rgba(50,243,221,0.06),transparent_60%)]">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-center text-3xl sm:text-5xl font-extrabold tracking-tight mb-16" data-reveal>Alle Quellen. <span class="text-glow">Eine Antwort.</span></h2>
+                <div class="grid lg:grid-cols-[1fr_1.2fr_1fr] items-center gap-6 lg:gap-0">
+                    <ul class="grid grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-5" data-reveal-stagger>
+                        <li class="rounded-2xl border border-slate-800 bg-slate-900/70 px-5 py-4 font-semibold flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-lexia shadow-[0_0_10px_#32F3DD]"></span>Dokumente</li>
+                        <li class="rounded-2xl border border-slate-800 bg-slate-900/70 px-5 py-4 font-semibold flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-lexia shadow-[0_0_10px_#32F3DD]"></span>Prozesse</li>
+                        <li class="rounded-2xl border border-slate-800 bg-slate-900/70 px-5 py-4 font-semibold flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-lexia shadow-[0_0_10px_#32F3DD]"></span>Organigramm</li>
+                        <li class="rounded-2xl border border-slate-800 bg-slate-900/70 px-5 py-4 font-semibold flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-lexia shadow-[0_0_10px_#32F3DD]"></span>Hilfe / FAQ</li>
+                    </ul>
+
+                    <svg class="hidden lg:block w-full h-[340px]" viewBox="0 0 400 340" preserveAspectRatio="none" aria-hidden="true">
+                        <g fill="none" stroke="#32F3DD" stroke-width="2" stroke-linecap="round" opacity="0.8">
+                            <path class="flow-line" d="M0 42 C 200 42, 200 170, 400 170"/>
+                            <path class="flow-line" d="M0 128 C 200 128, 200 170, 400 170"/>
+                            <path class="flow-line" d="M0 212 C 200 212, 200 170, 400 170"/>
+                            <path class="flow-line" d="M0 298 C 200 298, 200 170, 400 170"/>
+                        </g>
+                    </svg>
+                    <svg class="lg:hidden mx-auto w-4 h-16" viewBox="0 0 4 64" aria-hidden="true"><path class="flow-line" d="M2 0 V64" stroke="#32F3DD" stroke-width="2"/></svg>
+
+                    <div class="flow-hub rounded-3xl bg-[#0f1214] p-7" data-reveal>
+                        <div class="flex items-center justify-between mb-6">
+                            <p class="font-extrabold text-lg">Ihr LEXIA</p>
+                            <span class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-lexia"><span class="w-1.5 h-1.5 rounded-full bg-lexia animate-pulse"></span>Live · Beispiel</span>
+                        </div>
+                        <dl class="grid grid-cols-3 gap-3 text-center">
+                            <div class="rounded-2xl bg-slate-900 border border-slate-800 p-3"><dd class="text-3xl font-extrabold text-glow" data-count="23">23</dd><dt class="mt-1 text-[11px] text-slate-400 leading-tight">Heute beantwortet</dt></div>
+                            <div class="rounded-2xl bg-slate-900 border border-slate-800 p-3"><dd class="text-3xl font-extrabold" data-count="4">4</dd><dt class="mt-1 text-[11px] text-slate-400 leading-tight">Offene Aufgaben</dt></div>
+                            <div class="rounded-2xl bg-slate-900 border border-slate-800 p-3"><dd class="text-3xl font-extrabold text-amber-300" data-count="2">2</dd><dt class="mt-1 text-[11px] text-slate-400 leading-tight">Wissens&shy;lücken</dt></div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bausteine -->
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
+            <div class="text-center max-w-3xl mx-auto mb-14" data-reveal>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Alles, was Ihr Firmenwissen braucht</h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg">Sechs Bausteine, ein System. Tippen Sie auf „+“ für Details.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 items-start" data-reveal-stagger>
+                <div class="acc-item rounded-3xl border border-slate-800 bg-slate-900/50 hover:border-lexia/40 transition-colors">
+                    <h3><button type="button" class="acc-btn w-full text-left p-7 flex items-start justify-between gap-4"><span><span class="block text-xl font-extrabold mb-2">Chat mit Firmenwissen</span><span class="block text-slate-400 text-sm font-normal">Antworten mit Quellen – statt Raten.</span></span><span class="acc-icon w-8 h-8 rounded-full border border-lexia/40 text-lexia flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><ul class="px-7 pb-7 space-y-2 text-sm text-slate-300 list-disc pl-11 marker:text-lexia"><li>Jede Antwort mit Quellenangabe</li><li>„Weiß ich nicht“ statt Erfinden</li><li>Die offene Frage geht anonym als Wissenslücke an die Zuständigen</li></ul></div></div>
+                </div>
+                <div class="acc-item rounded-3xl border border-slate-800 bg-slate-900/50 hover:border-lexia/40 transition-colors">
+                    <h3><button type="button" class="acc-btn w-full text-left p-7 flex items-start justify-between gap-4"><span><span class="block text-xl font-extrabold mb-2">Wissensbasis</span><span class="block text-slate-400 text-sm font-normal">Ein Ort für das Wissen Ihrer Firma.</span></span><span class="acc-icon w-8 h-8 rounded-full border border-lexia/40 text-lexia flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><ul class="px-7 pb-7 space-y-2 text-sm text-slate-300 list-disc pl-11 marker:text-lexia"><li>Bereiche: offen, Team oder geschlossen</li><li>Vorschläge von allen</li><li>Freigabe durch Fachverantwortliche</li><li>Prüfintervalle, damit nichts veraltet</li></ul></div></div>
+                </div>
+                <div class="acc-item rounded-3xl border border-slate-800 bg-slate-900/50 hover:border-lexia/40 transition-colors">
+                    <h3><button type="button" class="acc-btn w-full text-left p-7 flex items-start justify-between gap-4"><span><span class="block text-xl font-extrabold mb-2">Prozesse</span><span class="block text-slate-400 text-sm font-normal">Abläufe, die man abhaken kann.</span></span><span class="acc-icon w-8 h-8 rounded-full border border-lexia/40 text-lexia flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><ul class="px-7 pb-7 space-y-2 text-sm text-slate-300 list-disc pl-11 marker:text-lexia"><li>Prozesslandkarte</li><li>KI-Entwurf aus einer kurzen Beschreibung</li><li>Vorlagen-Bibliothek</li><li>Jeder Ablauf als Checkliste</li></ul></div></div>
+                </div>
+                <div class="acc-item rounded-3xl border border-slate-800 bg-slate-900/50 hover:border-lexia/40 transition-colors">
+                    <h3><button type="button" class="acc-btn w-full text-left p-7 flex items-start justify-between gap-4"><span><span class="block text-xl font-extrabold mb-2">Organigramm &amp; Lotse</span><span class="block text-slate-400 text-sm font-normal">Immer die richtige Ansprechperson.</span></span><span class="acc-icon w-8 h-8 rounded-full border border-lexia/40 text-lexia flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><ul class="px-7 pb-7 space-y-2 text-sm text-slate-300 list-disc pl-11 marker:text-lexia"><li>Wer ist wofür zuständig?</li><li>Der Chat verweist direkt auf die richtige Person</li></ul></div></div>
+                </div>
+                <div class="acc-item rounded-3xl border border-slate-800 bg-slate-900/50 hover:border-lexia/40 transition-colors">
+                    <h3><button type="button" class="acc-btn w-full text-left p-7 flex items-start justify-between gap-4"><span><span class="block text-xl font-extrabold mb-2">Aufgaben &amp; Einarbeitung</span><span class="block text-slate-400 text-sm font-normal">Den Überblick behalten – vom ersten Tag an.</span></span><span class="acc-icon w-8 h-8 rounded-full border border-lexia/40 text-lexia flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><ul class="px-7 pb-7 space-y-2 text-sm text-slate-300 list-disc pl-11 marker:text-lexia"><li>Eigene To-dos mit Ampel und Kalender</li><li>Einarbeitungspakete je Stellenprofil</li></ul></div></div>
+                </div>
+                <div class="acc-item rounded-3xl border border-slate-800 bg-slate-900/50 hover:border-lexia/40 transition-colors">
+                    <h3><button type="button" class="acc-btn w-full text-left p-7 flex items-start justify-between gap-4"><span><span class="block text-xl font-extrabold mb-2">Nachweise auf Knopfdruck</span><span class="block text-slate-400 text-sm font-normal">Bereit, wenn jemand fragt.</span></span><span class="acc-icon w-8 h-8 rounded-full border border-lexia/40 text-lexia flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><ul class="px-7 pb-7 space-y-2 text-sm text-slate-300 list-disc pl-11 marker:text-lexia"><li>PDF-Berichte für DSGVO und ISO 27001</li><li>Unterlagen für den Betriebsrat</li><li>Nachweise zum EU AI Act</li></ul></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App-Ansicht -->
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-12" data-reveal>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Ein Blick in LEXIA</h2>
+                    <p class="mt-4 text-slate-400 text-base sm:text-lg">Läuft im Browser – auf Rechner, Tablet und Handy.</p>
+                </div>
+                <div class="rounded-3xl border border-slate-800 bg-[#0f1214] overflow-hidden shadow-[0_30px_80px_-20px_rgba(50,243,221,0.15)]" data-reveal>
+                    <div class="flex items-center gap-2 px-5 py-3.5 border-b border-slate-800 bg-slate-900/60">
+                        <span class="w-3 h-3 rounded-full bg-slate-700"></span><span class="w-3 h-3 rounded-full bg-slate-700"></span><span class="w-3 h-3 rounded-full bg-slate-700"></span>
+                        <span class="ml-auto text-[10px] uppercase tracking-wider text-slate-500">Beispielansicht</span>
+                    </div>
+                    <div role="tablist" aria-label="Bereiche von LEXIA" class="flex gap-2 p-4 border-b border-slate-800 overflow-x-auto">
+                        <button type="button" role="tab" id="tab-chat" aria-controls="panel-chat" aria-selected="true" class="tab-btn shrink-0 px-4 py-2 rounded-full border border-slate-800 text-sm font-semibold text-slate-300">Chat</button>
+                        <button type="button" role="tab" id="tab-tasks" aria-controls="panel-tasks" aria-selected="false" tabindex="-1" class="tab-btn shrink-0 px-4 py-2 rounded-full border border-slate-800 text-sm font-semibold text-slate-300">Aufgaben</button>
+                        <button type="button" role="tab" id="tab-proc" aria-controls="panel-proc" aria-selected="false" tabindex="-1" class="tab-btn shrink-0 px-4 py-2 rounded-full border border-slate-800 text-sm font-semibold text-slate-300">Prozesse</button>
+                        <button type="button" role="tab" id="tab-proof" aria-controls="panel-proof" aria-selected="false" tabindex="-1" class="tab-btn shrink-0 px-4 py-2 rounded-full border border-slate-800 text-sm font-semibold text-slate-300">Nachweise</button>
+                    </div>
+                    <div class="p-5 sm:p-8 min-h-[340px]">
+                        <div role="tabpanel" id="panel-chat" aria-labelledby="tab-chat" class="tab-panel space-y-4 text-sm">
+                            <div class="ml-auto max-w-[80%] w-fit rounded-2xl rounded-tr-md bg-lexia/15 border border-lexia/30 px-4 py-3">Wo finde ich die aktuelle Reisekostenrichtlinie?</div>
+                            <div class="max-w-[88%] rounded-2xl rounded-tl-md bg-slate-800/70 px-4 py-3 leading-relaxed">
+                                Die aktuelle Fassung liegt im Bereich „Verwaltung“. Übernachtungen werden bis zum dort genannten Betrag erstattet; Belege reichen Sie innerhalb eines Monats ein.
+                                <div class="mt-3 flex flex-wrap gap-2"><span class="text-[11px] px-2.5 py-1 rounded-full border border-lexia/30 bg-lexia/10 text-lexia">Reisekostenrichtlinie</span><span class="text-[11px] px-2.5 py-1 rounded-full border border-lexia/30 bg-lexia/10 text-lexia">Bereich: Verwaltung</span></div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" id="panel-tasks" aria-labelledby="tab-tasks" class="tab-panel space-y-3" hidden>
+                            <div class="flex items-stretch gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4"><span class="w-1.5 rounded-full bg-rose-500"></span><div class="flex-1"><p class="font-semibold">Datenschutz-Schulung abschließen</p><p class="text-xs text-rose-300 mt-1">heute fällig</p></div></div>
+                            <div class="flex items-stretch gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4"><span class="w-1.5 rounded-full bg-amber-400"></span><div class="flex-1"><p class="font-semibold">Arbeitsplatz für neue Kollegin vorbereiten</p><p class="text-xs text-amber-200 mt-1">noch 4 Tage</p></div></div>
+                            <div class="flex items-stretch gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4"><span class="w-1.5 rounded-full bg-emerald-400"></span><div class="flex-1"><p class="font-semibold">Prozess „Angebot erstellen“ prüfen</p><p class="text-xs text-emerald-300 mt-1">noch 12 Tage</p></div></div>
+                        </div>
+                        <div role="tabpanel" id="panel-proc" aria-labelledby="tab-proc" class="tab-panel" hidden>
+                            <div class="flex items-center justify-between mb-4"><p class="font-extrabold">Neue Mitarbeitende einarbeiten</p><p class="text-xs text-slate-400">3 von 6 erledigt</p></div>
+                            <div class="h-1.5 rounded-full bg-slate-800 mb-5"><div class="h-full w-1/2 rounded-full bg-lexia"></div></div>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-md bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center">✓</span><span class="line-through text-slate-500">Zugänge anlegen</span></li>
+                                <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-md bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center">✓</span><span class="line-through text-slate-500">Begrüßung im Team</span></li>
+                                <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-md bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center">✓</span><span class="line-through text-slate-500">Einarbeitungspaket zuweisen</span></li>
+                                <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-md border border-slate-600"></span>Sicherheitsunterweisung</li>
+                                <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-md border border-slate-600"></span>Gespräch nach der ersten Woche</li>
+                                <li class="flex items-center gap-3"><span class="w-5 h-5 rounded-md border border-slate-600"></span>Feedback zur Einarbeitung</li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" id="panel-proof" aria-labelledby="tab-proof" class="tab-panel space-y-3" hidden>
+                            <div class="flex items-center justify-between gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4"><div><p class="font-semibold">DSGVO-Nachweis</p><p class="text-xs text-slate-400">Rechte, Bereiche, Protokoll</p></div><span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-lexia text-[#04201d]">PDF erstellen</span></div>
+                            <div class="flex items-center justify-between gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4"><div><p class="font-semibold">ISO 27001</p><p class="text-xs text-slate-400">Zugriffe und Änderungen</p></div><span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-lexia text-[#04201d]">PDF erstellen</span></div>
+                            <div class="flex items-center justify-between gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4"><div><p class="font-semibold">Transparenzbericht Betriebsrat</p><p class="text-xs text-slate-400">Keine Auswertung einzelner Personen</p></div><span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-lexia text-[#04201d]">PDF erstellen</span></div>
+                            <div class="flex items-center justify-between gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4"><div><p class="font-semibold">EU AI Act</p><p class="text-xs text-slate-400">Einsatz und Transparenz der KI</p></div><span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-lexia text-[#04201d]">PDF erstellen</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rollen -->
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-center text-3xl sm:text-5xl font-extrabold tracking-tight mb-14" data-reveal>Für jede Rolle das Richtige</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4" data-reveal-stagger>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-extrabold mb-2">Mitarbeitende</p><p class="text-sm text-slate-400">Fragen stellen, Abläufe abhaken.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-extrabold mb-2">Fachverantwortliche</p><p class="text-sm text-slate-400">Wissen pflegen, Fragen in der Inbox beantworten.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-extrabold mb-2">Führungskräfte</p><p class="text-sm text-slate-400">Team-Statistik – nur als Summen.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-extrabold mb-2">Personal</p><p class="text-sm text-slate-400">Organigramm und Einarbeitung.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-extrabold mb-2">Admin &amp; Datenschutz</p><p class="text-sm text-slate-400">Rechte verwalten, Nachweise erstellen.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sicherheit -->
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-14" data-reveal>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Sicherheit &amp; Datenschutz</h2>
+                    <p class="mt-4 text-slate-400 text-base sm:text-lg">DSGVO-orientiert gebaut und nach ISO 27001 aufgebaut.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal-stagger>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-7"><p class="text-2xl sm:text-3xl font-extrabold text-glow mb-2">Frankfurt am Main</p><p class="text-sm text-slate-400">Datenbank und Dateien liegen in Frankfurt.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-7"><p class="text-2xl sm:text-3xl font-extrabold mb-2">Chats sind privat</p><p class="text-sm text-slate-400">Auch Admins und Flow Solutions lesen sie nicht.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-7"><p class="text-2xl sm:text-3xl font-extrabold mb-2">Vier-Augen-Prinzip</p><p class="text-sm text-slate-400">Strenger Modus für sensible Bereiche wie HR.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-7"><p class="text-2xl sm:text-3xl font-extrabold mb-2">Zwei-Faktor-Anmeldung</p><p class="text-sm text-slate-400">Für Admins verpflichtend einstellbar.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-7"><p class="text-2xl sm:text-3xl font-extrabold mb-2">Unveränderliches Protokoll</p><p class="text-sm text-slate-400">Rechteänderungen und Zutritte sind nachvollziehbar.</p></div>
+                    <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-7"><p class="text-2xl sm:text-3xl font-extrabold text-glow mb-2">Über <span data-count="290">290</span></p><p class="text-sm text-slate-400">automatische Sicherheitsprüfungen bei jeder Änderung.</p></div>
+                </div>
+                <div class="mt-6 grid md:grid-cols-2 gap-4" data-reveal-stagger>
+                    <p class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6 text-sm text-slate-300 leading-relaxed"><span class="font-bold text-white">Für Betriebsräte:</span> LEXIA wertet keine einzelnen Personen aus. Ein Transparenzbericht liegt als PDF bei.</p>
+                    <p class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6 text-sm text-slate-300 leading-relaxed"><span class="font-bold text-white">Offen gesagt:</span> Ihre Daten werden in Frankfurt gespeichert. Die KI-Antworten erzeugt derzeit ein Anbieter, dessen Verarbeitung nicht garantiert in der EU erfolgt – für Enterprise ist eine reine EU-Verarbeitung vorgesehen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KI-Modelle -->
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+            <div class="max-w-4xl mx-auto text-center" data-reveal>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Immer die <span class="text-glow">besten KI-Modelle</span></h2>
+                <p class="mt-5 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">LEXIA wählt für jede Frage automatisch die passende Stufe. Flow Solutions tauscht Modelle zentral aus, wenn es bessere gibt – für Sie ändert sich dabei nichts.</p>
+                <div class="mt-10 flex flex-wrap justify-center gap-3">
+                    <span class="px-5 py-2.5 rounded-full border border-slate-700 bg-slate-900 font-semibold">Schnell</span>
+                    <span class="px-5 py-2.5 rounded-full border border-lexia/50 bg-lexia/10 text-lexia font-semibold">Standard</span>
+                    <span class="px-5 py-2.5 rounded-full border border-slate-700 bg-slate-900 font-semibold">Gründlich</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pilot + FAQ + CTA -->
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+            <div class="max-w-4xl mx-auto">
+                <div class="rounded-3xl border border-lexia/50 bg-gradient-to-br from-[#063a36] via-[#05241f] to-[#041614] p-8 sm:p-12 text-center shadow-[0_0_60px_rgba(50,243,221,0.1)]" data-reveal>
+                    <p class="text-xs font-mono uppercase tracking-[0.2em] text-lexia mb-3">Gründerangebot · Nur 3 Plätze</p>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold mb-4">Pilotfirmen gesucht</h2>
+                    <p class="text-slate-300 max-w-xl mx-auto leading-relaxed">3 Monate kostenlos, danach 50 % Rabatt im ersten Jahr. Im Gegenzug wünschen wir uns ehrliches Feedback – und, wenn Sie zufrieden sind, eine Referenz.</p>
+                    <a href="/kontakt?anliegen=pilot" class="mt-8 inline-flex items-center justify-center px-7 py-4 bg-lexia text-[#04201d] hover:bg-white rounded-full font-bold transition-colors hover-scale">Pilotplatz anfragen</a>
+                </div>
+
+                <h2 class="mt-24 text-3xl sm:text-5xl font-extrabold tracking-tight text-center mb-12" data-reveal>Häufige Fragen</h2>
+                <div class="space-y-4" data-acc-single data-reveal-stagger>
+                    <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                        <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Was ist LEXIA?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                        <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Ein KI-Assistent für das Wissen Ihrer Firma: Fragen stellen, Antworten mit Quelle bekommen, Abläufe als Checkliste abhaken.</p></div></div>
+                    </div>
+                    <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                        <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Sieht mein Chef meine Fragen?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                        <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Nein. Chats sind privat. Statistiken zeigen nur Summen.</p></div></div>
+                    </div>
+                    <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                        <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Was, wenn LEXIA etwas nicht weiß?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                        <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">LEXIA sagt das ehrlich und gibt die Frage – ohne Ihren Namen – an die Zuständigen weiter.</p></div></div>
+                    </div>
+                    <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                        <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Brauchen wir IT-Kenntnisse?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                        <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Nein. Flow Solutions richtet LEXIA mit Ihnen ein; danach pflegen Ihre Fachleute das Wissen selbst.</p></div></div>
+                    </div>
+                    <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                        <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Funktioniert LEXIA mit einem Betriebsrat?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                        <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Ja. LEXIA ist so gebaut, dass keine Leistungs- oder Verhaltenskontrolle einzelner Personen möglich ist; ein Transparenzbericht liegt als PDF bei.</p></div></div>
+                    </div>
+                </div>
+
+                <div class="mt-20 text-center" data-reveal>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-6">Bereit für LEXIA?</h2>
+                    <a href="/abo" class="inline-flex items-center justify-center px-8 py-4 bg-lexia text-[#04201d] hover:bg-white rounded-full font-bold transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">Preise ansehen</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- @footer -->
+    <footer class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 text-xs">
+            <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+                <svg class="w-10 h-auto text-white" viewBox="-5 -15 1435 460" aria-hidden="true">
+                    <g fill="none" stroke="currentColor" stroke-width="64" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
+                </svg>
+                <span><span class="font-bold text-white">Flow Solutions</span> © 2026 · LEXIA ist ein Produkt von Flow Solutions.</span>
+            </div>
+
+            <div class="flex items-center gap-4 text-slate-300">
+                <a href="https://www.instagram.com/flowsolutions.digital" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-lexia hover:text-[#04201d] transition-colors">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-lexia hover:text-[#04201d] transition-colors">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z"/></svg>
+                </a>
+            </div>
+
+            <nav aria-label="Fußzeile" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+                <a href="/lexia" class="hover:text-white transition-colors">LEXIA</a>
+                <a href="/abo" class="hover:text-white transition-colors">Abo</a>
+                <a href="/ueber-uns" class="hover:text-white transition-colors">Über uns</a>
+                <a href="/kontakt" class="hover:text-white transition-colors">Kontakt</a>
+                <a href="/datenschutz" class="hover:text-white transition-colors">Datenschutz</a>
+                <a href="/impressum" class="hover:text-white transition-colors">Impressum</a>
+            </nav>
+        </div>
+    </footer>
+    <!-- /@footer -->
+</body>
+
+</html>

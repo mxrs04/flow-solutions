@@ -4,220 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flow Solutions | KI-Automatisierung & Voice-Agenten</title>
-    <meta name="description"
-        content="Flow Solutions entwickelt maßgeschneiderte KI-Lösungen und automatisierte Voice-Agenten für Unternehmen im Raum Stuttgart und Esslingen. Weniger Routinearbeit, mehr Zeit fürs Wesentliche.">
-    <meta property="og:title" content="Flow Solutions">
+    <title>Flow Solutions | LEXIA – das KI-Betriebssystem für Firmenwissen</title>
+    <meta name="description" content="LEXIA von Flow Solutions beantwortet Fragen aus dem Wissen Ihrer Firma – immer mit Quelle und nur mit dem, was die fragende Person sehen darf. Aus Esslingen am Neckar.">
+    <link rel="canonical" href="https://ai-flow-solutions.de/">
+    <meta property="og:title" content="LEXIA – das KI-Betriebssystem für das Wissen Ihrer Firma">
+    <meta property="og:description" content="Antworten mit Quellen, Rechte wie in der Firma, Nachweise auf Knopfdruck. Ein Produkt von Flow Solutions.">
+    <meta property="og:url" content="https://ai-flow-solutions.de/">
+    <!-- @head -->
     <link rel="icon" href="/favicon.ico?v=5" sizes="48x48">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96.png?v=5">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png?v=5">
     <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png?v=5">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="canonical" href="https://ai-flow-solutions.de/">
-    <meta name="apple-mobile-web-app-title" content="Flow Solutions">
-    <meta name="application-name" content="Flow Solutions">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#0C0C0C">
-    <link rel="stylesheet" href="assets/fonts/fonts.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        @media (min-width: 768px) {
-
-            html,
-            body,
-            a,
-            button,
-            input,
-            textarea {
-                cursor: none !important;
-            }
-        }
-
-        body {
-            background-color: #0C0C0C;
-            color: #ffffff;
-        }
-
-        .dropdown-menu {
-            transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .dropdown-wrapper:hover .dropdown-menu,
-        .dropdown-wrapper:focus-within .dropdown-menu {
-            opacity: 1 !important;
-            visibility: visible !important;
-            pointer-events: auto !important;
-            transform: translateY(0) !important;
-        }
-
-        .hover-scale {
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .hover-scale:hover {
-            transform: scale(1.025);
-        }
-
-        .stacked-card {
-            will-change: transform;
-            transform-origin: top center !important;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .crisp-hero-bg {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: high-quality;
-        }
-
-        .hero-anim-element {
-            will-change: transform, opacity;
-            transition: transform 0.1s linear, opacity 0.1s linear;
-        }
-
-        .custom-cursor {
-            pointer-events: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 16px;
-            height: 16px;
-            background-color: transparent;
-            border: 1.5px solid #3b82f6;
-            border-radius: 50%;
-            z-index: 99999;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, border-width 0.2s;
-            mix-blend-mode: difference;
-        }
-
-        .custom-cursor.active {
-            width: 28px;
-            height: 28px;
-            border-width: 2px;
-            background-color: rgba(59, 130, 246, 0.15);
-        }
-
-
-        @media (min-width: 768px) {
-            .dynamic-island-pill {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(0);
-                width: 60px;
-                height: 24px;
-                background: #1e293b;
-                border-radius: 9999px;
-                z-index: 40;
-                pointer-events: none;
-                opacity: 0;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-            }
-
-            .dynamic-island-pill.anim-start {
-                opacity: 1;
-                animation: dynamicIslandBreath 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            }
-
-            .roi-card-left,
-            .roi-card-right {
-                opacity: 0;
-                transform-origin: center center;
-                transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1),
-                    opacity 0.4s ease-out,
-                    border-radius 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-                will-change: transform, opacity, border-radius;
-            }
-
-            .roi-card-left {
-                transform: translate3d(calc(50% + 16px), 0, 0) scale(0.08, 0.05);
-                border-radius: 320px;
-            }
-
-            .roi-card-right {
-                transform: translate3d(calc(-50% - 16px), 0, 0) scale(0.08, 0.05);
-                border-radius: 320px;
-            }
-
-            .roi-cards-container.animated .roi-card-left {
-                opacity: 1;
-                transform: translate3d(0, 0, 0) scale(1);
-                border-radius: 2.5rem;
-            }
-
-            .roi-cards-container.animated .roi-card-right {
-                opacity: 1;
-                transform: translate3d(0, 0, 0) scale(1);
-                border-radius: 2.5rem;
-            }
-
-            .roi-card-content {
-                opacity: 0;
-                transform: translate3d(0, 16px, 0);
-                transition: opacity 0.35s ease-out 0.45s, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s;
-                will-change: transform, opacity;
-            }
-
-            .roi-cards-container.animated .roi-card-content {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        /* Sanftes Einblenden beim Scrollen (Klasse wird per JS gesetzt, ohne JS bleibt alles sichtbar) */
-        .reveal {
-            opacity: 0;
-            transform: translate3d(0, 28px, 0);
-            transition: opacity 0.7s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .reveal.is-visible {
-            opacity: 1;
-            transform: none;
-        }
-
-        .faq-answer {
-            display: grid;
-            grid-template-rows: 0fr;
-            opacity: 0;
-            padding-bottom: 0 !important;
-            transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, padding-bottom 0.35s ease;
-        }
-
-        .faq-answer > div {
-            overflow: hidden;
-        }
-
-        .faq-item.is-open .faq-answer {
-            grid-template-rows: 1fr;
-            opacity: 1;
-            padding-bottom: 1.5rem !important;
-        }
-
-        .faq-icon {
-            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .reveal,
-            .faq-answer,
-            .faq-icon {
-                transition: none !important;
-            }
-
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
-        }
-    </style>
+    <meta name="apple-mobile-web-app-title" content="Flow Solutions">
+    <meta property="og:site_name" content="Flow Solutions">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="https://ai-flow-solutions.de/assets/og-lexia.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" href="/assets/fonts/plus-jakarta-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="/assets/js/site.js" defer></script>
+    <!-- /@head -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Flow Solutions",
-        "description": "Maßgeschneiderte KI-Lösungen und automatisierte Voice-Agenten für Unternehmen im Raum Stuttgart und Esslingen.",
+        "description": "Flow Solutions entwickelt LEXIA, das KI-Betriebssystem für das Wissen von Firmen.",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Brackenheimerweg 2",
@@ -225,1226 +43,325 @@
             "postalCode": "73732",
             "addressCountry": "DE"
         },
-        "founder": {
-            "@type": "Person",
-            "name": "Maximilian Reiser"
-        },
+        "founder": { "@type": "Person", "name": "Maximilian Reiser" },
         "url": "https://ai-flow-solutions.de"
     }
     </script>
 </head>
 
-<body class="font-sans antialiased selection:bg-blue-600 selection:text-white bg-[#0C0C0C] text-white">
+<body class="font-sans antialiased selection:bg-lexia selection:text-black flex flex-col min-h-screen">
+    <!-- @header -->
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[300] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg">Zum Inhalt springen</a>
+    <div id="customCursor" class="custom-cursor hidden" aria-hidden="true"></div>
 
-    <div id="customCursor" class="custom-cursor hidden md:block"></div>
-
-    <header id="mainHeader"
-        class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 pointer-events-auto bg-[#0C0C0C]/85 backdrop-blur-xl transition-colors duration-300">
+    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-[100] border-b border-slate-800/80 bg-[#0C0C0C]/85 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16 sm:h-20">
-
-                <button id="menuBtn" onclick="openMenu()"
-                    class="p-2 text-white hover:text-blue-400 focus:outline-none hover-scale flex items-center gap-2 sm:gap-2.5 cursor-pointer z-[101] transition-colors">
-                    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
+                <button id="menuBtn" type="button" aria-controls="siteMenu" aria-expanded="false"
+                    class="p-2 -ml-2 text-white hover:text-lexia flex items-center gap-2 sm:gap-2.5 z-[101] transition-colors">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    <span id="menuText" class="text-xs sm:text-sm font-semibold tracking-wider uppercase">Menü</span>
+                    <span class="hidden sm:inline text-sm font-semibold tracking-wider uppercase">Menü</span>
+                    <span class="sr-only sm:hidden">Menü öffnen</span>
                 </button>
 
-                <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-[101]">
-                    <a href="index.html"
-                        class="block hover-scale text-white font-extrabold text-sm sm:text-2xl tracking-widest sm:tracking-[0.2em] uppercase font-sans whitespace-nowrap">
-                        FLOW SOLUTIONS
-                    </a>
-                </div>
+                <a href="/" class="absolute left-1/2 -translate-x-1/2 hover-scale text-white font-extrabold text-sm sm:text-2xl tracking-widest sm:tracking-[0.2em] uppercase whitespace-nowrap z-[101]">
+                    Flow Solutions
+                </a>
 
-                <div class="relative dropdown-wrapper z-[110] py-2">
-                    <button id="langSelectBtn" onclick="toggleLangDropdown(event)" aria-label="Sprache wählen"
-                        class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 text-white hover:bg-slate-800 border border-slate-700 overflow-hidden shadow-sm hover-scale cursor-pointer z-[111]">
-                        <span id="currentFlagIcon"
-                            class="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
-                            <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
-                                <circle cx="256" cy="256" r="256" fill="#ffce00" />
-                                <path d="M0 170.7h512V0H0z" fill="#000" />
-                                <path d="M0 341.3h512V170.7H0z" fill="#d00" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div id="langDropdownMenu"
-                        class="absolute right-0 top-full mt-1 dropdown-menu w-52 bg-slate-900 text-white rounded-2xl shadow-2xl p-2 border border-slate-800 text-xs opacity-0 invisible pointer-events-none transform translateY-2 z-[120]">
-                        <button onclick="setLanguage('de')"
-                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span
-                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
-                                    <circle cx="256" cy="256" r="256" fill="#ffce00" />
-                                    <path d="M0 170.7h512V0H0z" fill="#000" />
-                                    <path d="M0 341.3h512V170.7H0z" fill="#d00" />
-                                </svg>
-                            </span>
-                            <span>Deutsch (DE)</span>
-                        </button>
-                        <button onclick="setLanguage('en')"
-                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span
-                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <img src="assets/uk_us_flag.png" alt="English UK/US Flag"
-                                    class="w-full h-full object-cover rounded-full">
-                            </span>
-                            <span>English (UK / US)</span>
-                        </button>
-                        <button onclick="setLanguage('fr')"
-                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span
-                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
-                                    <circle cx="256" cy="256" r="256" fill="#fff" />
-                                    <path d="M0 0h170.7v512H0z" fill="#002395" />
-                                    <path d="M341.3 0H512v512H341.3z" fill="#ed2939" />
-                                </svg>
-                            </span>
-                            <span>Français (FR)</span>
-                        </button>
-                        <button onclick="setLanguage('it')"
-                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span
-                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
-                                    <circle cx="256" cy="256" r="256" fill="#fff" />
-                                    <path d="M0 0h170.7v512H0z" fill="#009246" />
-                                    <path d="M341.3 0H512v512H341.3z" fill="#ce2b37" />
-                                </svg>
-                            </span>
-                            <span>Italiano (IT)</span>
-                        </button>
-                        <button onclick="setLanguage('es')"
-                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span
-                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <svg class="w-full h-full object-cover" viewBox="0 0 512 512">
-                                    <circle cx="256" cy="256" r="256" fill="#c60b1e" />
-                                    <path d="M0 128h512v256H0z" fill="#ffc400" />
-                                </svg>
-                            </span>
-                            <span>Español (ES)</span>
-                        </button>
-                        <button onclick="setLanguage('tr')"
-                            class="w-full flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800 hover-scale transition-all text-left font-medium cursor-pointer">
-                            <span
-                                class="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-slate-200 shadow-sm flex items-center justify-center">
-                                <img src="/IMG_2475_2.jpeg" alt="Türkçe (TR)"
-                                    class="w-full h-full object-cover rounded-full">
-                            </span>
-                            <span>Türkçe (TR)</span>
-                        </button>
-                    </div>
-                </div>
-
+                <a href="/kontakt?anliegen=demo"
+                    class="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-lexia text-[#04201d] hover:bg-white transition-colors hover-scale shadow-[0_0_24px_rgba(50,243,221,0.25)] z-[101]">
+                    <span class="sm:hidden">Demo</span><span class="hidden sm:inline">Demo anfragen</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <div id="rrMenuBackdrop" onclick="closeMenu()"
-        class="fixed inset-0 bg-slate-950/70 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
-    </div>
+    <div id="menuBackdrop" class="fixed inset-0 bg-slate-950/70 z-[190] opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
 
-    <div id="rrOverlayMenu"
-        class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] max-w-full bg-[#0C0C0C]/95 text-white backdrop-blur-2xl z-[200] transform -translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 shadow-2xl border-r border-slate-800">
-        <div class="flex items-center justify-between">
-            <button onclick="closeMenu()"
-                class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-all hover-scale"
-                aria-label="Menü schließen">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
+    <nav id="siteMenu" aria-label="Hauptmenü" inert
+        class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] sm:min-w-[380px] bg-[#0C0C0C]/95 backdrop-blur-2xl z-[200] -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 border-r border-slate-800">
+        <button id="menuClose" type="button" aria-label="Menü schließen"
+            class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-lexia hover:text-[#04201d] flex items-center justify-center transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
 
-        <nav class="flex flex-col space-y-6 sm:space-y-8 my-auto">
-            <a href="index.html" onclick="closeMenu()" data-i18n="menu_home"
-                class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">STARTSEITE</a>
-            <a href="dienstleistungen.html" onclick="closeMenu()" data-i18n="menu_services"
-                class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">DIENSTLEISTUNGEN</a>
-            <a href="ueber-uns.html" onclick="closeMenu()" data-i18n="menu_about"
-                class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">ÜBER
-                UNS</a>
-            <a href="kontakt.html" onclick="closeMenu()" data-i18n="menu_contact"
-                class="text-2xl sm:text-3xl font-extrabold tracking-[0.2em] text-slate-200 hover:text-blue-400 transition-colors hover-scale">KONTAKT</a>
-            <a href="datenschutz.html" onclick="closeMenu()" data-i18n="menu_privacy"
-                class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">DATENSCHUTZ</a>
-            <a href="impressum.html" onclick="closeMenu()" data-i18n="menu_imprint"
-                class="text-lg sm:text-xl font-bold tracking-[0.15em] text-slate-500 hover:text-blue-400 transition-colors hover-scale">IMPRESSUM</a>
-        </nav>
+        <ul class="flex flex-col gap-6 sm:gap-8 my-auto">
+            <li><a href="/" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">Startseite</a></li>
+            <li><a href="/lexia" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">LEXIA</a></li>
+            <li><a href="/abo" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">Abo</a></li>
+            <li><a href="/ueber-uns" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">Über uns</a></li>
+            <li><a href="/kontakt" class="menu-link text-2xl sm:text-3xl font-extrabold tracking-[0.2em] uppercase text-slate-200 hover:text-lexia transition-colors">Kontakt</a></li>
+            <li class="pt-4 flex gap-6">
+                <a href="/datenschutz" class="menu-link text-sm font-bold tracking-[0.15em] uppercase text-slate-500 hover:text-lexia transition-colors">Datenschutz</a>
+                <a href="/impressum" class="menu-link text-sm font-bold tracking-[0.15em] uppercase text-slate-500 hover:text-lexia transition-colors">Impressum</a>
+            </li>
+        </ul>
 
-        <div class="text-xs text-slate-500 font-mono tracking-widest">
-            FLOW SOLUTIONS © 2026
-        </div>
-    </div>
+        <p class="text-xs text-slate-500 font-mono tracking-widest">FLOW SOLUTIONS © 2026</p>
+    </nav>
+    <!-- /@header -->
 
-    <main class="relative z-10 bg-[#0C0C0C]">
+    <main id="main" class="relative z-10">
 
-        <section id="hero-section"
-            class="relative text-white min-h-[85vh] sm:min-h-screen flex flex-col justify-between pt-24 sm:pt-36 pb-8 sm:pb-16 px-4 sm:px-8 lg:px-12 max-w-full overflow-hidden bg-[#0C0C0C] z-0">
-            <picture class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center w-full h-full">
-                <source media="(max-width: 767px)" srcset="IMG_6984.jpeg">
-                <img src="Logo_Landingpage_4K.png" srcset="Logo_Landingpage_2K.png 2560w, Logo_Landingpage_4K.png 3840w" sizes="100vw" alt="Flow Solutions Hero Background" class="w-full h-full object-contain scale-110 sm:scale-100 sm:object-cover object-center opacity-90 crisp-hero-bg" style="image-rendering: -webkit-optimize-contrast;" />
+        <!-- Hero -->
+        <section id="hero-section" class="relative min-h-[85vh] sm:min-h-screen flex flex-col pt-24 sm:pt-36 pb-8 sm:pb-16 px-4 sm:px-8 lg:px-12 overflow-hidden">
+            <picture class="absolute inset-0 z-0 pointer-events-none">
+                <source media="(max-width: 767px)" srcset="/IMG_6984.jpeg">
+                <img src="/Logo_Landingpage_4K.png" srcset="/Logo_Landingpage_2K.png 2560w, /Logo_Landingpage_4K.png 3840w" sizes="100vw" alt=""
+                    class="w-full h-full object-contain scale-110 sm:scale-100 sm:object-cover object-center opacity-90 crisp-hero-bg" fetchpriority="high">
             </picture>
-            <div class="absolute inset-0 pointer-events-none"
-                style="background: linear-gradient(to bottom, transparent 35%, rgba(12,12,12,0.85) 85%, rgba(12,12,12,1) 100%);">
-            </div>
+            <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent via-35% to-[#0C0C0C]"></div>
 
             <div class="relative z-10 w-full max-w-7xl mx-auto flex-1 flex flex-col justify-between">
-                <div class="flex justify-end w-full pt-4 sm:pt-6">
-                    <div id="hero-title-container" class="text-right max-w-2xl sm:max-w-3xl overflow-visible">
-                        <h2
-                            class="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.25] overflow-visible text-right">
-                            <span id="hero-line1" class="hero-anim-element block mb-2 sm:mb-4 overflow-visible"
-                                data-i18n="hero_headline_1">WENIGER AUFWAND,</span>
-                            <span id="hero-line2" class="hero-anim-element block overflow-visible"
-                                data-i18n="hero_headline_2">MEHR <span
-                                    class="font-serif italic font-medium text-blue-400">FLOW</span>.</span>
-                        </h2>
-                    </div>
+                <div class="flex justify-end pt-4 sm:pt-6">
+                    <p class="text-right text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.25]" aria-label="Weniger Aufwand, mehr Flow.">
+                        <span id="hero-line1" class="hero-anim-element block mb-2 sm:mb-4">WENIGER AUFWAND,</span>
+                        <span id="hero-line2" class="hero-anim-element block">MEHR <span class="font-serif italic font-medium text-blue-400">FLOW</span>.</span>
+                    </p>
                 </div>
 
-                <div
-                    class="w-full flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 pb-2 sm:pb-8 mt-auto">
-                    <div class="text-left max-w-xl lg:max-w-2xl overflow-visible">
-                        <h1 id="hero-h1" data-i18n="hero_h1"
-                            class="hero-anim-element text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.25] overflow-visible">
-                            KI-Automatisierung &amp; Voice-Agenten für Unternehmen
-                        </h1>
-                    </div>
-
-                    <div id="hero-cta-container"
-                        class="hero-anim-element flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shrink-0 lg:mb-2 w-full lg:w-auto">
-                        <a href="kontakt.html" data-i18n="hero_cta_primary"
-                            class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-all duration-300 hover-scale shadow-lg shadow-blue-600/30">
-                            <span>Jetzt kontaktieren</span>
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 -mr-1" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 pb-2 sm:pb-8 mt-auto">
+                    <h1 id="hero-h1" class="hero-anim-element max-w-2xl text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.2]">
+                        <span class="text-glow">LEXIA</span> – das KI-Betriebssystem für das Wissen Ihrer Firma.
+                    </h1>
+                    <div id="hero-cta-container" class="hero-anim-element flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shrink-0 lg:mb-2 w-full lg:w-auto">
+                        <a href="/lexia" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">
+                            LEXIA entdecken
+                            <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                         </a>
-                        <a href="dienstleistungen.html" data-i18n="hero_cta_secondary"
-                            class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-full transition-all duration-300 hover-scale shadow-sm backdrop-blur-md">
-                            Dienstleistungen entdecken
+                        <a href="/kontakt?anliegen=demo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-full transition-colors hover-scale backdrop-blur-md">
+                            Demo anfragen
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="services_title">
-                    Maßgeschneiderte KI-Lösungen für Ihren Betrieb</h2>
-                <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="services_sub">Wir automatisieren wiederkehrende
-                    Aufgaben, damit Ihr Team mehr Zeit für Kunden und Kerngeschäft hat.</p>
+        <!-- LEXIA-Teaser -->
+        <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="text-center mb-16" data-reveal>
+                <svg class="w-56 sm:w-80 h-auto mx-auto text-white drop-shadow-[0_0_30px_rgba(50,243,221,0.35)]" viewBox="0 0 1221 229" role="img" aria-label="LEXIA" fill="currentColor">
+                    <rect x="0" y="0" width="52" height="229"/><rect x="0" y="183" width="187" height="46"/>
+                    <rect x="257" y="0" width="192" height="46"/><rect x="257" y="91" width="192" height="46"/><rect x="257" y="183" width="192" height="46"/>
+                    <polygon points="529,0 592,0 765,229 702,229"/><polygon points="702,0 765,0 592,229 529,229"/>
+                    <rect x="846" y="0" width="51" height="229"/>
+                    <polygon points="969,229 1069,0 1121,0 1221,229 1166,229 1094,60 1024,229"/>
+                </svg>
+                <p class="mt-6 text-xs font-mono uppercase tracking-[0.25em] text-slate-400">Ein Produkt von Flow Solutions</p>
+                <h2 class="mt-8 text-3xl sm:text-5xl font-extrabold tracking-tight">Fragen stellen. <span class="text-glow">Antworten bekommen.</span></h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">LEXIA beantwortet Fragen aus dem Wissen Ihrer Firma – immer mit Quelle, und nur mit dem, was die fragende Person sehen darf.</p>
             </div>
 
-            <div id="stacked-cards-container" class="relative pb-24 space-y-[10vh]">
-
-                <div class="h-auto md:h-[85vh] md:sticky flex items-center justify-center z-10 mb-12 md:mb-0" style="top: calc(96px + 0px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] shadow-2xl transition-all duration-300 relative overflow-hidden p-0 flex flex-col min-h-[600px]"
-                        style="transform-origin: top center;" data-index="0">
-                        <picture class="absolute inset-0 z-0 w-full h-full"><source media="(max-width: 767px)" srcset="Gemini_Generated_Image_r1zncbr1zncbr1zn.jpg"><img src="Gemini_Generated_Image_r1zncbr1zncbr1zn.jpeg" class="w-full h-full object-cover z-0"></picture>
-                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/80 via-30% to-transparent lg:bg-gradient-to-l lg:from-[#0C0C0C] lg:via-[#0C0C0C]/90 lg:to-transparent"></div>
-                        <div class="relative z-20 w-full lg:w-1/2 p-8 sm:p-12 flex flex-col justify-end lg:justify-center flex-1 mt-auto lg:mt-0 h-full lg:ml-auto lg:mr-0">
-                            <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service1_title">
-                                Automatisierte Voice-Agenten</h3>
-                            <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service1_desc">
-                                Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr mit
-                                natürlich klingender Sprache annehmen, Termine vereinbaren und Daten direkt erfassen.
-                            </p>
-                            <ul class="space-y-3 text-sm text-slate-300 font-medium mb-8">
-                                <li class="flex items-center gap-3">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
-                                    <span data-i18n="service1_b1">Echtzeit-Spracherkennung</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
-                                    <span data-i18n="service1_b2">CRM- &amp; Kalender-Anbindung</span>
-                                </li>
-                            </ul>
-                            <a href="kontakt.html" data-i18n="service1_btn"
-                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30 w-max">
-                                Voice Agent anfragen
-                            </a>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-reveal-stagger>
+                <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 hover-scale">
+                    <div class="w-11 h-11 rounded-2xl bg-lexia/10 border border-lexia/30 text-lexia flex items-center justify-center mb-6">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
                     </div>
+                    <h3 class="text-xl font-extrabold mb-3">Antworten mit Quellen</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Jede Antwort zeigt, woher sie stammt. Weiß LEXIA etwas nicht, sagt sie das ehrlich – statt etwas zu erfinden.</p>
                 </div>
-
-                <div class="h-auto md:h-[85vh] md:sticky flex items-center justify-center z-20 mb-12 md:mb-0" style="top: calc(96px + 24px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] shadow-2xl transition-all duration-300 relative overflow-hidden p-0 flex flex-col min-h-[600px]"
-                        style="transform-origin: top center;" data-index="1">
-                        <picture class="absolute inset-0 z-0 w-full h-full"><source media="(max-width: 767px)" srcset="Gemini_Generated_Image_1gx7cw1gx7cw1gx7_mobile.jpg"><img src="Gemini_Generated_Image_1gx7cw1gx7cw1gx7.jpg" class="w-full h-full object-cover z-0"></picture>
-                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/80 via-30% to-transparent lg:bg-gradient-to-r lg:from-[#0C0C0C] lg:via-[#0C0C0C]/90 lg:to-transparent"></div>
-                        <div class="relative z-20 w-full lg:w-1/2 p-8 sm:p-12 flex flex-col justify-end lg:justify-center flex-1 mt-auto lg:mt-0 h-full lg:mr-auto lg:ml-0">
-                            <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service2_title">
-                                Workflow-Automatisierung</h3>
-                            <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service2_desc">
-                                Wir verknüpfen Ihre bestehende Software mit KI-gestützten Abläufen – von der automatischen
-                                Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.
-                            </p>
-                            <ul class="space-y-3 text-sm text-slate-300 font-medium mb-8">
-                                <li class="flex items-center gap-3">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
-                                    <span data-i18n="service2_b1">Prozessanalyse &amp; Individual-Setup</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
-                                    <span data-i18n="service2_b2">Zuverlässige System-Kopplung</span>
-                                </li>
-                            </ul>
-                            <a href="kontakt.html" data-i18n="service2_btn"
-                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30 w-max">
-                                Workflow-Analyse buchen
-                            </a>
-                        </div>
+                <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 hover-scale">
+                    <div class="w-11 h-11 rounded-2xl bg-lexia/10 border border-lexia/30 text-lexia flex items-center justify-center mb-6">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
                     </div>
+                    <h3 class="text-xl font-extrabold mb-3">Rechte wie in der Firma</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Jede Person sieht nur, was sie auch sonst sehen darf – mit Bereichen für alle, fürs Team oder geschlossen.</p>
                 </div>
-
-                <div class="h-auto md:h-[85vh] md:sticky flex items-center justify-center z-30 mb-12 md:mb-0" style="top: calc(96px + 48px);">
-                    <div class="stacked-card w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] shadow-2xl transition-all duration-300 relative overflow-hidden p-0 flex flex-col min-h-[600px]"
-                        style="transform-origin: top center;" data-index="2">
-                        <picture class="absolute inset-0 z-0 w-full h-full"><source media="(max-width: 767px)" srcset="Gemini_Generated_Image_y2qzuey2qzuey2qz.jpg"><img src="Gemini_Generated_Image_y2qzuey2qzuey2qz.jpeg" class="w-full h-full object-cover z-0"></picture>
-                        <div class="absolute inset-0 z-10 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/80 via-30% to-transparent lg:bg-gradient-to-l lg:from-[#0C0C0C] lg:via-[#0C0C0C]/90 lg:to-transparent"></div>
-                        <div class="relative z-20 w-full lg:w-1/2 p-8 sm:p-12 flex flex-col justify-end lg:justify-center flex-1 mt-auto lg:mt-0 h-full lg:ml-auto lg:mr-0">
-                            <h3 class="text-3xl font-extrabold text-white mb-4" data-i18n="service3_title">KI-Wissensassistenten</h3>
-                            <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="service3_desc">
-                                Chat- und Wissens-Assistenten, die auf Ihre eigenen Unternehmensdokumente zugreifen –
-                                vertraulich und DSGVO-orientiert umgesetzt, auf Wunsch mit EU-Hosting.
-                            </p>
-                            <ul class="space-y-3 text-sm text-slate-300 font-medium mb-8">
-                                <li class="flex items-center gap-3">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
-                                    <span data-i18n="service3_b1">Interne Wissensdatenbanken</span>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-blue-600/30 text-blue-400 border border-blue-500/40 flex items-center justify-center font-bold text-xs">✓</span>
-                                    <span data-i18n="service3_b2">DSGVO-orientiert, auf Wunsch EU-Hosting</span>
-                                </li>
-                            </ul>
-                            <a href="kontakt.html" data-i18n="service3_btn"
-                                class="inline-flex items-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30 w-max">
-                                Wissensassistent anfragen
-                            </a>
-                        </div>
+                <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 hover-scale">
+                    <div class="w-11 h-11 rounded-2xl bg-lexia/10 border border-lexia/30 text-lexia flex items-center justify-center mb-6">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
                     </div>
+                    <h3 class="text-xl font-extrabold mb-3">Nachweise auf Knopfdruck</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">PDF-Berichte für DSGVO, ISO 27001, Betriebsrat und EU AI Act – direkt aus LEXIA.</p>
                 </div>
+            </div>
 
-                <div class="h-[50vh] pointer-events-none"></div>
-
+            <div class="text-center mt-12" data-reveal>
+                <a href="/lexia" class="inline-flex items-center px-7 py-4 rounded-full font-semibold border border-lexia/50 text-lexia hover:bg-lexia hover:text-[#04201d] transition-colors hover-scale">Mehr über LEXIA</a>
             </div>
         </section>
 
-        <section id="text-reveal-section"
-            class="py-28 sm:py-40 px-4 sm:px-6 lg:px-8 max-w-full bg-[#0C0C0C] border-y border-slate-800/80 text-white relative overflow-hidden">
+        <!-- Wörter leuchten beim Scrollen auf -->
+        <section id="text-reveal-section" class="py-28 sm:py-40 px-4 sm:px-6 lg:px-8 border-y border-slate-800/80 overflow-hidden">
+            <p id="reveal-text" class="max-w-5xl mx-auto text-center text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-relaxed tracking-tight select-none">
+                Fragen stellen. Antworten mit Quelle bekommen. Abläufe abhaken. LEXIA bringt das Wissen Ihrer Firma dorthin, wo es gebraucht wird.
+            </p>
+        </section>
+
+        <!-- Wissens-Rechner -->
+        <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
             <div class="max-w-5xl mx-auto text-center">
-                <p id="reveal-text"
-                    class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-center leading-relaxed tracking-tight select-none">
-                    Automatisieren Sie komplexe Geschäftsprozesse und Kundeninteraktionen mit Voice-Agenten
-                    und <a href="dienstleistungen.html"
-                        class="underline hover:text-blue-400 transition-colors relative z-20 pointer-events-auto">maßgeschneiderten
-                        KI-Systemen</a> – passend zu Ihren Abläufen.
-                </p>
-            </div>
-        </section>
-
-        <section id="savings" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#0C0C0C] border-t border-b border-slate-800/80">
-            <div class="max-w-5xl mx-auto text-center">
-                <p class="text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-blue-400 mb-6">Beispielrechnung</p>
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-                    Wie viel Zeit verbringt Ihr Team am Telefon?</h2>
-                <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-12">Geben Sie Ihre eigenen Werte ein
-                    und sehen Sie, wie viel Arbeitszeit pro Woche in Standardanrufe fließt.</p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12 text-left">
-                    <label class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 block">
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Anrufe pro Tag</span>
-                        <input id="calcCalls" type="number" inputmode="numeric" min="1" max="500" value="20"
-                            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold text-white focus:outline-none focus:border-blue-500">
+                <div data-reveal>
+                    <p class="text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-lexia mb-6">Beispielrechnung</p>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Wie viel Zeit sucht Ihr Team?</h2>
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-12">Geben Sie Ihre eigenen Werte ein und sehen Sie, wie viel Arbeitszeit im Monat in die Suche nach Informationen fließt.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12 text-left" data-reveal-stagger>
+                    <label class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Personen im Team</span>
+                        <input id="kPeople" type="number" inputmode="numeric" min="1" max="1000" value="10" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold focus:outline-none focus:border-lexia">
                     </label>
-                    <label class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 block">
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Minuten pro Anruf</span>
-                        <input id="calcMinutes" type="number" inputmode="numeric" min="1" max="60" value="4"
-                            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold text-white focus:outline-none focus:border-blue-500">
+                    <label class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Minuten Suche pro Tag</span>
+                        <input id="kMinutes" type="number" inputmode="numeric" min="1" max="240" value="15" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold focus:outline-none focus:border-lexia">
                     </label>
-                    <label class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 block">
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Arbeitstage pro Woche</span>
-                        <input id="calcDays" type="number" inputmode="numeric" min="1" max="7" value="5"
-                            class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold text-white focus:outline-none focus:border-blue-500">
+                    <label class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Arbeitstage pro Monat</span>
+                        <input id="kDays" type="number" inputmode="numeric" min="1" max="31" value="21" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold focus:outline-none focus:border-lexia">
                     </label>
                 </div>
-
-                <p class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                    ≈ <span id="calcResult" class="text-blue-400">6,7</span> Stunden pro Woche
-                </p>
-                <p class="mt-6 text-slate-500 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-                    Diese Zeit kann ein Voice-Agent ganz oder teilweise übernehmen – je nachdem, wie viele Ihrer Anrufe
-                    Standardanfragen sind. Die Rechnung ist ein unverbindliches Beispiel; Ihre tatsächliche Ersparnis
-                    ermitteln wir gemeinsam im Erstgespräch.
-                </p>
+                <p class="text-4xl sm:text-6xl font-extrabold tracking-tight" aria-live="polite">≈ <span id="kCalcResult" class="text-glow">52,5</span> Stunden pro Monat</p>
+                <p class="mt-6 text-slate-500 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">So viel Zeit verbringt Ihr Team im Beispiel mit Suchen, Nachfragen und Warten auf Antworten. Die Rechnung ist ein unverbindliches Beispiel; wie viel davon LEXIA übernimmt, hängt von Ihren Abläufen ab.</p>
             </div>
         </section>
 
-        <section id="roi"
-            class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80 bg-[#0C0C0C]">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="roi_title">Der Unterschied</h2>
-                <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="roi_sub">Klassische Abläufe vs. KI-gestützte Automatisierung.</p>
+        <!-- Der Unterschied -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-reveal>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Der Unterschied</h2>
+                <p class="mt-4 text-slate-400 text-base sm:text-lg">Verstreutes Wissen vs. ein Ort für alle Antworten.</p>
             </div>
-
-            <div id="roi-cards-container"
-                class="roi-cards-container relative grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto items-stretch pt-4">
-                <div id="dynamic-island-pill" class="dynamic-island-pill"></div>
-
-                <div
-                    class="roi-card-left relative bg-gradient-to-b from-[#2a0d14] via-[#1a080d] to-[#120508] rounded-[2.5rem] p-8 sm:p-10 border border-rose-900/50 shadow-2xl hover-scale flex flex-col justify-between">
-                    <div
-                        class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-600 border-4 border-[#0C0C0C] flex items-center justify-center text-white text-base font-bold shadow-xl z-30">
-                        ✕
-                    </div>
-                    <div class="roi-card-content h-full flex flex-col justify-between pt-2">
-                        <div>
-                            <h3
-                                class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-rose-900/40 pb-5 min-h-[4.5rem] sm:min-h-[5.5rem] flex items-end">
-                                KLASSISCHE ABLÄUFE
-                            </h3>
-                            <div class="space-y-6">
-                                <div class="flex items-center gap-4 border-b border-rose-900/30 pb-5">
-                                    <span class="text-rose-500 font-bold text-lg">✕</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">Hohe Fixkosten</span>
-                                </div>
-                                <div class="flex items-center gap-4 border-b border-rose-900/30 pb-5">
-                                    <span class="text-rose-500 font-bold text-lg">✕</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">Begrenzte Verfügbarkeit</span>
-                                </div>
-                                <div class="flex items-center gap-4 border-b border-rose-900/30 pb-5">
-                                    <span class="text-rose-500 font-bold text-lg">✕</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">Langsame Bearbeitung</span>
-                                </div>
-                                <div class="flex items-center gap-4 pt-1">
-                                    <span class="text-rose-500 font-bold text-lg">✕</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">Limitierte Kapazität</span>
-                                </div>
-                            </div>
-                        </div>
+            <div id="roi-cards-container" class="roi-cards-container relative grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto items-stretch pt-4">
+                <div class="roi-card-left relative bg-gradient-to-b from-[#2a0d14] via-[#1a080d] to-[#120508] rounded-[2.5rem] p-8 sm:p-10 border border-rose-900/50 shadow-2xl">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-600 border-4 border-[#0C0C0C] flex items-center justify-center font-bold" aria-hidden="true">✕</div>
+                    <div class="roi-card-content pt-2">
+                        <h3 class="text-xl sm:text-2xl font-extrabold tracking-wider uppercase mb-8 border-b border-rose-900/40 pb-5 min-h-[4.5rem] sm:min-h-[5.5rem] flex items-end">Wissen in Köpfen, Ordnern und Chats</h3>
+                        <ul class="space-y-6 text-lg sm:text-xl font-bold">
+                            <li class="flex items-center gap-4 border-b border-rose-900/30 pb-5"><span class="text-rose-500" aria-hidden="true">✕</span>Suchen statt arbeiten</li>
+                            <li class="flex items-center gap-4 border-b border-rose-900/30 pb-5"><span class="text-rose-500" aria-hidden="true">✕</span>Antworten ohne Quelle</li>
+                            <li class="flex items-center gap-4 border-b border-rose-900/30 pb-5"><span class="text-rose-500" aria-hidden="true">✕</span>Unklar, wer zuständig ist</li>
+                            <li class="flex items-center gap-4"><span class="text-rose-500" aria-hidden="true">✕</span>Einarbeitung dauert lange</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div
-                    class="roi-card-right relative bg-gradient-to-b from-[#0e275d] via-[#0a1b42] to-[#07112b] rounded-[2.5rem] p-8 sm:p-10 border border-blue-500/50 shadow-2xl hover-scale flex flex-col justify-between">
-                    <div
-                        class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-500 border-4 border-[#0C0C0C] flex items-center justify-center text-slate-950 text-base font-black shadow-xl z-30">
-                        ✓
-                    </div>
-                    <div class="roi-card-content h-full flex flex-col justify-between pt-2">
-                        <div>
-                            <h3
-                                class="text-xl sm:text-2xl font-extrabold text-white tracking-wider uppercase mb-8 border-b border-blue-800/40 pb-5 leading-tight min-h-[4.5rem] sm:min-h-[5.5rem] flex items-end">
-                                FLOW SOLUTIONS<br>KI-AGENT
-                            </h3>
-                            <div class="space-y-6">
-                                <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">Skalierbare Kosten</span>
-                                </div>
-                                <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">24/7
-                                        Sofort-Verfügbarkeit</span>
-                                </div>
-                                <div class="flex items-center gap-4 border-b border-blue-800/30 pb-5">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">Hohe Effizienz</span>
-                                </div>
-                                <div class="flex items-center gap-4 pt-1">
-                                    <span
-                                        class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0">✓</span>
-                                    <span class="text-white font-bold text-lg sm:text-xl">Skaliert mit Ihrem Anrufvolumen</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="roi-card-right relative bg-gradient-to-b from-[#063a36] via-[#05241f] to-[#041614] rounded-[2.5rem] p-8 sm:p-10 border border-lexia/40 shadow-2xl">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-lexia text-[#04201d] border-4 border-[#0C0C0C] flex items-center justify-center font-black" aria-hidden="true">✓</div>
+                    <div class="roi-card-content pt-2">
+                        <h3 class="text-xl sm:text-2xl font-extrabold tracking-wider uppercase mb-8 border-b border-lexia/20 pb-5 min-h-[4.5rem] sm:min-h-[5.5rem] flex items-end">LEXIA</h3>
+                        <ul class="space-y-6 text-lg sm:text-xl font-bold">
+                            <li class="flex items-center gap-4 border-b border-lexia/15 pb-5"><span class="w-6 h-6 rounded-full bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center shrink-0" aria-hidden="true">✓</span>Gefunden in Sekunden</li>
+                            <li class="flex items-center gap-4 border-b border-lexia/15 pb-5"><span class="w-6 h-6 rounded-full bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center shrink-0" aria-hidden="true">✓</span>Immer mit Quelle</li>
+                            <li class="flex items-center gap-4 border-b border-lexia/15 pb-5"><span class="w-6 h-6 rounded-full bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center shrink-0" aria-hidden="true">✓</span>Nur, was man sehen darf</li>
+                            <li class="flex items-center gap-4"><span class="w-6 h-6 rounded-full bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center shrink-0" aria-hidden="true">✓</span>Neue Mitarbeitende schneller eingearbeitet</li>
+                        </ul>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="faq"
-            class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-slate-800/80 bg-[#0C0C0C]">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">FAQ</h2>
-            </div>
-
-            <div class="space-y-4 max-w-4xl mx-auto">
-                <div class="faq-item bg-slate-900/50 border border-slate-800 rounded-2xl transition-colors duration-300">
-                    <button class="faq-button w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl text-white focus:outline-none cursor-pointer">
-                        <span>Wie läuft das Erstgespräch ab?</span>
-                        <span class="faq-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white shrink-0 transition-transform duration-300">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        <div>In einem kostenlosen Erstgespräch (ca. 30 Minuten) schauen wir uns gemeinsam Ihre aktuellen Abläufe an und finden zeitaufwendige Engpässe. Anschließend erhalten Sie einen klaren Vorschlag, welche Prozesse sich mit KI und Voice-Agenten sinnvoll automatisieren lassen – und ein Festpreis-Angebot.</div>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-slate-900/50 border border-slate-800 rounded-2xl transition-colors duration-300">
-                    <button class="faq-button w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl text-white focus:outline-none cursor-pointer">
-                        <span>Wie lange dauert die Implementierung eines Voice-Agenten?</span>
-                        <span class="faq-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white shrink-0 transition-transform duration-300">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        <div>Das hängt von der Komplexität ab. Ein Basis-Setup für Terminbuchungen und Standardanfragen kann je nach Umfang oft innerhalb von ein bis zwei Wochen einsatzbereit sein. Einen realistischen Zeitplan erhalten Sie nach dem Erstgespräch.</div>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-slate-900/50 border border-slate-800 rounded-2xl transition-colors duration-300">
-                    <button class="faq-button w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl text-white focus:outline-none cursor-pointer">
-                        <span>Wie gehen Sie mit dem Datenschutz um?</span>
-                        <span class="faq-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white shrink-0 transition-transform duration-300">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        <div>Datenschutz ist bei uns von Anfang an Teil der Planung. Wir setzen die Lösungen DSGVO-orientiert um, wählen – wo möglich und gewünscht – Anbieter mit Servern in der EU und schließen mit den eingesetzten Dienstleistern Auftragsverarbeitungsverträge. Welche Anbieter für Ihr Projekt infrage kommen, besprechen wir transparent im Erstgespräch.</div>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-slate-900/50 border border-slate-800 rounded-2xl transition-colors duration-300">
-                    <button class="faq-button w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl text-white focus:outline-none cursor-pointer">
-                        <span>Brauche ich technisches Vorwissen?</span>
-                        <span class="faq-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-white shrink-0 transition-transform duration-300">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-                            </svg>
-                        </span>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        <div>Nein. Wir übernehmen die technische Einrichtung, die Konfiguration der KI und auf Wunsch die laufende Betreuung. Sie erhalten von uns ein einsatzbereites System und eine verständliche Einweisung für Ihr Team.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-16 text-center max-w-xl mx-auto">
-                <p class="text-slate-400 text-sm sm:text-base mb-4 font-medium">Haben Sie weitere Fragen?</p>
-                <a href="kontakt.html"
-                    class="inline-flex items-center justify-center px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-sm hover-scale shadow-lg shadow-blue-600/30">
-                    Schreiben Sie uns
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                    </svg>
-                </a>
-            </div>
-        </section>
-
-        <section id="ablauf" class="py-24 px-4 sm:px-6 lg:px-8 max-w-full border-t border-slate-800/80 bg-[#0C0C0C]">
+        <!-- Ablauf + Pilot -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="process_heading">
-                        So läuft die Zusammenarbeit ab</h2>
-                    <p class="mt-4 text-slate-400 text-base sm:text-lg" data-i18n="process_sub">Klar, planbar und ohne
-                        versteckte Kosten.</p>
+                <div class="text-center max-w-3xl mx-auto mb-16" data-reveal>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">So starten Sie mit LEXIA</h2>
+                    <p class="mt-4 text-slate-400 text-base sm:text-lg">Klar, planbar und ohne IT-Kenntnisse.</p>
                 </div>
+                <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal-stagger>
+                    <li class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
+                        <div class="font-mono text-lexia text-sm mb-4">01</div>
+                        <h3 class="text-xl font-extrabold mb-3">Erstgespräch</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Kostenlos und unverbindlich. Wir klären, welches Wissen LEXIA für Sie bereithalten soll.</p>
+                    </li>
+                    <li class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
+                        <div class="font-mono text-lexia text-sm mb-4">02</div>
+                        <h3 class="text-xl font-extrabold mb-3">Testzugang oder Pilot</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Sie probieren LEXIA mit Ihrem Team aus – bevor Sie sich festlegen.</p>
+                    </li>
+                    <li class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
+                        <div class="font-mono text-lexia text-sm mb-4">03</div>
+                        <h3 class="text-xl font-extrabold mb-3">Wissen einspielen &amp; Einweisung</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Wir richten LEXIA gemeinsam ein. Danach pflegen Ihre Fachleute das Wissen selbst.</p>
+                    </li>
+                    <li class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
+                        <div class="font-mono text-lexia text-sm mb-4">04</div>
+                        <h3 class="text-xl font-extrabold mb-3">Start &amp; Begleitung</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Ihr Team arbeitet mit LEXIA – und Sie haben einen festen Ansprechpartner.</p>
+                    </li>
+                </ol>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
-                        <div class="font-mono text-blue-400 text-sm mb-4">01</div>
-                        <h3 class="text-xl font-extrabold text-white mb-3">Kostenloses Erstgespräch</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">30 Minuten, unverbindlich. Wir lernen Ihr
-                            Unternehmen und Ihre Abläufe kennen.</p>
-                    </div>
-                    <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
-                        <div class="font-mono text-blue-400 text-sm mb-4">02</div>
-                        <h3 class="text-xl font-extrabold text-white mb-3">Prozess-Check &amp; Festpreis</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Sie erhalten einen konkreten Vorschlag mit
-                            Festpreis – keine versteckten Kosten.</p>
-                    </div>
-                    <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
-                        <div class="font-mono text-blue-400 text-sm mb-4">03</div>
-                        <h3 class="text-xl font-extrabold text-white mb-3">Prototyp &amp; Test</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Sie testen die Lösung in Ruhe, bevor sie live
-                            geht. Wir passen an, bis es passt.</p>
-                    </div>
-                    <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
-                        <div class="font-mono text-blue-400 text-sm mb-4">04</div>
-                        <h3 class="text-xl font-extrabold text-white mb-3">Start &amp; Betreuung</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Einführung für Ihr Team und auf Wunsch laufende
-                            Betreuung und Weiterentwicklung.</p>
-                    </div>
-                </div>
-
-                <div class="mt-12 rounded-3xl border border-blue-500/40 bg-gradient-to-br from-[#0e275d] via-[#0a1b42] to-[#07112b] p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                <div class="mt-12 rounded-3xl border border-lexia/40 bg-gradient-to-br from-[#063a36] via-[#05241f] to-[#041614] p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center justify-between gap-8 shadow-[0_0_60px_rgba(50,243,221,0.08)]" data-reveal>
                     <div class="max-w-2xl">
-                        <p class="text-xs font-mono uppercase tracking-[0.2em] text-blue-300 mb-3">Pilotprogramm</p>
-                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Wir suchen 3 Pilotunternehmen aus
-                            der Region Stuttgart / Esslingen</h3>
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">Sie erhalten Ihren Voice-Agenten zum
-                            Gründerpreis – im Gegenzug wünschen wir uns ehrliches Feedback und, wenn Sie zufrieden sind,
-                            eine Referenz.</p>
+                        <p class="text-xs font-mono uppercase tracking-[0.2em] text-lexia mb-3">Gründerangebot · Nur 3 Plätze</p>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold mb-3">Wir suchen Pilotfirmen</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">3 Monate kostenlos, danach 50 % Rabatt im ersten Jahr. Im Gegenzug wünschen wir uns ehrliches Feedback – und, wenn Sie zufrieden sind, eine Referenz.</p>
                     </div>
-                    <a href="kontakt.html"
-                        class="shrink-0 inline-flex items-center justify-center px-7 py-4 bg-white text-slate-950 hover:bg-blue-50 rounded-full font-bold text-sm hover-scale shadow-lg">
-                        Pilotplatz anfragen
-                    </a>
+                    <a href="/kontakt?anliegen=pilot" class="shrink-0 inline-flex items-center justify-center px-7 py-4 bg-lexia text-[#04201d] hover:bg-white rounded-full font-bold text-sm transition-colors hover-scale">Pilotplatz anfragen</a>
                 </div>
             </div>
         </section>
 
+        <!-- FAQ -->
+        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full border-t border-slate-800/80">
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-center mb-16" data-reveal>Häufige Fragen</h2>
+            <div class="space-y-4" data-acc-single data-reveal-stagger>
+                <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Was ist LEXIA?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Ein KI-Assistent für das Wissen Ihrer Firma: Fragen stellen, Antworten mit Quelle bekommen, Abläufe als Checkliste abhaken.</p></div></div>
+                </div>
+                <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Sieht mein Chef meine Fragen?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Nein. Chats sind privat. Statistiken zeigen nur Summen.</p></div></div>
+                </div>
+                <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Was, wenn LEXIA etwas nicht weiß?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">LEXIA sagt das ehrlich und gibt die Frage – ohne Ihren Namen – an die Zuständigen weiter.</p></div></div>
+                </div>
+                <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Brauchen wir IT-Kenntnisse?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Nein. Flow Solutions richtet LEXIA mit Ihnen ein; danach pflegen Ihre Fachleute das Wissen selbst.</p></div></div>
+                </div>
+                <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Funktioniert LEXIA mit einem Betriebsrat?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Ja. LEXIA ist so gebaut, dass keine Leistungs- oder Verhaltenskontrolle einzelner Personen möglich ist; ein Transparenzbericht liegt als PDF bei.</p></div></div>
+                </div>
+            </div>
+            <div class="mt-16 text-center" data-reveal>
+                <p class="text-slate-400 mb-4">Haben Sie weitere Fragen?</p>
+                <a href="/kontakt" class="inline-flex items-center px-6 py-3.5 rounded-full font-semibold bg-slate-900 border border-slate-700 hover:border-lexia hover:text-lexia transition-colors">Schreiben Sie uns</a>
+            </div>
+        </section>
     </main>
 
-    <footer class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs">
-            <div class="flex items-center gap-3 hover-scale">
-                <div class="w-7 h-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
-                    <img src="assets/Logo inverted 1zu1.jpeg" alt="Flow Solutions Logo"
-                        class="w-full h-full object-cover">
-                </div>
-                <span class="font-bold text-white">Flow Solutions</span>
-                <span data-i18n="footer_rights">© 2026. Alle Rechte vorbehalten.</span>
+    <!-- @footer -->
+    <footer class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 text-xs">
+            <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+                <svg class="w-10 h-auto text-white" viewBox="-5 -15 1435 460" aria-hidden="true">
+                    <g fill="none" stroke="currentColor" stroke-width="64" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
+                </svg>
+                <span><span class="font-bold text-white">Flow Solutions</span> © 2026 · LEXIA ist ein Produkt von Flow Solutions.</span>
             </div>
 
             <div class="flex items-center gap-4 text-slate-300">
-                <a href="https://www.instagram.com/flowsolutions.digital?utm_source=qr" target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale"
-                    aria-label="Instagram">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
+                <a href="https://www.instagram.com/flowsolutions.digital" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-lexia hover:text-[#04201d] transition-colors">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
-                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer"
-                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover-scale"
-                    aria-label="Pinterest">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                        <path
-                            d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z" />
-                    </svg>
+                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"
+                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-lexia hover:text-[#04201d] transition-colors">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z"/></svg>
                 </a>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-                <a href="dienstleistungen.html" data-i18n="menu_services"
-                    class="hover:text-white transition-colors hover-scale">Dienstleistungen</a>
-                <a href="ueber-uns.html" data-i18n="menu_about"
-                    class="hover:text-white transition-colors hover-scale">Über uns</a>
-                <a href="kontakt.html" data-i18n="menu_contact"
-                    class="hover:text-white transition-colors hover-scale">Kontakt</a>
-                <a href="datenschutz.html" data-i18n="menu_privacy"
-                    class="hover:text-white transition-colors hover-scale">Datenschutz</a>
-                <a href="impressum.html" data-i18n="menu_imprint"
-                    class="hover:text-white transition-colors hover-scale">Impressum</a>
-            </div>
+            <nav aria-label="Fußzeile" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+                <a href="/lexia" class="hover:text-white transition-colors">LEXIA</a>
+                <a href="/abo" class="hover:text-white transition-colors">Abo</a>
+                <a href="/ueber-uns" class="hover:text-white transition-colors">Über uns</a>
+                <a href="/kontakt" class="hover:text-white transition-colors">Kontakt</a>
+                <a href="/datenschutz" class="hover:text-white transition-colors">Datenschutz</a>
+                <a href="/impressum" class="hover:text-white transition-colors">Impressum</a>
+            </nav>
         </div>
     </footer>
-
-    <script>
-        const translations = {
-            de: {
-                menu_home: "STARTSEITE",
-                menu_services: "DIENSTLEISTUNGEN",
-                menu_about: "ÜBER UNS",
-                menu_contact: "KONTAKT",
-                menu_privacy: "DATENSCHUTZ",
-                menu_imprint: "IMPRESSUM",
-                hero_headline_1: "WENIGER AUFWAND,",
-                hero_headline_2: "MEHR <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
-                hero_h1: "KI-Automatisierung & Voice-Agenten für Unternehmen",
-                hero_cta_primary: "Jetzt kontaktieren",
-                hero_cta_secondary: "Dienstleistungen entdecken",
-                services_title: "Maßgeschneiderte KI-Lösungen für Ihren Betrieb",
-                services_sub: "Wir automatisieren wiederkehrende Aufgaben, damit Ihr Team mehr Zeit für Kunden und Kerngeschäft hat.",
-                service1_title: "Automatisierte Voice-Agenten",
-                service1_desc: "Intelligente Telefonassistenten, die eingehende Kundenanrufe rund um die Uhr mit natürlich klingender Sprache annehmen, Termine vereinbaren und Daten direkt erfassen.",
-                service1_b1: "Echtzeit-Spracherkennung",
-                service1_b2: "CRM- & Kalender-Anbindung",
-                service1_btn: "Voice Agent anfragen",
-                service2_title: "Workflow-Automatisierung",
-                service2_desc: "Wir verknüpfen Ihre bestehende Software mit KI-gestützten Abläufen – von der automatischen Dokumentenauswertung bis zur intelligenten Ticket-Verteilung.",
-                service2_b1: "Prozessanalyse & Individual-Setup",
-                service2_b2: "Zuverlässige System-Kopplung",
-                service2_btn: "Workflow-Analyse buchen",
-                service3_title: "KI-Wissensassistenten",
-                service3_desc: "Chat- und Wissens-Assistenten, die auf Ihre eigenen Unternehmensdokumente zugreifen – vertraulich und DSGVO-orientiert umgesetzt, auf Wunsch mit EU-Hosting.",
-                service3_b1: "Interne Wissensdatenbanken",
-                service3_b2: "DSGVO-orientiert, auf Wunsch EU-Hosting",
-                service3_btn: "Wissensassistent anfragen",
-                roi_title: "Der Unterschied",
-                roi_sub: "Klassische Abläufe vs. KI-gestützte Automatisierung",
-                process_heading: "So läuft die Zusammenarbeit ab",
-                process_sub: "Klar, planbar und ohne versteckte Kosten."
-            },
-            en: {
-                menu_home: "HOME",
-                menu_services: "SERVICES",
-                menu_about: "ABOUT US",
-                menu_contact: "CONTACT",
-                menu_privacy: "PRIVACY",
-                menu_imprint: "IMPRINT",
-                hero_headline_1: "LESS EFFORT,",
-                hero_headline_2: "MORE <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
-                hero_h1: "AI Automation & Voice Agents for Businesses",
-                hero_cta_primary: "Contact Us Now",
-                hero_cta_secondary: "Explore Services",
-                services_title: "Tailored AI Solutions for Your Business",
-                services_sub: "We automate repetitive tasks so your team has more time for customers and core business.",
-                service1_title: "Automated Voice Agents",
-                service1_desc: "Intelligent phone assistants taking customer calls 24/7 with natural-sounding speech, scheduling appointments and capturing data directly.",
-                service1_b1: "Real-time speech recognition",
-                service1_b2: "CRM & calendar integration",
-                service1_btn: "Request Voice Agent",
-                service2_title: "Workflow Automation",
-                service2_desc: "We connect your existing software with AI-powered workflows – from automated document processing to smart ticket routing.",
-                service2_b1: "Process analysis & custom setup",
-                service2_b2: "Reliable system integration",
-                service2_btn: "Book Workflow Audit",
-                service3_title: "AI Knowledge Assistants",
-                service3_desc: "Chat and knowledge assistants that work with your own company documents – confidential, built with GDPR in mind, EU hosting on request.",
-                service3_b1: "Internal knowledge repositories",
-                service3_b2: "GDPR-minded, EU hosting on request",
-                service3_btn: "Request Knowledge Assistant",
-                roi_title: "The Difference",
-                roi_sub: "Traditional processes vs. AI-powered automation",
-                process_heading: "How We Work Together",
-                process_sub: "Clear, predictable and with no hidden costs."
-            },
-            fr: {
-                menu_home: "ACCUEIL",
-                menu_services: "SERVICES",
-                menu_about: "À PROPOS",
-                menu_contact: "CONTACT",
-                menu_privacy: "CONFIDENTIALITÉ",
-                menu_imprint: "MENTIONS LÉGALES",
-                hero_headline_1: "MOINS D'EFFORT,",
-                hero_headline_2: "PLUS DE <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
-                hero_h1: "Automatisation IA & Agents Vocaux pour Entreprises",
-                hero_cta_primary: "Contactez-nous",
-                hero_cta_secondary: "Découvrir les services",
-                services_title: "Solutions IA sur mesure pour votre entreprise",
-                services_sub: "Exploitez tout le potentiel de l'intelligence artificielle moderne pour optimiser vos opérations.",
-                service1_title: "Agents vocaux automatisés",
-                service1_desc: "Assistants téléphoniques intelligents qui répondent 24/7 avec une voix naturelle, prennent des rendez-vous et enregistrent directement les données.",
-                service1_b1: "Reconnaissance vocale en temps réel",
-                service1_b2: "Intégration fluide CRM & Calendrier",
-                service1_btn: "Demander un agent vocal",
-                service2_title: "Automates de flux de travail",
-                service2_desc: "Connexion de votre écosystème logiciel avec des pipelines d'IA autonomes. De l'analyse de documents au traitement des tickets.",
-                service2_b1: "Analyse de processus & configuration sur mesure",
-                service2_b2: "Intégration système fiable",
-                service2_btn: "Réserver une analyse",
-                service3_title: "Assistants de connaissances IA",
-                service3_desc: "Assistants virtuels entraînés sur vos données d'entreprise – confidentiels, conçus dans le respect du RGPD, hébergement UE sur demande.",
-                service3_b1: "Bases de connaissances internes",
-                service3_b2: "Respect du RGPD, hébergement UE sur demande",
-                service3_btn: "Demander l'IA d'entreprise",
-                roi_title: "La différence",
-                roi_sub: "Processus classiques vs. automatisation par IA",
-                process_heading: "Notre façon de travailler",
-                process_sub: "Clair, planifiable et sans frais cachés."
-            },
-            it: {
-                menu_home: "HOME",
-                menu_services: "SERVIZI",
-                menu_about: "CHI SIAMO",
-                menu_contact: "CONTATTI",
-                menu_privacy: "PRIVACY",
-                menu_imprint: "NOTE LEGALI",
-                hero_headline_1: "MENO SFORZO,",
-                hero_headline_2: "PIÙ <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
-                hero_h1: "Automazione IA & Agenti Vocali per Aziende",
-                hero_cta_primary: "Contattaci ora",
-                hero_cta_secondary: "Scopri i servizi",
-                services_title: "Soluzioni IA su misura per la tua azienda",
-                services_sub: "Sfrutta tutto il potenziale dell'intelligenza artificiale moderna per ottimizzare i processi aziendali.",
-                service1_title: "Agenti vocali automatizzati",
-                service1_desc: "Assistenti telefonici intelligenti che rispondono 24/7 con voce naturale, fissano appuntamenti e registrano i dati.",
-                service1_b1: "Riconoscimento vocale in tempo reale",
-                service1_b2: "Integrazione perfetta CRM e calendario",
-                service1_btn: "Richiedi Agente Vocale",
-                service2_title: "Automazione dei flussi di lavoro",
-                service2_desc: "Connessione dei tuoi software con pipeline IA autonome. Dall'analisi documenti alla gestione ticket.",
-                service2_b1: "Analisi dei processi e configurazione personalizzata",
-                service2_b2: "Integrazione di sistema affidabile",
-                service2_btn: "Prenota analisi workflow",
-                service3_title: "Assistenti IA Enterprise",
-                service3_desc: "Assistenti addestrati sui dati aziendali – riservati, realizzati nel rispetto del GDPR, hosting UE su richiesta.",
-                service3_b1: "Database di conoscenza interni",
-                service3_b2: "Attenzione al GDPR, hosting UE su richiesta",
-                service3_btn: "Richiedi IA Enterprise",
-                roi_title: "La differenza",
-                roi_sub: "Processi tradizionali vs. automazione con IA",
-                process_heading: "Come lavoriamo insieme",
-                process_sub: "Chiaro, pianificabile e senza costi nascosti."
-            },
-            es: {
-                menu_home: "INICIO",
-                menu_services: "SERVICIOS",
-                menu_about: "NOSOTROS",
-                menu_contact: "CONTACTO",
-                menu_privacy: "PRIVACIDAD",
-                menu_imprint: "AVISO LEGAL",
-                hero_headline_1: "MENOS ESFUERZO,",
-                hero_headline_2: "MÁS <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
-                hero_h1: "Automatización de IA y Agentes de Voz para Empresas",
-                hero_cta_primary: "Contactar ahora",
-                hero_cta_secondary: "Descubrir servicios",
-                services_title: "Soluciones de IA a medida para su empresa",
-                services_sub: "Aproveche todo el potencial de la inteligencia artificial moderna para optimizar sus procesos empresariales.",
-                service1_title: "Agentes de voz automatizados",
-                service1_desc: "Asistentes telefónicos inteligentes que atienden llamadas 24/7 con voz natural, agendan citas y registran datos.",
-                service1_b1: "Reconocimiento de voz en tiempo real",
-                service1_b2: "Integración perfecta con CRM y calendario",
-                service1_btn: "Solicitar agente de voz",
-                service2_title: "Automatización de flujos de trabajo",
-                service2_desc: "Conexión de su ecosistema de software con tuberías de IA autónomas. Desde procesamiento de documentos hasta gestión de tickets.",
-                service2_b1: "Análisis de procesos y configuración personalizada",
-                service2_b2: "Integración de sistemas fiable",
-                service2_btn: "Reservar análisis de procesos",
-                service3_title: "Asistentes de IA Enterprise",
-                service3_desc: "Asistentes entrenados con datos internos de su empresa – confidenciales, desarrollados conforme al RGPD, alojamiento en la UE bajo petición.",
-                service3_b1: "Bases de conocimiento internas",
-                service3_b2: "Enfoque RGPD, alojamiento UE bajo petición",
-                service3_btn: "Solicitar IA Enterprise",
-                roi_title: "La diferencia",
-                roi_sub: "Procesos tradicionales vs. automatización con IA",
-                process_heading: "Cómo trabajamos juntos",
-                process_sub: "Claro, planificable y sin costes ocultos."
-            },
-            tr: {
-                menu_home: "ANA SAYFA",
-                menu_services: "HİZMETLER",
-                menu_about: "HAKKIMIZDA",
-                menu_contact: "İLETİŞİM",
-                menu_privacy: "GİZLİLİK",
-                menu_imprint: "KÜNYE",
-                hero_headline_1: "DAHA AZ ÇABA,",
-                hero_headline_2: "DAHA FAZLA <span class=\"font-serif italic font-medium text-blue-400\">FLOW.</span>",
-                hero_h1: "İşletmeler İçin Yapay Zeka Otomasyonu ve Sesli Asistanlar",
-                hero_cta_primary: "Hemen İletişime Geçin",
-                hero_cta_secondary: "Hizmetleri Keşfedin",
-                services_title: "İşletmeniz İçin Özel Yapay Zeka Çözümleri",
-                services_sub: "İş süreçlerinizi optimize etmek için modern yapay zekanın tüm potansiyelinden yararlanın.",
-                service1_title: "Otomatik Sesli Asistanlar",
-                service1_desc: "Gelen müşteri aramalarını 24/7 doğal bir sesle yanıtlayan, randevu oluşturan ve verileri doğrudan kaydeden akıllı telefon asistanları.",
-                service1_b1: "Gerçek zamanlı ses tanıma",
-                service1_b2: "Sorunsuz CRM ve takvim entegrasyonu",
-                service1_btn: "Sesli Asistan Talebi",
-                service2_title: "İş Akışı Otomasyonu",
-                service2_desc: "Yazılımlarınızı otonom yapay zeka hatlarıyla bağlama. Belge analizinden akıllı bilet dağıtımına kadar.",
-                service2_b1: "Süreç analizi ve özel kurulum",
-                service2_b2: "Güvenilir sistem entegrasyonu",
-                service2_btn: "İş Akışı Analizi Alın",
-                service3_title: "Kurumsal Yapay Zeka Asistanları",
-                service3_desc: "Şirket verilerinizle özel olarak eğitilmiş bilgi asistanları – gizli, GDPR gözetilerek hazırlanmış, talep halinde AB'de barındırma.",
-                service3_b1: "Dahili bilgi veritabanları",
-                service3_b2: "GDPR odaklı, talep halinde AB barındırma",
-                service3_btn: "Kurumsal Yapay Zeka Talebi",
-                roi_title: "Fark",
-                roi_sub: "Geleneksel süreçler vs. yapay zeka otomasyonu",
-                process_heading: "Birlikte Nasıl Çalışıyoruz",
-                process_sub: "Net, planlanabilir ve gizli maliyet yok."
-            }
-        };
-
-        function openMenu() {
-            const menu = document.getElementById('rrOverlayMenu');
-            const backdrop = document.getElementById('rrMenuBackdrop');
-            menu.classList.remove('-translate-x-full');
-            menu.classList.add('translate-x-0');
-            backdrop.classList.remove('opacity-0', 'pointer-events-none');
-            backdrop.classList.add('opacity-100', 'pointer-events-auto');
-        }
-
-        function closeMenu() {
-            const menu = document.getElementById('rrOverlayMenu');
-            const backdrop = document.getElementById('rrMenuBackdrop');
-            menu.classList.remove('translate-x-0');
-            menu.classList.add('-translate-x-full');
-            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
-            backdrop.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-        }
-
-        function toggleLangDropdown(event) {
-            if (event) event.stopPropagation();
-            const langMenu = document.getElementById('langDropdownMenu');
-            if (langMenu) {
-                const isHidden = langMenu.classList.contains('invisible') || langMenu.classList.contains('opacity-0');
-                if (isHidden) {
-                    langMenu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
-                    langMenu.classList.add('opacity-100', 'visible', 'pointer-events-auto');
-                } else {
-                    langMenu.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
-                    langMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-                }
-            }
-        }
-
-        function setLanguage(lang) {
-            const flagIcon = document.getElementById('currentFlagIcon');
-            const langMenu = document.getElementById('langDropdownMenu');
-
-            const flags = {
-                'de': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#ffce00"/><path d="M0 170.7h512V0H0z" fill="#000"/><path d="M0 341.3h512V170.7H0z" fill="#d00"/></svg>',
-                'en': '<img src="assets/uk_us_flag.png" alt="UK/US" class="w-full h-full object-cover rounded-full">',
-                'fr': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#002395"/><path d="M341.3 0H512v512H341.3z" fill="#ed2939"/></svg>',
-                'it': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#fff"/><path d="M0 0h170.7v512H0z" fill="#009246"/><path d="M341.3 0H512v512H341.3z" fill="#ce2b37"/></svg>',
-                'es': '<svg class="w-full h-full object-cover" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#c60b1e"/><path d="M0 128h512v256H0z" fill="#ffc400"/></svg>',
-                'tr': '<img src="/IMG_2475_2.jpeg" alt="TR" class="w-full h-full object-cover rounded-full">'
-            };
-
-            if (flagIcon && flags[lang]) {
-                flagIcon.innerHTML = flags[lang];
-            }
-
-            const dict = translations[lang] || translations['de'];
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (dict[key]) {
-                    el.innerHTML = dict[key];
-                }
-            });
-
-            if (langMenu) {
-                langMenu.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
-                langMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-            }
-        }
-
-        document.addEventListener('click', (e) => {
-            const langBtn = document.getElementById('langSelectBtn');
-            const langMenu = document.getElementById('langDropdownMenu');
-            if (langBtn && langMenu && !langBtn.contains(e.target) && !langMenu.contains(e.target)) {
-                langMenu.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
-                langMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-            }
-        });
-
-        function updateHeroScrollAnimations() {
-            const heroSec = document.getElementById('hero-section');
-            const line1 = document.getElementById('hero-line1');
-            const line2 = document.getElementById('hero-line2');
-            const cta = document.getElementById('hero-cta-container');
-            const heroH1 = document.getElementById('hero-h1');
-
-            if (!heroSec || !line1 || !line2 || !cta) return;
-
-            if (window.innerWidth >= 768) {
-                const scrollY = window.scrollY;
-                const heroH = heroSec.offsetHeight || 600;
-
-                // Animation läuft auf den ersten 40 % der Hero-Höhe ab; der Slogan
-                // wird währenddessen mitgeführt, damit er sichtbar bleibt.
-                const range = heroH * 0.4;
-                let p = scrollY / range;
-                p = Math.min(Math.max(p, 0), 1);
-                const eased = p * p * (3 - 2 * p);
-                const pinY = Math.min(Math.max(scrollY, 0), range);
-
-                const line1X = -eased * 100;
-                const line2X = eased * 100;
-                const ctaY = p * 120;
-                const opacity = Math.max(1 - p * 1.1, 0);
-
-                line1.style.transform = `translate3d(${line1X}%, ${pinY}px, 0)`;
-                line1.style.opacity = opacity;
-
-                line2.style.transform = `translate3d(${line2X}%, ${pinY}px, 0)`;
-                line2.style.opacity = opacity;
-
-                cta.style.transform = `translate3d(0, ${ctaY}px, 0)`;
-                cta.style.opacity = opacity;
-
-                if (heroH1) {
-                    heroH1.style.transform = `translate3d(0, ${ctaY}px, 0)`;
-                    heroH1.style.opacity = opacity;
-                }
-            } else {
-                line1.style.transform = 'translate3d(0, 0, 0)';
-                line1.style.opacity = '1';
-
-                line2.style.transform = 'translate3d(0, 0, 0)';
-                line2.style.opacity = '1';
-
-                cta.style.transform = 'translate3d(0, 0, 0)';
-                cta.style.opacity = '1';
-
-                if (heroH1) {
-                    heroH1.style.transform = 'translate3d(0, 0, 0)';
-                    heroH1.style.opacity = '1';
-                }
-            }
-        }
-
-        window.addEventListener('scroll', updateHeroScrollAnimations, { passive: true });
-        window.addEventListener('resize', updateHeroScrollAnimations, { passive: true });
-
-        function updateCardStacking() {
-            if (window.innerWidth < 768) { document.querySelectorAll('.stacked-card').forEach(card => card.style.transform = 'none'); return; }
-
-            const cards = document.querySelectorAll('.stacked-card');
-            const totalCards = cards.length;
-            const winH = window.innerHeight;
-
-            if (window.innerWidth >= 768) {
-                cards.forEach((card, index) => {
-                    card.style.transformOrigin = 'top center';
-
-                    if (index < totalCards - 1) {
-                        const nextParent = cards[index + 1].parentElement;
-                        const nextRect = nextParent.getBoundingClientRect();
-
-                        let overlapProgress = (winH - nextRect.top) / (winH * 0.65);
-                        overlapProgress = Math.min(Math.max(overlapProgress, 0), 1);
-
-                        const maxScaleDelta = (totalCards - 1 - index) * 0.03;
-                        const targetScale = 1 - maxScaleDelta * overlapProgress;
-
-                        card.style.transform = `scale(${targetScale})`;
-                    } else {
-                        card.style.transform = 'scale(1)';
-                    }
-                });
-            } else {
-                cards.forEach(card => {
-                    card.style.transform = 'scale(1)';
-                });
-            }
-        }
-
-        window.addEventListener('scroll', updateCardStacking, { passive: true });
-        window.addEventListener('resize', updateCardStacking, { passive: true });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            updateHeroScrollAnimations();
-            updateCardStacking();
-
-            const cursor = document.getElementById('customCursor');
-            if (cursor && window.innerWidth >= 768) {
-                document.addEventListener('mousemove', (e) => {
-                    cursor.style.left = e.clientX + 'px';
-                    cursor.style.top = e.clientY + 'px';
-                });
-                document.querySelectorAll('a, button, .hover-scale, input, textarea').forEach(el => {
-                    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-                    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-                });
-            }
-
-            const textRevealSec = document.getElementById('text-reveal-section');
-            const textRevealEl = document.getElementById('reveal-text');
-            if (textRevealSec && textRevealEl) {
-                const processNode = (node, parentIsLink = false) => {
-                    if (node.nodeType === 3) {
-                        const text = node.textContent;
-                        if (!text.trim()) return document.createTextNode(text);
-                        const words = text.split(/(\s+)/);
-                        const frag = document.createDocumentFragment();
-                        words.forEach(w => {
-                            if (!w) return;
-                            if (/^\s+$/.test(w)) {
-                                frag.appendChild(document.createTextNode(w));
-                            } else {
-                                const span = document.createElement('span');
-                                span.className = 'inline-block mx-1.5 sm:mx-2 transition-colors duration-200 text-slate-600 font-extrabold' + (parentIsLink ? ' group-hover:text-blue-400' : '');
-                                span.textContent = w;
-                                frag.appendChild(span);
-                            }
-                        });
-                        return frag;
-                    } else if (node.nodeType === 1) {
-                        const isLink = node.tagName === 'A';
-                        if (isLink) {
-                            node.classList.add('group');
-                        }
-                        const clone = node.cloneNode(false);
-                        Array.from(node.childNodes).forEach(child => {
-                            clone.appendChild(processNode(child, parentIsLink || isLink));
-                        });
-                        return clone;
-                    }
-                    return node.cloneNode(true);
-                };
-
-                const fragment = document.createDocumentFragment();
-                Array.from(textRevealEl.childNodes).forEach(child => {
-                    fragment.appendChild(processNode(child));
-                });
-                textRevealEl.innerHTML = '';
-                textRevealEl.appendChild(fragment);
-
-                const wordSpans = textRevealEl.querySelectorAll('span');
-
-                function updateTextReveal() {
-                    const rect = textRevealSec.getBoundingClientRect();
-                    const winH = window.innerHeight;
-                    const centerPivot = winH * 0.55;
-                    const totalWords = wordSpans.length;
-
-                    const startY = centerPivot + 160;
-                    const endY = centerPivot - rect.height + 160;
-
-                    let progress = (startY - rect.top) / (startY - endY);
-                    progress = Math.min(Math.max(progress, 0), 1);
-
-                    const activeCount = Math.floor(progress * totalWords);
-
-                    wordSpans.forEach((span, idx) => {
-                        if (idx < activeCount) {
-                            span.classList.remove('text-slate-600');
-                            span.classList.add('text-white');
-                        } else {
-                            span.classList.remove('text-white');
-                            span.classList.add('text-slate-600');
-                        }
-                    });
-                }
-
-                window.addEventListener('scroll', updateTextReveal, { passive: true });
-                updateTextReveal();
-            }
-
-            const roiContainer = document.getElementById('roi-cards-container');
-            const pillEl = document.getElementById('dynamic-island-pill');
-            if (roiContainer) {
-                let roiAnimTimer = null;
-                function updateRoiScroll() {
-                    if (window.innerWidth < 768) return;
-
-                    const rect = roiContainer.getBoundingClientRect();
-                    const blockMid = rect.top + rect.height / 2;
-                    const winH = window.innerHeight;
-
-                    if (blockMid <= winH && rect.bottom >= 0) {
-                        if (pillEl && !pillEl.classList.contains('anim-start') && !roiContainer.classList.contains('animated')) {
-                            pillEl.classList.add('anim-start');
-                            if (roiAnimTimer) clearTimeout(roiAnimTimer);
-                            roiAnimTimer = setTimeout(() => {
-                                roiContainer.classList.add('animated');
-                            }, 180);
-                        }
-                    } else {
-                        if (roiAnimTimer) clearTimeout(roiAnimTimer);
-                        roiContainer.classList.remove('animated');
-                        if (pillEl) pillEl.classList.remove('anim-start');
-                    }
-                }
-                window.addEventListener('scroll', updateRoiScroll, { passive: true });
-                updateRoiScroll();
-            }
-
-            const calcInputs = ['calcCalls', 'calcMinutes', 'calcDays'].map(id => document.getElementById(id));
-            const calcResult = document.getElementById('calcResult');
-            if (calcResult && calcInputs.every(Boolean)) {
-                const formatHours = h => h.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-                let shownHours = 0;
-                let calcAnim = null;
-                function updateCalc() {
-                    const [calls, minutes, days] = calcInputs.map(el => Math.max(parseFloat(el.value) || 0, 0));
-                    const target = calls * minutes * days / 60;
-                    const from = shownHours;
-                    const start = performance.now();
-                    clearInterval(calcAnim);
-                    calcAnim = setInterval(() => {
-                        const t = Math.min((performance.now() - start) / 400, 1);
-                        shownHours = from + (target - from) * (1 - Math.pow(1 - t, 3));
-                        calcResult.textContent = formatHours(shownHours);
-                        if (t === 1) clearInterval(calcAnim);
-                    }, 16);
-                }
-                calcInputs.forEach(el => el.addEventListener('input', updateCalc));
-                updateCalc();
-            }
-
-            const revealGroups = [
-                '#services > div:first-child',
-                '#savings > div > *',
-                '#roi > div:first-child',
-                '#faq > div:first-child',
-                '#faq .faq-item',
-                '#faq > div:last-child',
-                '#ablauf > div > div:first-child',
-                '#ablauf .grid > div',
-                '#ablauf .grid + div',
-            ];
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (!prefersReducedMotion && 'IntersectionObserver' in window) {
-                const revealObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const el = entry.target;
-                            el.classList.add('is-visible');
-                            revealObserver.unobserve(el);
-                            // Danach aufräumen, damit Hover- und Farbübergänge wieder normal greifen
-                            setTimeout(() => {
-                                el.classList.remove('reveal', 'is-visible');
-                                el.style.transitionDelay = '';
-                            }, 1400);
-                        }
-                    });
-                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-                revealGroups.forEach(selector => {
-                    document.querySelectorAll(selector).forEach((el, i) => {
-                        el.classList.add('reveal');
-                        el.style.transitionDelay = `${Math.min(i, 5) * 90}ms`;
-                        revealObserver.observe(el);
-                    });
-                });
-            }
-
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const btn = item.querySelector('.faq-button');
-                const ans = item.querySelector('.faq-answer');
-                const icon = item.querySelector('.faq-icon');
-                if (btn && ans) {
-                    btn.setAttribute('aria-expanded', 'false');
-                    btn.addEventListener('click', () => {
-                        const isOpen = item.classList.contains('is-open');
-
-                        faqItems.forEach(otherItem => {
-                            const otherIcon = otherItem.querySelector('.faq-icon');
-                            otherItem.classList.remove('is-open');
-                            otherItem.querySelector('.faq-button')?.setAttribute('aria-expanded', 'false');
-                            if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
-                            otherItem.classList.remove('border-blue-500/50');
-                            otherItem.classList.add('border-slate-800');
-                        });
-
-                        if (!isOpen) {
-                            item.classList.add('is-open');
-                            btn.setAttribute('aria-expanded', 'true');
-                            if (icon) icon.style.transform = 'rotate(45deg)';
-                            item.classList.remove('border-slate-800');
-                            item.classList.add('border-blue-500/50');
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    <!-- /@footer -->
 </body>
 
 </html>

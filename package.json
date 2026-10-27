@@ -2,8 +2,9 @@
   "name": "flow-solutions",
   "private": true,
   "scripts": {
+    "build": "node scripts/build-layout.mjs && node node_modules/tailwindcss/lib/cli.js -i src/tailwind.css -o assets/css/styles.css --minify",
     "build:css": "node node_modules/tailwindcss/lib/cli.js -i src/tailwind.css -o assets/css/styles.css --minify",
-    "watch:css": "node node_modules/tailwindcss/lib/cli.js -i src/tailwind.css -o assets/css/styles.css --watch"
+    "dev": "npx --yes wrangler@4.149.0 dev --port 8787"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"
