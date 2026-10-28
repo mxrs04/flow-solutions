@@ -454,3 +454,16 @@ input[type="range"].range::-moz-range-thumb {
     display: none;
   }
 }
+
+/* Startseite: blinkender Schreib-Cursor in der Live-Vorschau */
+.live-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: #32F3DD;
+  animation: live-blink 1s steps(1) infinite;
+}
+@keyframes live-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .live-cursor { display: none; } }

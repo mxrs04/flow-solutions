@@ -404,6 +404,46 @@
     }
   }
 
+  // ---------- Startseite: Live-Vorschau – Frage wird getippt, Antwort erscheint mit Quelle ----------
+  const live = $('#liveDemo');
+  if (live) {
+    const fragen = JSON.parse(live.dataset.fragen);
+    const knoepfe = $$('[data-frage]');
+    const frageEl = $('#liveFrage'), antwortEl = $('#liveAntwort'), quellenEl = $('#liveQuellen'), box = $('#liveAntwortBox');
+    let aktuell = 0, lauf = 0, auto = 0, sichtbar = false;
+    const chip = (q) => q.map(([art, text]) => art === 'luecke'
+      ? `<span class="inline-flex items-center gap-1.5 rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1 text-xs text-yellow-300">${text}</span>`
+      : `<span class="inline-flex items-center gap-1.5 rounded-full border border-lexia/30 bg-lexia/10 px-3 py-1 text-xs text-lexia">${text}</span>`).join('');
+    const warte = (ms) => new Promise((r) => setTimeout(r, ms));
+    const zeigen = async (i) => {
+      const meinLauf = ++lauf;
+      aktuell = i;
+      knoepfe.forEach((k) => k.setAttribute('aria-pressed', String(+k.dataset.frage === i)));
+      const f = fragen[i];
+      if (reducedMotion) { frageEl.textContent = f.f; antwortEl.textContent = f.a; quellenEl.innerHTML = chip(f.q); return; }
+      box.style.opacity = '0';
+      frageEl.textContent = '';
+      for (const z of f.f) { if (meinLauf !== lauf) return; frageEl.textContent += z; await warte(38); }
+      await warte(450);
+      if (meinLauf !== lauf) return;
+      antwortEl.textContent = ''; quellenEl.innerHTML = '';
+      box.style.opacity = '1';
+      const woerter = f.a.split(' ');
+      for (let w = 0; w < woerter.length; w++) { if (meinLauf !== lauf) return; antwortEl.textContent += (w ? ' ' : '') + woerter[w]; await warte(55); }
+      quellenEl.innerHTML = chip(f.q);
+    };
+    const weiter = () => { clearTimeout(auto); if (sichtbar) auto = setTimeout(() => { zeigen((aktuell + 1) % fragen.length).then(weiter); }, 6500); };
+    box.style.transition = 'opacity .3s ease';
+    knoepfe.forEach((k) => k.addEventListener('click', () => { clearTimeout(auto); zeigen(+k.dataset.frage).then(weiter); }));
+    if ('IntersectionObserver' in window) {
+      let erstes = true;
+      new IntersectionObserver(([e]) => {
+        sichtbar = e.isIntersecting;
+        if (sichtbar && erstes) { erstes = false; zeigen(0).then(weiter); } else weiter();
+      }, { threshold: 0.35 }).observe(live);
+    }
+  }
+
   // ---------- LEXIA: Rollen-Umschalter („Wer sind Sie?“) ----------
   $$('.rollen').forEach((box) => {
     const tabs = $$('[role="tab"]', box);
