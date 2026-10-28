@@ -516,11 +516,29 @@
             <div class="max-w-4xl mx-auto text-center" data-reveal>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Immer die <span class="text-glow">besten KI-Modelle</span></h2>
                 <p class="mt-5 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">LEXIA wählt für jede Frage automatisch die passende Stufe. Flow Solutions tauscht Modelle zentral aus, wenn es bessere gibt – für Sie ändert sich dabei nichts.</p>
-                <div class="mt-10 flex flex-wrap justify-center gap-3">
-                    <span class="px-5 py-2.5 rounded-full border border-slate-700 bg-slate-900 font-semibold">Schnell</span>
-                    <span class="px-5 py-2.5 rounded-full border border-lexia/50 bg-lexia/10 text-lexia font-semibold">Standard</span>
-                    <span class="px-5 py-2.5 rounded-full border border-slate-700 bg-slate-900 font-semibold">Gründlich</span>
+                <div role="tablist" aria-label="KI-Stufen" class="mt-10 flex flex-wrap justify-center gap-3">
+                    <button type="button" role="tab" id="ki-schnell" aria-controls="kp-schnell" aria-selected="false" tabindex="-1" class="tab-btn px-5 py-2.5 rounded-full border border-slate-700 bg-slate-900 font-semibold transition-colors hover:border-lexia/50">Schnell</button>
+                    <button type="button" role="tab" id="ki-standard" aria-controls="kp-standard" aria-selected="true" class="tab-btn px-5 py-2.5 rounded-full border border-slate-700 bg-slate-900 font-semibold transition-colors hover:border-lexia/50">Standard</button>
+                    <button type="button" role="tab" id="ki-gruendlich" aria-controls="kp-gruendlich" aria-selected="false" tabindex="-1" class="tab-btn px-5 py-2.5 rounded-full border border-slate-700 bg-slate-900 font-semibold transition-colors hover:border-lexia/50">Gründlich</button>
                 </div>
+                <div class="mt-6 max-w-xl mx-auto rounded-3xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8 text-left min-h-[11rem]">
+                    <div role="tabpanel" id="kp-schnell" aria-labelledby="ki-schnell" class="tab-panel" hidden>
+                        <p class="text-xs font-mono uppercase tracking-[0.2em] text-lexia">Für kurze Faktenfragen</p>
+                        <p class="mt-3 text-slate-200 leading-relaxed">„Wo finde ich das Formular für Reisekosten?“ – LEXIA antwortet in Sekunden, ohne Umwege.</p>
+                        <p class="mt-4 text-sm text-slate-400">Ein schlankes, besonders schnelles Modell</p>
+                    </div>
+                    <div role="tabpanel" id="kp-standard" aria-labelledby="ki-standard" class="tab-panel">
+                        <p class="text-xs font-mono uppercase tracking-[0.2em] text-lexia">Für den Arbeitsalltag</p>
+                        <p class="mt-3 text-slate-200 leading-relaxed">„Wie läuft eine Reklamation bei uns ab?“ – LEXIA führt mehrere Quellen zusammen und antwortet verständlich, Schritt für Schritt.</p>
+                        <p class="mt-4 text-sm text-slate-400">Ein ausgewogenes Modell für die meisten Fragen</p>
+                    </div>
+                    <div role="tabpanel" id="kp-gruendlich" aria-labelledby="ki-gruendlich" class="tab-panel" hidden>
+                        <p class="text-xs font-mono uppercase tracking-[0.2em] text-lexia">Für knifflige Fragen</p>
+                        <p class="mt-3 text-slate-200 leading-relaxed">Lange Richtlinien, Abwägungen, Fragen mit vielen Bedingungen – LEXIA nimmt sich mehr Zeit und prüft genauer.</p>
+                        <p class="mt-4 text-sm text-slate-400">Das stärkste Modell, nur wenn es nötig ist</p>
+                    </div>
+                </div>
+                <p class="mt-4 text-xs text-slate-500">Sie müssen nichts auswählen – LEXIA entscheidet je Frage selbst.</p>
             </div>
         </section>
 
