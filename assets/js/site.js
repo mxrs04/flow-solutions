@@ -105,14 +105,39 @@
       });
     };
     tabs.forEach((tab, i) => {
-      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('click', () => {
+        select(tab);
+        // Auf schmalen Bildschirmen stehen die Details unter der Liste – dorthin scrollen
+        if (list.hasAttribute('data-scroll-panel') && innerWidth < 1024) {
+          document.getElementById(tab.getAttribute('aria-controls')).scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });
+        }
+      });
       tab.addEventListener('keydown', (e) => {
-        const dir = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        const dir = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
         if (!dir) return;
+        e.preventDefault();
         const next = tabs[(i + dir + tabs.length) % tabs.length];
         select(next);
         next.focus();
       });
+    });
+  });
+
+  // ---------- App-Ansicht: Aufgaben abhaken & Fragevorschläge ----------
+  $$('.task-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const done = btn.closest('.task').classList.toggle('task-done');
+      btn.setAttribute('aria-pressed', String(done));
+    });
+  });
+  const mockAnswer = $('#mockAnswer');
+  $$('[data-answer]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const tpl = document.getElementById(chip.dataset.answer);
+      mockAnswer.innerHTML = '';
+      mockAnswer.appendChild(tpl.content.cloneNode(true));
+      mockAnswer.hidden = false;
+      $$('[data-answer]').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
     });
   });
 

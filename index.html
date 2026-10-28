@@ -66,8 +66,8 @@
                     <span class="sr-only sm:hidden">Menü öffnen</span>
                 </button>
 
-                <a href="/" class="absolute left-1/2 -translate-x-1/2 hover-scale text-white font-extrabold text-sm sm:text-2xl tracking-widest sm:tracking-[0.2em] uppercase whitespace-nowrap z-[101]">
-                    Flow Solutions
+                <a href="/" class="absolute left-1/2 -translate-x-1/2 text-white font-extrabold text-sm sm:text-2xl tracking-widest sm:tracking-[0.2em] uppercase whitespace-nowrap z-[101]">
+                    <span class="block hover-scale">Flow Solutions</span>
                 </a>
 
                 <a href="/kontakt?anliegen=demo"
@@ -110,8 +110,8 @@
         <!-- Hero -->
         <section id="hero-section" class="relative min-h-[85vh] sm:min-h-screen flex flex-col pt-24 sm:pt-36 pb-8 sm:pb-16 px-4 sm:px-8 lg:px-12 overflow-hidden">
             <picture class="absolute inset-0 z-0 pointer-events-none">
-                <source media="(max-width: 767px)" srcset="/IMG_6984.jpeg">
-                <img src="/Logo_Landingpage_4K.png" srcset="/Logo_Landingpage_2K.png 2560w, /Logo_Landingpage_4K.png 3840w" sizes="100vw" alt=""
+                <source media="(max-width: 767px)" srcset="/assets/img/hero-mobile.jpg">
+                <img src="/assets/img/hero-2560.jpg" srcset="/assets/img/hero-2560.jpg 2560w, /assets/img/hero-3840.jpg 3840w" sizes="100vw" alt=""
                     class="w-full h-full object-contain scale-110 sm:scale-100 sm:object-cover object-center opacity-90 crisp-hero-bg" fetchpriority="high">
             </picture>
             <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent via-35% to-[#0C0C0C]"></div>
@@ -120,7 +120,7 @@
                 <div class="flex justify-end pt-4 sm:pt-6">
                     <p class="text-right text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.25]" aria-label="Weniger Aufwand, mehr Flow.">
                         <span id="hero-line1" class="hero-anim-element block mb-2 sm:mb-4">WENIGER AUFWAND,</span>
-                        <span id="hero-line2" class="hero-anim-element block">MEHR <span class="font-serif italic font-medium text-blue-400">FLOW</span>.</span>
+                        <span id="hero-line2" class="hero-anim-element block">MEHR <span class="font-serif italic font-medium text-glow">FLOW</span>.</span>
                     </p>
                 </div>
 
@@ -299,23 +299,23 @@
             <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-center mb-16" data-reveal>Häufige Fragen</h2>
             <div class="space-y-4" data-acc-single data-reveal-stagger>
                 <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
-                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Was ist LEXIA?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Was ist LEXIA?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
                     <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Ein KI-Assistent für das Wissen Ihrer Firma: Fragen stellen, Antworten mit Quelle bekommen, Abläufe als Checkliste abhaken.</p></div></div>
                 </div>
                 <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
-                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Sieht mein Chef meine Fragen?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Sieht mein Chef meine Fragen?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
                     <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Nein. Chats sind privat. Statistiken zeigen nur Summen.</p></div></div>
                 </div>
                 <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
-                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Was, wenn LEXIA etwas nicht weiß?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Was, wenn LEXIA etwas nicht weiß?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
                     <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">LEXIA sagt das ehrlich und gibt die Frage – ohne Ihren Namen – an die Zuständigen weiter.</p></div></div>
                 </div>
                 <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
-                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Brauchen wir IT-Kenntnisse?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Brauchen wir IT-Kenntnisse?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
                     <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Nein. Flow Solutions richtet LEXIA mit Ihnen ein; danach pflegen Ihre Fachleute das Wissen selbst.</p></div></div>
                 </div>
                 <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
-                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Funktioniert LEXIA mit einem Betriebsrat?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true">+</span></button></h3>
+                    <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Funktioniert LEXIA mit einem Betriebsrat?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
                     <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Ja. LEXIA ist so gebaut, dass keine Leistungs- oder Verhaltenskontrolle einzelner Personen möglich ist; ein Transparenzbericht liegt als PDF bei.</p></div></div>
                 </div>
             </div>

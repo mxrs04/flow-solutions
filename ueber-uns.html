@@ -49,8 +49,8 @@
                     <span class="sr-only sm:hidden">Menü öffnen</span>
                 </button>
 
-                <a href="/" class="absolute left-1/2 -translate-x-1/2 hover-scale text-white font-extrabold text-sm sm:text-2xl tracking-widest sm:tracking-[0.2em] uppercase whitespace-nowrap z-[101]">
-                    Flow Solutions
+                <a href="/" class="absolute left-1/2 -translate-x-1/2 text-white font-extrabold text-sm sm:text-2xl tracking-widest sm:tracking-[0.2em] uppercase whitespace-nowrap z-[101]">
+                    <span class="block hover-scale">Flow Solutions</span>
                 </a>
 
                 <a href="/kontakt?anliegen=demo"
@@ -88,39 +88,41 @@
     </nav>
     <!-- /@header -->
 
-    <main id="main" class="relative z-10 pt-32 pb-20 flex-grow px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full bg-[#0C0C0C]">
+    <main id="main" class="relative z-10 flex-grow w-full">
 
-        <div class="text-center mb-16">
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
-                Über Flow Solutions
-            </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
-                Die Firma hinter LEXIA – aus Esslingen am Neckar.
-            </p>
-        </div>
+        <!-- Kopf mit weichgezeichnetem Hintergrundbild -->
+        <section class="relative overflow-hidden pt-36 sm:pt-44 pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8">
+            <img src="/assets/img/ueber-uns-hintergrund.jpg" alt="" width="1600" height="893"
+                class="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none" fetchpriority="high">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0C0C0C]/50 via-[#0C0C0C]/25 to-[#0C0C0C] pointer-events-none"></div>
+            <div class="relative max-w-3xl mx-auto text-center" data-reveal>
+                <p class="text-xs font-mono uppercase tracking-[0.25em] text-lexia mb-5">Aus Esslingen am Neckar</p>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">Über Flow Solutions</h1>
+                <p class="text-slate-300 text-base sm:text-xl leading-relaxed">Aus verstreutem Wissen wird ein klarer Fluss: <span class="text-glow font-semibold">Wir entwickeln LEXIA</span> – das KI-Betriebssystem für das Wissen Ihrer Firma.</p>
+            </div>
+        </section>
 
-        <div
-            class="bg-slate-900/80 rounded-3xl p-8 sm:p-12 border border-slate-800 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center hover-scale shadow-2xl mb-16">
-            <div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6">Gründer & Unternehmensvision</h2>
-                <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
-                    Flow Solutions wurde gegründet, um technisches Know-how in echten, spürbaren Mehrwert für
-                    Unternehmen zu verwandeln. <strong class="text-white">Wir entwickeln LEXIA</strong> – das
-                    KI-Betriebssystem für das Wissen Ihrer Firma. Damit Ihr Team Antworten findet, statt zu suchen:
-                    immer mit Quelle, und nur mit dem, was jede Person sehen darf.
-                </p>
-                <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
-                    Hinter Flow Solutions stehe ich, Maximilian Reiser. Ich entwickle LEXIA für kleine und mittlere
-                    Firmen – verständlich erklärt und so gebaut, dass Datenschutz und Betriebsrat von Anfang an
-                    mitgedacht sind.
-                </p>
-                <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
-                    Bei mir haben Sie einen festen Ansprechpartner – von der Einrichtung bis zur laufenden Begleitung.
-                </p>
-                <div class="flex items-center gap-4">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            <section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center shadow-2xl mb-16" data-reveal>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mb-6">Gründer &amp; Vision</h2>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
+                        Flow Solutions wurde gegründet, um technisches Know-how in echten, spürbaren Mehrwert für
+                        Unternehmen zu verwandeln. Mit LEXIA findet Ihr Team Antworten, statt zu suchen:
+                        immer mit Quelle, und nur mit dem, was jede Person sehen darf.
+                    </p>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
+                        Hinter Flow Solutions stehe ich, Maximilian Reiser. Ich entwickle LEXIA für kleine und mittlere
+                        Firmen – verständlich erklärt und so gebaut, dass Datenschutz und Betriebsrat von Anfang an
+                        mitgedacht sind.
+                    </p>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
+                        Bei mir haben Sie einen festen Ansprechpartner – von der Einrichtung bis zur laufenden Begleitung.
+                    </p>
+                    <div class="flex items-center gap-4">
                     <img src="/assets/maximilian-reiser.jpg" alt="Maximilian Reiser, Gründer von Flow Solutions"
                         width="64" height="64"
-                        class="w-16 h-16 rounded-full object-cover border-2 border-slate-700 shadow-lg shrink-0" />
+                        class="w-16 h-16 rounded-full object-cover border-2 border-lexia/40 shadow-lg shrink-0" />
                     <div>
                         <div class="font-bold text-white">Maximilian Reiser</div>
                         <div class="text-slate-400 text-sm mb-1">Gründer, Flow Solutions</div>
@@ -134,26 +136,20 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div
-                class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800 h-[360px] sm:h-[420px] bg-slate-950">
-                <img src="/IMG_6964_v2.jpeg" alt="Abstrakte Grafik: verknotete Kabel werden zu einem geordneten Lichtstrom"
-                    class="w-full h-full object-cover object-top" />
-            </div>
-        </div>
+                </div>
+                <figure class="rounded-2xl overflow-hidden border border-lexia/20 shadow-[0_0_60px_rgba(50,243,221,0.12)] aspect-video bg-black">
+                    <img src="/assets/img/haende.jpg" width="1600" height="893" loading="lazy"
+                        alt="Eine menschliche Hand und eine leuchtend türkise, digitale Hand strecken sich einander entgegen"
+                        class="w-full h-full object-cover object-center">
+                </figure>
+            </section>
 
-        <div
-            class="bg-gradient-to-br from-[#063a36] to-[#041614] rounded-3xl p-8 sm:p-12 text-center text-white border border-lexia/50 shadow-2xl hover-scale">
-            <h2 class="text-2xl sm:text-4xl font-extrabold mb-4">Möchten Sie LEXIA kennenlernen?</h2>
-            <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-8">
-                In einer kurzen Demo zeigen wir Ihnen, wie LEXIA mit dem Wissen Ihrer Firma arbeitet.
-            </p>
-            <a href="/kontakt?anliegen=demo"
-                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold bg-lexia hover:bg-white text-[#04201d] rounded-full transition-all hover-scale shadow-lg shadow-lexia/20">
-                Demo anfragen
-            </a>
+            <section class="rounded-3xl border border-lexia/50 bg-gradient-to-br from-[#063a36] via-[#05241f] to-[#041614] p-8 sm:p-12 text-center shadow-[0_0_60px_rgba(50,243,221,0.1)]" data-reveal>
+                <h2 class="text-2xl sm:text-4xl font-extrabold mb-4">Möchten Sie LEXIA kennenlernen?</h2>
+                <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-8">In einer kurzen Demo zeigen wir Ihnen, wie LEXIA mit dem Wissen Ihrer Firma arbeitet.</p>
+                <a href="/kontakt?anliegen=demo" class="inline-flex items-center justify-center px-8 py-4 font-semibold bg-lexia hover:bg-white text-[#04201d] rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">Demo anfragen</a>
+            </section>
         </div>
-
     </main>
 
     <!-- @footer -->
