@@ -93,18 +93,57 @@ body {
 }
 
 /* ---------- Leuchtende Flow-Welle ---------- */
-.glow-wave path {
-  stroke-dasharray: 2600;
-  stroke-dashoffset: 2600;
+/* Pfade haben pathLength="1000", damit Strich-Längen unabhängig von der Pfadlänge sind */
+.glow-wave .wave-draw path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
   animation: wave-draw 2.6s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
 }
 
 .glow-wave {
   filter: drop-shadow(0 0 18px rgba(50, 243, 221, 0.55)) drop-shadow(0 0 60px rgba(50, 243, 221, 0.25));
+  animation: wave-breathe 7s ease-in-out 3s infinite;
+}
+
+/* heller Lichtpunkt, der alle ~9 Sekunden die Welle entlangläuft */
+.glow-wave .wave-spark path {
+  stroke-dasharray: 90 1400;
+  stroke-dashoffset: 90;
+  opacity: 0;
+  animation: wave-spark 9s cubic-bezier(0.45, 0, 0.55, 1) 3s infinite;
 }
 
 @keyframes wave-draw {
   to { stroke-dashoffset: 0; }
+}
+
+@keyframes wave-breathe {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.65; }
+}
+
+@keyframes wave-spark {
+  0% { stroke-dashoffset: 90; opacity: 0; }
+  5% { opacity: 1; }
+  38% { opacity: 1; }
+  44% { stroke-dashoffset: -1000; opacity: 0; }
+  100% { stroke-dashoffset: -1000; opacity: 0; }
+}
+
+/* ---------- LEXIA-Wortmarke: Buchstaben fliegen einzeln ein ---------- */
+.lx-l {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: lx-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--i) * 90ms + 150ms);
+}
+
+@keyframes lx-in {
+  from {
+    opacity: 0;
+    transform: translate(var(--fx), var(--fy)) rotate(var(--fr)) scale(0.6);
+  }
 }
 
 .text-glow {
@@ -343,7 +382,11 @@ input[type="range"].range::-moz-range-thumb {
     transform: none;
   }
 
-  .glow-wave path {
+  .glow-wave .wave-draw path {
     stroke-dashoffset: 0;
+  }
+
+  .glow-wave .wave-spark {
+    display: none;
   }
 }

@@ -191,6 +191,27 @@
     update();
   }
 
+  // ---------- LEXIA: Buchstaben der Wortmarke fliegen beim Scrollen auseinander ----------
+  const mark = $('#lexiaMark');
+  if (mark && !reducedMotion) {
+    const letters = $$('.lx-l', mark);
+    // Richtung je Buchstabe (x, y in SVG-Einheiten, Drehung in Grad)
+    const dirs = [[-520, -260, -40], [-260, 380, 25], [0, -460, 140], [240, 420, -30], [520, -240, 45]];
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const p = Math.min(Math.max(scrollY / (innerHeight * 0.55), 0), 1);
+      const e = p * p;
+      letters.forEach((el, i) => {
+        const [x, y, r] = dirs[i] || [0, 0, 0];
+        el.style.transform = p ? `translate(${x * e}px, ${y * e}px) rotate(${r * e}deg)` : '';
+        el.style.opacity = p ? Math.max(1 - p * 1.3, 0) : '';
+      });
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+
   // ---------- Startseite: Wörter leuchten beim Scrollen auf ----------
   const revealSec = $('#text-reveal-section');
   const revealText = $('#reveal-text');

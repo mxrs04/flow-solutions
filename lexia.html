@@ -92,30 +92,40 @@
 
         <!-- Hero -->
         <section class="relative min-h-[92vh] flex items-center pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <svg class="glow-wave hidden sm:block absolute left-1/2 top-[68%] -translate-x-1/2 -translate-y-1/2 sm:w-[94%] max-w-[1500px] text-lexia opacity-90 pointer-events-none [mask-image:linear-gradient(to_right,transparent,#000_10%,#000_90%,transparent)]" viewBox="-5 -15 1435 460" aria-hidden="true">
-                <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                    <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                    <path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+            <svg class="glow-wave hidden sm:block absolute left-1/2 top-[68%] -translate-x-1/2 -translate-y-1/2 sm:w-[94%] max-w-[1500px] text-lexia opacity-90 pointer-events-none [mask-image:linear-gradient(to_right,transparent,#000_10%,#000_90%,transparent)]" viewBox="-5 -185 1435 800" aria-hidden="true">
+                <g class="wave-draw" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+                    <path pathLength="1000" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                    <path pathLength="1000" d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                    <path pathLength="1000" d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                </g>
+                <!-- Lichtpunkt, der regelmäßig an der Welle entlangläuft -->
+                <g class="wave-spark" fill="none" stroke-linecap="round">
+                    <path pathLength="1000" stroke="currentColor" stroke-width="26" opacity="0.35" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                    <path pathLength="1000" stroke="#effffd" stroke-width="7" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
                 </g>
             </svg>
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(12,12,12,0.55)_0%,transparent_45%,#0C0C0C_95%)] pointer-events-none"></div>
 
             <div class="relative max-w-5xl mx-auto text-center">
-                <svg class="w-[78%] sm:w-[620px] h-auto mx-auto text-white" viewBox="0 0 1221 229" role="img" aria-label="LEXIA" fill="currentColor">
-                    <rect x="0" y="0" width="52" height="229"/><rect x="0" y="183" width="187" height="46"/>
-                    <rect x="257" y="0" width="192" height="46"/><rect x="257" y="91" width="192" height="46"/><rect x="257" y="183" width="192" height="46"/>
-                    <polygon points="529,0 592,0 765,229 702,229"/><polygon points="702,0 765,0 592,229 529,229"/>
-                    <rect x="846" y="0" width="51" height="229"/>
-                    <polygon points="969,229 1069,0 1121,0 1221,229 1166,229 1094,60 1024,229"/>
+                <svg id="lexiaMark" class="w-[78%] sm:w-[620px] h-auto mx-auto text-white overflow-visible" viewBox="0 0 1221 229" role="img" aria-label="LEXIA" fill="currentColor">
+                    <g class="lx-l" style="--i:0;--fx:-420px;--fy:-160px;--fr:-35deg"><rect x="0" y="0" width="52" height="229"/><rect x="0" y="183" width="187" height="46"/></g>
+                    <g class="lx-l" style="--i:1;--fx:-180px;--fy:320px;--fr:20deg"><rect x="257" y="0" width="192" height="46"/><rect x="257" y="91" width="192" height="46"/><rect x="257" y="183" width="192" height="46"/></g>
+                    <g class="lx-l" style="--i:2;--fx:0px;--fy:-380px;--fr:120deg"><polygon points="529,0 592,0 765,229 702,229"/><polygon points="702,0 765,0 592,229 529,229"/></g>
+                    <g class="lx-l" style="--i:3;--fx:160px;--fy:340px;--fr:-25deg"><rect x="846" y="0" width="51" height="229"/></g>
+                    <g class="lx-l" style="--i:4;--fx:420px;--fy:-180px;--fr:40deg"><polygon points="969,229 1069,0 1121,0 1221,229 1166,229 1094,60 1024,229"/></g>
                 </svg>
                 <p class="mt-6 text-xs font-mono uppercase tracking-[0.25em] text-slate-300">Ein Produkt von Flow Solutions</p>
                 <!-- Welle auf dem Handy: eigene Zeile, damit sie ganz sichtbar ist und keinen Text überdeckt -->
-                <svg class="glow-wave sm:hidden block w-full h-auto mt-8 text-lexia" viewBox="-5 -15 1435 460" aria-hidden="true">
-                    <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                        <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                        <path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                <svg class="glow-wave sm:hidden block w-full h-auto -mt-3 -mb-9 text-lexia" viewBox="-5 -185 1435 800" aria-hidden="true">
+                    <g class="wave-draw" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+                        <path pathLength="1000" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path pathLength="1000" d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path pathLength="1000" d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
+                    <!-- Lichtpunkt, der regelmäßig an der Welle entlangläuft -->
+                    <g class="wave-spark" fill="none" stroke-linecap="round">
+                        <path pathLength="1000" stroke="currentColor" stroke-width="26" opacity="0.35" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path pathLength="1000" stroke="#effffd" stroke-width="7" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
                     </g>
                 </svg>
                 <h1 class="mt-8 sm:mt-10 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">Ihre Firma weiß die Antwort. <span class="text-glow">LEXIA findet sie.</span></h1>
@@ -143,7 +153,7 @@
 
                 <figure id="chatDemo" class="rounded-3xl border border-slate-800 bg-[#0f1214] shadow-[0_30px_80px_-20px_rgba(50,243,221,0.18)] overflow-hidden" data-reveal>
                     <div class="flex items-center gap-2 px-5 py-3.5 border-b border-slate-800 bg-slate-900/60">
-                        <span class="w-3 h-3 rounded-full bg-slate-700"></span><span class="w-3 h-3 rounded-full bg-slate-700"></span><span class="w-3 h-3 rounded-full bg-slate-700"></span>
+                        <span class="w-3 h-3 rounded-full bg-[#FF453A]"></span><span class="w-3 h-3 rounded-full bg-[#FFD60A]"></span><span class="w-3 h-3 rounded-full bg-[#30D158]"></span>
                         <span class="ml-3 text-xs font-semibold tracking-[0.2em] text-slate-400">LEXIA · CHAT</span>
                         <span class="ml-auto text-[10px] uppercase tracking-wider text-slate-500">Beispiel</span>
                     </div>
@@ -209,7 +219,7 @@
                         <dl class="grid grid-cols-3 gap-3 text-center">
                             <div class="rounded-2xl bg-slate-900 border border-slate-800 p-3"><dd class="text-3xl font-extrabold text-glow" data-count="23">23</dd><dt class="mt-1 text-[11px] text-slate-400 leading-tight">Heute beantwortet</dt></div>
                             <div class="rounded-2xl bg-slate-900 border border-slate-800 p-3"><dd class="text-3xl font-extrabold" data-count="4">4</dd><dt class="mt-1 text-[11px] text-slate-400 leading-tight">Offene Aufgaben</dt></div>
-                            <div class="rounded-2xl bg-slate-900 border border-slate-800 p-3"><dd class="text-3xl font-extrabold text-amber-300" data-count="2">2</dd><dt class="mt-1 text-[11px] text-slate-400 leading-tight">Wissens&shy;lücken</dt></div>
+                            <div class="rounded-2xl bg-slate-900 border border-slate-800 p-3"><dd class="text-3xl font-extrabold text-yellow-300" data-count="2">2</dd><dt class="mt-1 text-[11px] text-slate-400 leading-tight">Wissens&shy;lücken</dt></div>
                         </dl>
                     </div>
                 </div>
@@ -388,20 +398,20 @@
                                     <ul class="rounded-2xl border border-slate-800 bg-[#1b1b1b] divide-y divide-slate-800 overflow-hidden">
                                         <li class="task flex items-center gap-3 p-4 border-l-4 border-rose-500">
                                             <button type="button" class="task-toggle task-check w-7 h-7 rounded-lg border border-slate-600 flex items-center justify-center shrink-0 transition-colors" aria-pressed="false" aria-label="Erledigt: Prozess „Reisekosten“ prüfen"><svg class="w-4 h-4 text-[#04201d] opacity-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></button>
-                                            <div class="flex-1 min-w-0"><p class="task-title text-sm font-semibold">Prozess „Reisekosten“ prüfen</p><p class="text-xs text-amber-400 mt-0.5">heute fällig</p></div>
-                                            <span class="flex flex-col gap-1" aria-hidden="true"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400/25"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500/25"></span></span>
+                                            <div class="flex-1 min-w-0"><p class="task-title text-sm font-semibold">Prozess „Reisekosten“ prüfen</p><p class="text-xs text-yellow-400 mt-0.5">heute fällig</p></div>
+                                            <span class="flex flex-col gap-1" aria-hidden="true"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-400/25"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500/25"></span></span>
                                             <span class="hidden sm:inline text-xs px-3 py-1.5 rounded-lg border border-lexia/40 text-lexia">Heute</span>
                                         </li>
-                                        <li class="task flex items-center gap-3 p-4 border-l-4 border-amber-400">
+                                        <li class="task flex items-center gap-3 p-4 border-l-4 border-yellow-400">
                                             <button type="button" class="task-toggle task-check w-7 h-7 rounded-lg border border-slate-600 flex items-center justify-center shrink-0 transition-colors" aria-pressed="false" aria-label="Erledigt: Kunde X anrufen"><svg class="w-4 h-4 text-[#04201d] opacity-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></button>
-                                            <div class="flex-1 min-w-0"><p class="task-title text-sm font-semibold">Kunde X anrufen</p><p class="text-xs text-amber-400 mt-0.5">morgen fällig</p></div>
-                                            <span class="flex flex-col gap-1" aria-hidden="true"><span class="w-2.5 h-2.5 rounded-full bg-rose-500/25"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500/25"></span></span>
+                                            <div class="flex-1 min-w-0"><p class="task-title text-sm font-semibold">Kunde X anrufen</p><p class="text-xs text-yellow-400 mt-0.5">morgen fällig</p></div>
+                                            <span class="flex flex-col gap-1" aria-hidden="true"><span class="w-2.5 h-2.5 rounded-full bg-rose-500/25"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500/25"></span></span>
                                             <span class="hidden sm:inline text-xs px-3 py-1.5 rounded-lg border border-lexia/40 text-lexia">Morgen</span>
                                         </li>
                                         <li class="task flex items-center gap-3 p-4 border-l-4 border-emerald-500">
                                             <button type="button" class="task-toggle task-check w-7 h-7 rounded-lg border border-slate-600 flex items-center justify-center shrink-0 transition-colors" aria-pressed="false" aria-label="Erledigt: Einarbeitung für Lisa vorbereiten"><svg class="w-4 h-4 text-[#04201d] opacity-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></button>
                                             <div class="flex-1 min-w-0"><p class="task-title text-sm font-semibold">Einarbeitung für Lisa vorbereiten</p><p class="text-xs text-slate-400 mt-0.5">noch 4 Tage</p></div>
-                                            <span class="flex flex-col gap-1" aria-hidden="true"><span class="w-2.5 h-2.5 rounded-full bg-rose-500/25"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400/25"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span></span>
+                                            <span class="flex flex-col gap-1" aria-hidden="true"><span class="w-2.5 h-2.5 rounded-full bg-rose-500/25"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-400/25"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span></span>
                                             <span class="hidden sm:inline text-xs px-3 py-1.5 rounded-lg border border-lexia/40 text-lexia">Fr.</span>
                                         </li>
                                     </ul>
@@ -449,7 +459,7 @@
                             <div class="grid grid-cols-3 gap-3 mb-5">
                                 <div class="rounded-2xl border border-slate-800 bg-[#1b1b1b] p-4"><p class="text-xs text-slate-400">Chat-Antworten</p><p class="text-2xl sm:text-3xl font-extrabold mt-1">412</p></div>
                                 <div class="rounded-2xl border border-slate-800 bg-[#1b1b1b] p-4"><p class="text-xs text-slate-400">Im Kontingent</p><p class="text-2xl sm:text-3xl font-extrabold mt-1 text-lexia">14 %</p></div>
-                                <div class="rounded-2xl border border-slate-800 bg-[#1b1b1b] p-4"><p class="text-xs text-slate-400">Wissenslücken</p><p class="text-2xl sm:text-3xl font-extrabold mt-1 text-amber-300">2</p></div>
+                                <div class="rounded-2xl border border-slate-800 bg-[#1b1b1b] p-4"><p class="text-xs text-slate-400">Wissenslücken</p><p class="text-2xl sm:text-3xl font-extrabold mt-1 text-yellow-300">2</p></div>
                             </div>
                             <div class="rounded-2xl border border-slate-800 bg-[#1b1b1b] p-5">
                                 <p class="font-bold mb-4">Chat-Antworten pro Woche</p>
