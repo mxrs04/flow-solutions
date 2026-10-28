@@ -107,9 +107,11 @@
     tabs.forEach((tab, i) => {
       tab.addEventListener('click', () => {
         select(tab);
-        // Auf schmalen Bildschirmen stehen die Details unter der Liste – dorthin scrollen
-        if (list.hasAttribute('data-scroll-panel') && innerWidth < 1024) {
-          document.getElementById(tab.getAttribute('aria-controls')).scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });
+        // Auf schmalen Bildschirmen klappen die Details direkt unter dem Punkt auf (erneut tippen schließt)
+        if (list.hasAttribute('data-inline-details') && innerWidth < 1024) {
+          const item = tab.closest('.baustein-item');
+          const open = !item.classList.contains('is-open');
+          $$('.baustein-item', list).forEach((el) => el.classList.toggle('is-open', el === item && open));
         }
       });
       tab.addEventListener('keydown', (e) => {
@@ -190,6 +192,11 @@
     addEventListener('resize', update, { passive: true });
     update();
   }
+
+  // ---------- LEXIA: Verweis "In der Demo ausprobieren" öffnet den passenden Reiter ----------
+  $$('[data-demo-tab]').forEach((link) => link.addEventListener('click', () => {
+    document.getElementById(link.dataset.demoTab)?.click();
+  }));
 
   // ---------- LEXIA: Buchstaben der Wortmarke fliegen beim Scrollen auseinander ----------
   const mark = $('#lexiaMark');
