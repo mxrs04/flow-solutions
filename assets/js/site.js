@@ -216,6 +216,60 @@
     update();
   }
 
+  // ---------- LEXIA: Symbole wandern in zufälliger Reihenfolge von den Quellen zu LEXIA ----------
+  const stage = $('#flowStage');
+  if (stage && !reducedMotion) {
+    const sources = $$('.flow-src', stage);
+    const desktopPaths = $$('.flow-path', stage);
+    const mobilePath = $('.flow-path-mobile', stage);
+    const hub = $('#flowHub');
+    const icons = $$('template[data-flow-icon]', stage).map((t) => t.innerHTML);
+    const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    let visible = false, timer = 0, last = -1;
+
+    const fly = () => {
+      const desktop = innerWidth >= 1024;
+      let i;
+      do { i = Math.floor(Math.random() * sources.length); } while (sources.length > 1 && i === last && Math.random() < 0.7);
+      last = i;
+      const path = desktop ? desktopPaths[i] : mobilePath;
+      if (!path || !path.getBoundingClientRect().width && !path.getBoundingClientRect().height) return;
+      const token = document.createElement('div');
+      token.className = 'flow-token';
+      token.innerHTML = icons[i] || '';
+      stage.appendChild(token);
+      sources[i].classList.add('is-sending');
+      setTimeout(() => sources[i].classList.remove('is-sending'), 600);
+      const len = path.getTotalLength();
+      const dur = 1700 + Math.random() * 900;
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - start) / dur, 1);
+        // Punkt auf dem Pfad in Bildschirm-Koordinaten umrechnen (SVG ist verzerrt skaliert)
+        const pt = path.getPointAtLength(ease(t) * len).matrixTransform(path.getScreenCTM());
+        const box = stage.getBoundingClientRect();
+        const fade = Math.min(t / 0.12, (1 - t) / 0.15, 1);
+        token.style.opacity = fade;
+        token.style.transform = `translate3d(${pt.x - box.left}px, ${pt.y - box.top}px, 0) scale(${0.7 + 0.3 * fade})`;
+        if (t < 1) requestAnimationFrame(step);
+        else {
+          token.remove();
+          hub.classList.add('is-hit');
+          setTimeout(() => hub.classList.remove('is-hit'), 450);
+        }
+      };
+      requestAnimationFrame(step);
+    };
+
+    // unregelmäßige Abstände; manchmal zwei Symbole kurz nacheinander
+    const schedule = () => {
+      clearTimeout(timer);
+      if (!visible) return;
+      timer = setTimeout(() => { if (!document.hidden) fly(); schedule(); }, Math.random() < 0.25 ? 180 + Math.random() * 250 : 550 + Math.random() * 1500);
+    };
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; schedule(); }, { threshold: 0.2 }).observe(stage);
+  }
+
   // ---------- Startseite: Wörter leuchten beim Scrollen auf ----------
   const revealSec = $('#text-reveal-section');
   const revealText = $('#reveal-text');

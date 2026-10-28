@@ -275,6 +275,35 @@ body {
   box-shadow: 0 0 0 1px rgba(50, 243, 221, 0.35), 0 0 60px rgba(50, 243, 221, 0.18);
 }
 
+.flow-hub.is-hit {
+  box-shadow: 0 0 0 1px rgba(50, 243, 221, 0.7), 0 0 90px rgba(50, 243, 221, 0.35);
+}
+
+.flow-src.is-sending {
+  border-color: rgba(50, 243, 221, 0.55);
+}
+
+/* Symbol, das von der Quelle zu LEXIA wandert */
+.flow-token {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  margin: -1rem 0 0 -1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  color: #32F3DD;
+  background: #0f1214;
+  border: 1px solid rgba(50, 243, 221, 0.6);
+  box-shadow: 0 0 18px rgba(50, 243, 221, 0.45);
+  pointer-events: none;
+  will-change: transform, opacity;
+  z-index: 5;
+}
+
 /* ---------- Reiter (App-Ansicht) & Preis-Schalter ---------- */
 .tab-btn[aria-selected="true"] {
   background: rgba(50, 243, 221, 0.12);
