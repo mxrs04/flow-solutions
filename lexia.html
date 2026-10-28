@@ -92,7 +92,7 @@
 
         <!-- Hero -->
         <section class="relative min-h-[92vh] flex items-center pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <svg class="glow-wave absolute left-1/2 top-[68%] -translate-x-1/2 -translate-y-1/2 w-[135%] sm:w-[94%] max-w-[1500px] text-lexia opacity-90 pointer-events-none [mask-image:linear-gradient(to_right,transparent,#000_10%,#000_90%,transparent)]" viewBox="-5 -15 1435 460" aria-hidden="true">
+            <svg class="glow-wave hidden sm:block absolute left-1/2 top-[68%] -translate-x-1/2 -translate-y-1/2 sm:w-[94%] max-w-[1500px] text-lexia opacity-90 pointer-events-none [mask-image:linear-gradient(to_right,transparent,#000_10%,#000_90%,transparent)]" viewBox="-5 -15 1435 460" aria-hidden="true">
                 <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
                     <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
@@ -110,8 +110,16 @@
                     <polygon points="969,229 1069,0 1121,0 1221,229 1166,229 1094,60 1024,229"/>
                 </svg>
                 <p class="mt-6 text-xs font-mono uppercase tracking-[0.25em] text-slate-300">Ein Produkt von Flow Solutions</p>
-                <h1 class="mt-10 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">Ihre Firma weiß die Antwort. <span class="text-glow">LEXIA findet sie.</span></h1>
-                <p class="mt-6 text-slate-300 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed">LEXIA beantwortet Fragen aus Ihrem Firmenwissen – immer mit Quelle, und nur mit dem, was die fragende Person sehen darf.</p>
+                <!-- Welle auf dem Handy: eigene Zeile, damit sie ganz sichtbar ist und keinen Text überdeckt -->
+                <svg class="glow-wave sm:hidden block w-full h-auto mt-8 text-lexia" viewBox="-5 -15 1435 460" aria-hidden="true">
+                    <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
+                </svg>
+                <h1 class="mt-8 sm:mt-10 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">Ihre Firma weiß die Antwort. <span class="text-glow">LEXIA findet sie.</span></h1>
+                <p class="mt-6 text-slate-200 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_14px_#0C0C0C]">LEXIA beantwortet Fragen aus Ihrem Firmenwissen – immer mit Quelle, und nur mit dem, was die fragende Person sehen darf.</p>
                 <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                     <a href="/abo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">Preise ansehen</a>
                     <a href="/kontakt?anliegen=demo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold border border-slate-700 bg-slate-900/80 hover:border-lexia hover:text-lexia rounded-full transition-colors hover-scale">Demo anfragen</a>
