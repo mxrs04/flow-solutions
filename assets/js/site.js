@@ -411,18 +411,19 @@
 
   // ---------- Abo: Preisrechner ----------
   // Muss mit der Preistabelle in LEXIA übereinstimmen (Plattform → Finanzen → Preise):
-  // Grundpreis + Personen × € je Person + max(0, Antworten − Kontingent) × € je weitere Antwort
+  // Grundpreis + max(0, Personen − enthaltene Personen) × € je Person + max(0, Antworten − Kontingent) × € je weitere Antwort
   const PLANS = {
-    start: { name: 'Start', base: 149, perPerson: 0, included: () => 3000, extra: 0.03, maxPeople: 15 },
-    business: { name: 'Business', base: 199, perPerson: 6, included: (p) => 150 * p, extra: 0.03, maxPeople: Infinity },
+    start: { name: 'Start', base: 149, perPerson: 0, peopleIncluded: 0, included: () => 3000, extra: 0.03, maxPeople: 15 },
+    business: { name: 'Business', base: 199, perPerson: 6, peopleIncluded: 15, included: (p) => 150 * p, extra: 0.03, maxPeople: Infinity },
   };
   const monthlyPrice = (plan, people, answers) => {
     const included = plan.included(people);
     const over = Math.max(0, answers - included);
-    return { plan, included, over, people,
-      fixed: plan.base + plan.perPerson * people,
+    const extraPeople = Math.max(0, people - plan.peopleIncluded);
+    return { plan, included, over, people, extraPeople,
+      fixed: plan.base + plan.perPerson * extraPeople,
       overCost: over * plan.extra,
-      total: plan.base + plan.perPerson * people + over * plan.extra };
+      total: plan.base + plan.perPerson * extraPeople + over * plan.extra };
   };
   window.lexiaPrice = (planKey, people, perDay, days = 21) => {
     const answers = people * perDay * days;
@@ -447,7 +448,7 @@
       $('#pcTotal').textContent = fmt(b);
       $('#pcAnswers').textContent = num(b.answers);
       $('#pcBase').textContent = euro(b.plan.base);
-      $('#pcPersons').textContent = b.plan.perPerson ? `${b.people} × ${euro(b.plan.perPerson)} = ${euro(b.plan.perPerson * b.people)}` : 'im Grundpreis enthalten';
+      $('#pcPersons').textContent = !b.plan.perPerson || !b.extraPeople ? 'im Grundpreis enthalten' : `${b.plan.peopleIncluded} enthalten + ${b.extraPeople} × ${euro(b.plan.perPerson)} = ${euro(b.plan.perPerson * b.extraPeople)}`;
       $('#pcIncluded').textContent = `${num(b.included)} Antworten`;
       $('#pcOver').textContent = b.over ? `${num(b.over)} × 3 ct = ${euro(b.overCost, 2)}` : 'keiner';
       $('#pcYearly').textContent = euro((b.fixed * 10 + b.overCost * 12) / 12, 0);
