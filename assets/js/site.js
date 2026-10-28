@@ -274,7 +274,13 @@
       if (!visible) return;
       timer = setTimeout(() => { if (!document.hidden) fly(); schedule(); }, Math.random() < 0.25 ? 180 + Math.random() * 250 : 550 + Math.random() * 1500);
     };
-    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; schedule(); }, { threshold: 0.2 }).observe(stage);
+    // Sobald der Bereich ins Bild kommt, sofort das erste Symbol schicken – nicht erst nach der Zufallspause
+    new IntersectionObserver(([entry]) => {
+      const neu = entry.isIntersecting && !visible;
+      visible = entry.isIntersecting;
+      if (neu && !document.hidden) fly();
+      schedule();
+    }, { threshold: 0.1 }).observe(stage);
   }
 
   // ---------- Startseite: Wörter leuchten beim Scrollen auf ----------
@@ -397,6 +403,31 @@
       io.observe(chat);
     }
   }
+
+  // ---------- LEXIA: Rollen-Umschalter („Wer sind Sie?“) ----------
+  $$('.rollen').forEach((box) => {
+    const tabs = $$('[role="tab"]', box);
+    const zeigen = (tab) => {
+      tabs.forEach((t) => {
+        const an = t === tab;
+        t.setAttribute('aria-selected', String(an));
+        t.tabIndex = an ? 0 : -1;
+        $('#' + t.getAttribute('aria-controls')).hidden = !an;
+      });
+    };
+    tabs.forEach((t, i) => {
+      t.tabIndex = i === 0 ? 0 : -1;
+      t.addEventListener('click', () => zeigen(t));
+      t.addEventListener('keydown', (e) => {
+        const n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!n) return;
+        e.preventDefault();
+        const ziel = tabs[(i + n + tabs.length) % tabs.length];
+        zeigen(ziel);
+        ziel.focus();
+      });
+    });
+  });
 
   // ---------- Abo: monatlich / jährlich ----------
   const billing = $('.billing-toggle');
