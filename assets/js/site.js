@@ -328,7 +328,7 @@
   // Grundpreis + Personen × € je Person + max(0, Antworten − Kontingent) × € je weitere Antwort
   const PLANS = {
     start: { name: 'Start', base: 149, perPerson: 0, included: () => 3000, extra: 0.03, maxPeople: 15 },
-    business: { name: 'Business', base: 149, perPerson: 6, included: (p) => 150 * p, extra: 0.03, maxPeople: Infinity },
+    business: { name: 'Business', base: 199, perPerson: 6, included: (p) => 150 * p, extra: 0.03, maxPeople: Infinity },
   };
   const monthlyPrice = (plan, people, answers) => {
     const included = plan.included(people);
@@ -338,33 +338,40 @@
       overCost: over * plan.extra,
       total: plan.base + plan.perPerson * people + over * plan.extra };
   };
-  window.lexiaPrice = (people, perDay, days = 21) => {
+  window.lexiaPrice = (planKey, people, perDay, days = 21) => {
     const answers = people * perDay * days;
-    const options = Object.values(PLANS).filter((p) => people <= p.maxPeople).map((p) => monthlyPrice(p, people, answers));
-    return { answers, options, best: options.reduce((a, b) => (b.total < a.total ? b : a)) };
+    return { answers, ...monthlyPrice(PLANS[planKey], people, answers) };
   };
   const calc = $('#priceCalc');
   if (calc) {
     const people = $('#pcPeople'), perDay = $('#pcQuestions'), days = $('#pcDays');
+    const pick = $$('#pcPlanPick button');
+    let chosen = 'start';
+    const fmt = (r) => euro(r.total, r.overCost % 1 ? 2 : 0);
     const update = () => {
       $('#pcPeopleOut').textContent = people.value;
       $('#pcQuestionsOut').textContent = perDay.value;
-      const r = window.lexiaPrice(+people.value, +perDay.value, Math.max(+days.value || 0, 0));
-      const b = r.best;
+      const p = +people.value, q = +perDay.value, d = Math.max(+days.value || 0, 0);
+      const startOk = p <= PLANS.start.maxPeople;
+      pick[0].disabled = !startOk;
+      const key = startOk ? chosen : 'business';
+      pick.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.plan === key)));
+      const b = window.lexiaPrice(key, p, q, d);
       $('#pcPlan').textContent = b.plan.name;
-      $('#pcTotal').textContent = euro(b.total, b.overCost % 1 ? 2 : 0);
-      $('#pcAnswers').textContent = num(r.answers);
+      $('#pcTotal').textContent = fmt(b);
+      $('#pcAnswers').textContent = num(b.answers);
       $('#pcBase').textContent = euro(b.plan.base);
       $('#pcPersons').textContent = b.plan.perPerson ? `${b.people} × ${euro(b.plan.perPerson)} = ${euro(b.plan.perPerson * b.people)}` : 'im Grundpreis enthalten';
       $('#pcIncluded').textContent = `${num(b.included)} Antworten`;
       $('#pcOver').textContent = b.over ? `${num(b.over)} × 3 ct = ${euro(b.overCost, 2)}` : 'keiner';
-      const yearlyPerMonth = (b.fixed * 10 + b.overCost * 12) / 12;
-      $('#pcYearly').textContent = euro(yearlyPerMonth, 0);
-      const other = r.options.find((o) => o !== b);
-      $('#pcCompare').textContent = other
-        ? `Zum Vergleich: ${other.plan.name} läge bei ${euro(other.total, other.overCost % 1 ? 2 : 0)}.`
-        : 'Ab 16 Personen ist Business das passende Paket.';
+      $('#pcYearly').textContent = euro((b.fixed * 10 + b.overCost * 12) / 12, 0);
+      $('#pcCompare').textContent = !startOk
+        ? 'Start gilt für bis zu 15 Personen – ab 16 Personen ist Business das passende Paket.'
+        : key === 'start'
+          ? `Mit Business (Organigramm, Einarbeitung, Vier-Augen-Prinzip, Nachweise) wären es ${fmt(window.lexiaPrice('business', p, q, d))}.`
+          : `Ohne die Business-Funktionen reicht Start für ${fmt(window.lexiaPrice('start', p, q, d))}.`;
     };
+    pick.forEach((btn) => btn.addEventListener('click', () => { chosen = btn.dataset.plan; update(); }));
     [people, perDay, days].forEach((el) => el.addEventListener('input', update));
     update();
   }

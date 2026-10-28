@@ -118,7 +118,8 @@
 
                 <article class="flex flex-col rounded-3xl border border-slate-800 bg-slate-900/50 p-8">
                     <h2 class="text-sm font-extrabold tracking-[0.5em] text-slate-300">START</h2>
-                    <p class="mt-2 text-sm text-slate-400">Für kleine Teams bis ca. 15 Personen</p>
+                    <p class="mt-2 text-sm text-slate-400">Für kleine Teams bis 15 Personen</p>
+                    <p class="mt-4 text-base font-semibold text-white">Wissen finden: Fragen stellen, Antworten mit Quelle, Abläufe abhaken.</p>
                     <div class="mt-8 min-h-[5.5rem]">
                         <p data-show="monthly"><span class="text-5xl font-extrabold">149 €</span> <span class="text-slate-400">/ Monat</span></p>
                         <p data-show="yearly" hidden><span class="text-5xl font-extrabold">1.490 €</span> <span class="text-slate-400">/ Jahr</span><br><span class="text-sm text-slate-400">entspricht ca. 124 € / Monat</span></p>
@@ -139,12 +140,13 @@
                 </article>
 
                 <article class="relative flex flex-col rounded-3xl border-2 border-lexia bg-[#0b1817] p-8 shadow-[0_0_60px_rgba(50,243,221,0.15)]">
-                    <span class="absolute -top-3.5 left-8 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-lexia text-[#04201d]">Beliebt</span>
+                    <span class="absolute -top-3.5 left-8 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-lexia text-[#04201d]">Empfohlen</span>
                     <h2 class="text-sm font-extrabold tracking-[0.5em] text-lexia">BUSINESS</h2>
-                    <p class="mt-2 text-sm text-slate-400">Für wachsende Firmen bis ca. 100 Personen</p>
+                    <p class="mt-2 text-sm text-slate-400">Für Firmen ab 15 Personen – oder mit Prüfpflichten</p>
+                    <p class="mt-4 text-base font-semibold text-white">Wissen steuern: Zuständigkeiten, Einarbeitung, Freigaben und Nachweise.</p>
                     <div class="mt-8 min-h-[5.5rem]">
-                        <p data-show="monthly"><span class="text-5xl font-extrabold">149 €</span> <span class="text-slate-400">/ Monat</span><br><span class="text-sm text-slate-300">+ 6 € je Person</span></p>
-                        <p data-show="yearly" hidden><span class="text-5xl font-extrabold">1.490 €</span> <span class="text-slate-400">/ Jahr</span><br><span class="text-sm text-slate-300">+ 60 € je Person</span></p>
+                        <p data-show="monthly"><span class="text-5xl font-extrabold">199 €</span> <span class="text-slate-400">/ Monat</span><br><span class="text-sm text-slate-300">+ 6 € je Person</span></p>
+                        <p data-show="yearly" hidden><span class="text-5xl font-extrabold">1.990 €</span> <span class="text-slate-400">/ Jahr</span><br><span class="text-sm text-slate-300">+ 60 € je Person</span></p>
                     </div>
                     <p class="mt-4 text-sm text-slate-300">150 Antworten je Person und Monat inklusive · darüber 3 ct je Antwort</p>
                     <ul class="mt-8 space-y-3 text-sm flex-1">
@@ -164,6 +166,7 @@
                 <article class="flex flex-col rounded-3xl border border-slate-800 bg-slate-900/50 p-8">
                     <h2 class="text-sm font-extrabold tracking-[0.5em] text-slate-300">ENTERPRISE</h2>
                     <p class="mt-2 text-sm text-slate-400">Für große Firmen und besondere Anforderungen</p>
+                    <p class="mt-4 text-base font-semibold text-white">Wie Business – mit eigenem Rahmen und persönlicher Begleitung.</p>
                     <div class="mt-8 min-h-[5.5rem]"><p class="text-5xl font-extrabold">Individuell</p></div>
                     <p class="mt-4 text-sm text-slate-300">Kontingent und Preise nach Vereinbarung</p>
                     <ul class="mt-8 space-y-3 text-sm flex-1">
@@ -179,6 +182,37 @@
                 </article>
             </div>
             <p class="mt-6 text-center text-xs text-slate-500">Alle Preise netto zzgl. gesetzlicher Umsatzsteuer. Das Monatsabo ist monatlich kündbar.</p>
+
+            <!-- Vergleich -->
+            <div class="mt-20 sm:mt-28" data-reveal>
+                <h2 class="text-center text-2xl sm:text-4xl font-extrabold tracking-tight mb-8">Die Pakete im Vergleich</h2>
+                <div class="overflow-x-auto rounded-3xl border border-slate-800 bg-slate-900/40 px-4 sm:px-8 py-4">
+                    <table class="w-full min-w-[560px] text-sm">
+                        <thead><tr>
+                            <th scope="col" class="py-3 pr-4 text-left text-slate-500 font-semibold">Funktion</th>
+                            <th scope="col" class="py-3 px-3 text-xs font-extrabold tracking-[0.3em] text-slate-300">START</th>
+                            <th scope="col" class="py-3 px-3 text-xs font-extrabold tracking-[0.3em] text-lexia bg-lexia/[0.04] rounded-t-xl">BUSINESS</th>
+                            <th scope="col" class="py-3 pl-3 text-xs font-extrabold tracking-[0.3em] text-slate-300">ENTERPRISE</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Personen</th><td class="py-3.5 px-3 text-center">bis 15</td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]">unbegrenzt, je 6 €</td><td class="py-3.5 pl-3 text-center">nach Vereinbarung</td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Antworten inklusive</th><td class="py-3.5 px-3 text-center">3.000 im Monat</td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]">150 je Person</td><td class="py-3.5 pl-3 text-center">nach Vereinbarung</td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Chat mit Quellen</th><td class="py-3.5 px-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Wissensbasis &amp; Bereiche</th><td class="py-3.5 px-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Prozesse &amp; Vorlagen</th><td class="py-3.5 px-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Aufgaben</th><td class="py-3.5 px-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Zwei-Faktor-Anmeldung</th><td class="py-3.5 px-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Organigramm &amp; Lotse</th><td class="py-3.5 px-3 text-center"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Einarbeitung mit Stellenprofilen</th><td class="py-3.5 px-3 text-center"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Strenger Modus (Vier-Augen-Prinzip)</th><td class="py-3.5 px-3 text-center"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Nachweise für DSGVO, ISO und Betriebsrat</th><td class="py-3.5 px-3 text-center"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Rechte-Überprüfung</th><td class="py-3.5 px-3 text-center"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Persönliche Einführung &amp; feste Ansprechperson</th><td class="py-3.5 px-3 text-center"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 pl-3 text-center"><span class="text-lexia font-black" aria-label="enthalten">✓</span></td></tr>
+                        <tr class="border-t border-slate-800"><th scope="row" class="py-3.5 pr-4 text-left font-medium text-slate-300">Eigene Instanz oder reine EU-Verarbeitung der KI</th><td class="py-3.5 px-3 text-center"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 px-3 text-center bg-lexia/[0.04]"><span class="text-slate-600" aria-label="nicht enthalten">–</span></td><td class="py-3.5 pl-3 text-center">nach Absprache</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
 
         <!-- Preisrechner -->
@@ -189,6 +223,13 @@
             </div>
             <div class="grid lg:grid-cols-2 gap-6" data-reveal>
                 <div class="rounded-3xl border border-slate-800 bg-slate-900/50 p-7 sm:p-9 space-y-9">
+                    <div>
+                        <span class="block text-sm font-semibold mb-3">Paket</span>
+                        <div id="pcPlanPick" class="billing-toggle inline-flex p-1 rounded-full bg-slate-950 border border-slate-800" role="group" aria-label="Paket wählen">
+                            <button type="button" data-plan="start" aria-pressed="true" class="px-5 py-2.5 rounded-full text-sm font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed">Start</button>
+                            <button type="button" data-plan="business" aria-pressed="false" class="px-5 py-2.5 rounded-full text-sm font-semibold transition-colors">Business</button>
+                        </div>
+                    </div>
                     <label class="block">
                         <span class="flex justify-between text-sm font-semibold mb-4"><span>Personen</span><output id="pcPeopleOut" class="text-lexia font-extrabold text-lg">10</output></span>
                         <input id="pcPeople" class="range" type="range" min="1" max="200" value="10">
@@ -205,7 +246,7 @@
                 </div>
 
                 <div class="rounded-3xl border border-lexia/50 bg-[#0b1817] p-7 sm:p-9 flex flex-col" aria-live="polite">
-                    <p class="text-sm text-slate-400">Empfehlung</p>
+                    <p class="text-sm text-slate-400">Ihr Paket</p>
                     <p class="mt-1 text-2xl font-extrabold tracking-[0.3em] uppercase text-lexia" id="pcPlan">Start</p>
                     <p class="mt-4"><span id="pcTotal" class="text-5xl sm:text-6xl font-extrabold">149 €</span> <span class="text-slate-400">/ Monat</span></p>
                     <p class="mt-2 text-sm text-slate-400">Bei jährlicher Zahlung ca. <span id="pcYearly" class="text-white font-semibold">124 €</span> / Monat</p>
