@@ -200,12 +200,16 @@
     let ticking = false;
     const update = () => {
       ticking = false;
-      const p = Math.min(Math.max(scrollY / (innerHeight * 0.55), 0), 1);
-      const e = p * p;
+      // Die Wortmarke bleibt beim Scrollen stehen, bis die Buchstaben auseinandergeflogen sind
+      const range = innerHeight * 0.45;
+      const y = Math.min(Math.max(scrollY, 0), range);
+      const p = y / range;
+      const e = p * p * (3 - 2 * p);
+      mark.style.transform = y ? `translate3d(0, ${y}px, 0)` : '';
       letters.forEach((el, i) => {
-        const [x, y, r] = dirs[i] || [0, 0, 0];
-        el.style.transform = p ? `translate(${x * e}px, ${y * e}px) rotate(${r * e}deg)` : '';
-        el.style.opacity = p ? Math.max(1 - p * 1.3, 0) : '';
+        const [x, yy, r] = dirs[i] || [0, 0, 0];
+        el.style.transform = p ? `translate(${x * e}px, ${yy * e}px) rotate(${r * e}deg)` : '';
+        el.style.opacity = p ? Math.max(1 - p * 1.15, 0) : '';
       });
     };
     addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
