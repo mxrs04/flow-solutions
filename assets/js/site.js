@@ -482,27 +482,29 @@
 
   // ---------- Abo: Preisrechner ----------
   // Muss mit der Preistabelle in LEXIA übereinstimmen (Plattform → Finanzen → Preise):
-  // Grundpreis + max(0, Personen − enthaltene Personen) × € je Person + max(0, Antworten − Kontingent) × € je weitere Antwort
+  // Grundpreis + max(0, Personen − enthaltene Personen) × € je Person + max(0, KI-Kosten − KI-Guthaben)  (KI zum Einkaufspreis)
+  // KI-Kosten je Antwort sind hier nur Schätzwerte; LEXIA rechnet den echten Verbrauch ab.
   const PLANS = {
-    start: { name: 'Start', base: 149, perPerson: 0, peopleIncluded: 0, included: () => 3000, extra: 0.03, maxPeople: 15 },
-    business: { name: 'Business', base: 199, perPerson: 6, peopleIncluded: 15, included: (p) => 150 * p, extra: 0.03, maxPeople: Infinity },
+    start: { name: 'Start', base: 149, perPerson: 0, peopleIncluded: 0, credit: 20, creditPerPerson: 0, maxPeople: 15 },
+    business: { name: 'Business', base: 199, perPerson: 6, peopleIncluded: 15, credit: 20, creditPerPerson: 1, maxPeople: Infinity },
   };
-  const monthlyPrice = (plan, people, answers) => {
-    const included = plan.included(people);
-    const over = Math.max(0, answers - included);
+  const PER_ANSWER = { schnell: 0.0005, standard: 0.002, gruendlich: 0.015 };
+  const monthlyPrice = (plan, people, answers, stufe = 'standard') => {
     const extraPeople = Math.max(0, people - plan.peopleIncluded);
-    return { plan, included, over, people, extraPeople,
+    const credit = plan.credit + extraPeople * plan.creditPerPerson;
+    const ai = answers * (PER_ANSWER[stufe] ?? PER_ANSWER.standard);
+    const overCost = Math.max(0, ai - credit);
+    return { plan, people, extraPeople, credit, ai, overCost,
       fixed: plan.base + plan.perPerson * extraPeople,
-      overCost: over * plan.extra,
-      total: plan.base + plan.perPerson * extraPeople + over * plan.extra };
+      total: plan.base + plan.perPerson * extraPeople + overCost };
   };
-  window.lexiaPrice = (planKey, people, perDay, days = 21) => {
+  window.lexiaPrice = (planKey, people, perDay, days = 21, stufe = 'standard') => {
     const answers = people * perDay * days;
-    return { answers, ...monthlyPrice(PLANS[planKey], people, answers) };
+    return { answers, ...monthlyPrice(PLANS[planKey], people, answers, stufe) };
   };
   const calc = $('#priceCalc');
   if (calc) {
-    const people = $('#pcPeople'), perDay = $('#pcQuestions'), days = $('#pcDays');
+    const people = $('#pcPeople'), perDay = $('#pcQuestions'), days = $('#pcDays'), stufe = $('#pcStufe');
     const pick = $$('#pcPlanPick button');
     let chosen = 'start';
     const fmt = (r) => euro(r.total, r.overCost % 1 ? 2 : 0);
@@ -514,23 +516,25 @@
       pick[0].disabled = !startOk;
       const key = startOk ? chosen : 'business';
       pick.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.plan === key)));
-      const b = window.lexiaPrice(key, p, q, d);
+      const st = stufe ? stufe.value : 'standard';
+      const b = window.lexiaPrice(key, p, q, d, st);
       $('#pcPlan').textContent = b.plan.name;
       $('#pcTotal').textContent = fmt(b);
       $('#pcAnswers').textContent = num(b.answers);
       $('#pcBase').textContent = euro(b.plan.base);
       $('#pcPersons').textContent = !b.plan.perPerson || !b.extraPeople ? 'im Grundpreis enthalten' : `${b.plan.peopleIncluded} enthalten + ${b.extraPeople} × ${euro(b.plan.perPerson)} = ${euro(b.plan.perPerson * b.extraPeople)}`;
-      $('#pcIncluded').textContent = `${num(b.included)} Antworten`;
-      $('#pcOver').textContent = b.over ? `${num(b.over)} × 3 ct = ${euro(b.overCost, 2)}` : 'keiner';
+      $('#pcKi').textContent = euro(b.ai, 2);
+      $('#pcIncluded').textContent = euro(b.credit, 0);
+      $('#pcOver').textContent = b.overCost > 0 ? euro(b.overCost, 2) : 'nichts';
       $('#pcYearly').textContent = euro((b.fixed * 10 + b.overCost * 12) / 12, 0);
       $('#pcCompare').textContent = !startOk
         ? 'Start gilt für bis zu 15 Personen – ab 16 Personen ist Business das passende Paket.'
         : key === 'start'
-          ? `Mit Business (Organigramm, Einarbeitung, Vier-Augen-Prinzip, Nachweise) wären es ${fmt(window.lexiaPrice('business', p, q, d))}.`
-          : `Ohne die Business-Funktionen reicht Start für ${fmt(window.lexiaPrice('start', p, q, d))}.`;
+          ? `Mit Business (Organigramm, Einarbeitung, Vier-Augen-Prinzip, Nachweise) wären es ${fmt(window.lexiaPrice('business', p, q, d, st))}.`
+          : `Ohne die Business-Funktionen reicht Start für ${fmt(window.lexiaPrice('start', p, q, d, st))}.`;
     };
     pick.forEach((btn) => btn.addEventListener('click', () => { chosen = btn.dataset.plan; update(); }));
-    [people, perDay, days].forEach((el) => el.addEventListener('input', update));
+    [people, perDay, days, stufe].filter(Boolean).forEach((el) => el.addEventListener('input', update));
     update();
   }
 
