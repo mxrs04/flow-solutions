@@ -98,14 +98,36 @@
                     <path pathLength="1000" d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
                     <path pathLength="1000" d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
                 </g>
-                <!-- weiches Schimmern, das regelmäßig durch die Welle zieht -->
+                <!-- weiches Schimmern: ein heller Bereich mit fließendem Verlauf wandert an der Welle entlang -->
                 <defs>
-                    <filter id="wsh-d" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="9"/></filter>
-                    <filter id="wsc-d" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="3"/></filter>
+                    <path id="wpath-d" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                    <radialGradient id="wgrad-d">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="0.2" stop-color="#fff" stop-opacity="0.88"/>
+                        <stop offset="0.4" stop-color="#fff" stop-opacity="0.62"/>
+                        <stop offset="0.6" stop-color="#fff" stop-opacity="0.33"/>
+                        <stop offset="0.8" stop-color="#fff" stop-opacity="0.1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <mask id="wmask-d" maskUnits="userSpaceOnUse" x="-400" y="-500" width="2235" height="1400">
+                        <circle r="210" fill="url(#wgrad-d)" opacity="0">
+                            <animateMotion dur="9s" begin="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.55;1" keyPoints="0;1;1" keySplines="0.45 0 0.55 1;0 0 1 1"><mpath href="#wpath-d"/></animateMotion>
+                            <animate attributeName="opacity" dur="9s" begin="3s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.1;0.45;0.55;1"/>
+                        </circle>
+                    </mask>
+                    <filter id="wblur-d" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="8"/></filter>
                 </defs>
-                <g class="wave-spark" fill="none" stroke-linecap="round">
-                    <path class="shine-halo" pathLength="1000" stroke="currentColor" stroke-width="30" filter="url(#wsh-d)" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                    <path class="shine-core" pathLength="1000" stroke="#dffffb" stroke-width="9" filter="url(#wsc-d)" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                <g class="wave-spark" mask="url(#wmask-d)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <g stroke="currentColor" stroke-width="30" opacity="0.8" filter="url(#wblur-d)">
+                        <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
+                    <g stroke="#f0fffd" stroke-width="10.5">
+                        <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
                 </g>
             </svg>
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(12,12,12,0.55)_0%,transparent_45%,#0C0C0C_95%)] pointer-events-none"></div>
@@ -126,14 +148,36 @@
                         <path pathLength="1000" d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
                         <path pathLength="1000" d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
                     </g>
-                    <!-- weiches Schimmern, das regelmäßig durch die Welle zieht -->
+                    <!-- weiches Schimmern: ein heller Bereich mit fließendem Verlauf wandert an der Welle entlang -->
                     <defs>
-                        <filter id="wsh-m" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="9"/></filter>
-                        <filter id="wsc-m" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="3"/></filter>
+                        <path id="wpath-m" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <radialGradient id="wgrad-m">
+                            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                            <stop offset="0.2" stop-color="#fff" stop-opacity="0.88"/>
+                            <stop offset="0.4" stop-color="#fff" stop-opacity="0.62"/>
+                            <stop offset="0.6" stop-color="#fff" stop-opacity="0.33"/>
+                            <stop offset="0.8" stop-color="#fff" stop-opacity="0.1"/>
+                            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                        </radialGradient>
+                        <mask id="wmask-m" maskUnits="userSpaceOnUse" x="-400" y="-500" width="2235" height="1400">
+                            <circle r="210" fill="url(#wgrad-m)" opacity="0">
+                                <animateMotion dur="9s" begin="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.55;1" keyPoints="0;1;1" keySplines="0.45 0 0.55 1;0 0 1 1"><mpath href="#wpath-m"/></animateMotion>
+                                <animate attributeName="opacity" dur="9s" begin="3s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.1;0.45;0.55;1"/>
+                            </circle>
+                        </mask>
+                        <filter id="wblur-m" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="8"/></filter>
                     </defs>
-                    <g class="wave-spark" fill="none" stroke-linecap="round">
-                        <path class="shine-halo" pathLength="1000" stroke="currentColor" stroke-width="30" filter="url(#wsh-m)" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                        <path class="shine-core" pathLength="1000" stroke="#dffffb" stroke-width="9" filter="url(#wsc-m)" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                    <g class="wave-spark" mask="url(#wmask-m)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <g stroke="currentColor" stroke-width="30" opacity="0.8" filter="url(#wblur-m)">
+                            <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                            <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                            <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                        </g>
+                        <g stroke="#f0fffd" stroke-width="10.5">
+                            <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                            <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                            <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                        </g>
                     </g>
                 </svg>
                 <h1 class="mt-8 sm:mt-10 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">Ihre Firma weiß die Antwort. <span class="text-glow">LEXIA findet sie.</span></h1>

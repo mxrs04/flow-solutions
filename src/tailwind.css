@@ -105,22 +105,6 @@ body {
   animation: wave-breathe 7s ease-in-out 3s infinite;
 }
 
-/* weiches Schimmern, das alle ~9 Sekunden durch die Welle zieht (weichgezeichnet, damit es mit der Welle verschmilzt) */
-.glow-wave .wave-spark path {
-  opacity: 0;
-  animation: 9s cubic-bezier(0.45, 0, 0.55, 1) 3s infinite;
-}
-
-.glow-wave .wave-spark .shine-core {
-  stroke-dasharray: 170 1600;
-  animation-name: shine-core;
-}
-
-.glow-wave .wave-spark .shine-halo {
-  stroke-dasharray: 320 1600;
-  animation-name: shine-halo;
-}
-
 @keyframes wave-draw {
   to { stroke-dashoffset: 0; }
 }
@@ -128,22 +112,6 @@ body {
 @keyframes wave-breathe {
   0%, 100% { opacity: 0.9; }
   50% { opacity: 0.65; }
-}
-
-@keyframes shine-core {
-  0% { stroke-dashoffset: 170; opacity: 0; }
-  8% { opacity: 0.9; }
-  40% { opacity: 0.9; }
-  50% { stroke-dashoffset: -1000; opacity: 0; }
-  100% { stroke-dashoffset: -1000; opacity: 0; }
-}
-
-@keyframes shine-halo {
-  0% { stroke-dashoffset: 245; opacity: 0; }
-  8% { opacity: 0.7; }
-  40% { opacity: 0.7; }
-  50% { stroke-dashoffset: -925; opacity: 0; }
-  100% { stroke-dashoffset: -925; opacity: 0; }
 }
 
 /* ---------- LEXIA-Wortmarke: Buchstaben fliegen einzeln ein ---------- */
