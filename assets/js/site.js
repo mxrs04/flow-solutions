@@ -697,16 +697,33 @@
       if (preset[1]) $('#sonstigesText').value = preset[1];
       syncOther();
     }
-    form.addEventListener('submit', (e) => {
+    // Nachricht geht direkt an LEXIA (Liste auf der Plattform + Mail an Flow Solutions + Bestätigung an den Absender).
+    // Klappt das nicht, öffnet sich wie bisher das E-Mail-Programm – es geht nichts verloren.
+    const ANLIEGEN = { demo: 'Demo', pilot: 'Pilot', enterprise: 'Enterprise', sonstiges: 'Sonstiges' };
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const val = (id) => (document.getElementById(id)?.value || '').trim();
-      const topics = chips.filter((c) => c.getAttribute('aria-pressed') === 'true').map((c) => c.textContent.trim());
+      const gewaehlt = chips.filter((c) => c.getAttribute('aria-pressed') === 'true');
+      const topics = gewaehlt.map((c) => c.textContent.trim());
       const name = [val('first-name'), val('last-name')].filter(Boolean).join(' ');
-      const lines = [`Name: ${name}`, `Firma: ${val('company') || '–'}`, `E-Mail: ${val('email')}`, `Anliegen: ${topics.join(', ') || '–'}`];
-      if (val('sonstigesText')) lines.push(`Sonstiges: ${val('sonstigesText')}`);
-      lines.push('', val('message'));
-      const subject = `Anfrage über die Website${name ? ' – ' + name : ''}`;
-      location.href = `mailto:flowsolutions.digital@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      const nachricht = [val('sonstigesText') ? `Sonstiges: ${val('sonstigesText')}` : '', val('message')].filter(Boolean).join('\n\n');
+      const knopf = $('button[type="submit"]', form);
+      const alterText = knopf ? knopf.innerHTML : '';
+      if (knopf) { knopf.disabled = true; knopf.textContent = 'Wird gesendet …'; }
+      try {
+        const cfg = await fetch('/assets/downloads.json', { cache: 'no-store' }).then((r) => r.json());
+        const r = await fetch(`${cfg.app_url}/api/kontakt`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, firma: val('company'), email: val('email'), anliegen: gewaehlt.map((c) => ANLIEGEN[c.dataset.topic]).filter(Boolean), nachricht, website: (form.querySelector('[name="website"]') || {}).value || '' }),
+        });
+        if (!r.ok) throw new Error((await r.json().catch(() => ({}))).fehler || 'Fehler');
+        form.innerHTML = '<div class="rounded-3xl border border-lexia/40 bg-[#0b1817] p-8 text-center"><p class="text-2xl font-extrabold">Danke – Ihre Nachricht ist angekommen.</p><p class="mt-3 text-slate-300">Wir melden uns innerhalb eines Werktags. Eine Bestätigung ist per E-Mail unterwegs.</p></div>';
+      } catch (err) {
+        if (knopf) { knopf.disabled = false; knopf.innerHTML = alterText; }
+        const lines = [`Name: ${name}`, `Firma: ${val('company') || '–'}`, `E-Mail: ${val('email')}`, `Anliegen: ${topics.join(', ') || '–'}`, '', nachricht];
+        const subject = `Anfrage über die Website${name ? ' – ' + name : ''}`;
+        location.href = `mailto:flowsolutions.digital@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      }
     });
   }
 })();
