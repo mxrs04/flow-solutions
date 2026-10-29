@@ -163,6 +163,63 @@
     counters.forEach((el) => io.observe(el));
   }
 
+  // ---------- Startseite: Slogan in Buchstaben zerlegen; beim Scrollen (Bereich bleibt stehen) im Flow auflösen ----------
+  const heroFlow = $('#hero-flow');
+  if (heroFlow) {
+    let n = 0;
+    const zerlegen = (knoten) => {
+      [...knoten.childNodes].forEach((k) => {
+        if (k.nodeType === 3) {
+          // Wörter zusammenhalten (kein Umbruch mitten im Wort), darin jeder Buchstabe einzeln animiert
+          const frag = document.createDocumentFragment();
+          k.textContent.split(/(\s+)/).forEach((wort) => {
+            if (!wort) return;
+            if (/^\s+$/.test(wort)) { frag.appendChild(document.createTextNode(' ')); return; }
+            const w = document.createElement('span');
+            w.style.whiteSpace = 'nowrap'; w.style.display = 'inline-block';
+            for (const z of wort) {
+              const s = document.createElement('span');
+              s.className = 'fl-b'; s.textContent = z; s.style.setProperty('--i', n++);
+              w.appendChild(s);
+            }
+            frag.appendChild(w);
+          });
+          k.replaceWith(frag);
+        } else if (k.nodeType === 1) zerlegen(k);
+      });
+    };
+    $$('[data-zeile]', heroFlow).forEach(zerlegen);
+    const buchstaben = $$('.fl-b', heroFlow);
+    const welle = $('#heroWelle'), unten = $('#heroUnten'), hinweis = $('#heroHinweis');
+    if (!reducedMotion) {
+      let tick = false;
+      const update = () => {
+        tick = false;
+        const weg = Math.max(heroFlow.offsetHeight - innerHeight, 1);
+        const p = Math.min(Math.max(-heroFlow.getBoundingClientRect().top / weg, 0), 1);
+        // erst kurz stehen lassen, dann auflösen – so sieht man die Animation in Ruhe
+        const q = Math.min(Math.max((p - 0.12) / 0.6, 0), 1);
+        const e = q * q * (3 - 2 * q);
+        buchstaben.forEach((b, i) => {
+          if (!e) { b.style.transform = ''; b.style.opacity = ''; b.style.filter = ''; return; }
+          const phase = i * 0.55;
+          const dx = Math.sin(phase) * 70 * e;
+          const dy = (-40 - 90 * Math.abs(Math.cos(phase))) * e - Math.sin(phase + e * 3) * 18 * e;
+          b.style.transform = `translate3d(${dx}px, ${dy}px, 0) rotate(${Math.sin(phase) * 20 * e}deg)`;
+          b.style.opacity = String(Math.max(1 - e * 1.15, 0));
+          b.style.filter = `blur(${(e * 6).toFixed(2)}px)`;
+        });
+        const u = Math.min(Math.max((p - 0.35) / 0.45, 0), 1);
+        if (welle) { welle.style.transform = `translate(-50%, -50%) scale(${1 + e * 0.35})`; welle.style.opacity = String(1 - u * 0.9); }
+        if (unten) { unten.style.transform = `translateY(${-50 * e}px)`; unten.style.opacity = String(1 - u); }
+        if (hinweis) hinweis.style.opacity = String(Math.max(1 - p * 8, 0));
+      };
+      addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+      addEventListener('resize', update, { passive: true });
+      update();
+    }
+  }
+
   // ---------- Startseite: Slogan-Animation beim Scrollen ----------
   const hero = $('#hero-section');
   const heroLines = [$('#hero-line1'), $('#hero-line2')];

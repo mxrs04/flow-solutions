@@ -229,45 +229,107 @@
 
     <main id="main" class="relative z-10">
 
-        <!-- Hero -->
-        <section id="hero-section" class="relative min-h-[85vh] sm:min-h-screen flex flex-col pt-24 sm:pt-36 pb-8 sm:pb-16 px-4 sm:px-8 lg:px-12 overflow-hidden">
-            <picture class="absolute inset-0 z-0 pointer-events-none">
-                <source media="(max-width: 767px)" srcset="/assets/img/hero-mobile.jpg">
-                <img src="/assets/img/hero-2560.jpg" srcset="/assets/img/hero-2560.jpg 2560w, /assets/img/hero-3840.jpg 3840w" sizes="100vw" alt=""
-                    class="w-full h-full object-cover object-center opacity-90 crisp-hero-bg" fetchpriority="high">
-            </picture>
-            <!-- dämpft den hellsten Bereich oben in der Mitte, damit er nicht blendet -->
-            <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_65%_45%_at_52%_18%,rgba(12,12,12,0.38),rgba(12,12,12,0.12)_60%,transparent_85%)]"></div>
-            <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent via-35% to-[#0C0C0C]"></div>
-
-            <div class="relative z-10 w-full max-w-7xl mx-auto flex-1 flex flex-col justify-between">
-                <div class="flex justify-end pt-4 sm:pt-6">
-                    <p class="text-right text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.25]" aria-label="Weniger Aufwand, mehr Flow.">
-                        <span id="hero-line1" class="hero-anim-element block mb-2 sm:mb-4">WENIGER AUFWAND,</span>
-                        <span id="hero-line2" class="hero-anim-element block">MEHR <span class="font-serif italic font-medium text-glow">FLOW</span>.</span>
-                    </p>
+        <!-- Hero: Slogan fließt herein; beim Scrollen bleibt der Bereich kurz stehen und die Buchstaben lösen sich im Flow auf -->
+        <section id="hero-flow" class="relative h-[210vh] motion-reduce:h-auto">
+            <div class="sticky top-0 h-[100svh] overflow-hidden flex flex-col">
+                <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_58%,rgba(50,243,221,0.10),transparent_62%)]"></div>
+                <div id="heroWelle" class="absolute left-1/2 top-[47%] w-[90%] max-w-[1400px] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <svg class="glow-wave hidden sm:block w-full h-auto text-lexia opacity-90 pointer-events-none" viewBox="-5 -185 1435 800" aria-hidden="true">
+                <g class="wave-draw" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+                    <path pathLength="1000" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                    <path pathLength="1000" d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                    <path pathLength="1000" d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                </g>
+                <!-- weiches Schimmern: ein heller Bereich mit fließendem Verlauf wandert an der Welle entlang -->
+                <defs>
+                    <path id="hpath-d" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                    <radialGradient id="hgrad-d">
+                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                        <stop offset="0.2" stop-color="#fff" stop-opacity="0.88"/>
+                        <stop offset="0.4" stop-color="#fff" stop-opacity="0.62"/>
+                        <stop offset="0.6" stop-color="#fff" stop-opacity="0.33"/>
+                        <stop offset="0.8" stop-color="#fff" stop-opacity="0.1"/>
+                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <mask id="hmask-d" maskUnits="userSpaceOnUse" x="-400" y="-500" width="2235" height="1400">
+                        <circle r="210" fill="url(#hgrad-d)" opacity="0">
+                            <animateMotion dur="9s" begin="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.55;1" keyPoints="0;1;1" keySplines="0.45 0 0.55 1;0 0 1 1"><mpath href="#hpath-d"/></animateMotion>
+                            <animate attributeName="opacity" dur="9s" begin="3s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.1;0.45;0.55;1"/>
+                        </circle>
+                    </mask>
+                    <filter id="hblur-d" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="8"/></filter>
+                </defs>
+                <g class="wave-spark" mask="url(#hmask-d)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <g stroke="currentColor" stroke-width="44" opacity="0.8" filter="url(#hblur-d)">
+                        <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
+                    <g stroke="#f0fffd" stroke-width="15.5">
+                        <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
+                </g>
+            </svg>
                 </div>
-
-                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 pb-2 sm:pb-8 mt-auto">
-                    <div id="hero-h1" class="hero-anim-element max-w-2xl">
-                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15]">
-                            <span class="text-glow">LEXIA</span> – die Unternehmens-KI, die Ihr Firmenwissen beantwortet.
-                        </h1>
-                        <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-300">
-                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lexia"></span>Jede Antwort mit Quelle</li>
-                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lexia"></span>Daten in Frankfurt</li>
-                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lexia"></span>Ab 149 € im Monat</li>
-                        </ul>
+                <div class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-20 text-center">
+                    <p id="heroSlogan" class="text-[2.4rem] leading-[1.08] sm:text-6xl lg:text-8xl xl:text-[6.5rem] font-extrabold tracking-tight [text-shadow:0_2px_30px_#0C0C0C]" aria-label="Weniger Aufwand, mehr Flow.">
+                        <span class="block" data-zeile aria-hidden="true">WENIGER AUFWAND,</span>
+                        <span class="block mt-1 sm:mt-2" data-zeile aria-hidden="true">MEHR <span class="font-serif italic font-medium text-glow">FLOW</span>.</span>
+                    </p>
+                    <div class="sm:hidden w-full -my-6">
+                    <svg class="glow-wave sm:hidden block w-full h-auto text-lexia" viewBox="-5 -185 1435 800" aria-hidden="true">
+                    <g class="wave-draw" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+                        <path pathLength="1000" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <path pathLength="1000" d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                        <path pathLength="1000" d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                    </g>
+                    <!-- weiches Schimmern: ein heller Bereich mit fließendem Verlauf wandert an der Welle entlang -->
+                    <defs>
+                        <path id="hpath-m" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                        <radialGradient id="hgrad-m">
+                            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+                            <stop offset="0.2" stop-color="#fff" stop-opacity="0.88"/>
+                            <stop offset="0.4" stop-color="#fff" stop-opacity="0.62"/>
+                            <stop offset="0.6" stop-color="#fff" stop-opacity="0.33"/>
+                            <stop offset="0.8" stop-color="#fff" stop-opacity="0.1"/>
+                            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+                        </radialGradient>
+                        <mask id="hmask-m" maskUnits="userSpaceOnUse" x="-400" y="-500" width="2235" height="1400">
+                            <circle r="210" fill="url(#hgrad-m)" opacity="0">
+                                <animateMotion dur="9s" begin="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.55;1" keyPoints="0;1;1" keySplines="0.45 0 0.55 1;0 0 1 1"><mpath href="#hpath-m"/></animateMotion>
+                                <animate attributeName="opacity" dur="9s" begin="3s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.1;0.45;0.55;1"/>
+                            </circle>
+                        </mask>
+                        <filter id="hblur-m" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="8"/></filter>
+                    </defs>
+                    <g class="wave-spark" mask="url(#hmask-m)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <g stroke="currentColor" stroke-width="44" opacity="0.8" filter="url(#hblur-m)">
+                            <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                            <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                            <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                        </g>
+                        <g stroke="#f0fffd" stroke-width="15.5">
+                            <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                            <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                            <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                        </g>
+                    </g>
+                </svg>
                     </div>
-                    <div id="hero-cta-container" class="hero-anim-element flex flex-col sm:flex-row items-center gap-3 sm:gap-4 shrink-0 lg:mb-2 w-full lg:w-auto">
-                        <a href="/lexia" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">
-                            So funktioniert LEXIA
-                            <svg class="w-5 h-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                        </a>
-                        <a href="/kontakt?anliegen=demo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-full transition-colors hover-scale backdrop-blur-md">
-                            Demo anfragen
-                        </a>
+                    <div id="heroUnten" class="hero-unten mt-6 sm:mt-24 max-w-2xl">
+                        <p class="text-xs font-mono uppercase tracking-[0.25em] text-lexia">LEXIA · Unternehmens-KI aus Esslingen</p>
+                        <h1 class="mt-4 text-xl sm:text-2xl font-semibold text-slate-200 leading-snug [text-shadow:0_1px_16px_#0C0C0C]">Ihr Firmenwissen – sofort beantwortet, immer mit Quelle.</h1>
+                        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                            <a href="/lexia" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">So funktioniert LEXIA <span aria-hidden="true" class="ml-2">→</span></a>
+                            <a href="/kontakt?anliegen=demo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-full transition-colors hover-scale">Demo anfragen</a>
+                        </div>
                     </div>
+                </div>
+                <div id="heroHinweis" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[11px] font-mono uppercase tracking-[0.25em] text-slate-500 motion-reduce:hidden" aria-hidden="true">
+                    Scrollen
+                    <span class="w-px h-10 bg-gradient-to-b from-lexia to-transparent animate-pulse"></span>
                 </div>
             </div>
         </section>

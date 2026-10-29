@@ -127,48 +127,11 @@
 
         <!-- Hero -->
         <section class="relative min-h-[92vh] flex items-center pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <svg class="glow-wave hidden sm:block absolute left-1/2 top-[68%] -translate-x-1/2 -translate-y-1/2 sm:w-[94%] max-w-[1500px] text-lexia opacity-90 pointer-events-none [mask-image:linear-gradient(to_right,transparent,#000_10%,#000_90%,transparent)]" viewBox="-5 -185 1435 800" aria-hidden="true">
-                <g class="wave-draw" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-                    <path pathLength="1000" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                    <path pathLength="1000" d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                    <path pathLength="1000" d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
-                </g>
-                <!-- weiches Schimmern: ein heller Bereich mit fließendem Verlauf wandert an der Welle entlang -->
-                <defs>
-                    <path id="wpath-d" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                    <radialGradient id="wgrad-d">
-                        <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-                        <stop offset="0.2" stop-color="#fff" stop-opacity="0.88"/>
-                        <stop offset="0.4" stop-color="#fff" stop-opacity="0.62"/>
-                        <stop offset="0.6" stop-color="#fff" stop-opacity="0.33"/>
-                        <stop offset="0.8" stop-color="#fff" stop-opacity="0.1"/>
-                        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-                    </radialGradient>
-                    <mask id="wmask-d" maskUnits="userSpaceOnUse" x="-400" y="-500" width="2235" height="1400">
-                        <circle r="210" fill="url(#wgrad-d)" opacity="0">
-                            <animateMotion dur="9s" begin="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.55;1" keyPoints="0;1;1" keySplines="0.45 0 0.55 1;0 0 1 1"><mpath href="#wpath-d"/></animateMotion>
-                            <animate attributeName="opacity" dur="9s" begin="3s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.1;0.45;0.55;1"/>
-                        </circle>
-                    </mask>
-                    <filter id="wblur-d" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="8"/></filter>
-                </defs>
-                <g class="wave-spark" mask="url(#wmask-d)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <g stroke="currentColor" stroke-width="30" opacity="0.8" filter="url(#wblur-d)">
-                        <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                        <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                        <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
-                    </g>
-                    <g stroke="#f0fffd" stroke-width="10.5">
-                        <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                        <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                        <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
-                    </g>
-                </g>
-            </svg>
+            
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(12,12,12,0.55)_0%,transparent_45%,#0C0C0C_95%)] pointer-events-none"></div>
 
             <div class="relative max-w-5xl mx-auto text-center">
-                <svg id="lexiaMark" class="w-[78%] sm:w-[620px] h-auto mx-auto text-white overflow-visible" viewBox="0 0 1221 229" role="img" aria-label="LEXIA" fill="currentColor">
+                <svg id="lexiaMark" class="lx-halo w-[78%] sm:w-[620px] h-auto mx-auto text-white overflow-visible" viewBox="0 0 1221 229" role="img" aria-label="LEXIA" fill="currentColor">
                     <g class="lx-l" style="--i:0;--fx:-420px;--fy:-160px;--fr:-35deg"><rect x="0" y="0" width="52" height="229"/><rect x="0" y="183" width="187" height="46"/></g>
                     <g class="lx-l" style="--i:1;--fx:-180px;--fy:320px;--fr:20deg"><rect x="257" y="0" width="192" height="46"/><rect x="257" y="91" width="192" height="46"/><rect x="257" y="183" width="192" height="46"/></g>
                     <g class="lx-l" style="--i:2;--fx:0px;--fy:-380px;--fr:120deg"><polygon points="529,0 592,0 765,229 702,229"/><polygon points="702,0 765,0 592,229 529,229"/></g>
@@ -176,45 +139,7 @@
                     <g class="lx-l" style="--i:4;--fx:420px;--fy:-180px;--fr:40deg"><polygon points="969,229 1069,0 1121,0 1221,229 1166,229 1094,60 1024,229"/></g>
                 </svg>
                 <p class="mt-6 text-xs font-mono uppercase tracking-[0.25em] text-slate-300">Ein Produkt von Flow Solutions</p>
-                <!-- Welle auf dem Handy: eigene Zeile, damit sie ganz sichtbar ist und keinen Text überdeckt -->
-                <svg class="glow-wave sm:hidden block w-full h-auto -mt-3 -mb-9 text-lexia" viewBox="-5 -185 1435 800" aria-hidden="true">
-                    <g class="wave-draw" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-                        <path pathLength="1000" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                        <path pathLength="1000" d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                        <path pathLength="1000" d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
-                    </g>
-                    <!-- weiches Schimmern: ein heller Bereich mit fließendem Verlauf wandert an der Welle entlang -->
-                    <defs>
-                        <path id="wpath-m" d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                        <radialGradient id="wgrad-m">
-                            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-                            <stop offset="0.2" stop-color="#fff" stop-opacity="0.88"/>
-                            <stop offset="0.4" stop-color="#fff" stop-opacity="0.62"/>
-                            <stop offset="0.6" stop-color="#fff" stop-opacity="0.33"/>
-                            <stop offset="0.8" stop-color="#fff" stop-opacity="0.1"/>
-                            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-                        </radialGradient>
-                        <mask id="wmask-m" maskUnits="userSpaceOnUse" x="-400" y="-500" width="2235" height="1400">
-                            <circle r="210" fill="url(#wgrad-m)" opacity="0">
-                                <animateMotion dur="9s" begin="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.55;1" keyPoints="0;1;1" keySplines="0.45 0 0.55 1;0 0 1 1"><mpath href="#wpath-m"/></animateMotion>
-                                <animate attributeName="opacity" dur="9s" begin="3s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.1;0.45;0.55;1"/>
-                            </circle>
-                        </mask>
-                        <filter id="wblur-m" filterUnits="userSpaceOnUse" x="-200" y="-300" width="1835" height="1000"><feGaussianBlur stdDeviation="8"/></filter>
-                    </defs>
-                    <g class="wave-spark" mask="url(#wmask-m)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <g stroke="currentColor" stroke-width="30" opacity="0.8" filter="url(#wblur-m)">
-                            <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                            <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                            <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
-                        </g>
-                        <g stroke="#f0fffd" stroke-width="10.5">
-                            <path  d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                            <path  d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                            <path  d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
-                        </g>
-                    </g>
-                </svg>
+                
                 <h1 class="mt-8 sm:mt-10 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">Ihre Firma weiß die Antwort. <span class="text-glow">LEXIA findet sie.</span></h1>
                 <p class="mt-6 text-slate-200 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_14px_#0C0C0C]">LEXIA beantwortet Fragen aus Ihrem Firmenwissen – immer mit Quelle, und nur mit dem, was die fragende Person sehen darf.</p>
                 <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
