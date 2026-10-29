@@ -501,3 +501,9 @@ input[type="range"].range::-moz-range-thumb {
 @media (prefers-reduced-motion: reduce) {
   .fl-b, .hero-unten, .lx-l, .lx-l > * { animation: none !important; }
 }
+
+/* „FLOW“ im Slogan: dunkler Hof trennt die Buchstaben von der gleichfarbigen Welle dahinter, darüber ein türkiser Schein */
+.flow-wort {
+  color: #6ff8ea;
+  text-shadow: 0 0 3px #0C0C0C, 0 0 8px #0C0C0C, 0 0 16px #0C0C0C, 0 0 30px #0C0C0C, 0 0 46px rgba(50, 243, 221, 0.55);
+}
