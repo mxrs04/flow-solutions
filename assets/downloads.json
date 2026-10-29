@@ -1,0 +1,23 @@
+{
+  "app_url": "https://lexia-nu.vercel.app",
+  "aktuell": {
+    "version": "Web-App",
+    "datum": "2026-10-29",
+    "hinweis": "LEXIA läuft im Browser und lässt sich als App auf Handy und Computer installieren.",
+    "dateien": [
+      {
+        "system": "mac",
+        "name": "macOS",
+        "url": null,
+        "groesse": null
+      },
+      {
+        "system": "windows",
+        "name": "Windows",
+        "url": null,
+        "groesse": null
+      }
+    ]
+  },
+  "frueher": []
+}

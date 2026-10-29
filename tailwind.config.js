@@ -13,6 +13,11 @@ module.exports = {
           DEFAULT: '#32F3DD',
           deep: '#14b8a6',
         },
+        // Enterprise: warmes Champagner-Gold – edel, aber ruhiger als das Business-Türkis
+        gold: {
+          DEFAULT: '#F2D48B',
+          deep: '#C9A24D',
+        },
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],

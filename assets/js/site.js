@@ -469,6 +469,85 @@
     });
   });
 
+  // ---------- Download-Seite: Versionen und App-Adresse aus assets/downloads.json ----------
+  const dl = $('#dlDateien');
+  if (dl || $('[data-app-link]')) {
+    fetch('/assets/downloads.json', { cache: 'no-store' }).then((r) => r.json()).then((d) => {
+      $$('[data-app-link]').forEach((a) => { if (d.app_url) a.href = d.app_url; });
+      if (!dl) return;
+      const a = d.aktuell || {};
+      const datum = a.datum ? new Date(a.datum).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+      $('#dlVersion').textContent = a.version ? `Version ${a.version}${datum ? ' · ' + datum : ''}` : '';
+      $('#dlHinweis').textContent = a.hinweis || '';
+      dl.innerHTML = (a.dateien || []).map((f) => f.url
+        ? `<a href="${f.url}" class="flex items-center justify-between gap-3 rounded-2xl bg-lexia text-[#04201d] px-5 py-4 font-bold hover:bg-white transition-colors"><span>Für ${f.name} herunterladen</span><span class="text-sm font-semibold opacity-75">${f.groesse || ''}</span></a>`
+        : `<div class="flex items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-900/60 px-5 py-4"><span class="font-semibold">${f.name}</span><span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-slate-700 text-slate-400">Bald verfügbar</span></div>`).join('');
+      const alt = d.frueher || [];
+      $('#dlFrueher').innerHTML = alt.length ? `<details><summary class="cursor-pointer text-sm text-slate-400">Frühere Versionen</summary><ul class="mt-3 space-y-2 text-sm">${alt.map((v) => `<li>${v.version} · ${v.datum}${(v.dateien || []).filter((f) => f.url).map((f) => ` · <a class="text-lexia" href="${f.url}">${f.name}</a>`).join('')}</li>`).join('')}</ul></details>` : '';
+    }).catch(() => {});
+  }
+
+  // ---------- Kaufseite: Zusammenfassung live rechnen, Bestellung an LEXIA senden ----------
+  const kauf = $('#kaufForm');
+  if (kauf) {
+    const p = new URLSearchParams(location.search).get('paket');
+    if (p === 'start' || p === 'business') $$('input[name="paket"]', kauf).forEach((r) => { r.checked = r.value === p; });
+    const geld = (x) => x.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+    const stand = () => {
+      const paket = $('input[name="paket"]:checked', kauf).value;
+      const personen = Math.max(1, Math.round(+$('#kPersonen').value || 1));
+      const plan = paket === 'start' ? { base: 149, perPerson: 0, incl: 15, credit: 20, creditPP: 0 } : { base: 199, perPerson: 6, incl: 15, credit: 20, creditPP: 1 };
+      const weitere = paket === 'start' ? 0 : Math.max(0, personen - plan.incl);
+      const netto = plan.base + weitere * plan.perPerson;
+      return { paket, personen, plan, weitere, netto, guthaben: plan.credit + weitere * plan.creditPP };
+    };
+    const zeigen = () => {
+      const s = stand();
+      $('#kPersonenFeld').hidden = s.paket === 'start';
+      $('#kPaket').textContent = s.paket === 'start' ? 'START' : 'BUSINESS';
+      $('#kGrund').textContent = geld(s.plan.base);
+      $('#kWeitere').textContent = s.paket === 'start' ? 'bis 15 inklusive' : s.weitere ? `15 inkl. + ${s.weitere} × 6 € = ${geld(s.weitere * 6)}` : '15 inklusive';
+      $('#kGuthaben').textContent = `${geld(s.guthaben)} inklusive`;
+      $('#kNetto').textContent = geld(s.netto);
+      $('#kUst').textContent = geld(s.netto * 0.19);
+      $('#kBrutto').textContent = geld(s.netto * 1.19);
+    };
+    kauf.addEventListener('input', zeigen);
+    kauf.addEventListener('change', zeigen);
+    zeigen();
+    kauf.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fehler = $('#kFehler');
+      const zeige = (t) => { fehler.textContent = t; fehler.classList.toggle('hidden', !t); };
+      const f = new FormData(kauf);
+      const s = stand();
+      const daten = {
+        paket: s.paket, personen: s.paket === 'start' ? 1 : s.personen, zahlweise: f.get('zahlweise') || 'rechnung',
+        firma: f.get('firma'), anschrift: f.get('anschrift'), ust_id: f.get('ust_id'), name: f.get('name'), email: f.get('email'),
+        telefon: f.get('telefon'), nachricht: f.get('nachricht'), website: f.get('website'), netto_monat: s.netto, zustimmung: $('#kZustimmung').checked,
+      };
+      if (!String(daten.firma || '').trim() || !String(daten.name || '').trim()) return zeige('Bitte Firma und Ihren Namen angeben.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(daten.email || ''))) return zeige('Bitte eine gültige E-Mail-Adresse angeben.');
+      if (!daten.zustimmung) return zeige('Bitte bestätigen Sie die Hinweise zur Bestellung.');
+      zeige('');
+      const knopf = $('#kSenden'); knopf.disabled = true; knopf.textContent = 'Wird gesendet …';
+      try {
+        const cfg = await fetch('/assets/downloads.json', { cache: 'no-store' }).then((r) => r.json());
+        const r = await fetch(`${cfg.app_url}/api/bestellung`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(daten) });
+        const a = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(a.fehler || 'Fehler');
+        kauf.hidden = true; $('#kDanke').classList.remove('hidden'); scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (err) {
+        // Notfall: Bestellung per E-Mail-Programm schicken, damit nichts verloren geht
+        const text = `Bestellung LEXIA ${s.paket === 'start' ? 'Start' : 'Business'}${s.paket === 'business' ? ` (${s.personen} Personen)` : ''}%0D%0AFirma: ${encodeURIComponent(daten.firma)}%0D%0AAnschrift: ${encodeURIComponent(daten.anschrift || '')}%0D%0AUSt-IdNr.: ${encodeURIComponent(daten.ust_id || '')}%0D%0AAnsprechperson: ${encodeURIComponent(daten.name)}, ${encodeURIComponent(daten.email)} ${encodeURIComponent(daten.telefon || '')}%0D%0AZahlung: Rechnung%0D%0A${encodeURIComponent(daten.nachricht || '')}`;
+        zeige(`${err.message && err.message !== 'Fehler' && err.message !== 'Failed to fetch' ? err.message + ' ' : ''}Sie können die Bestellung auch per E-Mail senden: `);
+        const link = document.createElement('a'); link.href = `mailto:flowsolutions.digital@gmail.com?subject=Bestellung LEXIA&body=${text}`; link.textContent = 'E-Mail öffnen'; link.className = 'underline font-semibold';
+        fehler.appendChild(link);
+        knopf.disabled = false; knopf.textContent = 'Bestellung absenden';
+      }
+    });
+  }
+
   // ---------- Abo: monatlich / jährlich ----------
   const billing = $('.billing-toggle');
   if (billing) {
