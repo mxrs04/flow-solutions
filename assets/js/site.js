@@ -530,7 +530,7 @@
   const dl = $('#dlDateien');
   if (dl || $('[data-app-link]')) {
     fetch('/assets/downloads.json', { cache: 'no-store' }).then((r) => r.json()).then((d) => {
-      $$('[data-app-link]').forEach((a) => { if (d.app_url) a.href = d.app_url; });
+      $$('[data-app-link]').forEach((a) => { if (d.app_url) a.href = d.app_url + (a.dataset.appPfad || ''); });
       if (!dl) return;
       const a = d.aktuell || {};
       const datum = a.datum ? new Date(a.datum).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
