@@ -517,3 +517,14 @@ input[type="range"].range::-moz-range-thumb {
 .gezeichnet .branche:nth-child(5) .branche-icon path { transition-delay: 0.48s; }
 .gezeichnet .branche:nth-child(6) .branche-icon path { transition-delay: 0.6s; }
 @media (prefers-reduced-motion: reduce) { .branche-icon path { stroke-dashoffset: 0; transition: none; } }
+
+/* ---------- Über uns: Funke zwischen den Fingerspitzen ---------- */
+.haende-funke {
+  box-shadow: 0 0 12px 4px rgba(50, 243, 221, 0.9), 0 0 40px 12px rgba(50, 243, 221, 0.35);
+  animation: funke 3.2s ease-in-out infinite;
+}
+@keyframes funke {
+  0%, 100% { opacity: 0.15; transform: translate(-50%, -50%) scale(0.5); }
+  45%, 55% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { .haende-funke { animation: none; opacity: 0.8; } }

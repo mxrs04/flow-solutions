@@ -68,7 +68,7 @@
     {
       id: 'wer', frage: 'Wer steckt hinter LEXIA?',
       worte: ['wer', 'flow solutions', 'gründer', 'firma', 'esslingen', 'maximilian', 'hersteller'],
-      antwort: 'Flow Solutions aus Esslingen am Neckar entwickelt LEXIA selbst. Ihr Ansprechpartner ist der Gründer Maximilian Reiser – Wünsche fließen direkt in die nächste Version ein.',
+      antwort: 'Flow Solutions aus Esslingen am Neckar entwickelt LEXIA selbst. Sie sprechen direkt mit dem Gründer – Wünsche fließen direkt in die nächste Version ein.',
       links: [['Über uns', '/ueber-uns']],
     },
     {
