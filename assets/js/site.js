@@ -666,7 +666,7 @@
       $('#pcKi').textContent = euro(b.ai, 2);
       $('#pcIncluded').textContent = euro(b.credit, 0);
       $('#pcOver').textContent = b.overCost > 0 ? euro(b.overCost, 2) : 'nichts';
-      $('#pcYearly').textContent = euro((b.fixed * 10 + b.overCost * 12) / 12, 0);
+
       $('#pcCompare').textContent = !startOk
         ? 'Start gilt für bis zu 15 Personen – ab 16 Personen ist Business das passende Paket.'
         : key === 'start'

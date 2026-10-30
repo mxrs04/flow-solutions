@@ -143,61 +143,9 @@
                 <h1 class="mt-8 sm:mt-10 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">Ihre Firma weiß die Antwort. <span class="text-glow">LEXIA findet sie.</span></h1>
                 <p class="mt-6 text-slate-200 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed [text-shadow:0_1px_14px_#0C0C0C]">LEXIA beantwortet Fragen aus Ihrem Firmenwissen – immer mit Quelle, und nur mit dem, was die fragende Person sehen darf.</p>
                 <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                    <a href="/abo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">Preise ansehen</a>
-                    <a href="/kontakt?anliegen=demo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold border border-slate-700 bg-slate-900/80 hover:border-lexia hover:text-lexia rounded-full transition-colors hover-scale">Demo anfragen</a>
+                    <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">30 Tage kostenlos testen</a>
+                    <a href="/abo" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold border border-slate-700 bg-slate-900/80 hover:border-lexia hover:text-lexia rounded-full transition-colors hover-scale">Preise ansehen</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Live-Demo -->
-        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div data-reveal>
-                    <p class="text-xs font-mono uppercase tracking-[0.2em] text-lexia mb-4">So fühlt es sich an</p>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">Fragen Sie in Ihren eigenen Worten. <span class="text-glow">LEXIA antwortet mit Quelle.</span></h2>
-                    <p class="mt-6 text-slate-400 text-base sm:text-lg leading-relaxed">Kein Suchen in Ordnern, kein Rumfragen im Büro: Ihr Team stellt eine Frage, LEXIA antwortet aus Ihren Dokumenten, Prozessen und dem Organigramm – und zeigt, woher die Antwort stammt und wer zuständig ist.</p>
-                    <ul class="mt-8 space-y-3 text-slate-300">
-                        <li class="flex gap-3"><span class="text-lexia" aria-hidden="true">✓</span>Quellen-Chips zum Nachlesen</li>
-                        <li class="flex gap-3"><span class="text-lexia" aria-hidden="true">✓</span>Direkter Verweis auf die zuständige Person</li>
-                        <li class="flex gap-3"><span class="text-lexia" aria-hidden="true">✓</span>Jeden Ablauf als Checkliste starten</li>
-                    </ul>
-                </div>
-
-                <figure id="chatDemo" class="rounded-3xl border border-slate-800 bg-[#0f1214] shadow-[0_30px_80px_-20px_rgba(50,243,221,0.18)] overflow-hidden" data-reveal>
-                    <div class="flex items-center gap-2 px-5 py-3.5 border-b border-slate-800 bg-slate-900/60">
-                        <span class="w-3 h-3 rounded-full bg-[#FF453A]"></span><span class="w-3 h-3 rounded-full bg-[#FFD60A]"></span><span class="w-3 h-3 rounded-full bg-[#30D158]"></span>
-                        <span class="ml-3 text-xs font-semibold tracking-[0.2em] text-slate-400">LEXIA · CHAT</span>
-                        <span class="ml-auto text-[10px] uppercase tracking-wider text-slate-500">Beispiel</span>
-                    </div>
-                    <div id="chatBody" class="h-[360px] sm:h-[400px] overflow-hidden flex flex-col justify-end gap-3 p-5 text-sm" aria-live="off"></div>
-                    <div class="border-t border-slate-800 p-4">
-                        <div class="flex items-center gap-3 rounded-2xl bg-slate-900 border border-slate-800 px-4 py-3">
-                            <span id="chatInput" class="flex-1 min-h-[1.25rem] text-sm text-white"></span>
-                            <span class="w-8 h-8 rounded-full bg-lexia text-[#04201d] flex items-center justify-center" aria-hidden="true">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-                            </span>
-                        </div>
-                    </div>
-                    <figcaption class="sr-only">Beispiel: LEXIA beantwortet die Frage „Wer ist zuständig für Reklamationen?“ mit Quellen und der zuständigen Person.</figcaption>
-                </figure>
-                <script type="application/json" id="chatScenes">
-                    [
-                        {
-                            "greeting": "Guten Morgen, Clara. Was möchten Sie wissen?",
-                            "question": "Wer ist zuständig für Reklamationen?",
-                            "answer": "Für Reklamationen ist der Vertrieb zuständig. Erste Ansprechperson ist Ben, Leitung Vertrieb. Den Ablauf finden Sie im Prozess „Reklamation bearbeiten“.",
-                            "sources": ["Organigramm", "Prozess: Reklamation bearbeiten"],
-                            "action": "Zuständig: Vertrieb · Ben (Leitung)"
-                        },
-                        {
-                            "greeting": "Guten Morgen, Clara. Was möchten Sie wissen?",
-                            "question": "Wie beantrage ich Urlaub?",
-                            "answer": "Urlaub beantragen Sie mit dem Formular im Personalbereich, möglichst zwei Wochen vorher. Ihre Führungskraft gibt den Antrag frei.",
-                            "sources": ["Handbuch Personal", "Prozess: Urlaubsantrag"],
-                            "action": "Als Checkliste starten"
-                        }
-                    ]
-                </script>
             </div>
         </section>
 
