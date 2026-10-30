@@ -30,7 +30,7 @@
       links: [['Sicherheit & Technik', '/lexia#sicherheit']],
     },
     {
-      id: 'chatgpt', frage: 'Was ist der Unterschied zu ChatGPT?',
+      id: 'chatgpt', frage: 'Was unterscheidet LEXIA von ChatGPT & Co.?',
       worte: ['chatgpt', 'gpt', 'copilot', 'openai', 'unterschied', 'alternative'],
       antwort: 'LEXIA antwortet nur aus Ihrem Firmenwissen, zeigt immer die Quelle und beachtet Ihre Rechte: Jede Person sieht nur, was sie auch sonst sehen darf. Weiß LEXIA etwas nicht, sagt sie das – statt zu raten.',
       links: [['Mehr über LEXIA', '/lexia']],
@@ -98,22 +98,30 @@
   knopf.setAttribute('aria-controls', 'fragLexia');
   knopf.innerHTML = '<span class="w-2 h-2 rounded-full bg-lexia animate-pulse" aria-hidden="true"></span>Frag LEXIA';
 
-  const fenster = el('section', '[&[hidden]]:hidden fixed bottom-20 right-3 sm:right-5 z-[60] w-[min(380px,calc(100vw-24px))] max-h-[min(560px,calc(100dvh-110px))] flex flex-col rounded-3xl border border-slate-800 bg-[#121212] shadow-2xl');
+  // Handy: Vollbild mit fester Fläche (nichts von der Seite scheint durch). Großer Bildschirm: Fenster unten rechts.
+  const fenster = el('section', '[&[hidden]]:hidden fixed inset-0 z-[200] flex flex-col bg-[#121212] origin-bottom-right transition-[transform,opacity,width,height] duration-300 ease-out sm:inset-auto sm:bottom-20 sm:right-5 sm:w-[380px] sm:h-[min(560px,calc(100dvh-110px))] sm:rounded-3xl sm:border sm:border-slate-800 sm:shadow-2xl data-[gross]:sm:w-[min(720px,calc(100vw-40px))] data-[gross]:sm:h-[min(820px,calc(100dvh-110px))]');
   fenster.id = 'fragLexia';
   fenster.hidden = true;
+  fenster.setAttribute('role', 'dialog');
   fenster.setAttribute('aria-label', 'Frag LEXIA');
+  const punkt = 'group/p flex h-3.5 w-3.5 items-center justify-center rounded-full text-[9px] font-bold leading-none text-black/0 hover:text-black/70 focus-visible:text-black/70 focus:outline-none';
   fenster.innerHTML = `
-    <div class="flex items-center gap-2 border-b border-slate-800 px-5 py-3.5">
-      <span class="w-2.5 h-2.5 rounded-full bg-[#FF453A]"></span><span class="w-2.5 h-2.5 rounded-full bg-[#FFD60A]"></span><span class="w-2.5 h-2.5 rounded-full bg-[#30D158]"></span>
-      <span class="ml-3 text-sm font-semibold">Frag LEXIA</span>
-      <button type="button" data-zu class="ml-auto w-9 h-9 -mr-2 rounded-full text-slate-400 hover:text-white hover:bg-slate-800" aria-label="Schließen">✕</button>
+    <div class="flex items-center gap-2 border-b border-slate-800 px-5 pb-3.5 pt-[max(0.875rem,env(safe-area-inset-top))]">
+      <span class="group flex items-center gap-2">
+        <button type="button" data-ampel="zu" title="Schließen" aria-label="Schließen" class="${punkt} bg-[#FF453A]">×</button>
+        <button type="button" data-ampel="klein" title="Minimieren" aria-label="Minimieren" class="${punkt} bg-[#FFD60A]">−</button>
+        <button type="button" data-ampel="gross" title="Vergrößern" aria-label="Vergrößern" class="${punkt} bg-[#30D158]">+</button>
+      </span>
+      <span class="ml-3 text-base font-semibold">Frag LEXIA</span>
+      <button type="button" data-zu class="ml-auto inline-flex h-10 items-center gap-1 rounded-full px-3 -mr-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800" aria-label="Schließen"><span class="sm:hidden">Schließen</span><span aria-hidden="true">✕</span></button>
     </div>
-    <div data-verlauf class="flex-1 overflow-y-auto px-5 py-4 flex flex-col gap-3 text-sm" aria-live="polite"></div>
-    <form data-form class="flex gap-2 border-t border-slate-800 p-3">
-      <input data-eingabe type="text" maxlength="200" placeholder="Ihre Frage …" aria-label="Ihre Frage" class="flex-1 min-w-0 rounded-full bg-slate-900 border border-slate-800 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-lexia/60">
-      <button type="submit" class="rounded-full bg-lexia px-4 text-sm font-bold text-[#04201d] hover:bg-white">Fragen</button>
+    <div data-verlauf class="flex-1 overflow-y-auto overscroll-contain px-5 py-4 flex flex-col gap-3 text-[15px] sm:text-sm" aria-live="polite"></div>
+    <form data-form class="flex items-center gap-2 border-t border-slate-800 bg-[#161616] p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+      <label class="sr-only" for="fragLexiaEingabe">Ihre Frage</label>
+      <input id="fragLexiaEingabe" data-eingabe type="text" maxlength="200" enterkeyhint="send" autocomplete="off" placeholder="Eigene Frage eingeben …" class="flex-1 min-w-0 rounded-full bg-slate-800 border border-slate-600 px-4 py-3 text-base text-white placeholder:text-slate-400 focus:outline-none focus:border-lexia">
+      <button type="submit" class="shrink-0 rounded-full bg-lexia px-5 py-3 text-base font-bold text-[#04201d] hover:bg-white">Fragen</button>
     </form>
-    <p class="px-5 pb-3 text-[11px] text-slate-500">Vorbereitete Antworten · nichts wird gespeichert</p>`;
+    <p class="px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 text-[11px] text-slate-500 bg-[#161616] sm:bg-transparent sm:rounded-b-3xl">Vorbereitete Antworten · nichts wird gespeichert</p>`;
 
   const verlauf = fenster.querySelector('[data-verlauf]');
   const scrollen = () => { verlauf.scrollTop = verlauf.scrollHeight; };
@@ -155,17 +163,34 @@
   };
 
   let begruesst = false;
+  const handy = () => matchMedia('(max-width: 639px)').matches;
   const umschalten = (auf) => {
     fenster.hidden = !auf;
     knopf.setAttribute('aria-expanded', String(auf));
+    // Handy: Seite dahinter festhalten und den runden Knopf ausblenden
+    document.documentElement.style.overflow = auf && handy() ? 'hidden' : '';
+    knopf.classList.toggle('max-sm:hidden', auf);
     if (auf && !begruesst) {
       begruesst = true;
-      vonLexia('Hallo! Ich beantworte die häufigsten Fragen zu LEXIA. Wählen Sie eine Frage oder schreiben Sie selbst.', [], START);
+      vonLexia('Hallo! Ich beantworte die häufigsten Fragen zu LEXIA. Tippen Sie auf eine Frage – oder schreiben Sie unten selbst.', [], START);
     }
-    if (auf) fenster.querySelector('[data-eingabe]').focus();
-    else knopf.focus();
+    if (auf && !handy()) fenster.querySelector('[data-eingabe]').focus(); // am Handy keine Tastatur aufdrängen
+    if (!auf) knopf.focus();
   };
 
+  // Ampel wie am Mac: Rot schließt, Gelb „saugt“ das Fenster in den Knopf, Grün vergrößert (großer Bildschirm)
+  const minimieren = () => {
+    fenster.style.transform = 'scale(0.15) translate(10%, 30%)';
+    fenster.style.opacity = '0';
+    setTimeout(() => { umschalten(false); fenster.style.transform = ''; fenster.style.opacity = ''; }, 280);
+  };
+  fenster.querySelectorAll('[data-ampel]').forEach((b) => b.addEventListener('click', () => {
+    const a = b.dataset.ampel;
+    if (a === 'zu') umschalten(false);
+    else if (a === 'klein') minimieren();
+    else if (fenster.hasAttribute('data-gross')) fenster.removeAttribute('data-gross');
+    else fenster.setAttribute('data-gross', '');
+  }));
   knopf.addEventListener('click', () => umschalten(fenster.hidden));
   fenster.querySelector('[data-zu]').addEventListener('click', () => umschalten(false));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !fenster.hidden) umschalten(false); });

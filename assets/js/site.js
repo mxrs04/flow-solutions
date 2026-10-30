@@ -340,6 +340,15 @@
     }, { threshold: 0.1 }).observe(stage);
   }
 
+  // ---------- Symbole zeichnen sich beim Hineinscrollen (Klasse bleibt dauerhaft) ----------
+  $$('[data-zeichnen]').forEach((el) => {
+    if (reducedMotion || !('IntersectionObserver' in window)) return el.classList.add('gezeichnet');
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('gezeichnet'); io.disconnect(); }
+    }, { threshold: 0.25 });
+    io.observe(el);
+  });
+
   // ---------- Startseite: Wörter leuchten beim Scrollen auf ----------
   const revealSec = $('#text-reveal-section');
   const revealText = $('#reveal-text');

@@ -507,3 +507,13 @@ input[type="range"].range::-moz-range-thumb {
   color: #6ff8ea;
   text-shadow: 0 0 3px #0C0C0C, 0 0 8px #0C0C0C, 0 0 16px #0C0C0C, 0 0 30px #0C0C0C, 0 0 46px rgba(50, 243, 221, 0.55);
 }
+
+/* ---------- Startseite „Für wen?“: Symbole zeichnen sich beim Hineinscrollen ---------- */
+.branche-icon path { stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 1.4s cubic-bezier(0.65, 0, 0.35, 1); }
+.gezeichnet .branche-icon path { stroke-dashoffset: 0; }
+.gezeichnet .branche:nth-child(2) .branche-icon path { transition-delay: 0.12s; }
+.gezeichnet .branche:nth-child(3) .branche-icon path { transition-delay: 0.24s; }
+.gezeichnet .branche:nth-child(4) .branche-icon path { transition-delay: 0.36s; }
+.gezeichnet .branche:nth-child(5) .branche-icon path { transition-delay: 0.48s; }
+.gezeichnet .branche:nth-child(6) .branche-icon path { transition-delay: 0.6s; }
+@media (prefers-reduced-motion: reduce) { .branche-icon path { stroke-dashoffset: 0; transition: none; } }
