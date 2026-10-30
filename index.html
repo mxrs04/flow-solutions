@@ -152,7 +152,7 @@
           "name": "Brauchen wir IT-Kenntnisse?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Nein. Flow Solutions richtet LEXIA mit Ihnen ein; danach pflegen Ihre Fachleute das Wissen selbst."
+            "text": "Nein. Ein Assistent führt Sie in wenigen Minuten durch die Einrichtung; danach pflegen Ihre Fachleute das Wissen selbst. Auf Wunsch helfen wir persönlich."
           }
         },
         {
@@ -320,11 +320,12 @@
                     </div>
                     <div id="heroUnten" class="hero-unten mt-6 sm:mt-24 max-w-2xl">
                         <p class="text-xs font-mono uppercase tracking-[0.25em] text-lexia">LEXIA · Unternehmens-KI aus Esslingen</p>
-                        <h1 class="mt-4 text-xl sm:text-2xl font-semibold text-slate-200 leading-snug [text-shadow:0_1px_16px_#0C0C0C]">Ihr Firmenwissen – sofort beantwortet, immer mit Quelle.</h1>
+                        <h1 class="mt-4 text-xl sm:text-2xl font-semibold text-slate-200 leading-snug [text-shadow:0_1px_16px_#0C0C0C]">Ihr Firmenwissen – für Ihr ganzes Team sofort beantwortet, immer mit Quelle.</h1>
                         <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                            <a href="/lexia" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">So funktioniert LEXIA <span aria-hidden="true" class="ml-2">→</span></a>
-                            <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-full transition-colors hover-scale">30 Tage kostenlos testen</a>
+                            <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-lexia text-[#04201d] hover:bg-white rounded-full transition-colors hover-scale shadow-[0_0_30px_rgba(50,243,221,0.3)]">30 Tage kostenlos testen <span aria-hidden="true" class="ml-2">→</span></a>
+                            <a href="/lexia" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 font-semibold bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-full transition-colors hover-scale">So funktioniert LEXIA</a>
                         </div>
+                        <p class="mt-4 text-xs text-slate-500">Ohne Zahlungsdaten · endet von selbst</p>
                     </div>
                 </div>
                 <div id="heroHinweis" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[11px] font-mono uppercase tracking-[0.25em] text-slate-500 motion-reduce:hidden" aria-hidden="true">
@@ -332,6 +333,15 @@
                     <span class="w-px h-10 bg-gradient-to-b from-lexia to-transparent animate-pulse"></span>
                 </div>
             </div>
+        </section>
+
+        <!-- Kennen Sie das? Das Problem – Wörter leuchten beim Scrollen auf -->
+        <section id="text-reveal-section" class="py-28 sm:py-40 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80 overflow-hidden">
+            <p class="text-center text-xs font-mono uppercase tracking-[0.25em] text-lexia mb-8">Kennen Sie das?</p>
+            <p id="reveal-text" class="max-w-5xl mx-auto text-center text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                Dieselbe Frage zum fünften Mal diese Woche. Wissen, das nur in drei Köpfen steckt. Neue Kollegen, die wochenlang suchen. Und bald geht der Erfahrenste in Rente.
+            </p>
+            <p class="mt-10 text-center text-lg sm:text-xl text-slate-300" data-reveal>LEXIA hält dieses Wissen in Ihrer Firma – und gibt es jedem, der es braucht.</p>
         </section>
 
         <!-- LEXIA-Teaser -->
@@ -400,70 +410,63 @@
             </div>
         </section>
 
-        <!-- Wörter leuchten beim Scrollen auf -->
-        <section id="text-reveal-section" class="py-28 sm:py-40 px-4 sm:px-6 lg:px-8 border-y border-slate-800/80 overflow-hidden">
-            <p id="reveal-text" class="max-w-5xl mx-auto text-center text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-relaxed tracking-tight select-none">
-                Fragen stellen. Antworten mit Quelle bekommen. Abläufe abhaken. LEXIA bringt das Wissen Ihrer Firma dorthin, wo es gebraucht wird.
-            </p>
-        </section>
-
-        <!-- Wissens-Rechner -->
-        <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
-            <div class="max-w-5xl mx-auto text-center">
-                <div data-reveal>
-                    <p class="text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-lexia mb-6">Beispielrechnung</p>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">Wie viel Zeit sucht Ihr Team?</h2>
-                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-12">Geben Sie Ihre eigenen Werte ein und sehen Sie, wie viel Arbeitszeit im Monat in die Suche nach Informationen fließt.</p>
+        <!-- Für wen? Branchen – passend zu den Vorlagen in der LEXIA-Einrichtung -->
+        <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+            <div class="max-w-6xl mx-auto">
+                <div class="max-w-3xl" data-reveal>
+                    <p class="text-xs font-mono uppercase tracking-[0.25em] text-lexia">Für wen?</p>
+                    <h2 class="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight">Für Firmen, in denen Wissen in Köpfen steckt.</h2>
+                    <p class="mt-4 text-slate-400 text-base sm:text-lg">Ob 10 oder 200 Mitarbeitende: LEXIA richtet sich beim Start nach Ihrer Branche – mit passenden Bereichen von Anfang an.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-12 text-left" data-reveal-stagger>
-                    <label class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Personen im Team</span>
-                        <input id="kPeople" type="number" inputmode="numeric" min="1" max="1000" value="10" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold focus:outline-none focus:border-lexia">
-                    </label>
-                    <label class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Minuten Suche pro Tag</span>
-                        <input id="kMinutes" type="number" inputmode="numeric" min="1" max="240" value="15" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold focus:outline-none focus:border-lexia">
-                    </label>
-                    <label class="block bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
-                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Arbeitstage pro Monat</span>
-                        <input id="kDays" type="number" inputmode="numeric" min="1" max="31" value="21" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-2xl font-extrabold focus:outline-none focus:border-lexia">
-                    </label>
-                </div>
-                <p class="text-4xl sm:text-6xl font-extrabold tracking-tight" aria-live="polite">≈ <span id="kCalcResult" class="text-glow">52,5</span> Stunden pro Monat</p>
-                <p class="mt-6 text-slate-500 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">So viel Zeit verbringt Ihr Team im Beispiel mit Suchen, Nachfragen und Warten auf Antworten. Die Rechnung ist ein unverbindliches Beispiel; wie viel davon LEXIA übernimmt, hängt von Ihren Abläufen ab.</p>
+                <ul class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal-stagger>
+                    <li class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-bold text-lg">Handwerk &amp; Bau</p><p class="mt-2 text-slate-300">„Welche Sicherheitsunterweisung brauche ich für die Baustelle?“</p></li>
+                    <li class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-bold text-lg">Industrie &amp; Produktion</p><p class="mt-2 text-slate-300">„Wie rüste ich Maschine 4 auf das neue Teil um?“</p></li>
+                    <li class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-bold text-lg">Handel</p><p class="mt-2 text-slate-300">„Wie läuft eine Retoure ohne Kassenbon?“</p></li>
+                    <li class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-bold text-lg">Dienstleistung &amp; Beratung</p><p class="mt-2 text-slate-300">„Welche Vorlage nehmen wir für ein Angebot?“</p></li>
+                    <li class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-bold text-lg">Gesundheit &amp; Pflege</p><p class="mt-2 text-slate-300">„Was gilt bei der Händedesinfektion im Wohnbereich 2?“</p></li>
+                    <li class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6"><p class="font-bold text-lg">Verwaltung</p><p class="mt-2 text-slate-300">„Welche Frist gilt für diesen Antrag?“</p></li>
+                </ul>
             </div>
         </section>
 
-        <!-- Der Unterschied -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-20" data-reveal>
-                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Der Unterschied</h2>
-                <p class="mt-4 text-slate-400 text-base sm:text-lg">Verstreutes Wissen vs. ein Ort für alle Antworten.</p>
-            </div>
-            <div id="roi-cards-container" class="roi-cards-container relative grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 max-w-5xl mx-auto items-stretch pt-4">
-                <div class="roi-card-left relative bg-gradient-to-b from-[#2a0d14] via-[#1a080d] to-[#120508] rounded-[2.5rem] p-8 sm:p-10 border border-rose-900/50 shadow-2xl">
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-rose-600 border-4 border-[#0C0C0C] flex items-center justify-center font-bold" aria-hidden="true">✕</div>
-                    <div class="roi-card-content pt-2">
-                        <h3 class="text-xl sm:text-2xl font-extrabold tracking-wider uppercase mb-8 border-b border-rose-900/40 pb-5 min-h-[4.5rem] sm:min-h-[5.5rem] flex items-end">Wissen in Köpfen, Ordnern und Chats</h3>
-                        <ul class="space-y-6 text-lg sm:text-xl font-bold">
-                            <li class="flex items-center gap-4 border-b border-rose-900/30 pb-5"><span class="text-rose-500" aria-hidden="true">✕</span>Suchen statt arbeiten</li>
-                            <li class="flex items-center gap-4 border-b border-rose-900/30 pb-5"><span class="text-rose-500" aria-hidden="true">✕</span>Antworten ohne Quelle</li>
-                            <li class="flex items-center gap-4 border-b border-rose-900/30 pb-5"><span class="text-rose-500" aria-hidden="true">✕</span>Unklar, wer zuständig ist</li>
-                            <li class="flex items-center gap-4"><span class="text-rose-500" aria-hidden="true">✕</span>Einarbeitung dauert lange</li>
-                        </ul>
+        <!-- So viel Zeit sparen Sie: Vorher/Nachher + Rechner -->
+        <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+            <div class="max-w-5xl mx-auto">
+                <div class="max-w-3xl" data-reveal>
+                    <p class="text-xs font-mono uppercase tracking-[0.25em] text-lexia">Im Alltag</p>
+                    <h2 class="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight">So viel Zeit sparen Sie.</h2>
+                </div>
+                <div class="mt-10 divide-y divide-slate-800 rounded-3xl border border-slate-800 bg-slate-900/40" data-reveal-stagger>
+                    <div class="grid sm:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 p-6">
+                        <p class="text-slate-400"><span class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Bisher</span>Neue Kollegin fragt dreimal am Tag nach – jemand unterbricht seine Arbeit.</p>
+                        <span class="hidden sm:block text-lexia text-2xl" aria-hidden="true">→</span>
+                        <p class="text-white font-medium"><span class="block text-xs uppercase tracking-wider text-lexia mb-1">Mit LEXIA</span>Sie fragt LEXIA und hat die Antwort samt Quelle in Sekunden.</p>
+                    </div>
+                    <div class="grid sm:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 p-6">
+                        <p class="text-slate-400"><span class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Bisher</span>Reklamation kommt rein – drei Anrufe, bis klar ist, wer zuständig ist.</p>
+                        <span class="hidden sm:block text-lexia text-2xl" aria-hidden="true">→</span>
+                        <p class="text-white font-medium"><span class="block text-xs uppercase tracking-wider text-lexia mb-1">Mit LEXIA</span>LEXIA nennt die zuständige Person und den Ablauf als Checkliste.</p>
+                    </div>
+                    <div class="grid sm:grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 p-6">
+                        <p class="text-slate-400"><span class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Bisher</span>Die Antwort steht „irgendwo“ in einem Ordner – gesucht wird trotzdem.</p>
+                        <span class="hidden sm:block text-lexia text-2xl" aria-hidden="true">→</span>
+                        <p class="text-white font-medium"><span class="block text-xs uppercase tracking-wider text-lexia mb-1">Mit LEXIA</span>Eine Frage, eine Antwort – und offene Fragen landen bei den Zuständigen.</p>
                     </div>
                 </div>
-                <div class="roi-card-right relative bg-gradient-to-b from-[#063a36] via-[#05241f] to-[#041614] rounded-[2.5rem] p-8 sm:p-10 border border-lexia/40 shadow-2xl">
-                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-lexia text-[#04201d] border-4 border-[#0C0C0C] flex items-center justify-center font-black" aria-hidden="true">✓</div>
-                    <div class="roi-card-content pt-2">
-                        <h3 class="text-xl sm:text-2xl font-extrabold tracking-wider uppercase mb-8 border-b border-lexia/20 pb-5 min-h-[4.5rem] sm:min-h-[5.5rem] flex items-end">LEXIA</h3>
-                        <ul class="space-y-6 text-lg sm:text-xl font-bold">
-                            <li class="flex items-center gap-4 border-b border-lexia/15 pb-5"><span class="w-6 h-6 rounded-full bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center shrink-0" aria-hidden="true">✓</span>Gefunden in Sekunden</li>
-                            <li class="flex items-center gap-4 border-b border-lexia/15 pb-5"><span class="w-6 h-6 rounded-full bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center shrink-0" aria-hidden="true">✓</span>Immer mit Quelle</li>
-                            <li class="flex items-center gap-4 border-b border-lexia/15 pb-5"><span class="w-6 h-6 rounded-full bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center shrink-0" aria-hidden="true">✓</span>Nur, was man sehen darf</li>
-                            <li class="flex items-center gap-4"><span class="w-6 h-6 rounded-full bg-lexia text-[#04201d] text-xs font-black flex items-center justify-center shrink-0" aria-hidden="true">✓</span>Neue Mitarbeitende schneller eingearbeitet</li>
-                        </ul>
+
+                <div class="mt-16 rounded-3xl border border-lexia/30 bg-[#0f1214] p-6 sm:p-10" data-reveal>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Rechnen Sie selbst</h3>
+                    <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <label class="flex flex-col gap-2"><span class="text-sm text-slate-400">Personen</span><input id="kPeople" type="number" inputmode="numeric" min="1" max="1000" value="15" class="rounded-xl bg-slate-900 border border-slate-700 px-4 py-3 text-lg text-white focus:outline-none focus:border-lexia"></label>
+                        <label class="flex flex-col gap-2"><span class="text-sm text-slate-400">Minuten Suchen pro Tag</span><input id="kMinutes" type="number" inputmode="numeric" min="1" max="240" value="15" class="rounded-xl bg-slate-900 border border-slate-700 px-4 py-3 text-lg text-white focus:outline-none focus:border-lexia"></label>
+                        <label class="flex flex-col gap-2"><span class="text-sm text-slate-400">Arbeitstage pro Monat</span><input id="kDays" type="number" inputmode="numeric" min="1" max="31" value="21" class="rounded-xl bg-slate-900 border border-slate-700 px-4 py-3 text-lg text-white focus:outline-none focus:border-lexia"></label>
+                        <label class="flex flex-col gap-2"><span class="text-sm text-slate-400">Kosten je Stunde (€)</span><input id="kLohn" type="number" inputmode="numeric" min="1" max="500" value="45" class="rounded-xl bg-slate-900 border border-slate-700 px-4 py-3 text-lg text-white focus:outline-none focus:border-lexia"></label>
                     </div>
+                    <div class="mt-8 grid sm:grid-cols-2 gap-6" aria-live="polite">
+                        <p><span class="block text-sm text-slate-400">Ihr Team sucht im Monat</span><span class="text-4xl sm:text-5xl font-extrabold"><span id="kCalcResult">78,8</span> Std.</span></p>
+                        <p><span class="block text-sm text-slate-400">Holt LEXIA nur die Hälfte zurück, sind das</span><span class="text-4xl sm:text-5xl font-extrabold text-glow">≈ <span id="kWert">1.772</span> €</span><span class="block text-sm text-slate-400 mt-1">im Monat – LEXIA Business kostet 199 €.</span></p>
+                    </div>
+                    <p class="mt-6 text-xs text-slate-500">Unverbindliches Beispiel. Wie viel Zeit LEXIA tatsächlich spart, hängt von Ihren Abläufen ab – im kostenlosen Testmonat sehen Sie es mit Ihren eigenen Zahlen.</p>
                 </div>
             </div>
         </section>
@@ -517,28 +520,28 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16" data-reveal>
                     <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">So starten Sie mit LEXIA</h2>
-                    <p class="mt-4 text-slate-400 text-base sm:text-lg">Klar, planbar und ohne IT-Kenntnisse.</p>
+                    <p class="mt-4 text-slate-400 text-base sm:text-lg">In wenigen Minuten startklar – ohne IT-Kenntnisse.</p>
                 </div>
                 <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-reveal-stagger>
                     <li class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
                         <div class="font-mono text-lexia text-sm mb-4">01</div>
-                        <h3 class="text-xl font-extrabold mb-3">Erstgespräch</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Kostenlos und unverbindlich. Wir klären, welches Wissen LEXIA für Sie bereithalten soll.</p>
+                        <h3 class="text-xl font-extrabold mb-3">Kostenlos testen</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">30 Tage, alle Funktionen, ohne Zahlungsdaten. Der Zugang ist in zwei Minuten angelegt.</p>
                     </li>
                     <li class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
                         <div class="font-mono text-lexia text-sm mb-4">02</div>
-                        <h3 class="text-xl font-extrabold mb-3">Testzugang oder Pilot</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Sie probieren LEXIA mit Ihrem Team aus – bevor Sie sich festlegen.</p>
+                        <h3 class="text-xl font-extrabold mb-3">Einrichten</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Ein Assistent legt Bereiche passend zu Ihrer Branche an und lädt Ihr Team ein – per Liste aus Excel.</p>
                     </li>
                     <li class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
                         <div class="font-mono text-lexia text-sm mb-4">03</div>
-                        <h3 class="text-xl font-extrabold mb-3">Wissen einspielen &amp; Einweisung</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Wir richten LEXIA gemeinsam ein. Danach pflegen Ihre Fachleute das Wissen selbst.</p>
+                        <h3 class="text-xl font-extrabold mb-3">Wissen hochladen</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Richtlinien, Anleitungen, Abläufe: hochladen – LEXIA antwortet sofort daraus. Ihre Fachleute halten es aktuell.</p>
                     </li>
                     <li class="bg-slate-900/60 border border-slate-800 rounded-3xl p-7 hover-scale">
                         <div class="font-mono text-lexia text-sm mb-4">04</div>
-                        <h3 class="text-xl font-extrabold mb-3">Start &amp; Begleitung</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Ihr Team arbeitet mit LEXIA – und Sie haben einen festen Ansprechpartner.</p>
+                        <h3 class="text-xl font-extrabold mb-3">Weitermachen</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Gefällt es Ihnen, buchen Sie mit einem Klick – monatlich kündbar. Bei Fragen erreichen Sie den Gründer direkt.</p>
                     </li>
                 </ol>
 
@@ -554,7 +557,7 @@
         </section>
 
         <!-- FAQ -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full border-t border-slate-800/80">
+        <section id="faq" class="scroll-mt-24 py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full border-t border-slate-800/80">
             <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-center mb-16" data-reveal>Häufige Fragen</h2>
             <div class="space-y-4" data-acc-single data-reveal-stagger>
                 <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
@@ -583,7 +586,7 @@
                 </div>
                 <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
                     <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Brauchen wir IT-Kenntnisse?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
-                    <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Nein. Flow Solutions richtet LEXIA mit Ihnen ein; danach pflegen Ihre Fachleute das Wissen selbst.</p></div></div>
+                    <div class="acc-panel"><div><p class="px-6 pb-6 text-slate-300 leading-relaxed">Nein. Ein Assistent führt Sie in wenigen Minuten durch die Einrichtung; danach pflegen Ihre Fachleute das Wissen selbst. Auf Wunsch helfen wir persönlich.</p></div></div>
                 </div>
                 <div class="acc-item bg-slate-900/50 border border-slate-800 rounded-2xl">
                     <h3><button type="button" class="acc-btn w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl">Funktioniert LEXIA mit einem Betriebsrat?<span class="acc-icon w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0" aria-hidden="true"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
@@ -598,42 +601,68 @@
     </main>
 
     <!-- @footer -->
-    <footer class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8 mt-auto">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 text-xs">
-            <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-                <svg class="w-10 h-auto text-white" viewBox="-5 -15 1435 460" aria-hidden="true">
-                    <g fill="none" stroke="currentColor" stroke-width="64" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
-                        <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
-                        <path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
-                    </g>
-                </svg>
-                <span><span class="font-bold text-white">Flow Solutions</span> © 2026 · LEXIA ist ein Produkt von Flow Solutions.</span>
+    <footer class="relative z-10 bg-[#0C0C0C] text-slate-400 border-t border-slate-800/80 pt-16 pb-28 sm:pb-10 px-4 sm:px-6 lg:px-8 mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 text-sm">
+                <nav aria-label="LEXIA">
+                    <p class="text-white font-semibold mb-4">LEXIA</p>
+                    <ul class="space-y-3">
+                        <li><a href="/lexia" class="hover:text-white transition-colors">So funktioniert LEXIA</a></li>
+                        <li><a href="/abo" class="hover:text-white transition-colors">Preise</a></li>
+                        <li><a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="hover:text-white transition-colors">30 Tage kostenlos testen</a></li>
+                        <li><a href="https://lexia-nu.vercel.app/login" data-app-link data-app-pfad="/login" class="hover:text-white transition-colors">Anmelden</a></li>
+                        <li><a href="/download" class="hover:text-white transition-colors">Download</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Flow Solutions">
+                    <p class="text-white font-semibold mb-4">Flow Solutions</p>
+                    <ul class="space-y-3">
+                        <li><a href="/ueber-uns" class="hover:text-white transition-colors">Über uns</a></li>
+                        <li><a href="/unternehmens-ki" class="hover:text-white transition-colors">Ratgeber: Unternehmens-KI</a></li>
+                        <li><a href="/kontakt" class="hover:text-white transition-colors">Kontakt</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Rechtliches">
+                    <p class="text-white font-semibold mb-4">Rechtliches</p>
+                    <ul class="space-y-3">
+                        <li><a href="/impressum" class="hover:text-white transition-colors">Impressum</a></li>
+                        <li><a href="/datenschutz" class="hover:text-white transition-colors">Datenschutz</a></li>
+                        <li><a href="/lexia#sicherheit" class="hover:text-white transition-colors">Sicherheit &amp; Technik</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <p class="text-white font-semibold mb-4">Kontakt</p>
+                    <ul class="space-y-3">
+                        <li><a href="mailto:flowsolutions.digital@gmail.com" class="hover:text-white transition-colors">E-Mail schreiben</a></li>
+                        <li>Esslingen am Neckar</li>
+                        <li><a href="/kontakt?anliegen=demo" class="hover:text-white transition-colors">Gespräch vereinbaren</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="flex items-center gap-4 text-slate-300">
-                <a href="https://www.instagram.com/flowsolutions.digital" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-lexia hover:text-[#04201d] transition-colors">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
-                <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"
-                    class="w-8 h-8 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-lexia hover:text-[#04201d] transition-colors">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z"/></svg>
-                </a>
+            <div class="mt-14 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-5 text-xs text-slate-500">
+                <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+                    <svg class="w-9 h-auto text-slate-300" viewBox="-5 -15 1435 460" aria-hidden="true">
+                        <g fill="none" stroke="currentColor" stroke-width="64" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 30 222 C 130 100, 250 25, 380 22 C 520 20, 620 100, 720 200 C 820 300, 900 385, 1030 395 C 1160 400, 1290 320, 1395 215"/>
+                            <path d="M 30 222 C 110 245, 175 235, 235 185 C 285 140, 325 65, 400 26"/>
+                            <path d="M 1395 215 C 1315 192, 1250 202, 1190 252 C 1140 297, 1105 362, 1045 392"/>
+                        </g>
+                    </svg>
+                    <span>© 2026 Flow Solutions · LEXIA ist ein Produkt von Flow Solutions. Alle Rechte vorbehalten. Alle Preise zzgl. gesetzlicher USt.</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.instagram.com/flowsolutions.digital" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center hover:text-white transition-colors">
+                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://de.pinterest.com/flow_solutions/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center hover:text-white transition-colors">
+                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.618 0 12.017 0z"/></svg>
+                    </a>
+                </div>
             </div>
-
-            <nav aria-label="Fußzeile" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-                <a href="/lexia" class="hover:text-white transition-colors">LEXIA</a>
-                <a href="/abo" class="hover:text-white transition-colors">Abo</a>
-                <a href="/download" class="hover:text-white transition-colors">Download</a>
-                <a href="/unternehmens-ki" class="hover:text-white transition-colors">Unternehmens-KI</a>
-                <a href="/ueber-uns" class="hover:text-white transition-colors">Über uns</a>
-                <a href="/kontakt" class="hover:text-white transition-colors">Kontakt</a>
-                <a href="/datenschutz" class="hover:text-white transition-colors">Datenschutz</a>
-                <a href="/impressum" class="hover:text-white transition-colors">Impressum</a>
-            </nav>
         </div>
     </footer>
+    <script src="/assets/js/bot.js" defer></script>
     <!-- /@footer -->
 </body>
 

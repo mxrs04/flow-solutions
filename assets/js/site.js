@@ -382,11 +382,15 @@
   const kOut = $('#kCalcResult');
   if (kOut) {
     const inputs = ['kPeople', 'kMinutes', 'kDays'].map((id) => document.getElementById(id));
+    const lohn = document.getElementById('kLohn');
+    const wert = document.getElementById('kWert');
     let shown = 0;
     let timer;
     const update = () => {
       const [people, minutes, days] = inputs.map((el) => Math.max(parseFloat(el.value) || 0, 0));
       const target = (people * minutes * days) / 60;
+      // Wert der Hälfte der Suchzeit – bewusst vorsichtig gerechnet
+      if (wert && lohn) wert.textContent = num(Math.round((target / 2) * Math.max(parseFloat(lohn.value) || 0, 0)), 0);
       const from = shown;
       const start = performance.now();
       clearInterval(timer);
@@ -397,7 +401,7 @@
         if (t === 1) clearInterval(timer);
       }, 16);
     };
-    inputs.forEach((el) => el.addEventListener('input', update));
+    [...inputs, lohn].filter(Boolean).forEach((el) => el.addEventListener('input', update));
     update();
   }
 
