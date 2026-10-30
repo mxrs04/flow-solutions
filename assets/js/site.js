@@ -53,6 +53,8 @@
     ...$$('[data-reveal-stagger]').flatMap((group) =>
       [...group.children].map((child, i) => {
         child.style.transitionDelay = `${Math.min(i, 6) * 90}ms`;
+        // Handy: abwechselnd von links und rechts; großer Bildschirm: leicht in 3D aufklappen (siehe tailwind.css)
+        child.dataset.seite = i % 2 ? 'r' : 'l';
         return child;
       })
     ),
@@ -342,19 +344,42 @@
     }, { threshold: 0.1 }).observe(stage);
   }
 
-  // ---------- Über uns: Hände-Band zoomt beim Scrollen kaum merklich heran ----------
+  // ---------- Über uns: Hände kommen beim Scrollen aufeinander zu und berühren sich ----------
   const band = $('#haendeBand');
-  if (band && !reducedMotion) {
-    const bild = $('.haende-bild', band);
-    let tick = false;
-    const update = () => {
-      tick = false;
-      const r = band.getBoundingClientRect();
-      const p = Math.min(Math.max((innerHeight - r.top) / (innerHeight + r.height), 0), 1);
-      bild.style.transform = `scale(${1 + p * 0.08})`;
-    };
-    addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
-    update();
+  if (band) {
+    const links = $('.haende-links', band), rechts = $('.haende-rechts', band);
+    if (reducedMotion) band.classList.add('beruehrt');
+    else {
+      let tick = false;
+      const update = () => {
+        tick = false;
+        const r = band.getBoundingClientRect();
+        // 0 = Band taucht unten auf, 1 = Band ist etwas über der Mitte angekommen
+        const p = Math.min(Math.max((innerHeight - r.top) / (innerHeight * 0.55 + r.height * 0.45), 0), 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        const abstand = (1 - e) * 16;
+        links.style.transform = `translate3d(${-abstand}%, 0, 0)`;
+        rechts.style.transform = `translate3d(${abstand}%, 0, 0)`;
+        if (p >= 0.98) band.classList.add('beruehrt');
+        else if (p < 0.6) band.classList.remove('beruehrt');
+      };
+      addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+      addEventListener('resize', update, { passive: true });
+      update();
+    }
+  }
+
+  // ---------- Karten: Lichtschein folgt der Maus (nur mit Maus) ----------
+  if (matchMedia('(pointer: fine)').matches) {
+    $$('[data-reveal-stagger] > *').forEach((k) => {
+      if (!/rounded-(2xl|3xl)/.test(k.className)) return;
+      k.classList.add('karte');
+      k.addEventListener('pointermove', (e) => {
+        const r = k.getBoundingClientRect();
+        k.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        k.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    });
   }
 
   // ---------- Symbole zeichnen sich beim Hineinscrollen (Klasse bleibt dauerhaft) ----------
