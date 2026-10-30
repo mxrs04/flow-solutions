@@ -50,7 +50,7 @@
     {
       id: 'kuendigen', frage: 'Kann ich jederzeit kündigen?',
       worte: ['kündig', 'laufzeit', 'vertrag', 'binden'],
-      antwort: 'Das Monatsabo ist monatlich kündbar. Der kostenlose Test endet von selbst – Sie müssen nichts kündigen.',
+      antwort: 'Das Monatsabo ist monatlich kündbar. Der kostenlose Test endet von selbst – Sie müssen nichts kündigen. Ihre Daten können Sie jederzeit selbst als ZIP herunterladen.',
       links: [['Preise und Bedingungen', '/abo']],
     },
     {
