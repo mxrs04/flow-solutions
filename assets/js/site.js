@@ -190,6 +190,7 @@
     };
     $$('[data-zeile]', heroFlow).forEach(zerlegen);
     const buchstaben = $$('.fl-b', heroFlow);
+    const handy = matchMedia('(max-width: 639px)').matches;
     const welle = $('#heroWelle'), unten = $('#heroUnten'), hinweis = $('#heroHinweis');
     if (!reducedMotion) {
       let tick = false;
@@ -207,7 +208,8 @@
           const dy = (-40 - 90 * Math.abs(Math.cos(phase))) * e - Math.sin(phase + e * 3) * 18 * e;
           b.style.transform = `translate3d(${dx}px, ${dy}px, 0) rotate(${Math.sin(phase) * 20 * e}deg)`;
           b.style.opacity = String(Math.max(1 - e * 1.15, 0));
-          b.style.filter = `blur(${(e * 6).toFixed(2)}px)`;
+          // Weichzeichnen kostet auf dem Handy viel Rechenzeit – dort nur Bewegung und Ausblenden
+          if (!handy) b.style.filter = `blur(${(e * 6).toFixed(2)}px)`;
         });
         const u = Math.min(Math.max((p - 0.15) / 0.45, 0), 1);
         if (welle) { welle.style.transform = `translate(-50%, -50%) scale(${1 + e * 0.35})`; welle.style.opacity = String(1 - u * 0.9); }

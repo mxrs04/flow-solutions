@@ -226,7 +226,7 @@
     <main id="main" class="relative z-10">
 
         <!-- Hero: Slogan fließt herein; beim Scrollen bleibt der Bereich kurz stehen und die Buchstaben lösen sich im Flow auf -->
-        <section id="hero-flow" class="relative h-[135vh] motion-reduce:h-auto">
+        <section id="hero-flow" class="relative h-[125svh] sm:h-[135vh] motion-reduce:h-auto">
             <div class="sticky top-0 h-[100svh] overflow-hidden flex flex-col">
                 <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_58%,rgba(50,243,221,0.10),transparent_62%)]"></div>
                 <div id="heroWelle" class="absolute left-1/2 top-[47%] w-[90%] max-w-[1400px] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
@@ -270,7 +270,8 @@
             </svg>
                 </div>
                 <div class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-20 text-center">
-                    <p id="heroSlogan" class="text-[2.4rem] leading-[1.08] sm:text-6xl lg:text-8xl xl:text-[6.5rem] font-extrabold tracking-tight [text-shadow:0_2px_30px_#0C0C0C]" aria-label="Weniger Aufwand, mehr Flow.">
+                    <p id="heroSlogan" class="text-[2.4rem] leading-[1.08] sm:text-6xl lg:text-8xl xl:text-[6.5rem] font-extrabold tracking-tight [text-shadow:0_2px_30px_#0C0C0C]">
+                        <span class="sr-only">Weniger Aufwand, mehr Flow.</span>
                         <span class="block" data-zeile aria-hidden="true">WENIGER AUFWAND,</span>
                         <span class="block mt-1 sm:mt-2" data-zeile aria-hidden="true">MEHR <span class="font-serif italic font-medium flow-wort">FLOW</span>.</span>
                     </p>

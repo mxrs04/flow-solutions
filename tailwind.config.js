@@ -8,7 +8,8 @@ module.exports = {
       colors: {
         darkbg: '#0C0C0C',
         // neutrale Grautöne statt des bläulichen Tailwind-"slate" – passt zu LEXIA-Türkis
-        slate: colors.neutral,
+        // 500 etwas heller als Tailwind-Standard: kleine graue Schrift bleibt auf Schwarz gut lesbar (Kontrast > 4,5:1)
+        slate: { ...colors.neutral, 500: '#8c8c8c' },
         lexia: {
           DEFAULT: '#32F3DD',
           deep: '#14b8a6',

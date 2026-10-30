@@ -528,3 +528,9 @@ input[type="range"].range::-moz-range-thumb {
   45%, 55% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 @media (prefers-reduced-motion: reduce) { .haende-funke { animation: none; opacity: 0.8; } }
+
+/* ---------- Handy: Tipp-Rückmeldung statt Hover ---------- */
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+@media (hover: none) {
+  .hover-scale:active, a.rounded-full:active, button.rounded-full:active { transform: scale(0.97); transition: transform 0.1s; }
+}
