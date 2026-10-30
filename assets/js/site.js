@@ -50,14 +50,17 @@
   // ---------- Einblenden beim Scrollen ----------
   const revealTargets = [
     ...$$('[data-reveal]'),
-    ...$$('[data-reveal-stagger]').flatMap((group) =>
-      [...group.children].map((child, i) => {
+    // Jede Gruppe bekommt ihren eigenen Auftritt (reihum): mal seitlich, mal aufsteigend, mal heranzoomend, mal aufklappend –
+    // so wiederholt sich beim Scrollen nicht ständig dasselbe (Regeln in tailwind.css)
+    ...$$('[data-reveal-stagger]').flatMap((group, gi) => {
+      const stil = group.dataset.stil || ['aufsteigen', 'seitlich', 'zoom', 'kippen'][gi % 4];
+      return [...group.children].map((child, i) => {
         child.style.transitionDelay = `${Math.min(i, 6) * 90}ms`;
-        // Handy: abwechselnd von links und rechts; großer Bildschirm: leicht in 3D aufklappen (siehe tailwind.css)
-        child.dataset.seite = i % 2 ? 'r' : 'l';
+        child.dataset.stil = stil;
+        if (stil === 'seitlich') child.dataset.seite = i % 2 ? 'r' : 'l';
         return child;
-      })
-    ),
+      });
+    }),
   ];
   if (!reducedMotion && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -347,20 +350,24 @@
   // ---------- Über uns: Hände kommen beim Scrollen aufeinander zu und berühren sich ----------
   const band = $('#haendeBand');
   if (band) {
-    const links = $('.haende-links', band), rechts = $('.haende-rechts', band);
-    if (reducedMotion) band.classList.add('beruehrt');
+    const links = $('.haende-links', band), rechts = $('.haende-rechts', band), text = $('.haende-text', band);
+    if (reducedMotion) { band.classList.add('beruehrt'); text.style.opacity = '1'; }
     else {
       let tick = false;
       const update = () => {
         tick = false;
         const r = band.getBoundingClientRect();
-        // 0 = Band taucht unten auf, 1 = Band ist etwas über der Mitte angekommen
-        const p = Math.min(Math.max((innerHeight - r.top) / (innerHeight * 0.55 + r.height * 0.45), 0), 1);
+        // 0 = Band taucht unten auf, 1 = Mitte des Bandes bei ca. 40 % der Bildschirmhöhe (etwas später als vorher)
+        const p = Math.min(Math.max((innerHeight - r.top) / (innerHeight * 0.6 + r.height * 0.5), 0), 1);
         const e = 1 - Math.pow(1 - p, 3);
         const abstand = (1 - e) * 16;
         links.style.transform = `translate3d(${-abstand}%, 0, 0)`;
         rechts.style.transform = `translate3d(${abstand}%, 0, 0)`;
-        if (p >= 0.98) band.classList.add('beruehrt');
+        // Aussage blendet im letzten Stück ein, während sich die Finger finden – fließend mit dem Scrollen
+        const t2 = Math.min(Math.max((p - 0.78) / 0.22, 0), 1);
+        text.style.opacity = String(t2);
+        text.style.transform = `translate3d(0, ${(1 - t2) * 18}px, 0)`;
+        if (p >= 0.97) band.classList.add('beruehrt');
         else if (p < 0.6) band.classList.remove('beruehrt');
       };
       addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });

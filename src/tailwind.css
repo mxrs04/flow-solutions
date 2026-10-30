@@ -62,13 +62,16 @@ body {
   transition: opacity 0.7s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Gruppen: Handy abwechselnd von links/rechts, großer Bildschirm leicht in 3D aufklappen */
+/* Gruppen: jede Gruppe hat ihren eigenen Auftritt (data-stil, reihum vergeben in site.js) */
+.reveal[data-stil='aufsteigen'] { transform: translate3d(0, 44px, 0); }
+.reveal[data-stil='zoom'] { transform: scale(0.9); }
 @media (max-width: 1023px) {
   .reveal[data-seite='l'] { transform: translate3d(-48px, 0, 0); }
   .reveal[data-seite='r'] { transform: translate3d(48px, 0, 0); }
+  .reveal[data-stil='kippen'] { transform: perspective(700px) rotateY(-18deg) translate3d(0, 20px, 0); transform-origin: 0 50%; }
 }
 @media (min-width: 1024px) {
-  .reveal[data-seite] { transform: perspective(1000px) rotateX(16deg) translate3d(0, 48px, 0) scale(0.96); transform-origin: 50% 100%; }
+  .reveal[data-stil='seitlich'], .reveal[data-stil='kippen'] { transform: perspective(1000px) rotateX(16deg) translate3d(0, 48px, 0) scale(0.96); transform-origin: 50% 100%; }
 }
 .reveal.is-visible {
   opacity: 1;
@@ -534,8 +537,8 @@ input[type="range"].range::-moz-range-thumb {
   25% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
   100% { opacity: 0; transform: translate(-50%, -50%) scale(3); }
 }
-.haende-text { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease-out 0.35s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s; }
-.haende.beruehrt .haende-text { opacity: 1; transform: none; }
+/* Die Aussage folgt direkt dem Scrollen (siehe site.js) – erscheint, während sich die Finger finden */
+.haende-text { opacity: 0; will-change: opacity, transform; }
 @media (prefers-reduced-motion: reduce) { .haende-text { opacity: 1; transform: none; } .haende-blitz { display: none; } }
 
 /* ---------- Karten: Lichtschein, der der Maus folgt ---------- */
