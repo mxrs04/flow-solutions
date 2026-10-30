@@ -733,22 +733,7 @@
                     <p class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6 text-sm text-slate-300 leading-relaxed"><span class="font-bold text-white">Für Betriebsräte:</span> LEXIA wertet keine einzelnen Personen aus. Ein Transparenzbericht liegt als PDF bei.</p>
                     <p class="rounded-3xl border border-slate-800 bg-slate-900/30 p-6 text-sm text-slate-300 leading-relaxed"><span class="font-bold text-white">Offen gesagt:</span> Ihre Daten werden in Frankfurt gespeichert. Die KI-Antworten erzeugt derzeit ein Anbieter, dessen Verarbeitung nicht garantiert in der EU erfolgt – für Enterprise ist eine reine EU-Verarbeitung vorgesehen.</p>
                 </div>
-                <details class="group mt-6 rounded-3xl border border-slate-800 bg-slate-900/30 p-6" data-reveal>
-                    <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold text-white">
-                        Technik im Detail – für IT-Verantwortliche
-                        <span class="text-lexia transition-transform group-open:rotate-45 text-xl leading-none" aria-hidden="true">+</span>
-                    </summary>
-                    <dl class="mt-5 grid sm:grid-cols-2 gap-x-8 gap-y-4 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        <div><dt class="text-slate-200 font-medium">Speicherort</dt><dd>Datenbank, Anmeldung und Dateien bei Supabase in Frankfurt am Main (AWS eu-central-1). Die Anwendung läuft bei Vercel in der Region Frankfurt.</dd></div>
-                        <div><dt class="text-slate-200 font-medium">Mandantentrennung</dt><dd>Jede Abfrage prüft direkt in der Datenbank (Row Level Security), zu welcher Firma und welchen Bereichen eine Person gehört – nicht nur in der Oberfläche.</dd></div>
-                        <div><dt class="text-slate-200 font-medium">Wie Antworten entstehen</dt><dd>LEXIA sucht nach Bedeutung (Vektorsuche mit pgvector) nur in Abschnitten, die die fragende Person sehen darf, und formuliert die Antwort ausschließlich daraus – mit Quellenangabe (Retrieval-Augmented Generation).</dd></div>
-                        <div><dt class="text-slate-200 font-medium">Sprachmodelle</dt><dd>Derzeit über Cloudflare Workers AI; nach Anbieterangabe keine Nutzung Ihrer Daten zum Training. Modelle tauschen wir zentral aus – ohne Aufwand für Sie.</dd></div>
-                        <div><dt class="text-slate-200 font-medium">Anmeldung</dt><dd>Passwort mit mindestens 12 Zeichen, Zwei-Faktor-Anmeldung per Authenticator-App (für Admins als Pflicht einstellbar), Einladungen per E-Mail über Brevo (EU).</dd></div>
-                        <div><dt class="text-slate-200 font-medium">Ihre Daten gehören Ihnen</dt><dd>Admins laden jederzeit alle Dokumente, Prozesse, Personen und das Organigramm als ZIP herunter (Originaldateien, Markdown, CSV für Excel) – ohne uns zu fragen.</dd></div>
-                        <div><dt class="text-slate-200 font-medium">Nachvollziehbarkeit</dt><dd>Rechteänderungen und Zutritte zu geschlossenen Bereichen landen in einem unveränderlichen Protokoll; vor jeder Änderung laufen über 390 automatische Prüfungen zu Rechten und Datentrennung.</dd></div>
-                    </dl>
-                    <p class="mt-5 text-xs text-slate-500">Auftragsverarbeitungsvertrag und Liste der Unterauftragsverarbeiter erhalten Sie auf Anfrage – <a href="/kontakt" class="underline underline-offset-4 hover:text-white">schreiben Sie uns</a>.</p>
-                </details>
+                <p class="mt-8 text-center" data-reveal><a href="/sicherheit" class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-6 py-3 font-semibold hover:border-lexia hover:text-lexia transition-colors">Alles zu Sicherheit, Technik und Datenschutz im Trust-Center <span aria-hidden="true">→</span></a></p>
             </div>
         </section>
 
@@ -825,7 +810,7 @@
                     <ul class="space-y-3">
                         <li><a href="/impressum" class="hover:text-white transition-colors">Impressum</a></li>
                         <li><a href="/datenschutz" class="hover:text-white transition-colors">Datenschutz</a></li>
-                        <li><a href="/lexia#sicherheit" class="hover:text-white transition-colors">Sicherheit &amp; Technik</a></li>
+                        <li><a href="/sicherheit" class="hover:text-white transition-colors">Trust-Center: Sicherheit &amp; Datenschutz</a></li>
                     </ul>
                 </nav>
                 <div>

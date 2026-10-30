@@ -27,7 +27,7 @@
       id: 'dsgvo', frage: 'Ist LEXIA DSGVO-konform?',
       worte: ['dsgvo', 'datenschutz', 'daten', 'sicher', 'server', 'frankfurt', 'eu', 'deutschland', 'avv'],
       antwort: 'Ihre Daten liegen in Frankfurt am Main, Chats sind privat, und es gibt einen Vertrag zur Auftragsverarbeitung. Offen gesagt: Das Sprachmodell, das die Antworten formuliert, rechnet derzeit nicht garantiert in der EU.',
-      links: [['Sicherheit & Technik', '/lexia#sicherheit']],
+      links: [['Zum Trust-Center', '/sicherheit']],
     },
     {
       id: 'chatgpt', frage: 'Was unterscheidet LEXIA von ChatGPT & Co.?',
