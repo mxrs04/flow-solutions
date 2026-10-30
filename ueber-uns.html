@@ -144,12 +144,12 @@
 
         <!-- Mensch trifft KI: Beim Scrollen kommen die Hände aufeinander zu. Bei der Berührung blitzt es kurz auf,
              darunter erscheint die Aussage. Bild über Upscayl geschärft (2800 px), auf dem Handy 1200 px.
-             Hintergrund = Bildschwarz (#010101) und weiche Masken an der Schnittkante: kein sichtbarer Spalt. -->
-        <figure id="haendeBand" class="haende relative my-6 bg-[#010101] h-[46vh] sm:h-[68vh] max-h-[720px] overflow-hidden" aria-label="Eine menschliche Hand und eine digitale Hand berühren sich">
-            <img src="/assets/img/haende-2800.jpg" srcset="/assets/img/haende-1200.jpg 1200w, /assets/img/haende-2800.jpg 2800w" sizes="100vw" width="2800" height="1563" loading="lazy" alt=""
-                class="haende-links absolute inset-0 h-full w-full object-cover object-center [mask-image:linear-gradient(to_right,#000_48.5%,transparent_50.5%)] will-change-transform">
-            <img src="/assets/img/haende-2800.jpg" srcset="/assets/img/haende-1200.jpg 1200w, /assets/img/haende-2800.jpg 2800w" sizes="100vw" width="2800" height="1563" loading="lazy" alt=""
-                class="haende-rechts absolute inset-0 h-full w-full object-cover object-center [mask-image:linear-gradient(to_right,transparent_49.5%,#000_51.5%)] will-change-transform">
+             Beide Hände freigestellt (durchsichtiger Hintergrund, WebP) – es gibt keine Schnittkante mehr. -->
+        <figure id="haendeBand" class="haende relative my-6 h-[46vh] sm:h-[68vh] max-h-[720px] overflow-hidden" aria-label="Eine menschliche Hand und eine digitale Hand berühren sich">
+            <img src="/assets/img/haende-links-2800.webp" srcset="/assets/img/haende-links-1200.webp 1200w, /assets/img/haende-links-2800.webp 2800w" sizes="100vw" width="2800" height="1563" loading="lazy" alt=""
+                class="haende-links absolute inset-0 h-full w-full object-cover object-center will-change-transform">
+            <img src="/assets/img/haende-rechts-2800.webp" srcset="/assets/img/haende-rechts-1200.webp 1200w, /assets/img/haende-rechts-2800.webp 2800w" sizes="100vw" width="2800" height="1563" loading="lazy" alt=""
+                class="haende-rechts absolute inset-0 h-full w-full object-cover object-center will-change-transform">
             <span class="haende-blitz absolute left-1/2 top-[49%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full" aria-hidden="true"></span>
             <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,#0C0C0C_0%,transparent_20%,transparent_62%,#0C0C0C_100%),linear-gradient(to_right,#0C0C0C_0%,transparent_10%,transparent_90%,#0C0C0C_100%)]" aria-hidden="true"></div>
             <figcaption class="haende-text absolute inset-x-0 bottom-[7%] px-6 text-center">
