@@ -197,8 +197,8 @@
         tick = false;
         const weg = Math.max(heroFlow.offsetHeight - innerHeight, 1);
         const p = Math.min(Math.max(-heroFlow.getBoundingClientRect().top / weg, 0), 1);
-        // erst kurz stehen lassen, dann auflösen – so sieht man die Animation in Ruhe
-        const q = Math.min(Math.max((p - 0.08) / 0.62, 0), 1);
+        // Buchstaben lösen sich über den ganzen Scrollweg auf (bis zum Schluss), die Welle tritt früher zurück
+        const q = Math.min(Math.max((p - 0.04) / 0.96, 0), 1);
         const e = q * q * (3 - 2 * q);
         buchstaben.forEach((b, i) => {
           if (!e) { b.style.transform = ''; b.style.opacity = ''; b.style.filter = ''; return; }
@@ -209,7 +209,7 @@
           b.style.opacity = String(Math.max(1 - e * 1.15, 0));
           b.style.filter = `blur(${(e * 6).toFixed(2)}px)`;
         });
-        const u = Math.min(Math.max((p - 0.3) / 0.5, 0), 1);
+        const u = Math.min(Math.max((p - 0.15) / 0.45, 0), 1);
         if (welle) { welle.style.transform = `translate(-50%, -50%) scale(${1 + e * 0.35})`; welle.style.opacity = String(1 - u * 0.9); }
         if (unten) { unten.style.transform = `translateY(${-50 * e}px)`; unten.style.opacity = String(1 - u); }
         if (hinweis) hinweis.style.opacity = String(Math.max(1 - p * 8, 0));
