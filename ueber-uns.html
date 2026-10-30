@@ -104,7 +104,7 @@
         </section>
 
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-            <section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center shadow-2xl mb-16" data-reveal>
+            <section class="max-w-3xl mx-auto rounded-3xl border border-slate-800 bg-slate-900/70 p-8 sm:p-12 shadow-2xl" data-reveal>
                 <div>
                     <h2 class="text-2xl sm:text-3xl font-extrabold mb-6">Gründer &amp; Vision</h2>
                     <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
@@ -138,17 +138,22 @@
                     </div>
                 </div>
                 </div>
-                <!-- Mensch trifft KI: Bild ohne Rahmen, Ränder laufen weich in die Fläche aus; zwischen den Fingerspitzen springt ein Funke -->
-                <figure class="haende relative aspect-video">
-                    <div class="absolute inset-[8%] rounded-full bg-lexia/10 blur-3xl" aria-hidden="true"></div>
-                    <img src="/assets/img/haende.jpg" width="1600" height="893" loading="lazy"
-                        alt="Eine menschliche Hand und eine leuchtend türkise, digitale Hand strecken sich einander entgegen"
-                        class="relative w-full h-full object-cover object-center [mask-image:radial-gradient(ellipse_70%_65%_at_50%_50%,#000_55%,transparent_100%)]">
-                    <span class="haende-funke absolute left-[50.5%] top-[49%] h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" aria-hidden="true"></span>
-                    <figcaption class="mt-2 text-center text-xs text-slate-500">Mensch und KI – das Wissen bleibt bei Ihren Leuten.</figcaption>
-                </figure>
             </section>
 
+        </div>
+
+        <!-- Mensch trifft KI: breites, ruhiges Band ohne Rahmen und ohne Text. Oben und unten läuft es in Schwarz aus,
+             beim Scrollen zoomt es kaum merklich heran; zwischen den Fingerspitzen pulsiert ein Funke. -->
+        <figure id="haendeBand" class="haende relative my-6 h-[42vh] sm:h-[62vh] max-h-[640px] overflow-hidden" aria-label="Eine menschliche Hand und eine leuchtend türkise, digitale Hand strecken sich einander entgegen">
+            <div class="haende-bild absolute inset-0 will-change-transform">
+                <img src="/assets/img/haende.jpg" width="1600" height="893" loading="lazy" alt=""
+                    class="w-full h-full object-cover object-center">
+                <span class="haende-funke absolute left-[50.5%] top-[49%] h-3 w-3 rounded-full bg-white" aria-hidden="true"></span>
+            </div>
+            <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,#0C0C0C_0%,transparent_22%,transparent_78%,#0C0C0C_100%),linear-gradient(to_right,#0C0C0C_0%,transparent_12%,transparent_88%,#0C0C0C_100%)]" aria-hidden="true"></div>
+        </figure>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
             <section class="rounded-3xl border border-lexia/50 bg-gradient-to-br from-[#063a36] via-[#05241f] to-[#041614] p-8 sm:p-12 text-center shadow-[0_0_60px_rgba(50,243,221,0.1)]" data-reveal>
                 <h2 class="text-2xl sm:text-4xl font-extrabold mb-4">Möchten Sie LEXIA kennenlernen?</h2>
                 <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-8">Am schnellsten geht es selbst: 30 Tage kostenlos testen. Lieber erst sprechen? Schreiben Sie uns.</p>

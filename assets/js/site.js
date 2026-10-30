@@ -340,6 +340,21 @@
     }, { threshold: 0.1 }).observe(stage);
   }
 
+  // ---------- Über uns: Hände-Band zoomt beim Scrollen kaum merklich heran ----------
+  const band = $('#haendeBand');
+  if (band && !reducedMotion) {
+    const bild = $('.haende-bild', band);
+    let tick = false;
+    const update = () => {
+      tick = false;
+      const r = band.getBoundingClientRect();
+      const p = Math.min(Math.max((innerHeight - r.top) / (innerHeight + r.height), 0), 1);
+      bild.style.transform = `scale(${1 + p * 0.08})`;
+    };
+    addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+
   // ---------- Symbole zeichnen sich beim Hineinscrollen (Klasse bleibt dauerhaft) ----------
   $$('[data-zeichnen]').forEach((el) => {
     if (reducedMotion || !('IntersectionObserver' in window)) return el.classList.add('gezeichnet');

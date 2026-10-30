@@ -104,13 +104,16 @@
   fenster.hidden = true;
   fenster.setAttribute('role', 'dialog');
   fenster.setAttribute('aria-label', 'Frag LEXIA');
-  const punkt = 'group/p flex h-3.5 w-3.5 items-center justify-center rounded-full text-[9px] font-bold leading-none text-black/0 hover:text-black/70 focus-visible:text-black/70 focus:outline-none';
+  // Ampel: Beim Darüberfahren über die Gruppe erscheinen alle drei Zeichen zugleich (wie am Mac, aber eigene Zeichen
+  // und Farben: feine Linien in einem dunkleren Ton der Punktfarbe, „+“ statt Pfeilen). Am Handy immer sichtbar.
+  const punkt = 'flex h-3.5 w-3.5 items-center justify-center rounded-full ring-1 ring-black/20 transition-shadow group-hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70';
+  const zeichen = (d, farbe) => `<svg class="h-2 w-2 opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100 max-sm:opacity-100" viewBox="0 0 10 10" fill="none" stroke="${farbe}" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="${d}"/></svg>`;
   fenster.innerHTML = `
     <div class="flex items-center gap-2 border-b border-slate-800 px-5 pb-3.5 pt-[max(0.875rem,env(safe-area-inset-top))]">
       <span class="group flex items-center gap-2">
-        <button type="button" data-ampel="zu" title="Schließen" aria-label="Schließen" class="${punkt} bg-[#FF453A]">×</button>
-        <button type="button" data-ampel="klein" title="Minimieren" aria-label="Minimieren" class="${punkt} bg-[#FFD60A]">−</button>
-        <button type="button" data-ampel="gross" title="Vergrößern" aria-label="Vergrößern" class="${punkt} bg-[#30D158]">+</button>
+        <button type="button" data-ampel="zu" title="Schließen" aria-label="Schließen" class="${punkt} bg-[#FF453A]">${zeichen("M2.5 2.5l5 5M7.5 2.5l-5 5", "#7a1410")}</button>
+        <button type="button" data-ampel="klein" title="Minimieren" aria-label="Minimieren" class="${punkt} bg-[#FFD60A]">${zeichen("M2 5h6", "#7a5a00")}</button>
+        <button type="button" data-ampel="gross" title="Vergrößern" aria-label="Vergrößern" class="${punkt} bg-[#30D158]">${zeichen("M5 2v6M2 5h6", "#0d5a22")}</button>
       </span>
       <span class="ml-3 text-base font-semibold">Frag LEXIA</span>
       <button type="button" data-zu class="ml-auto inline-flex h-10 items-center gap-1 rounded-full px-3 -mr-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800" aria-label="Schließen"><span class="sm:hidden">Schließen</span><span aria-hidden="true">✕</span></button>
