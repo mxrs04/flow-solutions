@@ -736,6 +736,31 @@
     update();
   }
 
+  // ---------- Rückmeldung: einheitliches Fenster wie in LEXIA (grüner Siegel-Haken / rotes Kreuz) ----------
+  const SIEGEL = 'M' + Array.from({ length: 120 }, (_, i) => {
+    const a = (2 * Math.PI * i) / 120, r = 44 + 3.4 * Math.cos(12 * a);
+    return `${(50 + r * Math.sin(a)).toFixed(1)} ${(50 - r * Math.cos(a)).toFixed(1)}`;
+  }).join(' L') + 'Z';
+  window.lexiaRueckmeldung = (ok, titel, text = '', danach) => {
+    const symbol = ok
+      ? `<svg viewBox="0 0 100 100" class="w-20 h-20" aria-hidden="true"><path d="${SIEGEL}" fill="#62B54B"/><path d="M30 52 L44 66 L71 37" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="square"/></svg>`
+      : '<svg viewBox="0 0 100 100" class="w-20 h-20" aria-hidden="true"><path d="M18 18 L82 82 M82 18 L18 82" fill="none" stroke="#E83A33" stroke-width="13" stroke-linecap="round"/></svg>';
+    const huelle = document.createElement('div');
+    huelle.className = 'fixed inset-0 z-[300] flex items-center justify-center bg-black/60 p-4';
+    huelle.innerHTML = `<div role="${ok ? 'status' : 'alertdialog'}" aria-live="${ok ? 'polite' : 'assertive'}" class="w-full max-w-sm rounded-3xl border border-slate-800 bg-[#0C0C0C] p-7 flex flex-col items-center gap-4 text-center shadow-2xl">${symbol}<p class="text-lg font-bold text-white"></p>${text ? '<p class="text-sm text-slate-400"></p>' : ''}${ok ? '' : '<button type="button" class="w-full rounded-xl bg-lexia py-3.5 font-bold text-[#04201d] hover:bg-white transition-colors">OK</button>'}</div>`;
+    const [t, x] = huelle.querySelectorAll('p');
+    t.textContent = titel;
+    if (x) x.textContent = text;
+    const zu = () => { huelle.remove(); document.removeEventListener('keydown', taste); if (danach) danach(); };
+    const taste = (e) => e.key === 'Escape' && zu();
+    document.addEventListener('keydown', taste);
+    huelle.addEventListener('click', (e) => { if (e.target === huelle) zu(); });
+    huelle.querySelector('button')?.addEventListener('click', zu);
+    document.body.appendChild(huelle);
+    huelle.querySelector('button')?.focus();
+    if (ok) setTimeout(zu, 2000);
+  };
+
   // ---------- Kontakt: Anliegen + vorausgefüllte E-Mail ----------
   const form = $('#contactForm');
   if (form) {
@@ -750,18 +775,20 @@
       });
     });
     const presets = {
-      demo: ['demo'], pilot: ['pilot'], enterprise: ['enterprise'],
+      demo: ['demo'], pilot: ['pilot'], enterprise: ['enterprise'], buchen: ['buchen'],
+      unterlagen: ['unterlagen', '', 'Bitte senden Sie mir den AV-Vertrag (AVV), die technischen und organisatorischen Maßnahmen (TOMs) und die Liste der Unterauftragsverarbeiter.'],
       download: ['sonstiges', 'Bitte benachrichtigen Sie mich, sobald die Desktop-App verfügbar ist.'],
     };
     const preset = presets[new URLSearchParams(location.search).get('anliegen')];
     if (preset) {
       chips.find((c) => c.dataset.topic === preset[0])?.setAttribute('aria-pressed', 'true');
       if (preset[1]) $('#sonstigesText').value = preset[1];
+      if (preset[2] && !$('#message').value) $('#message').value = preset[2];
       syncOther();
     }
     // Nachricht geht direkt an LEXIA (Liste auf der Plattform + Mail an Flow Solutions + Bestätigung an den Absender).
     // Klappt das nicht, öffnet sich wie bisher das E-Mail-Programm – es geht nichts verloren.
-    const ANLIEGEN = { demo: 'Demo', pilot: 'Pilot', enterprise: 'Enterprise', sonstiges: 'Sonstiges' };
+    const ANLIEGEN = { demo: 'Demo', pilot: 'Pilot', enterprise: 'Enterprise', buchen: 'Buchen', unterlagen: 'Unterlagen', sonstiges: 'Sonstiges' };
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const val = (id) => (document.getElementById(id)?.value || '').trim();
@@ -779,12 +806,16 @@
           body: JSON.stringify({ name, firma: val('company'), email: val('email'), anliegen: gewaehlt.map((c) => ANLIEGEN[c.dataset.topic]).filter(Boolean), nachricht, website: (form.querySelector('[name="website"]') || {}).value || '' }),
         });
         if (!r.ok) throw new Error((await r.json().catch(() => ({}))).fehler || 'Fehler');
+        window.lexiaRueckmeldung(true, 'Danke – Ihre Nachricht ist angekommen.');
         form.innerHTML = '<div class="rounded-3xl border border-lexia/40 bg-[#0b1817] p-8 text-center"><p class="text-2xl font-extrabold">Danke – Ihre Nachricht ist angekommen.</p><p class="mt-3 text-slate-300">Wir melden uns innerhalb eines Werktags. Eine Bestätigung ist per E-Mail unterwegs.</p></div>';
       } catch (err) {
         if (knopf) { knopf.disabled = false; knopf.innerHTML = alterText; }
         const lines = [`Name: ${name}`, `Firma: ${val('company') || '–'}`, `E-Mail: ${val('email')}`, `Anliegen: ${topics.join(', ') || '–'}`, '', nachricht];
         const subject = `Anfrage über die Website${name ? ' – ' + name : ''}`;
-        location.href = `mailto:flowsolutions.digital@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+        // Es geht nichts verloren: Nach „OK“ öffnet sich das E-Mail-Programm mit der fertigen Nachricht
+        window.lexiaRueckmeldung(false, 'Das hat nicht geklappt', 'Mit „OK“ öffnet sich Ihr E-Mail-Programm – Ihre Nachricht ist schon eingetragen.', () => {
+          location.href = `mailto:flowsolutions.digital@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+        });
       }
     });
   }
