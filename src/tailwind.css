@@ -142,8 +142,8 @@ body {
 }
 
 .text-glow {
+  /* Akzent ohne Leuchtschein (docs/design/DESIGN.md: kein Glow als Deko) */
   color: #32F3DD;
-  text-shadow: 0 0 24px rgba(50, 243, 221, 0.45);
 }
 
 /* ---------- Startseite: Slogan & "Der Unterschied" ---------- */
