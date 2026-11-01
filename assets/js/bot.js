@@ -1,13 +1,13 @@
 // „Frag LEXIA“ – kleiner Helfer unten rechts auf jeder Seite.
-// Bewusst vorprogrammiert (keine KI, keine Kosten, nichts wird gespeichert oder verschickt):
-// Antwort-Knöpfe plus einfache Stichwortsuche. Inhalte nur, was laut produkt-stand.md wirklich fertig ist.
+// Häufige Fragen: vorbereitete Antworten (sofort, kostenlos). Eigene Fragen ohne passende Vorlage beantwortet echtes LEXIA
+// aus den Texten dieser Website (/api/website-bot, harte Grenzen, Fragen werden nicht gespeichert). Klappt das nicht: Kontaktformular.
 (() => {
   const APP = 'https://lexia-nu.vercel.app';
 
   const WISSEN = [
     {
       id: 'was', frage: 'Was ist LEXIA?',
-      worte: ['was ist', 'lexia', 'funktion', 'kann', 'macht', 'wofür', 'wissen'],
+      worte: ['was ist lexia', 'was macht lexia', 'was kann lexia', 'wofür ist lexia', 'wie funktioniert lexia'],
       antwort: 'LEXIA ist die Unternehmens-KI für Ihr Team: Mitarbeitende stellen Fragen in normaler Sprache und bekommen Antworten aus Ihren eigenen Dokumenten und Abläufen – immer mit Quelle. Dazu kommen Prozesse als Checklisten, Aufgaben und „Wer ist zuständig?“.',
       links: [['So funktioniert LEXIA', '/lexia']],
     },
@@ -67,7 +67,7 @@
     },
     {
       id: 'wer', frage: 'Wer steckt hinter LEXIA?',
-      worte: ['wer', 'flow solutions', 'gründer', 'firma', 'esslingen', 'maximilian', 'hersteller'],
+      worte: ['wer steckt', 'wer ist flow', 'flow solutions', 'gründer', 'esslingen', 'hersteller', 'wer entwickelt'],
       antwort: 'Flow Solutions aus Esslingen am Neckar entwickelt LEXIA selbst. Sie sprechen direkt mit dem Gründer – Wünsche fließen direkt in die nächste Version ein.',
       links: [['Über uns', '/ueber-uns']],
     },
@@ -80,14 +80,16 @@
   ];
   const START = ['was', 'preis', 'testen', 'dsgvo', 'chatgpt', 'kontakt'];
 
+  // Vorbereitete Antwort nur bei klarem Treffer – Stichwörter zählen nur am Wortanfang („eu“ nicht in „neu“).
+  // Alles andere beantwortet echtes LEXIA.
   const finden = (text) => {
-    const t = text.toLowerCase();
+    const t = ' ' + text.toLowerCase().replace(/[^a-zäöüß0-9€ -]/g, ' ');
     let beste = null, punkte = 0;
     for (const e of WISSEN) {
-      const p = e.worte.reduce((s, w) => s + (t.includes(w) ? w.length : 0), 0);
+      const p = e.worte.reduce((s, w) => s + (t.includes(' ' + w) ? w.length : 0), 0);
       if (p > punkte) { beste = e; punkte = p; }
     }
-    return punkte >= 3 ? beste : null;
+    return punkte >= 4 ? beste : null;
   };
 
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; };
@@ -124,7 +126,7 @@
       <input id="fragLexiaEingabe" data-eingabe type="text" maxlength="200" enterkeyhint="send" autocomplete="off" placeholder="Eigene Frage eingeben …" class="flex-1 min-w-0 rounded-full bg-slate-800 border border-slate-600 px-4 py-3 text-base text-white placeholder:text-slate-400 focus:outline-none focus:border-lexia">
       <button type="submit" class="shrink-0 rounded-full bg-lexia px-5 py-3 text-base font-bold text-[#04201d] hover:bg-white">Fragen</button>
     </form>
-    <p class="px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 text-[11px] text-slate-500 bg-[#161616] sm:bg-transparent sm:rounded-b-3xl">Vorbereitete Antworten · nichts wird gespeichert</p>`;
+    <p class="px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 text-[11px] text-slate-500 bg-[#161616] sm:bg-transparent sm:rounded-b-3xl">Antworten von LEXIA aus dieser Website · Fragen werden nicht gespeichert</p>`;
 
   const verlauf = fenster.querySelector('[data-verlauf]');
   const scrollen = () => { verlauf.scrollTop = verlauf.scrollHeight; };
@@ -158,11 +160,31 @@
     scrollen();
   };
 
+  const ohneAntwort = () => vonLexia('Dazu habe ich gerade keine Antwort – ich rate nicht. Schreiben Sie uns gern, wir antworten persönlich.', [['Zum Kontaktformular', '/kontakt']], START.slice(0, 4));
+
+  // Echtes LEXIA fragen (nur bei eigenen Fragen ohne vorbereitete Antwort)
+  const lexiaFragen = async (frage) => {
+    const denkt = el('p', 'max-w-[92%] rounded-2xl rounded-bl-md bg-slate-900 border border-slate-800 px-4 py-3 text-slate-400', 'LEXIA sucht auf dieser Website …');
+    verlauf.append(denkt);
+    scrollen();
+    try {
+      const r = await fetch(APP + '/api/website-bot', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ frage }) });
+      const d = await r.json();
+      denkt.remove();
+      if (!r.ok || !d.antwort) return ohneAntwort();
+      const links = (d.quellen || []).slice(0, 3).map((q) => [q.titel, q.url]);
+      vonLexia(d.antwort, d.grenze ? [['Zum Kontaktformular', '/kontakt']] : links, START.slice(0, 3));
+    } catch {
+      denkt.remove();
+      ohneAntwort();
+    }
+  };
+
   const antworten = (frage, treffer = finden(frage)) => {
     verlauf.querySelectorAll('[data-vorschlaege]').forEach((v) => v.remove()); // alte Vorschläge weg
     vonMir(frage);
     if (treffer) vonLexia(treffer.antwort, treffer.links, START.filter((id) => id !== treffer.id).slice(0, 3));
-    else vonLexia('Dazu habe ich keine vorbereitete Antwort – ich rate nicht. Schreiben Sie uns gern, wir antworten persönlich.', [['Zum Kontaktformular', '/kontakt']], START.slice(0, 4));
+    else lexiaFragen(frage);
   };
 
   let begruesst = false;
@@ -175,7 +197,7 @@
     knopf.classList.toggle('max-sm:hidden', auf);
     if (auf && !begruesst) {
       begruesst = true;
-      vonLexia('Hallo! Ich beantworte die häufigsten Fragen zu LEXIA. Tippen Sie auf eine Frage – oder schreiben Sie unten selbst.', [], START);
+      vonLexia('Hallo! Ich bin LEXIA und beantworte Fragen zu LEXIA. Tippen Sie auf eine Frage – oder schreiben Sie unten selbst.', [], START);
     }
     if (auf && !handy()) fenster.querySelector('[data-eingabe]').focus(); // am Handy keine Tastatur aufdrängen
     if (!auf) knopf.focus();
