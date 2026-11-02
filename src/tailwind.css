@@ -480,16 +480,24 @@ input[type="range"].range::-moz-range-thumb {
 @media (prefers-reduced-motion: reduce) { .live-cursor { display: none; } }
 
 /* ---------- Startseite: Slogan fließt Buchstabe für Buchstabe herein ---------- */
+/* Schnell sichtbar: alle Buchstaben sind nach gut 1 s da (vorher fast 3 s); ruhig auslaufend, ohne Nachfedern */
 .fl-b {
   display: inline-block;
-  will-change: transform, opacity, filter;
-  animation: fl-in 1.3s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: calc(var(--i) * 45ms + 250ms);
+  will-change: transform, opacity;
+  animation: fl-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--i) * 18ms + 60ms);
 }
 @keyframes fl-in {
-  from { opacity: 0; transform: translateY(0.55em) rotate(5deg) scale(0.9); filter: blur(10px); }
+  from { opacity: 0; transform: translateY(0.45em) rotate(4deg) scale(0.94); filter: blur(8px); }
 }
-.hero-unten { animation: fl-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.5s backwards; }
+/* Handy: Weichzeichnen kostet dort zu viel Rechenzeit und ruckelt – nur Bewegung und Einblenden */
+@keyframes fl-in-handy {
+  from { opacity: 0; transform: translateY(0.45em) rotate(4deg) scale(0.94); }
+}
+@media (max-width: 639px) {
+  .fl-b, .hero-unten { animation-name: fl-in-handy; }
+}
+.hero-unten { animation: fl-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s backwards; }
 
 /* ---------- LEXIA-Seite: La-Ola-Welle mit Leuchten über den Schriftzug ---------- */
 .lx-halo { filter: drop-shadow(0 0 22px rgba(50, 243, 221, 0.18)); }

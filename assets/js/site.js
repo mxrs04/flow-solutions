@@ -76,7 +76,10 @@
         }, 1500);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    // Was beim Laden schon im Bild ist, bleibt einfach sichtbar (kein leerer Bildschirm, schneller erster Eindruck) –
+    // eingeblendet wird nur, was man erst beim Scrollen erreicht.
     revealTargets.forEach((el) => {
+      if (el.getBoundingClientRect().top < innerHeight * 0.9) { el.style.transitionDelay = ''; return; }
       el.classList.add('reveal');
       io.observe(el);
     });
@@ -403,21 +406,22 @@
   const revealText = $('#reveal-text');
   if (revealSec && revealText) {
     const words = revealText.textContent.trim().split(/\s+/);
-    revealText.innerHTML = words.map((w) => `<span class="inline-block mx-1.5 sm:mx-2 transition-colors duration-200 text-slate-600">${w}</span>`).join(' ');
+    revealText.innerHTML = words.map((w) => `<span class="transition-colors duration-300 text-slate-600">${w}</span>`).join(' ');
     const spans = $$('span', revealText);
+    // Ein Wort leuchtet auf, sobald es die Lese-Linie erreicht – Handy bei 85 %, sonst 70 % der Bildschirmhöhe.
+    // So folgt das Aufleuchten dem Lesen, statt hinterherzuhinken.
+    let tick = false;
     const update = () => {
-      const rect = revealSec.getBoundingClientRect();
-      const pivot = innerHeight * 0.55;
-      const startY = pivot + 160;
-      const endY = pivot - rect.height + 160;
-      const progress = Math.min(Math.max((startY - rect.top) / (startY - endY), 0), 1);
-      const active = reducedMotion ? spans.length : Math.floor(progress * spans.length);
-      spans.forEach((s, i) => {
-        s.classList.toggle('text-white', i < active);
-        s.classList.toggle('text-slate-600', i >= active);
+      tick = false;
+      const linie = innerHeight * (innerWidth < 640 ? 0.85 : 0.7);
+      spans.forEach((s) => {
+        const an = reducedMotion || s.getBoundingClientRect().top < linie;
+        s.classList.toggle('text-white', an);
+        s.classList.toggle('text-slate-600', !an);
       });
     };
-    addEventListener('scroll', update, { passive: true });
+    addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+    addEventListener('resize', update, { passive: true });
     update();
   }
 
