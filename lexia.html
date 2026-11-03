@@ -124,7 +124,7 @@
     </nav>
     <!-- /@header -->
 
-    <main id="main" class="relative z-10 overflow-x-hidden">
+    <main id="main" class="relative z-10 overflow-x-clip">
 
         <!-- Hero -->
         <section class="relative min-h-[92vh] flex items-center pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -346,7 +346,7 @@
                                 <p class="mt-1.5 text-[11px] text-slate-400">Checkliste: 2 von 3 erledigt</p>
                             </div>
                         </div>
-                        <div><a href="#app" data-demo-tab="tab-proc" class="inline-flex items-center gap-2 text-sm font-semibold text-lexia hover:text-white transition-colors">Prozess in der Demo ausprobieren <span aria-hidden="true">↓</span></a></div>
+                        <div><a href="#prozess-tour" class="inline-flex items-center gap-2 text-sm font-semibold text-lexia hover:text-white transition-colors">Schritt für Schritt ansehen <span aria-hidden="true">↓</span></a></div>
                     </div>
                     <div role="tabpanel" id="bp-organigramm" aria-labelledby="bt-organigramm" class="tab-panel h-full flex flex-col gap-6" hidden>
                         <div class="flex items-center gap-4">
@@ -408,6 +408,158 @@
                             </div>
                         </div>
                         <div><a href="#app" data-demo-tab="tab-proof" class="inline-flex items-center gap-2 text-sm font-semibold text-lexia hover:text-white transition-colors">Nachweise in der Demo ansehen <span aria-hidden="true">↓</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rundgang „So entsteht ein Prozess“: beim Scrollen Schritt für Schritt (assets/js/tour.js, Nachbau der echten Oberfläche) -->
+        <section id="prozess-tour" class="scroll-mt-20 border-t border-slate-800/80" aria-labelledby="prozess-tour-titel">
+            <div class="px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28">
+                <div class="max-w-3xl mx-auto text-center" data-reveal>
+                    <h2 id="prozess-tour-titel" class="text-3xl sm:text-5xl font-extrabold tracking-tight">So entsteht ein Prozess</h2>
+                    <p class="mt-4 text-lg text-slate-300 leading-relaxed">Scrollen Sie weiter – LEXIA zeigt Schritt für Schritt, was passiert. Vom Erzählen bis zur fertigen Checkliste in wenigen Minuten.</p>
+                    <a href="#app" class="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">Rundgang überspringen <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+                </div>
+            </div>
+
+            <div class="tour" data-tour style="--schritte: 7">
+                <div class="tour-sticky">
+                    <div class="tour-raster max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <!-- Erklärung links: immer nur der aktuelle Schritt -->
+                        <div class="tour-text">
+                            <div class="flex items-center gap-4 text-sm text-slate-400 tabular-nums">
+                                <span><span data-tour-nummer class="text-white font-semibold">01</span> / 07</span>
+                                <span class="tour-balken" aria-hidden="true"><span data-tour-balken></span></span>
+                            </div>
+                            <ol class="tour-schritte mt-6">
+                                <li data-tour-schritt="1">
+                                    <h3>Neuen Prozess anlegen</h3>
+                                    <p>Unter „Prozesse“ auf „Neuer Prozess“ tippen und einen Namen geben – zum Beispiel „Urlaubsantrag“.</p>
+                                </li>
+                                <li data-tour-schritt="2">
+                                    <h3>Erzählen statt zeichnen</h3>
+                                    <p>„Ablauf erzählen“ antippen und sagen, wie es bei Ihnen läuft. Oder ein Foto vom Whiteboard hochladen. Niemand muss Diagramme zeichnen.</p>
+                                </li>
+                                <li data-tour-schritt="3">
+                                    <h3>LEXIA zeichnet den Ablauf</h3>
+                                    <p>Aus dem Erzählten werden Schritte, Entscheidungen und Zuständige – als Landkarte, die jeder versteht.</p>
+                                </li>
+                                <li data-tour-schritt="4">
+                                    <h3>Anpassen mit einem Klick</h3>
+                                    <p>Schritt antippen, Zuständige ändern, passendes Wissen verknüpfen. Schritte lassen sich mit der Maus verschieben.</p>
+                                </li>
+                                <li data-tour-schritt="5">
+                                    <h3>Speichern – fertig</h3>
+                                    <p>Ab jetzt sieht jede Person im Bereich den Ablauf, als Landkarte oder als Liste. Ändern dürfen nur die Zuständigen.</p>
+                                </li>
+                                <li data-tour-schritt="6">
+                                    <h3>LEXIA kennt den Ablauf im Chat</h3>
+                                    <p>Fragt jemand „Wie läuft ein Urlaubsantrag ab?“, antwortet LEXIA mit genau diesem Prozess – mit Quelle.</p>
+                                </li>
+                                <li data-tour-schritt="7">
+                                    <h3>Als Checkliste starten</h3>
+                                    <p>Jeder Ablauf lässt sich als Checkliste starten und Schritt für Schritt abhaken. So wird nichts vergessen – auch nicht in der ersten Woche.</p>
+                                    <div class="mt-6 flex flex-wrap gap-3">
+                                        <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="inline-flex min-h-12 items-center rounded-full bg-lexia px-6 text-base font-bold text-[#04201d] hover:bg-white transition-colors">30 Tage kostenlos testen</a>
+                                        <a href="#app" data-demo-tab="tab-proc" class="inline-flex min-h-12 items-center rounded-full border border-slate-700 px-6 text-base font-semibold text-slate-200 hover:border-lexia/60 transition-colors">Selbst ausprobieren</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- Nachbau von LEXIA rechts (nur Anschauung, nicht bedienbar) -->
+                        <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
+                            <div class="tour-buehne" data-tour-buehne data-schritt="1">
+                                <div class="tb-leiste"><i></i><i></i><i></i><span>LEXIA</span></div>
+                                <div class="tb-app">
+                                    <nav class="tb-nav">
+                                        <span class="tb-logo">LEXIA</span>
+                                        <span data-aktiv="6">Chat</span>
+                                        <span>Wissen</span>
+                                        <span data-aktiv="1-5">Prozesse</span>
+                                        <span>Organigramm</span>
+                                        <span data-aktiv="7">Meine Aufgaben</span>
+                                    </nav>
+
+                                    <!-- Bildschirm 1: Prozess-Editor (Schritt 1–5) -->
+                                    <div class="tb-seite" data-zeigen="1-5">
+                                        <div class="tb-kopf">
+                                            <div>
+                                                <div class="tb-klein">Name des Prozesses</div>
+                                                <div class="tb-feld" data-zeiger="1"><span class="tb-tippen" data-ab="1">Urlaubsantrag</span><span class="tb-schreibmarke" data-zeigen="1"></span></div>
+                                            </div>
+                                            <span class="tb-knopf tb-knopf-voll" data-zeiger="5">Speichern</span>
+                                        </div>
+
+                                        <div class="tb-ki" data-zeigen="1-2">
+                                            <div class="tb-ki-titel">Mit KI erstellen – beschreiben, erzählen oder Foto</div>
+                                            <div class="flex gap-2">
+                                                <span class="tb-knopf" data-zeiger="2">Ablauf erzählen</span>
+                                                <span class="tb-knopf">Foto oder Datei vom Ablauf</span>
+                                            </div>
+                                            <div class="tb-aufnahme" data-ab="2"><i></i>Nimmt auf · 0:18 <span class="tb-welle"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></span></div>
+                                            <p class="tb-erzaehlt" data-ab="2">„Wer Urlaub möchte, stellt den Antrag im Portal. Die Teamleitung prüft, ob genug Resturlaub da ist. Wenn ja, trägt Personal ihn ein – sonst gibt es eine kurze Begründung.“</p>
+                                        </div>
+
+                                        <div class="tb-karte" data-zeigen="3-5">
+                                            <svg class="tb-linien" viewBox="0 0 610 372" fill="none">
+                                                <path d="M305 46V70M305 124V148M305 202V220H130V238M305 202V220H480V238M130 292V308H305V324M480 292V308H305" />
+                                                <text x="138" y="233">Ja</text><text x="449" y="233">Nein</text>
+                                            </svg>
+                                            <div class="tb-k tb-start" style="left:225px;top:6px;--v:0">Urlaub gewünscht</div>
+                                            <div class="tb-k" style="left:205px;top:70px;--v:1"><small>Schritt</small>Antrag im Portal stellen<em>Mitarbeitende</em></div>
+                                            <div class="tb-k tb-frage" style="left:205px;top:148px;--v:2"><small>Entscheidung</small>Genug Resturlaub?<em>Teamleitung</em></div>
+                                            <div class="tb-k" data-zeiger="4" data-markiert="4" style="left:30px;top:238px;--v:3"><small>Schritt</small>Urlaub eintragen<em>Personal</em></div>
+                                            <div class="tb-k" style="left:380px;top:238px;--v:3"><small>Schritt</small>Begründung senden<em>Teamleitung</em></div>
+                                            <div class="tb-k tb-ende" style="left:225px;top:324px;--v:4">Erledigt</div>
+
+                                            <div class="tb-hinweis" data-zeigen="3">Entwurf erstellt. Bitte prüfen und anpassen.</div>
+                                            <div class="tb-panel" data-zeigen="4">
+                                                <strong>Schritt bearbeiten</strong>
+                                                <div class="tb-klein">Titel</div><div class="tb-feld">Urlaub eintragen</div>
+                                                <div class="tb-klein">Verantwortlich (Rolle)</div><div class="tb-feld">Personal</div>
+                                                <div class="tb-klein">Wissen verknüpfen</div>
+                                                <div class="tb-chip" data-ab="4">Urlaubsregelung</div>
+                                            </div>
+                                            <div class="tb-gespeichert" data-zeigen="5">
+                                                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#62B54B"/><path d="M30 52 L44 66 L71 37" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="square"/></svg>
+                                                Gespeichert
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bildschirm 2: Chat (Schritt 6) -->
+                                    <div class="tb-seite tb-chat" data-zeigen="6">
+                                        <p class="tb-frage-blase">Wie läuft ein Urlaubsantrag ab?</p>
+                                        <div class="tb-antwort" data-ab="6">
+                                            <p>So läuft es ab:</p>
+                                            <p>1. Sie stellen den Antrag im Portal.<br>2. Ihre Teamleitung prüft, ob genug Resturlaub da ist.<br>3. Wenn ja, trägt Personal den Urlaub ein – sonst bekommen Sie eine kurze Begründung. <sup>1</sup></p>
+                                            <p>Sie können den Ablauf auch als Checkliste starten.</p>
+                                            <span class="tb-quelle" data-zeiger="6"><sup>1</sup> Urlaubsantrag · Prozess</span>
+                                        </div>
+                                        <div class="tb-eingabe">Stellen Sie hier Ihre Frage …</div>
+                                    </div>
+
+                                    <!-- Bildschirm 3: Checkliste (Schritt 7) -->
+                                    <div class="tb-seite" data-zeigen="7">
+                                        <div class="tb-kopf">
+                                            <div class="tb-titel">Urlaubsantrag</div>
+                                            <span class="tb-knopf tb-knopf-voll" data-zeiger="7">Als Checkliste starten</span>
+                                        </div>
+                                        <div class="tb-liste" data-ab="7">
+                                            <div class="tb-klein">Checkliste aus einem Prozess · von Ihnen gestartet</div>
+                                            <div class="tb-punkt" style="--v:1"><i></i>Antrag im Portal stellen</div>
+                                            <div class="tb-punkt" style="--v:2"><i></i>Genug Resturlaub? – Ja</div>
+                                            <div class="tb-punkt tb-offen"><i></i>Urlaub eintragen · Personal</div>
+                                            <div class="tb-fortschritt"><span></span></div>
+                                            <div class="tb-klein">2 von 3 erledigt</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="tb-zeiger" data-tour-zeiger></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -853,6 +1005,7 @@
     </footer>
     <script src="/assets/js/bot.js" defer></script>
     <!-- /@footer -->
+    <script src="/assets/js/tour.js" defer></script>
 </body>
 
 </html>

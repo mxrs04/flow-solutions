@@ -126,7 +126,7 @@
       <input id="fragLexiaEingabe" data-eingabe type="text" maxlength="200" enterkeyhint="send" autocomplete="off" placeholder="Eigene Frage eingeben …" class="flex-1 min-w-0 rounded-full bg-slate-800 border border-slate-600 px-4 py-3 text-base text-white placeholder:text-slate-400 focus:outline-none focus:border-lexia">
       <button type="submit" class="shrink-0 rounded-full bg-lexia px-5 py-3 text-base font-bold text-[#04201d] hover:bg-white">Fragen</button>
     </form>
-    <p class="px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 text-[11px] text-slate-500 bg-[#161616] sm:bg-transparent sm:rounded-b-3xl">Antworten von LEXIA aus dieser Website · Fragen werden nicht gespeichert</p>`;
+    <p class="px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 text-[11px] text-slate-500 bg-[#161616] sm:bg-transparent sm:rounded-b-3xl">KI-Antworten von LEXIA aus dieser Website · Fragen werden nicht gespeichert</p>`;
 
   const verlauf = fenster.querySelector('[data-verlauf]');
   const scrollen = () => { verlauf.scrollTop = verlauf.scrollHeight; };
