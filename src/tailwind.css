@@ -784,3 +784,12 @@ html, body { overflow-x: clip; }
   .lx-aufnahme i, .lx-schreibmarke { animation: none; }
   .lx.bereit { transition: none; }
 }
+
+/* Sprungleiste auf langen Seiten (z. B. /lexia): bleibt unter der Kopfzeile, aktueller Abschnitt in Türkis */
+.sprung-link { display: inline-flex; align-items: center; min-height: 48px; padding: 0 14px; border-bottom: 2px solid transparent; font-size: 0.9375rem; font-weight: 600; color: #a3a3a3; white-space: nowrap; transition: color 0.2s ease-out, border-color 0.2s ease-out; }
+.sprung-link:hover { color: #fff; }
+.sprung-link[aria-current] { color: #fff; border-bottom-color: #32F3DD; }
+@media (prefers-reduced-transparency: reduce) { .sprungleiste { background: #0C0C0C; backdrop-filter: none; } }
+/* Mit Sprungleiste sitzt der Rundgang tiefer (Kopfzeile + Leiste) */
+.sprungleiste ~ * .tour-sticky, .sprungleiste ~ .tour-sticky { padding-top: 140px; }
+@media (max-width: 1023px) { .sprungleiste ~ * .tour-sticky { padding-top: 124px; } }

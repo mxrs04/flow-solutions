@@ -260,6 +260,27 @@
     update();
   }
 
+  // ---------- Sprungleiste: markiert den Abschnitt, in dem man gerade ist ----------
+  const sprungleiste = $('[data-sprungleiste]');
+  if (sprungleiste && 'IntersectionObserver' in window) {
+    const links = $$('a[href^="#"]', sprungleiste);
+    const ziele = links.map((a) => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    const markieren = (id) => links.forEach((a) => {
+      const an = a.getAttribute('href') === `#${id}`;
+      a.toggleAttribute('aria-current', an);
+      // Am Handy die Leiste seitlich nachziehen – ohne die Seite selbst zu bewegen
+      const leiste = a.closest('ul');
+      if (an && leiste && (a.offsetLeft < leiste.scrollLeft || a.offsetLeft + a.offsetWidth > leiste.scrollLeft + leiste.clientWidth)) {
+        leiste.scrollTo({ left: a.offsetLeft - 16, behavior: 'smooth' });
+      }
+    });
+    // Ein Abschnitt gilt als „aktuell“, sobald er die Mitte des Bildschirms erreicht
+    const beobachter = new IntersectionObserver((eintraege) => {
+      eintraege.forEach((e) => { if (e.isIntersecting) markieren(e.target.id); });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+    ziele.forEach((z) => beobachter.observe(z));
+  }
+
   // ---------- LEXIA: Verweis "In der Demo ausprobieren" öffnet den passenden Reiter ----------
   $$('[data-demo-tab]').forEach((link) => link.addEventListener('click', () => {
     document.getElementById(link.dataset.demoTab)?.click();

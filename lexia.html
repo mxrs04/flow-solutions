@@ -150,6 +150,18 @@
             </div>
         </section>
 
+        <!-- Sprungleiste: bleibt unter der Kopfzeile stehen, zeigt den aktuellen Abschnitt (site.js) -->
+        <nav class="sprungleiste sticky top-16 sm:top-20 z-[90] border-b border-slate-800/80 bg-[#0C0C0C]/85 backdrop-blur-xl" aria-label="Auf dieser Seite" data-sprungleiste>
+            <ul class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <li><a href="#funktionen" class="sprung-link">Funktionen</a></li>
+                <li><a href="#prozess-tour" class="sprung-link">Zuschauen</a></li>
+                <li><a href="#app" class="sprung-link">Ausprobieren</a></li>
+                <li><a href="#rollen" class="sprung-link">Für wen</a></li>
+                <li><a href="#sicherheit" class="sprung-link">Sicherheit</a></li>
+                <li><a href="/abo" class="sprung-link">Preise</a></li>
+            </ul>
+        </nav>
+
         <!-- Alle Quellen. Eine Antwort. -->
         <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-y border-slate-800/80 bg-[radial-gradient(ellipse_at_70%_50%,rgba(50,243,221,0.06),transparent_60%)]">
             <div class="max-w-6xl mx-auto">
@@ -189,7 +201,7 @@
         </section>
 
         <!-- Bausteine -->
-        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
+        <section id="funktionen" class="scroll-mt-32 sm:scroll-mt-36 py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
             <div class="text-center max-w-3xl mx-auto mb-14" data-reveal>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Alles, was Ihr Firmenwissen braucht</h2>
                 <p class="mt-4 text-slate-400 text-base sm:text-lg">Sechs Bausteine, ein System. Wählen Sie einen Baustein für Details.</p>
@@ -415,7 +427,7 @@
 
         <!-- Rundgang „So entsteht ein Prozess“: beim Scrollen Schritt für Schritt (assets/js/tour.js).
              Rechts ein originalgetreuer Nachbau von LEXIA (Maße, Farben, Texte und Symbole wie in der App, 1280 × 800, skaliert). -->
-        <section id="prozess-tour" class="scroll-mt-20 border-t border-slate-800/80" aria-labelledby="prozess-tour-titel">
+        <section id="prozess-tour" class="scroll-mt-32 sm:scroll-mt-36 border-t border-slate-800/80 bg-[#121212]" aria-labelledby="prozess-tour-titel">
             <div class="px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28">
                 <div class="max-w-3xl mx-auto text-center" data-reveal>
                     <h2 id="prozess-tour-titel" class="text-3xl sm:text-5xl font-extrabold tracking-tight">So entsteht ein Prozess</h2>
@@ -663,7 +675,7 @@
         </section>
 
         <!-- App-Ansicht (Nachbau der echten Oberfläche) -->
-        <section id="app" class="scroll-mt-20 py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+        <section id="app" class="scroll-mt-32 sm:scroll-mt-36 py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-12" data-reveal>
                     <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Jetzt selbst ausprobieren</h2>
@@ -841,7 +853,7 @@
         </section>
 
         <!-- Rollen -->
-        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+        <section id="rollen" class="scroll-mt-32 sm:scroll-mt-36 bg-[#121212] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
             <div class="max-w-6xl mx-auto">
                 <h2 class="text-center text-3xl sm:text-5xl font-extrabold tracking-tight" data-reveal>Für jede Rolle das Richtige</h2>
                 <p class="mt-4 mb-10 text-center text-slate-400 text-base sm:text-lg" data-reveal>Ein LEXIA – und jede Person sieht genau das, was sie braucht. Wer sind Sie?</p>
@@ -964,7 +976,7 @@
         </section>
 
         <!-- Sicherheit -->
-        <section id="sicherheit" class="scroll-mt-24 py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+        <section id="sicherheit" class="scroll-mt-32 sm:scroll-mt-36 py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-14" data-reveal>
                     <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Sicherheit &amp; Datenschutz</h2>
@@ -987,7 +999,7 @@
         </section>
 
         <!-- KI-Modelle -->
-        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+        <section class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-[#121212]">
             <div class="max-w-4xl mx-auto text-center" data-reveal>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Immer die <span class="text-glow">besten KI-Modelle</span></h2>
                 <p class="mt-5 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">LEXIA wählt für jede Frage automatisch die passende Stufe. Flow Solutions tauscht Modelle zentral aus, wenn es bessere gibt – für Sie ändert sich dabei nichts.</p>
