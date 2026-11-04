@@ -848,7 +848,7 @@
         });
         if (!r.ok) throw new Error((await r.json().catch(() => ({}))).fehler || 'Fehler');
         window.lexiaRueckmeldung(true, 'Danke – Ihre Nachricht ist angekommen.');
-        form.innerHTML = '<div class="rounded-3xl border border-lexia/40 bg-[#0b1817] p-8 text-center"><p class="text-2xl font-extrabold">Danke – Ihre Nachricht ist angekommen.</p><p class="mt-3 text-slate-300">Wir melden uns innerhalb eines Werktags. Eine Bestätigung ist per E-Mail unterwegs.</p></div>';
+        form.innerHTML = '<div class="rounded-3xl border border-lexia/40 bg-[#0b1817] p-8 text-center"><p class="text-2xl font-extrabold">Danke – Ihre Nachricht ist angekommen.</p><p class="mt-3 text-slate-300">Wir melden uns in der Regel innerhalb von zwei Werktagen. Eine Bestätigung ist per E-Mail unterwegs.</p></div>';
       } catch (err) {
         if (knopf) { knopf.disabled = false; knopf.innerHTML = alterText; }
         const lines = [`Name: ${name}`, `Firma: ${val('company') || '–'}`, `E-Mail: ${val('email')}`, `Anliegen: ${topics.join(', ') || '–'}`, '', nachricht];
