@@ -1,13 +1,10 @@
 // Rundgänge beim Scrollen: ein Abschnitt [data-tour] bleibt stehen, die Scroll-Position wählt den Schritt.
-// Wiederverwendbar für jede Funktion – im HTML genügen diese Markierungen:
-//   [data-tour-schritt="n"]   Erklärung zu Schritt n (links); data-fokus="x,y,breite" = Ausschnitt fürs Handy
-//   [data-zeigen="a-b"]       im Nachbau nur in den Schritten a bis b sichtbar (z. B. ein Bildschirm); auch „1,4“
-//   [data-ab="n"]             erscheint ab Schritt n (solange sein Bildschirm sichtbar ist)
-//   [data-aktiv="a-b"]        hervorgehoben in den Schritten a bis b (z. B. Menüpunkt)
-//   [data-klappe="a-b"]       nur in den Schritten a bis b aufgeklappt (verschiebt das Darunter)
-//   [data-markiert="n"]       ausgewählt in Schritt n
-//   [data-zeiger="n"]         dorthin tippt der „Finger“ in Schritt n
-// Der Nachbau hat feste Maße (z. B. 1280 × 800) und wird skaliert. Am Handy zoomt eine „Kamera“ auf den Ausschnitt des Schritts.
+// Die Bilder kommen aus dem echten LEXIA (dort: npm run rundgang-bilder) – so stimmt die Website immer mit der App überein.
+// Im HTML genügen diese Markierungen:
+//   [data-tour-schritt="n"]       Erklärung zu Schritt n (links); optional data-fokus="x,y,breite" = Ausschnitt fürs Handy
+//   img[data-bild="name-n"]       Bild zu Schritt n (1280 × 800); data-xy="x,y" = dorthin tippt der „Finger“
+// Die Bühne hat feste Maße (1280 × 800) und wird skaliert. Am Handy zoomt eine „Kamera“ auf den wichtigen Teil.
+// Bewusst schlicht: nur Bilder überblenden und den Finger bewegen – das läuft auf jedem Gerät flüssig (auch iPad).
 (() => {
   const touren = [...document.querySelectorAll('[data-tour]')];
   if (!touren.length) return;
@@ -23,16 +20,14 @@
   );
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const schmal = matchMedia('(max-width: 1023px)');
-  const inBereich = (wert, n) =>
-    String(wert).split(',').some((teil) => {
-      const [a, b = a] = teil.split('-').map(Number);
-      return n >= a && n <= b;
-    });
+  const B = 1280;
+  const H = 800;
 
   for (const tour of touren) {
     const rahmen = tour.querySelector('[data-tour-rahmen]');
     const buehne = tour.querySelector('[data-tour-buehne]');
     const texte = [...tour.querySelectorAll('[data-tour-schritt]')];
+    const bilder = [...buehne.querySelectorAll('[data-bild]')];
     const nummer = tour.querySelector('[data-tour-nummer]');
     const balken = tour.querySelector('[data-tour-balken]');
     const zeiger = tour.querySelector('[data-tour-zeiger]');
@@ -41,56 +36,53 @@
     let uhr;
     let breite = 0;
 
-    // Lage eines Elements im Nachbau (unskaliert) – unabhängig von laufenden Bewegungen
-    function lage(el) {
-      let x = 0;
-      let y = 0;
-      for (let e = el; e && e !== buehne; e = e.offsetParent) {
-        x += e.offsetLeft;
-        y += e.offsetTop;
-      }
-      return { x: x + el.offsetWidth / 2, y: y + el.offsetHeight / 2 };
-    }
+    const bildZu = (n) => bilder.find((b) => b.dataset.bild.endsWith(`-${n}`));
+    const punktZu = (n) => {
+      const xy = bildZu(n)?.dataset.xy;
+      return xy ? xy.split(',').map(Number) : null;
+    };
 
-    // Desktop: ganzer Bildschirm. Handy: Ausschnitt des Schritts (data-fokus), damit man die Schrift lesen kann.
+    // Desktop: ganzer Bildschirm. Handy: Ausschnitt um die Stelle, auf die der Finger tippt (sonst der Inhalt ohne Menü).
     function kamera() {
       const b = rahmen.clientWidth;
       const h = rahmen.clientHeight;
-      const voll = buehne.offsetWidth;
-      const fokus = texte[aktuell - 1]?.dataset.fokus;
-      if (!schmal.matches || !fokus) {
-        buehne.style.setProperty('--s', String(b / voll));
+      if (!schmal.matches) {
+        buehne.style.setProperty('--s', String(b / B));
         buehne.style.setProperty('--tx', '0px');
         buehne.style.setProperty('--ty', '0px');
         return;
       }
-      const [x, y, w] = fokus.split(',').map(Number);
+      const eigen = texte[aktuell - 1]?.dataset.fokus;
+      const punkt = punktZu(aktuell);
+      let x, y, w;
+      if (eigen) [x, y, w] = eigen.split(',').map(Number);
+      else if (punkt) {
+        w = 760;
+        x = Math.min(Math.max(punkt[0] - w / 2, 0), B - w);
+        y = punkt[1] - (w * h) / b / 2;
+      } else [x, y, w] = [220, 0, 1060];
       const s = b / w;
-      const yMax = buehne.offsetHeight - h / s;
+      const yMax = H - h / s;
       buehne.style.setProperty('--s', String(s));
       buehne.style.setProperty('--tx', `${-x * s}px`);
       buehne.style.setProperty('--ty', `${-Math.max(0, Math.min(y, yMax)) * s}px`);
     }
 
-    // Finger zum Ziel des Schritts bewegen, kurz tippen und das Ziel „drücken“
+    // Finger zur Stelle des Schritts bewegen, kurz tippen, dann ausblenden (er soll nichts verdecken)
     function tippen(n) {
       clearTimeout(uhr);
-      const ziel = buehne.querySelector(`[data-zeiger="${n}"]`);
-      zeiger.classList.toggle('weg', !ziel);
-      if (!ziel || ruhig) return;
-      const { x, y } = lage(ziel);
-      zeiger.style.setProperty('--x', `${x}px`);
-      zeiger.style.setProperty('--y', `${y}px`);
+      const punkt = punktZu(n);
+      zeiger.classList.toggle('weg', !punkt);
+      if (!punkt || ruhig) return;
+      zeiger.style.setProperty('--x', `${punkt[0]}px`);
+      zeiger.style.setProperty('--y', `${punkt[1]}px`);
       uhr = setTimeout(() => {
         zeiger.classList.add('klick');
-        ziel.classList.add('gedrueckt');
         uhr = setTimeout(() => {
           zeiger.classList.remove('klick');
-          ziel.classList.remove('gedrueckt');
-          // Nach dem Tippen ausblenden – sonst verdeckt der Finger, was gerade passiert
-          uhr = setTimeout(() => zeiger.classList.add('weg'), 900);
-        }, 180);
-      }, 750);
+          uhr = setTimeout(() => zeiger.classList.add('weg'), 1100);
+        }, 200);
+      }, 800);
     }
 
     function zeigen(n) {
@@ -101,18 +93,9 @@
         t.classList.toggle('ist-aktiv', an);
         t.inert = !an;
       });
-      const setzen = (attr, klasse, pruefen) => buehne.querySelectorAll(`[${attr}]`).forEach((e) => e.classList.toggle(klasse, pruefen(e)));
-      setzen('data-zeigen', 'an', (e) => inBereich(e.dataset.zeigen, n));
-      setzen('data-aktiv', 'an', (e) => inBereich(e.dataset.aktiv, n));
-      setzen('data-klappe', 'an', (e) => inBereich(e.dataset.klappe, n));
-      setzen('data-markiert', 'markiert', (e) => Number(e.dataset.markiert) === n);
-      setzen('data-ab', 'an', (e) => {
-        const bildschirm = e.closest('[data-zeigen]');
-        return n >= Number(e.dataset.ab) && (!bildschirm || inBereich(bildschirm.dataset.zeigen, n));
-      });
+      bilder.forEach((b) => b.classList.toggle('an', b === bildZu(n)));
       if (nummer) nummer.textContent = String(n).padStart(2, '0');
       balken?.style.setProperty('--fortschritt', String(n / anzahl));
-      // Nur am Handy wandert die Kamera je Schritt; sonst bleibt der Ausschnitt gleich (kein Neu-Messen mitten im Scrollen)
       if (schmal.matches) kamera();
       tippen(n);
     }
