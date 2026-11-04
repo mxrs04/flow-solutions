@@ -12,17 +12,19 @@
   const menu = $('#siteMenu');
   const menuBtn = $('#menuBtn');
   const backdrop = $('#menuBackdrop');
-  function setMenu(open) {
+  // perTastatur: nur dann springt der Fokus auf den ersten Link (mit sichtbarem Rahmen) – beim Antippen nicht
+  function setMenu(open, perTastatur = false) {
     if (!menu) return;
     menu.classList.toggle('-translate-x-full', !open);
     menu.inert = !open;
     backdrop.classList.toggle('opacity-0', !open);
     backdrop.classList.toggle('pointer-events-none', !open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    if (open) $('a', menu)?.focus();
+    if (open && perTastatur) $('a', menu)?.focus();
+    else if (open) { menu.tabIndex = -1; menu.focus({ preventScroll: true }); }
     else menuBtn.focus({ preventScroll: true });
   }
-  menuBtn?.addEventListener('click', () => setMenu(true));
+  menuBtn?.addEventListener('click', (e) => setMenu(true, e.detail === 0));
   $('#menuClose')?.addEventListener('click', () => setMenu(false));
   backdrop?.addEventListener('click', () => setMenu(false));
   document.addEventListener('keydown', (e) => {

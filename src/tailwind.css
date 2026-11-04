@@ -847,3 +847,17 @@ section[data-zeigen="3-4"].an .lx-schrittzahl b { transition: width 0.5s ease-ou
 .lx-merken { display: flex; align-items: center; gap: 10px; font-size: 15px; }
 .lx-merken small { color: #aeaeae; }
 .lx-chat .lx-gespraech .lx-antwort { width: 665px; }
+
+/* ---------- Menü und Leisten: auf iPad und Handy flüssig scrollen ----------
+   Geschlossen sind Menü und Abdunklung unsichtbar (visibility) – sonst rechnet Safari ihren Weichzeichner bei jedem Scroll-Bild neu,
+   obwohl man sie nicht sieht. Auf Touch-Geräten statt Milchglas eine fast deckende Fläche: sieht gleich aus, kostet nichts. */
+#siteMenu:focus { outline: none; }
+#menuBackdrop { transition: opacity 0.3s, visibility 0s linear 0s; }
+#menuBackdrop.opacity-0 { visibility: hidden; transition: opacity 0.3s, visibility 0s linear 0.3s; }
+#siteMenu { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s; }
+#siteMenu.-translate-x-full { visibility: hidden; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.5s; }
+@media (hover: none) and (pointer: coarse) {
+  #mainHeader, .sprungleiste { -webkit-backdrop-filter: none; backdrop-filter: none; background-color: rgba(12, 12, 12, 0.97); }
+  #siteMenu, #menuBackdrop { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  #siteMenu { background-color: #0C0C0C; }
+}
