@@ -604,6 +604,11 @@ html, body { overflow-x: clip; }
 
 /* Nachbau von LEXIA: 1280 × 800 wie ein echter Bildschirm, per --s skaliert (am Handy zoomt die „Kamera“ auf den wichtigen Teil) */
 .lx { position: absolute; left: 0; top: 0; width: 1280px; height: 800px; overflow: hidden; transform-origin: 0 0; transform: translate3d(var(--tx, 0px), var(--ty, 0px), 0) scale(var(--s, 1)); will-change: transform; background: #161616; color: #f5f5f5; font-family: 'Geist', 'Plus Jakarta Sans', sans-serif; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+/* Großer Bildschirm (auch iPad quer): Der Nachbau steht still – keine eigene Grafikebene. Sonst hält Safari 1280 × 800 in doppelter
+   Auflösung vor und malt bei jedem Schrittwechsel große Teile neu (ruckelt auf dem iPad). Nur am Handy fährt die „Kamera“ und braucht sie. */
+@media (min-width: 1024px) {
+  .lx { transform: scale(var(--s, 1)); will-change: auto; }
+}
 .lx p, .lx h1, .lx h2 { margin: 0; }
 .lx-i { width: 20px; height: 20px; flex: none; }
 .lx [data-zeigen] { transition: opacity 0.35s ease-out, visibility 0s linear 0.35s; }
