@@ -428,15 +428,21 @@
         <!-- Rundgang „So entsteht ein Prozess“: beim Scrollen Schritt für Schritt (assets/js/tour.js).
              Rechts ein originalgetreuer Nachbau von LEXIA (Maße, Farben, Texte und Symbole wie in der App, 1280 × 800, skaliert). -->
         <section id="prozess-tour" class="scroll-mt-32 sm:scroll-mt-36 border-t border-slate-800/80 bg-[#121212]" aria-labelledby="prozess-tour-titel">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="li-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></symbol><symbol id="li-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></symbol><symbol id="li-glocke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol><symbol id="li-aufgaben" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></symbol><symbol id="li-buch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></symbol><symbol id="li-hoch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></symbol><symbol id="li-prozesse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></symbol><symbol id="li-organigramm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol><symbol id="li-birne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol><symbol id="li-zahnrad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="li-hilfe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol><symbol id="li-einklappen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/></symbol><symbol id="li-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol><symbol id="li-vorlagen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></symbol><symbol id="li-welt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol><symbol id="li-mikro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></symbol><symbol id="li-klammer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/></symbol><symbol id="li-funken" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol><symbol id="li-raster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol><symbol id="li-karte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></symbol><symbol id="li-liste" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h.01"/><path d="M3 12h.01"/><path d="M3 19h.01"/><path d="M8 5h13"/><path d="M8 12h13"/><path d="M8 19h13"/></symbol><symbol id="li-stift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></symbol><symbol id="li-datei" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol><symbol id="li-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></symbol><symbol id="li-mehr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol><symbol id="li-pfeilhoch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol><symbol id="li-suche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol><symbol id="li-ordner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol><symbol id="li-quadrat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/></symbol><symbol id="li-kreuz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol><symbol id="li-ordnerplus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10v6"/><path d="M9 13h6"/><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol><symbol id="li-schloss" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="li-gehirn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4"/><path d="M17.707 6.294A3 3 0 1012 5a3 3 0 10-5.707 1.294"/><path d="M17.996 5.125a4 4 0 012.526 5.77"/><path d="M18 18a4 4 0 002-7.465"/><path d="M19.967 17.482a4 4 0 11-7.967.517 4 4 0 11-7.967-.517"/><path d="M6 18a4 4 0 01-2-7.465"/><path d="M6.004 5.125a4 4 0 00-2.526 5.77"/></symbol><symbol id="li-ablage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M12 12v6"/><path d="m15 15-3-3-3 3"/></symbol><symbol id="li-stift2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></symbol><symbol id="li-haken" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="li-schluessel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></symbol><symbol id="li-frage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol><symbol id="li-merken" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v6"/><path d="M15 10H9"/><path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"/></symbol></svg>
             <div class="px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28">
                 <div class="max-w-3xl mx-auto text-center" data-reveal>
-                    <h2 id="prozess-tour-titel" class="text-3xl sm:text-5xl font-extrabold tracking-tight">So entsteht ein Prozess</h2>
-                    <p class="mt-4 text-lg text-slate-300 leading-relaxed">Zuschauen statt lesen: Scrollen Sie weiter und sehen Sie, wie in LEXIA aus ein paar erzählten Sätzen ein fertiger Ablauf wird. Danach können Sie es unten selbst ausprobieren.</p>
+                    <h2 id="prozess-tour-titel" class="text-3xl sm:text-5xl font-extrabold tracking-tight">Zuschauen statt lesen</h2>
+                    <p class="mt-4 text-lg text-slate-300 leading-relaxed">Drei kurze Rundgänge durch das echte LEXIA. Wählen Sie einen aus und scrollen Sie weiter – danach können Sie unten selbst ausprobieren.</p>
+                    <div role="radiogroup" aria-label="Rundgang wählen" class="mt-8 flex flex-wrap justify-center gap-2">
+                        <button type="button" role="radio" aria-checked="true" data-tour-wahl="prozess" class="tour-wahl">Prozess anlegen</button>
+                        <button type="button" role="radio" aria-checked="false" data-tour-wahl="wissen" class="tour-wahl">Wissen sichern</button>
+                        <button type="button" role="radio" aria-checked="false" data-tour-wahl="fragen" class="tour-wahl">Fragen &amp; Antworten</button>
+                    </div>
                     <a href="#app" class="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">Rundgang überspringen <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
                 </div>
             </div>
 
-            <div class="tour" data-tour style="--schritte: 8">
+            <div class="tour" data-tour data-tour-id="prozess" style="--schritte: 8">
                 <div class="tour-sticky">
                     <div class="tour-raster max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="tour-text">
@@ -486,7 +492,7 @@
 
                         <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
                             <div class="lx" data-tour-buehne>
-                                <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="li-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></symbol><symbol id="li-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></symbol><symbol id="li-glocke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol><symbol id="li-aufgaben" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></symbol><symbol id="li-buch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/></symbol><symbol id="li-hoch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></symbol><symbol id="li-prozesse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></symbol><symbol id="li-organigramm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol><symbol id="li-birne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol><symbol id="li-zahnrad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="li-hilfe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol><symbol id="li-einklappen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/></symbol><symbol id="li-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol><symbol id="li-vorlagen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></symbol><symbol id="li-welt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol><symbol id="li-mikro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></symbol><symbol id="li-klammer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/></symbol><symbol id="li-funken" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol><symbol id="li-raster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol><symbol id="li-karte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></symbol><symbol id="li-liste" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h.01"/><path d="M3 12h.01"/><path d="M3 19h.01"/><path d="M8 5h13"/><path d="M8 12h13"/><path d="M8 19h13"/></symbol><symbol id="li-stift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></symbol><symbol id="li-datei" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol><symbol id="li-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></symbol><symbol id="li-mehr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol><symbol id="li-pfeilhoch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol><symbol id="li-suche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol><symbol id="li-ordner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol><symbol id="li-quadrat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/></symbol><symbol id="li-kreuz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol><symbol id="li-ordnerplus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10v6"/><path d="M9 13h6"/><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol><symbol id="li-schloss" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol></svg>
+                                
 
                                 <!-- Seitenleiste wie in LEXIA -->
                                 <aside class="lx-seite">
@@ -663,6 +669,258 @@
                                         <div class="lx-punkt lx-erledigt"><span class="lx-kasten"></span><div>Antrag im Personalportal stellen<small>Aus einem Prozess</small></div></div>
                                         <div class="lx-punkt"><span class="lx-kasten lx-hakt" data-ab="8" data-zeiger="8"></span><div>Genehmigt? – Teamleitung entscheidet<small>Aus einem Prozess</small></div></div>
                                         <div class="lx-punkt"><span class="lx-kasten"></span><div>Urlaub eintragen<small>Aus einem Prozess · Personalabteilung</small></div></div>
+                                    </div>
+                                </section>
+
+                                <span class="lx-finger" data-tour-zeiger></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rundgang 2: So sichern Sie Wissen -->
+            <div class="tour" data-tour data-tour-id="wissen" style="--schritte: 6" hidden>
+                <div class="tour-sticky">
+                    <div class="tour-raster max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="tour-text">
+                            <div class="flex items-center gap-4 text-sm text-slate-400 tabular-nums">
+                                <span><span data-tour-nummer class="text-white font-semibold">01</span> / 06</span>
+                                <span class="tour-balken" aria-hidden="true"><span data-tour-balken></span></span>
+                            </div>
+                            <ol class="tour-schritte mt-6">
+                                <li data-tour-schritt="1" data-fokus="560,150,720"><h3>„Wissen sichern“ antippen</h3><p>Unter „Wissen“ steht alles an einem Ort: Dokumente hineinziehen – oder „Wissen sichern“ für alles, was nur im Kopf ist.</p></li>
+                                <li data-tour-schritt="2" data-fokus="290,170,760"><h3>Bereich und Thema wählen</h3><p>Erzählen, hochladen oder aufschreiben – drei Wege, einer reicht. Hier: Thema nennen und erzählen.</p></li>
+                                <li data-tour-schritt="3" data-fokus="290,90,760"><h3>LEXIA fragt, Sie erzählen</h3><p>Fünf kurze Fragen, wie im Gespräch mit einer neuen Kollegin. Sprechen genügt – LEXIA schreibt mit.</p></li>
+                                <li data-tour-schritt="4" data-fokus="290,90,760"><h3>Fertig – LEXIA schreibt das Dokument</h3><p>Aus den Antworten wird ein geordneter Wissenseintrag mit Überschriften und Schritten. Nichts muss formatiert werden.</p></li>
+                                <li data-tour-schritt="5" data-fokus="290,90,760"><h3>Das Wichtigste steht oben</h3><p>Jedes längere Dokument bekommt auf Wunsch eine Kurzfassung in 3–5 Punkten. Der volle Text bleibt für Antworten.</p></li>
+                                <li data-tour-schritt="6" data-fokus="420,250,620"><h3>Oder einfach hineinziehen</h3><p>PDF, Word, Excel oder Foto auf einen Bereich ziehen – LEXIA liest den Text und fragt, ob eine Kurzfassung hilft.</p>
+                                    <div class="mt-6 flex flex-wrap gap-3">
+                                        <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="inline-flex min-h-12 items-center rounded-full bg-lexia px-6 text-base font-bold text-[#04201d] hover:bg-white transition-colors">30 Tage kostenlos testen</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
+                            <div class="lx" data-tour-buehne>
+                                <aside class="lx-seite">
+                                    <svg class="lx-marke" viewBox="0 0 1221 229" fill="currentColor"><g><rect x="0" y="0" width="52" height="229"/><rect x="0" y="183" width="187" height="46"/></g> <g><rect x="257" y="0" width="192" height="46"/><rect x="257" y="91" width="192" height="46"/><rect x="257" y="183" width="192" height="46"/></g> <g><polygon points="529,0 592,0 765,229 702,229"/><polygon points="702,0 765,0 592,229 529,229"/></g> <g><rect x="846" y="0" width="51" height="229"/></g> <g><polygon points="969,229 1069,0 1121,0 1221,229 1166,229 1094,60 1024,229"/></g></svg>
+                                    <svg class="lx-i lx-einklappen"><use href="#li-einklappen"/></svg>
+                                    <nav class="lx-menue">
+                                        <span><svg class="lx-i"><use href="#li-chat"/></svg>Chat</span>
+                                        <span><svg class="lx-i"><use href="#li-inbox"/></svg>Inbox</span>
+                                        <span><svg class="lx-i"><use href="#li-glocke"/></svg>Mitteilungen<b>47</b></span>
+                                        <span><svg class="lx-i"><use href="#li-aufgaben"/></svg>Meine Aufgaben<b>2</b></span>
+                                        <span><svg class="lx-i"><use href="#li-buch"/></svg>Wissen<svg class="lx-i lx-auf" data-aktiv="1-6"><use href="#li-hoch"/></svg></span>
+                                        <div class="lx-gruppe" data-klappe="1-6">
+                                            <span data-aktiv="1-6"><svg class="lx-i"><use href="#li-buch"/></svg>Wissensbasis</span>
+                                            <span><svg class="lx-i"><use href="#li-prozesse"/></svg>Prozesse</span>
+                                            <span><svg class="lx-i"><use href="#li-organigramm"/></svg>Organigramm</span>
+                                            <span><svg class="lx-i"><use href="#li-birne"/></svg>Meine Vorschläge</span>
+                                        </div>
+                                        <span><svg class="lx-i"><use href="#li-zahnrad"/></svg>Verwaltung</span>
+                                        <span><svg class="lx-i"><use href="#li-hilfe"/></svg>Hilfe</span>
+                                    </nav>
+                                    <div class="lx-ich"><i>CA</i><strong>Clara Admin</strong><small>Musterfirma GmbH · Einstel…</small></div>
+                                </aside>
+
+                                <!-- 1 + 6: Wissen -->
+                                <section class="lx-haupt" data-zeigen="1,6">
+                                    <h1 class="lx-h1" style="left:38px;top:37px">Wissen</h1>
+                                    <div class="lx-feld lx-suche" style="left:38px;top:94px;width:724px;height:52px"><svg class="lx-i"><use href="#li-suche"/></svg>Wonach suchen Sie? z. B. „Wie beantrage ich Urlaub?“</div>
+                                    <span class="lx-knopf lx-voll" style="left:777px;top:94px;width:105px;height:52px">Suchen</span>
+                                    <div class="lx-zone" style="left:38px;top:183px;width:650px;height:72px"><svg class="lx-i lx-tuerkis"><use href="#li-ablage"/></svg><span>Dokumente hierher ziehen – oder direkt auf einen Bereich</span><span class="lx-knopf" style="height:44px">Dateien auswählen</span></div>
+                                    <span class="lx-knopf" style="left:700px;top:183px;width:182px;height:72px;border-radius:16px" data-zeiger="1"><svg class="lx-i"><use href="#li-gehirn"/></svg>Wissen sichern</span>
+                                    <h2 class="lx-h2" style="left:38px;top:285px">Bereiche</h2>
+                                    <div class="lx-karte lx-getoent" style="left:38px;top:330px;--f:#F04F52"><strong><i class="lx-punkt-f"></i>Allgemein</strong><p>Wissen für alle: Richtlinien, IT-Hilfe, Ansprechpartner.</p><small><i class="lx-ampel" style="background:#10b981"></i>Gut gepflegt · 14 Dokumente</small></div>
+                                    <div class="lx-karte lx-getoent" style="left:464px;top:330px;--f:#377EC0" data-zeiger="6"><strong><i class="lx-punkt-f"></i>Vertrieb</strong><p>Angebote, Preislisten und Kundenprozesse.</p><small><i class="lx-ampel" style="background:#fbbf24"></i>2 offene Fragen</small><b class="lx-ablegen lx-ein-aus" data-ab="6" style="--t:0s;--t2:1.1s">Hier ablegen</b></div>
+                                    <div class="lx-meldung lx-ein" data-ab="6" style="--t:1.2s">
+                                        <div class="lx-dialog">
+                                            <strong>Datei ablegen</strong>
+                                            <div class="lx-zeile"><span>Preisliste 2027.pdf</span><small>2,4 MB</small></div>
+                                            <p class="lx-leise lx-klein" style="position:static">Gespeichert – ca. 12 Seiten. LEXIA kennt es ab jetzt.</p>
+                                            <div class="lx-box"><b>Kurzfassung oben ergänzen?</b><p>Bei ca. 12 Seiten hilft „Das Wichtigste in 3–5 Punkten“ beim Überfliegen. Kosten: unter 1 Cent.</p><span><span class="lx-knopf lx-voll"><svg class="lx-i"><use href="#li-funken"/></svg>Kurzfassung erstellen</span><span class="lx-knopf">Nein danke</span></span></div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- 2: Wissen sichern -->
+                                <section class="lx-haupt" data-zeigen="2">
+                                    <span class="lx-zurueck" style="left:38px;top:49px">← Wissen</span>
+                                    <h1 class="lx-h1" style="left:38px;top:104px">Wissen sichern</h1>
+                                    <p class="lx-leise" style="left:38px;top:150px">Was Sie wissen, bleibt so in der Firma – erzählen, hochladen oder aufschreiben.</p>
+                                    <label class="lx-label" style="left:38px;top:205px">In welchen Bereich gehört das Wissen?</label>
+                                    <div class="lx-feld" style="left:38px;top:233px;width:630px">Vertrieb</div>
+                                    <div class="lx-kachel lx-an" style="left:38px;top:300px"><svg class="lx-i lx-tuerkis"><use href="#li-mikro"/></svg><b>Erzählen</b><small>LEXIA stellt 5 Fragen, Sie antworten per Sprache.</small></div>
+                                    <div class="lx-kachel" style="left:252px;top:300px"><svg class="lx-i lx-tuerkis"><use href="#li-ablage"/></svg><b>Hochladen</b><small>PDF, Word, Excel oder ein Foto.</small></div>
+                                    <div class="lx-kachel" style="left:466px;top:300px"><svg class="lx-i lx-tuerkis"><use href="#li-stift2"/></svg><b>Aufschreiben</b><small>Einfach in eigenen Worten eintippen.</small></div>
+                                    <label class="lx-label" style="left:38px;top:452px">Worüber wissen Sie besonders viel?</label>
+                                    <div class="lx-feld" style="left:38px;top:480px;width:630px"><span class="lx-tippen lx-tippen-lang" data-ab="2">Rabatte und Freigaben im Vertrieb</span><span class="lx-schreibmarke" data-zeigen="2"></span></div>
+                                    <span class="lx-knopf lx-voll" style="left:38px;top:552px;width:210px" data-zeiger="2"><svg class="lx-i"><use href="#li-mikro"/></svg>Interview starten</span>
+                                </section>
+
+                                <!-- 3–4: Interview -->
+                                <section class="lx-haupt" data-zeigen="3-4">
+                                    <div class="lx-schrittzahl" style="left:38px;top:60px"><span data-zeigen="3">Frage 1 von 5</span><span data-zeigen="4">Frage 5 von 5</span><i><b data-zeigen="3" style="width:20%"></b><b data-zeigen="4" style="width:100%;margin-top:-6px"></b></i></div>
+                                    <p class="lx-frage-gross" style="left:38px;top:104px"><span data-zeigen="3">Bis zu welchem Rabatt dürfen Sie selbst entscheiden?</span><span data-zeigen="4">Was sollte eine neue Person unbedingt wissen?</span></p>
+                                    <div style="left:38px;top:170px" data-zeigen="3"><div class="lx-aufnahme lx-ein-aus" data-ab="3" style="position:relative;--t:0s;--t2:1.4s"><span><i></i>Nimmt auf · 0:24</span><span class="lx-knopf lx-voll" data-zeiger="3"><svg class="lx-i"><use href="#li-quadrat"/></svg>Fertig</span><span class="lx-knopf lx-geist"><svg class="lx-i"><use href="#li-kreuz"/></svg>Abbrechen</span></div></div>
+                                    <div class="lx-text" style="left:38px;top:250px;width:630px;height:150px"><span class="lx-ein" data-ab="3" style="--t:1.5s">Bis 5 % entscheide ich selbst. Darüber geht das Angebot an die Teamleitung, die gibt im CRM frei. Ab 15 % muss zusätzlich die Geschäftsführung zustimmen.</span></div>
+                                    <span class="lx-knopf" style="left:38px;top:425px" data-zeigen="3">Weiter</span>
+                                    <span class="lx-knopf lx-voll" style="left:38px;top:425px;width:300px" data-zeigen="4" data-zeiger="4"><svg class="lx-i"><use href="#li-haken"/></svg>Fertig – als Wissen speichern</span>
+                                    <div class="lx-box lx-ein" data-ab="4" style="left:38px;top:495px;width:630px;--t:1.3s"><b><svg class="lx-i"><use href="#li-haken"/></svg>Gespeichert – LEXIA kennt das jetzt.</b><p>Danke! So bleibt Ihr Wissen in der Firma – auch wenn Sie mal nicht da sind.</p></div>
+                                </section>
+
+                                <!-- 5: Dokument mit Kurzfassung -->
+                                <section class="lx-haupt" data-zeigen="5">
+                                    <span class="lx-zurueck" style="left:38px;top:49px">← Vertrieb</span>
+                                    <h1 class="lx-h1" style="left:38px;top:104px">Rabatte und Freigaben im Vertrieb</h1>
+                                    <p class="lx-leise" style="left:38px;top:150px">Von Ben Führungskraft, 4. Nov. 2026 · Nächste Prüfung: 4. Mai 2027</p>
+                                    <div class="lx-box" style="left:38px;top:200px;width:880px"><b><svg class="lx-i lx-tuerkis"><use href="#li-funken"/></svg>Das Wichtigste</b><p class="lx-ein" data-ab="5" style="--t:0.3s">- Bis 5 % Rabatt entscheidet der Vertrieb selbst.</p><p class="lx-ein" data-ab="5" style="--t:0.6s">- Über 5 % gibt die Teamleitung im CRM frei.</p><p class="lx-ein" data-ab="5" style="--t:0.9s">- Ab 15 % stimmt zusätzlich die Geschäftsführung zu.</p></div>
+                                    <div class="lx-artikel" style="left:38px;top:380px;width:880px"><b>## Rabatte</b><p>Bis 5 % entscheiden Sie selbst. Darüber geht das Angebot an die Teamleitung …</p><b>## Freigabe im CRM</b><p>1. Angebot im CRM anlegen  2. „Freigabe anfordern“ wählen  3. …</p></div>
+                                </section>
+
+                                <span class="lx-finger" data-tour-zeiger></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rundgang 3: So antwortet LEXIA -->
+            <div class="tour" data-tour data-tour-id="fragen" style="--schritte: 5" hidden>
+                <div class="tour-sticky">
+                    <div class="tour-raster max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="tour-text">
+                            <div class="flex items-center gap-4 text-sm text-slate-400 tabular-nums">
+                                <span><span data-tour-nummer class="text-white font-semibold">01</span> / 05</span>
+                                <span class="tour-balken" aria-hidden="true"><span data-tour-balken></span></span>
+                            </div>
+                            <ol class="tour-schritte mt-6">
+                                <li data-tour-schritt="1" data-fokus="550,90,730"><h3>Fragen wie im Gespräch</h3><p>Normale Sprache genügt. LEXIA antwortet nur aus dem Wissen, das die Person sehen darf – und nennt die Quelle.</p></li>
+                                <li data-tour-schritt="2" data-fokus="550,300,730"><h3>Abläufe direkt zum Abhaken</h3><p>Stützt sich die Antwort auf einen Prozess, stehen die Schritte darunter – mit „Als Checkliste starten“.</p></li>
+                                <li data-tour-schritt="3" data-fokus="550,130,730"><h3>Kein Zugang? Keine Sackgasse.</h3><p>Steht die Antwort in einem Bereich, den man nicht sieht, nennt LEXIA nur den Namen – und man fragt die Zuständigen direkt.</p></li>
+                                <li data-tour-schritt="4" data-fokus="290,150,760"><h3>Die Zuständigen antworten einmal</h3><p>Die Frage steht in ihrer Inbox. Mit „Für alle merken“ wird die Antwort zu Wissen.</p></li>
+                                <li data-tour-schritt="5" data-fokus="550,150,730"><h3>Ab jetzt antwortet LEXIA selbst</h3><p>Die Antwort landet im Chat der fragenden Person. Fragt das nächste Mal jemand anderes, weiß LEXIA es schon.</p>
+                                    <div class="mt-6 flex flex-wrap gap-3">
+                                        <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="inline-flex min-h-12 items-center rounded-full bg-lexia px-6 text-base font-bold text-[#04201d] hover:bg-white transition-colors">30 Tage kostenlos testen</a>
+                                        <a href="#app" class="inline-flex min-h-12 items-center rounded-full border border-slate-700 px-6 text-base font-semibold text-slate-200 hover:border-lexia/60 transition-colors">Selbst ausprobieren</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
+                            <div class="lx" data-tour-buehne>
+                                <aside class="lx-seite">
+                                    <svg class="lx-marke" viewBox="0 0 1221 229" fill="currentColor"><g><rect x="0" y="0" width="52" height="229"/><rect x="0" y="183" width="187" height="46"/></g> <g><rect x="257" y="0" width="192" height="46"/><rect x="257" y="91" width="192" height="46"/><rect x="257" y="183" width="192" height="46"/></g> <g><polygon points="529,0 592,0 765,229 702,229"/><polygon points="702,0 765,0 592,229 529,229"/></g> <g><rect x="846" y="0" width="51" height="229"/></g> <g><polygon points="969,229 1069,0 1121,0 1221,229 1166,229 1094,60 1024,229"/></g></svg>
+                                    <svg class="lx-i lx-einklappen"><use href="#li-einklappen"/></svg>
+                                    <nav class="lx-menue">
+                                        <span data-aktiv="1-3,5"><svg class="lx-i"><use href="#li-chat"/></svg>Chat</span>
+                                        <span data-aktiv="4"><svg class="lx-i"><use href="#li-inbox"/></svg>Inbox</span>
+                                        <span><svg class="lx-i"><use href="#li-glocke"/></svg>Mitteilungen<b>47</b></span>
+                                        <span><svg class="lx-i"><use href="#li-aufgaben"/></svg>Meine Aufgaben<b>2</b></span>
+                                        <span><svg class="lx-i"><use href="#li-buch"/></svg>Wissen<svg class="lx-i lx-auf" data-aktiv="99"><use href="#li-hoch"/></svg></span>
+                                        <div class="lx-gruppe" data-klappe="99">
+                                            <span><svg class="lx-i"><use href="#li-buch"/></svg>Wissensbasis</span>
+                                            <span data-aktiv="1-6"><svg class="lx-i"><use href="#li-prozesse"/></svg>Prozesse</span>
+                                            <span><svg class="lx-i"><use href="#li-organigramm"/></svg>Organigramm</span>
+                                            <span><svg class="lx-i"><use href="#li-birne"/></svg>Meine Vorschläge</span>
+                                        </div>
+                                        <span><svg class="lx-i"><use href="#li-zahnrad"/></svg>Verwaltung</span>
+                                        <span><svg class="lx-i"><use href="#li-hilfe"/></svg>Hilfe</span>
+                                    </nav>
+                                    <div class="lx-ich"><i>CA</i><strong>Clara Admin</strong><small>Musterfirma GmbH · Einstel…</small></div>
+                                </aside>
+
+                                <!-- 1–2: Chat mit Antwort und Ablauf -->
+                                <section class="lx-haupt lx-chat" data-zeigen="1-2">
+                                    <div class="lx-chatliste">
+                                        <span class="lx-knopf lx-voll" style="left:38px;top:38px;width:208px"><svg class="lx-i"><use href="#li-plus"/></svg>Neuer Chat</span>
+                                        <div class="lx-feld lx-suche" style="left:38px;top:98px;width:208px"><svg class="lx-i"><use href="#li-suche"/></svg>Chats durchsuchen</div>
+                                        <p class="lx-ueber" style="left:49px;top:154px">Ordner</p>
+                                        <div class="lx-ordner" style="left:38px;top:175px"><span><svg class="lx-i"><use href="#li-ordner"/></svg>Personal</span><span>Wie viele Urlaubstage habe …</span><span>Krankmeldung – an wen?</span></div>
+                                        <p class="lx-ueber" style="left:49px;top:313px">Weitere</p>
+                                        <div class="lx-verlauf" style="left:38px;top:333px"><span class="lx-an">Wie läuft „Urlaubsantrag“ …</span><span>Hotel-Grenze bei Dienstre…</span><span>Wer ist für die IT zuständig?</span></div>
+                                        <div class="lx-chatnotiz" style="left:38px;top:606px"><span><svg class="lx-i"><use href="#li-ordnerplus"/></svg>Chats lassen sich in Ordner ziehen.</span><span><svg class="lx-i"><use href="#li-schloss"/></svg>Ihre Chats sieht niemand außer Ihnen.</span></div>
+                                    </div>
+                                    <div class="lx-gespraech">
+                                        <h1 class="lx-chattitel" style="top:40px">Ab wann brauche ich eine Freigabe für Rabatte?</h1>
+                                        <p class="lx-blase" style="top:100px">Ab wann brauche ich eine Freigabe für Rabatte?</p>
+                                        <div class="lx-antwort" style="top:170px">
+                                            <p class="lx-ein" data-ab="1" style="--t:0.4s">Bis 5 % Rabatt entscheiden Sie selbst. <sup class="lx-quellnr">1</sup></p>
+                                            <p class="lx-ein" data-ab="1" style="--t:0.8s">Darüber gibt die Teamleitung im CRM frei, ab 15 % zusätzlich die Geschäftsführung. <sup class="lx-quellnr">1</sup></p>
+                                            <div class="lx-ein lx-quellen" data-ab="1" style="--t:1.2s"><span><b>1</b><svg class="lx-i"><use href="#li-datei"/></svg>Rabatte und Freigaben im Vertrieb</span></div>
+                                            <div class="lx-ablauf lx-ein" data-ab="2" style="--t:0.3s">
+                                                <b>Ablauf: Angebot erstellen</b>
+                                                <span><i>1</i>Bedarf klären<small>Vertrieb</small></span>
+                                                <span><i>2</i>Angebot erstellen<small>Vertrieb</small></span>
+                                                <span><i class="lx-q">?</i>Rabatt über 5 %?<small>Vertrieb</small></span>
+                                                <span><i>4</i>Freigabe einholen<small>Teamleitung</small></span>
+                                                <em><span class="lx-knopf" data-zeiger="2"><svg class="lx-i"><use href="#li-aufgaben"/></svg>Als Checkliste starten</span><span class="lx-knopf lx-geist"><svg class="lx-i"><use href="#li-karte"/></svg>Landkarte ansehen</span></em>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- 3: Kein Zugang -->
+                                <section class="lx-haupt lx-chat" data-zeigen="3">
+                                    <div class="lx-chatliste">
+                                        <span class="lx-knopf lx-voll" style="left:38px;top:38px;width:208px"><svg class="lx-i"><use href="#li-plus"/></svg>Neuer Chat</span>
+                                        <div class="lx-feld lx-suche" style="left:38px;top:98px;width:208px"><svg class="lx-i"><use href="#li-suche"/></svg>Chats durchsuchen</div>
+                                        <p class="lx-ueber" style="left:49px;top:154px">Ordner</p>
+                                        <div class="lx-ordner" style="left:38px;top:175px"><span><svg class="lx-i"><use href="#li-ordner"/></svg>Personal</span><span>Wie viele Urlaubstage habe …</span><span>Krankmeldung – an wen?</span></div>
+                                        <p class="lx-ueber" style="left:49px;top:313px">Weitere</p>
+                                        <div class="lx-verlauf" style="left:38px;top:333px"><span class="lx-an">Wie läuft „Urlaubsantrag“ …</span><span>Hotel-Grenze bei Dienstre…</span><span>Wer ist für die IT zuständig?</span></div>
+                                        <div class="lx-chatnotiz" style="left:38px;top:606px"><span><svg class="lx-i"><use href="#li-ordnerplus"/></svg>Chats lassen sich in Ordner ziehen.</span><span><svg class="lx-i"><use href="#li-schloss"/></svg>Ihre Chats sieht niemand außer Ihnen.</span></div>
+                                    </div>
+                                    <div class="lx-gespraech">
+                                        <h1 class="lx-chattitel" style="top:40px">Wie hoch ist der Mengenrabatt für Großkunden?</h1>
+                                        <p class="lx-blase" style="top:100px">Wie hoch ist der Mengenrabatt für Großkunden?</p>
+                                        <div class="lx-antwort" style="top:170px">
+                                            <p class="lx-ein" data-ab="3" style="--t:0.3s">In Ihren Bereichen steht dazu nichts. Im Bereich „Vertrieb“ gibt es passendes Wissen – dafür fehlt Ihnen aber der Zugang.</p>
+                                            <div class="lx-box lx-ein" data-ab="3" style="--t:0.7s">
+                                                <em><span class="lx-knopf lx-tuerkis-voll" data-zeiger="3"><svg class="lx-i"><use href="#li-frage"/></svg>Frage an die Zuständigen</span><span class="lx-knopf"><svg class="lx-i"><use href="#li-schluessel"/></svg>Zugang anfragen</span></em>
+                                                <div class="lx-ein" data-ab="3" style="--t:1.5s"><b>Ihre Frage an die Zuständigen von „Vertrieb“</b><div class="lx-feld" style="height:auto;padding:10px 14px;white-space:normal">Wie hoch ist der Mengenrabatt für Großkunden?</div><small>Die Zuständigen sehen nur diese Frage und Ihren Namen – nicht Ihren Chat.</small></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- 4: Inbox der Zuständigen -->
+                                <section class="lx-haupt" data-zeigen="4">
+                                    <h1 class="lx-h1" style="left:38px;top:37px">Inbox</h1>
+                                    <p class="lx-leise" style="left:38px;top:81px">Was in Ihren Bereichen auf Sie wartet: Fragen, Vorschläge, Prüfungen und Zugänge.</p>
+                                    <span class="lx-tab" style="left:38px;top:130px">Fragen an Ihre Bereiche <b class="lx-zahl">1</b></span>
+                                    <h2 class="lx-h2" style="left:38px;top:205px">Fragen an Ihre Bereiche</h2>
+                                    <div class="lx-liste" style="left:38px;top:250px;width:880px;background:transparent">
+                                        <p class="lx-leise lx-klein" style="position:static">Vertrieb · Erik Datenschutz · 4. Nov. 2026, 09:14</p>
+                                        <b style="font-size:18px">Wie hoch ist der Mengenrabatt für Großkunden?</b>
+                                        <div class="lx-text" style="width:auto;height:90px"><span class="lx-ein" data-ab="4" style="--t:0.3s">10 % ab 50 Stück. Darüber entscheidet die Teamleitung.</span></div>
+                                        <span class="lx-merken"><i class="lx-kasten lx-hakt an" style="width:22px;height:22px;border-radius:6px;background-size:14px"></i>Für alle merken <small>– wird Wissen in diesem Bereich, LEXIA antwortet künftig selbst</small></span>
+                                        <span class="lx-knopf lx-voll" style="align-self:flex-start" data-zeiger="4">Antwort senden</span>
+                                        <p class="lx-box lx-ein" data-ab="4" style="--t:1.4s;margin:0">Antwort gesendet und als Wissen gespeichert – ab jetzt beantwortet LEXIA die Frage selbst.</p>
+                                    </div>
+                                </section>
+
+                                <!-- 5: Antwort im Chat, danach weiß LEXIA es selbst -->
+                                <section class="lx-haupt lx-chat" data-zeigen="5">
+                                    <div class="lx-chatliste">
+                                        <span class="lx-knopf lx-voll" style="left:38px;top:38px;width:208px"><svg class="lx-i"><use href="#li-plus"/></svg>Neuer Chat</span>
+                                        <div class="lx-feld lx-suche" style="left:38px;top:98px;width:208px"><svg class="lx-i"><use href="#li-suche"/></svg>Chats durchsuchen</div>
+                                        <p class="lx-ueber" style="left:49px;top:154px">Ordner</p>
+                                        <div class="lx-ordner" style="left:38px;top:175px"><span><svg class="lx-i"><use href="#li-ordner"/></svg>Personal</span><span>Wie viele Urlaubstage habe …</span><span>Krankmeldung – an wen?</span></div>
+                                        <p class="lx-ueber" style="left:49px;top:313px">Weitere</p>
+                                        <div class="lx-verlauf" style="left:38px;top:333px"><span class="lx-an">Wie läuft „Urlaubsantrag“ …</span><span>Hotel-Grenze bei Dienstre…</span><span>Wer ist für die IT zuständig?</span></div>
+                                        <div class="lx-chatnotiz" style="left:38px;top:606px"><span><svg class="lx-i"><use href="#li-ordnerplus"/></svg>Chats lassen sich in Ordner ziehen.</span><span><svg class="lx-i"><use href="#li-schloss"/></svg>Ihre Chats sieht niemand außer Ihnen.</span></div>
+                                    </div>
+                                    <div class="lx-gespraech">
+                                        <h1 class="lx-chattitel" style="top:40px">Wie hoch ist der Mengenrabatt für Großkunden?</h1>
+                                        <p class="lx-blase" style="top:100px">Wie hoch ist der Mengenrabatt für Großkunden?</p>
+                                        <div class="lx-antwort" style="top:170px">
+                                            <p class="lx-leise" style="position:static;font-size:15px">In Ihren Bereichen steht dazu nichts … dafür fehlt Ihnen aber der Zugang.</p>
+                                            <div class="lx-box lx-ein" data-ab="5" style="--t:0.3s"><b>Antwort von Ben Führungskraft (Bereich „Vertrieb“):</b><p>10 % ab 50 Stück. Darüber entscheidet die Teamleitung.</p></div>
+                                            <p class="lx-ein lx-leise" data-ab="5" style="--t:1.3s;position:static;font-size:15px;margin-top:14px">Eine Woche später fragt Anna dasselbe – LEXIA antwortet sofort:</p>
+                                            <p class="lx-ein" data-ab="5" style="--t:1.8s">Der Mengenrabatt beträgt 10 % ab 50 Stück. Darüber entscheidet die Teamleitung. <sup class="lx-quellnr">1</sup></p>
+                                        </div>
                                     </div>
                                 </section>
 

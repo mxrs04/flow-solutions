@@ -11,6 +11,16 @@
 (() => {
   const touren = [...document.querySelectorAll('[data-tour]')];
   if (!touren.length) return;
+
+  // Mehrere Rundgänge: Auswahl oben zeigt immer genau einen ([data-tour-wahl] → [data-tour-id])
+  document.querySelectorAll('[data-tour-wahl]').forEach((knopf) =>
+    knopf.addEventListener('click', () => {
+      const id = knopf.dataset.tourWahl;
+      document.querySelectorAll('[data-tour-wahl]').forEach((k) => k.setAttribute('aria-checked', String(k === knopf)));
+      touren.forEach((t) => (t.hidden = t.dataset.tourId !== id));
+      dispatchEvent(new Event('tour-wechsel'));
+    })
+  );
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const schmal = matchMedia('(max-width: 1023px)');
   const inBereich = (wert, n) =>
@@ -109,6 +119,7 @@
     let geplant = false;
     function scrollen() {
       geplant = false;
+      if (tour.hidden) return;
       const weg = tour.offsetHeight - tour.querySelector('.tour-sticky').offsetHeight;
       const anteil = Math.min(Math.max(-tour.getBoundingClientRect().top / weg, 0), 0.9999);
       zeigen(Math.floor(anteil * anzahl) + 1);
@@ -125,6 +136,14 @@
       breite = rahmen.clientWidth;
       kamera();
       tippen(aktuell);
+    });
+    // Sichtbar geworden (Auswahl oben): neu messen und von vorn beginnen
+    addEventListener('tour-wechsel', () => {
+      if (tour.hidden) return;
+      breite = rahmen.clientWidth;
+      aktuell = 0;
+      scrollen();
+      kamera();
     });
     breite = rahmen.clientWidth;
     scrollen();

@@ -793,3 +793,55 @@ html, body { overflow-x: clip; }
 /* Mit Sprungleiste sitzt der Rundgang tiefer (Kopfzeile + Leiste) */
 .sprungleiste ~ * .tour-sticky, .sprungleiste ~ .tour-sticky { padding-top: 140px; }
 @media (max-width: 1023px) { .sprungleiste ~ * .tour-sticky { padding-top: 124px; } }
+
+/* Auswahl der Rundgänge (Prozess anlegen · Wissen sichern · Fragen & Antworten) */
+.tour-wahl { min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid #333; font-weight: 600; color: #d4d4d4; transition: background-color 0.2s ease-out, color 0.2s ease-out; }
+.tour-wahl:hover { color: #fff; border-color: #555; }
+.tour-wahl[aria-checked="true"] { background: #32F3DD; border-color: #32F3DD; color: #04201d; }
+.tour[hidden] { display: none; }
+
+/* Bausteine für Rundgang 2 und 3 */
+.lx-zone { display: flex; align-items: center; gap: 12px; padding: 0 14px 0 18px; border: 2px dashed rgba(255, 255, 255, 0.2); border-radius: 16px; font-size: 15px; color: #aeaeae; }
+.lx-zone > span:nth-child(2) { flex: 1; }
+.lx-getoent { background: color-mix(in srgb, var(--f) 13%, #1f1f1f); border-color: color-mix(in srgb, var(--f) 45%, transparent); }
+.lx-getoent strong { display: flex; align-items: center; gap: 8px; }
+.lx-punkt-f { width: 12px; height: 12px; border-radius: 50%; background: var(--f); }
+.lx-ampel { display: inline-block; width: 9px; height: 9px; margin-right: 8px; border-radius: 50%; }
+.lx-karte small { display: flex; align-items: center; color: #f5f5f5; font-weight: 500; }
+.lx-ablegen { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: rgba(22, 22, 22, 0.85); box-shadow: inset 0 0 0 3px #32f3dd; font-size: 18px; }
+.lx-dialog { display: flex; flex-direction: column; gap: 12px; width: 470px; padding: 22px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 18px; background: #1f1f1f; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); }
+.lx-dialog > strong { font-size: 19px; font-weight: 600; }
+.lx-zeile { display: flex; justify-content: space-between; font-weight: 500; }
+.lx-zeile small { color: #aeaeae; }
+.lx-box { display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 14px; background: #0e3a36; font-size: 15px; line-height: 1.5; }
+.lx-box b { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; }
+.lx-box > span, .lx-box em { display: flex; flex-wrap: wrap; gap: 8px; font-style: normal; }
+.lx-box .lx-knopf { height: 40px; font-size: 14px; }
+.lx-box small { color: #aeaeae; font-size: 13px; }
+.lx-kachel { display: flex; flex-direction: column; gap: 6px; width: 202px; height: 128px; padding: 14px; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; font-size: 13px; }
+.lx-kachel b { font-size: 17px; font-weight: 600; }
+.lx-kachel small { color: #aeaeae; font-size: 13px; line-height: 1.4; }
+.lx-kachel.lx-an { background: #0e3a36; border: 2px solid #32f3dd; }
+.lx .lx-tippen-lang.an { max-width: 320px; transition-timing-function: steps(32, end); }
+.lx-schrittzahl { display: flex; align-items: center; gap: 12px; width: 630px; font-size: 14px; color: #aeaeae; }
+.lx-schrittzahl > span { position: absolute; }
+.lx-schrittzahl i { flex: 1; height: 6px; margin-left: 110px; border-radius: 3px; background: #2b2b2b; overflow: hidden; }
+.lx-schrittzahl b { display: block; width: 20%; height: 100%; background: #32f3dd; }
+section[data-zeigen="3-4"].an .lx-schrittzahl b { transition: width 0.5s ease-out; }
+.lx-frage-gross { width: 880px; font-size: 26px; font-weight: 600; }
+.lx-frage-gross > span { position: absolute; }
+.lx-artikel { display: flex; flex-direction: column; gap: 8px; padding: 22px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; font-size: 16px; color: #d4d4d4; }
+.lx-artikel b { color: #f5f5f5; }
+.lx-quellnr { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: #32f3dd; color: #0a0a0a; font-size: 11px; font-weight: 700; vertical-align: 2px; }
+.lx-ablauf { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; padding: 16px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; font-size: 15px; }
+.lx-ablauf > span { display: grid; grid-template-columns: 26px 1fr; column-gap: 12px; font-weight: 500; }
+.lx-ablauf > span i { grid-row: span 2; display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #32f3dd; color: #0a0a0a; font-size: 12px; font-style: normal; font-weight: 700; }
+.lx-ablauf > span i.lx-q { background: transparent; border: 2px dashed rgba(255, 255, 255, 0.5); color: #f5f5f5; }
+.lx-ablauf small { color: #aeaeae; font-size: 13px; font-weight: 400; }
+.lx-ablauf em { display: flex; gap: 8px; margin-top: 6px; font-style: normal; }
+.lx-ablauf .lx-knopf { height: 40px; font-size: 14px; }
+.lx-tuerkis-voll { background: #32f3dd; border-color: #32f3dd; color: #0a0a0a; }
+.lx-zahl { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; border-radius: 999px; background: #32f3dd; color: #0a0a0a; font-size: 12px; }
+.lx-merken { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.lx-merken small { color: #aeaeae; }
+.lx-chat .lx-gespraech .lx-antwort { width: 665px; }
