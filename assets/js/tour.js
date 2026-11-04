@@ -112,7 +112,8 @@
       });
       if (nummer) nummer.textContent = String(n).padStart(2, '0');
       balken?.style.setProperty('--fortschritt', String(n / anzahl));
-      kamera();
+      // Nur am Handy wandert die Kamera je Schritt; sonst bleibt der Ausschnitt gleich (kein Neu-Messen mitten im Scrollen)
+      if (schmal.matches) kamera();
       tippen(n);
     }
 

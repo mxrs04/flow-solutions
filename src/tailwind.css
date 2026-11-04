@@ -520,6 +520,8 @@ input[type="range"].range::-moz-range-thumb {
 @media (prefers-reduced-motion: reduce) {
   .fl-b, .hero-unten, .lx-l, .lx-l > * { animation: none !important; }
 }
+/* Außerhalb des Bildschirms (site.js) oder nach dem Auseinanderfliegen: Endlos-Animationen anhalten – sonst ruckelt das Scrollen auf iPad und Handy */
+.pausiert, .pausiert *, .angehalten, .angehalten * { animation-play-state: paused !important; }
 
 /* „FLOW“ im Slogan: dunkler Hof trennt die Buchstaben von der gleichfarbigen Welle dahinter, darüber ein türkiser Schein */
 .flow-wort {

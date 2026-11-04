@@ -286,6 +286,14 @@
     document.getElementById(link.dataset.demoTab)?.click();
   }));
 
+  // ---------- Endlos-Animationen nur, solange sie zu sehen sind ----------
+  // Leuchten, La-Ola und laufende Linien zeichnen sonst bei jedem Bild neu – auch weit außerhalb des Bildschirms.
+  // Auf dem Mac merkt man das nicht, auf iPad und Handy ruckelt dadurch das Scrollen (z. B. im Rundgang).
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((eintraege) => eintraege.forEach((e) => e.target.classList.toggle('pausiert', !e.isIntersecting)));
+    $$('#lexiaMark, .glow-wave, .flow-line').forEach((el) => io.observe(el));
+  }
+
   // ---------- LEXIA: Buchstaben der Wortmarke fliegen beim Scrollen auseinander ----------
   const mark = $('#lexiaMark');
   if (mark && !reducedMotion) {
@@ -293,12 +301,18 @@
     // Richtung je Buchstabe (x, y in SVG-Einheiten, Drehung in Grad)
     const dirs = [[-520, -260, -40], [-260, 380, 25], [0, -460, 140], [240, 420, -30], [520, -240, 45]];
     let ticking = false;
+    let vorher = -1;
     const update = () => {
       ticking = false;
       // Die Wortmarke bleibt beim Scrollen stehen, bis die Buchstaben auseinandergeflogen sind
       const range = innerHeight * 0.45;
       const y = Math.min(Math.max(scrollY, 0), range);
+      // Weiter unten ändert sich nichts mehr – dann nichts schreiben (spart auf iPad und Handy Rechenzeit beim Scrollen)
+      if (y === vorher) return;
+      vorher = y;
       const p = y / range;
+      // Auseinandergeflogen: La-Ola und Leuchten anhalten, sie wären ohnehin unsichtbar
+      mark.classList.toggle('angehalten', p >= 1);
       const e = p * p * (3 - 2 * p);
       mark.style.transform = y ? `translate3d(0, ${y}px, 0)` : '';
       letters.forEach((el, i) => {
