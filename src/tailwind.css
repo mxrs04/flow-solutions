@@ -652,3 +652,39 @@ html, body { overflow-x: clip; }
   #siteMenu, #menuBackdrop { -webkit-backdrop-filter: none; backdrop-filter: none; }
   #siteMenu { background-color: #0C0C0C; }
 }
+
+/* ---------- Themenfarben (wie die Kacheln in den iPhone-Einstellungen) ----------
+   Gleiches Thema = gleiche Farbe auf Website und in LEXIA (LEXIA: lib/symbolfarben.ts). Bei neuen Themen beide Stellen ergänzen. */
+.sf { background: var(--sf) !important; color: var(--sf-text, #fff) !important; border-color: transparent !important; }
+.sf-chat { --sf: #0A84FF; }
+.sf-inbox { --sf: #5E5CE6; }
+.sf-mitteilungen { --sf: #FF453A; }
+.sf-aufgaben { --sf: #FF9F0A; }
+.sf-wissen { --sf: #32D2C1; --sf-text: #04201d; }
+.sf-lexikon { --sf: #A2845E; }
+.sf-prozesse { --sf: #30D158; }
+.sf-organigramm { --sf: #BF5AF2; }
+.sf-kalender { --sf: #FF375F; }
+.sf-team { --sf: #FFD60A; --sf-text: #1a1400; }
+.sf-verwaltung { --sf: #8E8E93; }
+.sf-nachweise { --sf: #0A84FF; }
+.sf-hilfe { --sf: #64D2FF; --sf-text: #04202a; }
+/* Branchen (Startseite „Für wen“) */
+.sf-handwerk { --sf: #FF9F0A; }
+.sf-industrie { --sf: #8E8E93; }
+.sf-handel { --sf: #FF375F; }
+.sf-dienstleistung { --sf: #5E5CE6; }
+.sf-gesundheit { --sf: #30D158; }
+.sf-verwaltung-branche { --sf: #0A84FF; }
+
+/* „So starten Sie“: vier farbige Schritte mit Pfeilen dazwischen – man sieht sofort, dass es ein kurzer Weg ist */
+.start-schritt { position: relative; border-radius: 1.5rem; padding: 1.75rem; background: linear-gradient(180deg, color-mix(in srgb, var(--sf) 12%, #111) 0%, #0f0f0f 70%); border: 1px solid color-mix(in srgb, var(--sf) 35%, #262626); transition: transform 0.3s ease-out, border-color 0.3s ease-out; }
+.start-schritt:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--sf) 70%, #262626); }
+.start-nummer { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border-radius: 0.9rem; font-weight: 800; font-size: 1.15rem; }
+.start-dauer { font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 999px; color: var(--sf); background: color-mix(in srgb, var(--sf) 14%, transparent); }
+.start-icon { color: var(--sf); }
+.start-pfeil { display: none; }
+@media (min-width: 1024px) {
+  .start-pfeil { position: absolute; right: -1.25rem; top: 50%; z-index: 2; display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; margin-top: -1.125rem; border-radius: 999px; background: #0c0c0c; border: 1px solid #333; color: #e5e5e5; }
+  .start-pfeil svg { width: 1rem; height: 1rem; }
+}
