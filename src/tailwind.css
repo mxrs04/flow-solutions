@@ -660,9 +660,9 @@ html, body { overflow-x: clip; }
 .sf-inbox { --sf: #5E5CE6; }
 .sf-mitteilungen { --sf: #FF453A; }
 .sf-aufgaben { --sf: #FF9F0A; }
-.sf-wissen { --sf: #32D2C1; --sf-text: #04201d; }
+.sf-wissen { --sf: #30D158; }
 .sf-lexikon { --sf: #A2845E; }
-.sf-prozesse { --sf: #30D158; }
+.sf-prozesse { --sf: #FF453A; }
 .sf-organigramm { --sf: #BF5AF2; }
 .sf-kalender { --sf: #FF375F; }
 .sf-team { --sf: #FFD60A; --sf-text: #1a1400; }
