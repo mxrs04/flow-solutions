@@ -656,8 +656,8 @@ html, body { overflow-x: clip; }
 /* ---------- Themenfarben (wie die Kacheln in den iPhone-Einstellungen) ----------
    Gleiches Thema = gleiche Farbe auf Website und in LEXIA (LEXIA: lib/symbolfarben.ts). Bei neuen Themen beide Stellen ergänzen. */
 .sf { background: var(--sf) !important; color: var(--sf-text, #fff) !important; border-color: transparent !important; }
-.sf-chat { --sf: #0A84FF; }
-.sf-inbox { --sf: #5E5CE6; }
+.sf-chat { --sf: #FFFFFF; --sf-text: #0a0a0a; }
+.sf-inbox { --sf: #0A84FF; }
 .sf-mitteilungen { --sf: #FF453A; }
 .sf-aufgaben { --sf: #FF9F0A; }
 .sf-wissen { --sf: #30D158; }
@@ -668,7 +668,7 @@ html, body { overflow-x: clip; }
 .sf-team { --sf: #FFD60A; --sf-text: #1a1400; }
 .sf-verwaltung { --sf: #8E8E93; }
 .sf-nachweise { --sf: #0A84FF; }
-.sf-hilfe { --sf: #64D2FF; --sf-text: #04202a; }
+.sf-hilfe { --sf: #5E5CE6; }
 /* Branchen (Startseite „Für wen“) */
 .sf-handwerk { --sf: #FF9F0A; }
 .sf-industrie { --sf: #8E8E93; }
