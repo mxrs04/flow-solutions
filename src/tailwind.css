@@ -666,7 +666,8 @@ html, body { overflow-x: clip; }
 .sf-organigramm { --sf: #BF5AF2; }
 .sf-kalender { --sf: #FF375F; }
 .sf-team { --sf: #FFD60A; --sf-text: #1a1400; }
-.sf-verwaltung { --sf: #8E8E93; }
+.sf-verwaltung { --sf: #5E5CE6; }
+.sf-einstellungen { --sf: #8E8E93; }
 .sf-nachweise { --sf: #0A84FF; }
 .sf-hilfe { --sf: #5E5CE6; }
 /* Branchen (Startseite „Für wen“) */
