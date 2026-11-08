@@ -670,6 +670,7 @@ html, body { overflow-x: clip; }
 .sf-einstellungen { --sf: #8E8E93; }
 .sf-nachweise { --sf: #0A84FF; }
 .sf-hilfe { --sf: #5E5CE6; }
+.sf-uhr { --sf: #40C8E0; --sf-text: #0a0a0a; }
 /* Branchen (Startseite „Für wen“) */
 .sf-handwerk { --sf: #FF9F0A; }
 .sf-industrie { --sf: #8E8E93; }
