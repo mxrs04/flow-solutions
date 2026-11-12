@@ -634,10 +634,13 @@ html, body { overflow-x: clip; }
 @media (max-width: 1023px) { .sprungleiste ~ * .tour-sticky { padding-top: 124px; } }
 
 /* Auswahl der Rundgänge (Prozess anlegen · Wissen sichern · Fragen & Antworten) */
-.tour-wahl { min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid #333; font-weight: 600; color: #d4d4d4; transition: background-color 0.2s ease-out, color 0.2s ease-out; }
+.tour-wahl { flex-shrink: 0; white-space: nowrap; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid #333; font-weight: 600; color: #d4d4d4; transition: background-color 0.2s ease-out, color 0.2s ease-out; }
 .tour-wahl:hover { color: #fff; border-color: #555; }
 .tour-wahl[aria-checked="true"] { background: #32F3DD; border-color: #32F3DD; color: #04201d; }
 .tour[hidden] { display: none; }
+/* W1b: Auf dem Handy liegen die Wahl-Knöpfe in einer Zeile zum Wischen – ohne sichtbaren Balken */
+.tour-wahlen { scrollbar-width: none; }
+.tour-wahlen::-webkit-scrollbar { display: none; }
 
 /* ---------- Menü und Leisten: auf iPad und Handy flüssig scrollen ----------
    Geschlossen sind Menü und Abdunklung unsichtbar (visibility) – sonst rechnet Safari ihren Weichzeichner bei jedem Scroll-Bild neu,

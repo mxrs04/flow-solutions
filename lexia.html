@@ -501,11 +501,14 @@
             <div class="px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28">
                 <div class="max-w-3xl mx-auto text-center" data-reveal>
                     <h2 id="prozess-tour-titel" class="text-3xl sm:text-5xl font-extrabold tracking-tight">Zuschauen statt lesen</h2>
-                    <p class="mt-4 text-lg text-slate-300 leading-relaxed">Drei kurze Rundgänge durch das echte LEXIA. Wählen Sie einen aus und scrollen Sie weiter – danach können Sie unten selbst ausprobieren.</p>
-                    <div role="radiogroup" aria-label="Rundgang wählen" class="mt-8 flex flex-wrap justify-center gap-2">
+                    <p class="mt-4 text-lg text-slate-300 leading-relaxed">Sechs kurze Rundgänge durch das echte LEXIA. Wählen Sie einen aus und scrollen Sie weiter – danach können Sie unten selbst ausprobieren.</p>
+                    <div role="radiogroup" aria-label="Rundgang wählen" class="tour-wahlen mt-8 -mx-4 px-4 flex gap-2 overflow-x-auto sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center sm:overflow-visible">
                         <button type="button" role="radio" aria-checked="true" data-tour-wahl="prozess" class="tour-wahl">Ablauf anlegen</button>
                         <button type="button" role="radio" aria-checked="false" data-tour-wahl="wissen" class="tour-wahl">Wissen sichern</button>
                         <button type="button" role="radio" aria-checked="false" data-tour-wahl="fragen" class="tour-wahl">Fragen &amp; Antworten</button>
+                        <button type="button" role="radio" aria-checked="false" data-tour-wahl="absicherung" class="tour-wahl">Absicherung</button>
+                        <button type="button" role="radio" aria-checked="false" data-tour-wahl="projekte" class="tour-wahl">Projekte</button>
+                        <button type="button" role="radio" aria-checked="false" data-tour-wahl="start" class="tour-wahl">Mein LEXIA</button>
                     </div>
                     <a href="#app" class="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">Rundgang überspringen <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
                 </div>
@@ -562,14 +565,14 @@
                         <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
                             <div class="lx" data-tour-buehne>
                                 <!-- Bilder aus dem echten LEXIA: in LEXIA „npm run rundgang-bilder“ (nimmt sie neu auf und trägt sie hier ein) -->
-                                <img class="rg-bild" data-bild="prozess-1" data-xy="1112,60" src="assets/img/rundgang/prozess-1.webp?v=8a7845b6" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="prozess-2" data-xy="463,316" src="assets/img/rundgang/prozess-2.webp?v=7b3f306e" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="prozess-3" data-xy="455,674" src="assets/img/rundgang/prozess-3.webp?v=e7b915f1" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="prozess-4" src="assets/img/rundgang/prozess-4.webp?v=0b48ca39" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="prozess-5" data-xy="618,441" src="assets/img/rundgang/prozess-5.webp?v=b0a1c268" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="prozess-6" src="assets/img/rundgang/prozess-6.webp?v=06f6b0f8" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="prozess-7" data-xy="755,475" src="assets/img/rundgang/prozess-7.webp?v=eb073ad8" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="prozess-8" data-xy="407,441" src="assets/img/rundgang/prozess-8.webp?v=a1437a50" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="prozess-1" data-xy="1112,60" src="assets/img/rundgang/prozess-1.webp?v=628276ff" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="prozess-2" data-xy="463,316" src="assets/img/rundgang/prozess-2.webp?v=7670214b" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="prozess-3" data-xy="455,674" src="assets/img/rundgang/prozess-3.webp?v=2e7921f0" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="prozess-4" src="assets/img/rundgang/prozess-4.webp?v=d00af38a" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="prozess-5" data-xy="618,441" src="assets/img/rundgang/prozess-5.webp?v=a78b8858" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="prozess-6" src="assets/img/rundgang/prozess-6.webp?v=764c3635" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="prozess-7" data-xy="755,475" src="assets/img/rundgang/prozess-7.webp?v=254bddc4" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="prozess-8" data-xy="407,441" src="assets/img/rundgang/prozess-8.webp?v=6a3d5484" width="1280" height="800" alt="" loading="lazy" decoding="async">
                                 <span class="lx-finger" data-tour-zeiger></span>
                             </div>
                         </div>
@@ -602,12 +605,12 @@
                         <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
                             <div class="lx" data-tour-buehne>
                                 <!-- Bilder aus dem echten LEXIA: in LEXIA „npm run rundgang-bilder“ (nimmt sie neu auf und trägt sie hier ein) -->
-                                <img class="rg-bild" data-bild="wissen-1" data-xy="775,216" src="assets/img/rundgang/wissen-1.webp?v=810d3ce7" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="wissen-2" data-xy="553,716" src="assets/img/rundgang/wissen-2.webp?v=528fd7c7" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="wissen-3" data-xy="516,740" src="assets/img/rundgang/wissen-3.webp?v=6dcf5037" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="wissen-4" src="assets/img/rundgang/wissen-4.webp?v=6e4a6859" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="wissen-5" src="assets/img/rundgang/wissen-5.webp?v=a24832a3" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="wissen-6" data-xy="546,464" src="assets/img/rundgang/wissen-6.webp?v=756ca4b7" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="wissen-1" data-xy="775,216" src="assets/img/rundgang/wissen-1.webp?v=4bf71e74" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="wissen-2" data-xy="553,638" src="assets/img/rundgang/wissen-2.webp?v=db2a49b7" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="wissen-3" data-xy="516,740" src="assets/img/rundgang/wissen-3.webp?v=6f0f7a88" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="wissen-4" src="assets/img/rundgang/wissen-4.webp?v=53afa061" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="wissen-5" src="assets/img/rundgang/wissen-5.webp?v=7b40889d" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="wissen-6" data-xy="546,464" src="assets/img/rundgang/wissen-6.webp?v=f14b2511" width="1280" height="800" alt="" loading="lazy" decoding="async">
                                 <span class="lx-finger" data-tour-zeiger></span>
                             </div>
                         </div>
@@ -640,11 +643,115 @@
                         <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
                             <div class="lx" data-tour-buehne>
                                 <!-- Bilder aus dem echten LEXIA: in LEXIA „npm run rundgang-bilder“ (nimmt sie neu auf und trägt sie hier ein) -->
-                                <img class="rg-bild" data-bild="fragen-1" data-xy="814,392" src="assets/img/rundgang/fragen-1.webp?v=b90959ad" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="fragen-2" data-xy="755,475" src="assets/img/rundgang/fragen-2.webp?v=7e561147" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="fragen-3" data-xy="761,387" src="assets/img/rundgang/fragen-3.webp?v=e61fdfd5" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="fragen-4" data-xy="509,383" src="assets/img/rundgang/fragen-4.webp?v=4f1e57c4" width="1280" height="800" alt="" loading="lazy" decoding="async">
-                                <img class="rg-bild" data-bild="fragen-5" src="assets/img/rundgang/fragen-5.webp?v=b1443031" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="fragen-1" data-xy="814,392" src="assets/img/rundgang/fragen-1.webp?v=b74de62c" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="fragen-2" data-xy="755,475" src="assets/img/rundgang/fragen-2.webp?v=542cd34b" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="fragen-3" data-xy="761,387" src="assets/img/rundgang/fragen-3.webp?v=67a996e1" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="fragen-4" data-xy="509,383" src="assets/img/rundgang/fragen-4.webp?v=a16250de" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="fragen-5" src="assets/img/rundgang/fragen-5.webp?v=fe41c420" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <span class="lx-finger" data-tour-zeiger></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tour" data-tour data-tour-id="absicherung" style="--schritte: 6" hidden>
+                <div class="tour-sticky">
+                    <div class="tour-raster max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="tour-text">
+                            <div class="flex items-center gap-4 text-sm text-slate-400 tabular-nums">
+                                <span><span data-tour-nummer class="text-white font-semibold">01</span> / 06</span>
+                                <span class="tour-balken" aria-hidden="true"><span data-tour-balken></span></span>
+                            </div>
+                            <ol class="tour-schritte mt-6">
+                                <li data-tour-schritt="1"><h3>Sehen, wo eine Vertretung fehlt</h3><p>Unter Firma → Absicherung stehen Ihre wichtigen Abläufe. LEXIA zeigt, wo niemand einspringen kann – mit „Jetzt festlegen“.</p></li>
+                                <li data-tour-schritt="2"><h3>Vertretung mit einem Klick</h3><p>Am Ablauf wählen Sie, wer verantwortlich ist und wer vertritt. „Speichern – ist so aktuell“ bestätigt die Zuständigkeit zugleich.</p></li>
+                                <li data-tour-schritt="3"><h3>Was wäre, wenn …?</h3><p>Person und Zeitraum wählen, dann „Durchspielen“. Einen Grund fragt LEXIA nicht ab, das Ergebnis wird nicht gespeichert.</p></li>
+                                <li data-tour-schritt="4"><h3>Bleibt liegen, wird knapp, jemand übernimmt</h3><p>Aus Zuständigkeiten, Vertretungen, Fristen und Projekten rechnet LEXIA, was in der Zeit passiert – jeder Punkt mit Grund, ohne Bewertung der Person.</p></li>
+                                <li data-tour-schritt="5"><h3>Maßnahmen gleich als Aufgaben</h3><p>Unter dem Ergebnis stehen passende Schritte, etwa „Vertretung festlegen“. Ausgewählte Maßnahmen werden Ihre eigenen Aufgaben.</p></li>
+                                <li data-tour-schritt="6"><h3>Das Notfallhandbuch entsteht von selbst</h3><p>Wer vertritt wen, wo sind Lücken: als Vorschau und als PDF zum Ablegen. Solange nicht alles bestätigt ist, steht „Entwurf“ darauf.</p>
+                                    <div class="mt-6 flex flex-wrap gap-3">
+                                        <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="inline-flex min-h-12 items-center rounded-full bg-lexia px-6 text-base font-bold text-[#04201d] hover:bg-white transition-colors">30 Tage kostenlos testen</a>
+                                        <a href="#app" class="inline-flex min-h-12 items-center rounded-full border border-slate-700 px-6 text-base font-semibold text-slate-200 hover:border-lexia/60 transition-colors">Selbst ausprobieren</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
+                            <div class="lx" data-tour-buehne>
+                                <img class="rg-bild" data-bild="absicherung-1" data-xy="444,611" src="assets/img/rundgang/absicherung-1.webp?v=2916ce37" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="absicherung-2" data-xy="487,560" src="assets/img/rundgang/absicherung-2.webp?v=33ed0441" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="absicherung-3" data-xy="1106,420" src="assets/img/rundgang/absicherung-3.webp?v=e9be6b85" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="absicherung-4" data-xy="775,436" src="assets/img/rundgang/absicherung-4.webp?v=fc1c7b8c" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="absicherung-5" data-xy="487,725" src="assets/img/rundgang/absicherung-5.webp?v=5b91dd46" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="absicherung-6" data-xy="471,281" src="assets/img/rundgang/absicherung-6.webp?v=a677e943" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <span class="lx-finger" data-tour-zeiger></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tour" data-tour data-tour-id="projekte" style="--schritte: 5" hidden>
+                <div class="tour-sticky">
+                    <div class="tour-raster max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="tour-text">
+                            <div class="flex items-center gap-4 text-sm text-slate-400 tabular-nums">
+                                <span><span data-tour-nummer class="text-white font-semibold">01</span> / 05</span>
+                                <span class="tour-balken" aria-hidden="true"><span data-tour-balken></span></span>
+                            </div>
+                            <ol class="tour-schritte mt-6">
+                                <li data-tour-schritt="1"><h3>Alle Projekte auf einen Blick</h3><p>Unter „Projekte“ steht jedes Projekt mit seinem Fortschritt im Ring. Ein neues beginnt mit „Neues Projekt“.</p></li>
+                                <li data-tour-schritt="2"><h3>Name, Ziel, Mitglieder</h3><p>Einen Namen und das Ziel in einem Satz eintragen, Mitglieder ankreuzen. Wer das Projekt anlegt, ist verantwortlich.</p></li>
+                                <li data-tour-schritt="3"><h3>Aufgaben anlegen und vergeben</h3><p>Aufgabe eintippen, Person und Datum wählen, „Hinzufügen“. Die Person findet sie sofort bei ihren Aufgaben.</p></li>
+                                <li data-tour-schritt="4"><h3>Abhaken – der Ring füllt sich</h3><p>Wer fertig ist, hakt ab. Mit jeder erledigten Aufgabe wächst der Fortschritt des Projekts.</p></li>
+                                <li data-tour-schritt="5"><h3>Alle eigenen Aufgaben an einem Ort</h3><p>Unter „Meine Aufgaben“ steht alles, was Sie erledigen sollen – auch Checklisten aus Abläufen und die Einarbeitung.</p>
+                                    <div class="mt-6 flex flex-wrap gap-3">
+                                        <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="inline-flex min-h-12 items-center rounded-full bg-lexia px-6 text-base font-bold text-[#04201d] hover:bg-white transition-colors">30 Tage kostenlos testen</a>
+                                        <a href="#app" class="inline-flex min-h-12 items-center rounded-full border border-slate-700 px-6 text-base font-semibold text-slate-200 hover:border-lexia/60 transition-colors">Selbst ausprobieren</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
+                            <div class="lx" data-tour-buehne>
+                                <img class="rg-bild" data-bild="projekte-1" data-xy="565,240" src="assets/img/rundgang/projekte-1.webp?v=48a3696c" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="projekte-2" data-xy="535,675" src="assets/img/rundgang/projekte-2.webp?v=a0c02514" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="projekte-3" data-xy="1122,191" src="assets/img/rundgang/projekte-3.webp?v=492cb60f" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="projekte-4" data-xy="400,523" src="assets/img/rundgang/projekte-4.webp?v=cfd85649" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="projekte-5" data-xy="775,337" src="assets/img/rundgang/projekte-5.webp?v=7267714b" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <span class="lx-finger" data-tour-zeiger></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tour" data-tour data-tour-id="start" style="--schritte: 5" hidden>
+                <div class="tour-sticky">
+                    <div class="tour-raster max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="tour-text">
+                            <div class="flex items-center gap-4 text-sm text-slate-400 tabular-nums">
+                                <span><span data-tour-nummer class="text-white font-semibold">01</span> / 05</span>
+                                <span class="tour-balken" aria-hidden="true"><span data-tour-balken></span></span>
+                            </div>
+                            <ol class="tour-schritte mt-6">
+                                <li data-tour-schritt="1"><h3>Ihre Startseite</h3><p>Mein LEXIA zeigt das Wichtigste auf einen Blick: eine Frage stellen, Ihre Aufgaben, Ihr Eingang und mehr.</p></li>
+                                <li data-tour-schritt="2"><h3>Anordnen, wie Sie es mögen</h3><p>Mit „Bearbeiten“ schieben Sie Widgets nach vorn oder hinten oder entfernen sie. Ziehen mit der Maus geht auch.</p></li>
+                                <li data-tour-schritt="3"><h3>Neue Widgets hinzufügen</h3><p>„Widget hinzufügen“ zeigt alles, was zu Ihren Apps passt. Antippen, hinzufügen – und mit „Fertig“ speichern.</p></li>
+                                <li data-tour-schritt="4"><h3>Ein Tipp öffnet die ganze Seite</h3><p>Ein Widget zeigt nur den ersten Blick. Wer mehr sehen will, tippt darauf – hier auf „Meine Aufgaben“.</p></li>
+                                <li data-tour-schritt="5"><h3>Und mit einem Tipp zurück</h3><p>Der Pfeil oben links führt zurück zu Mein LEXIA. So gibt es keine Sackgasse.</p>
+                                    <div class="mt-6 flex flex-wrap gap-3">
+                                        <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren" class="inline-flex min-h-12 items-center rounded-full bg-lexia px-6 text-base font-bold text-[#04201d] hover:bg-white transition-colors">30 Tage kostenlos testen</a>
+                                        <a href="#app" class="inline-flex min-h-12 items-center rounded-full border border-slate-700 px-6 text-base font-semibold text-slate-200 hover:border-lexia/60 transition-colors">Selbst ausprobieren</a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="tour-rahmen" data-tour-rahmen aria-hidden="true">
+                            <div class="lx" data-tour-buehne>
+                                <img class="rg-bild" data-bild="start-1" src="assets/img/rundgang/start-1.webp?v=7f0c852f" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="start-2" data-xy="1085,223" src="assets/img/rundgang/start-2.webp?v=15648ed6" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="start-3" data-xy="720,759" src="assets/img/rundgang/start-3.webp?v=f30d5119" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="start-4" data-xy="634,524" src="assets/img/rundgang/start-4.webp?v=7f0c852f" width="1280" height="800" alt="" loading="lazy" decoding="async">
+                                <img class="rg-bild" data-bild="start-5" data-xy="321,51" src="assets/img/rundgang/start-5.webp?v=c4ee4bba" width="1280" height="800" alt="" loading="lazy" decoding="async">
                                 <span class="lx-finger" data-tour-zeiger></span>
                             </div>
                         </div>
