@@ -153,6 +153,96 @@
     });
   });
 
+  // ---------- LEXIA-Demo (W1d): Mein LEXIA, Schritt für Schritt, „Was wäre, wenn …?“ – nur Beispieldaten ----------
+  const demo = $('#app .lx-demo');
+  if (demo) {
+    // Aufgaben-Kreis und Checklisten-Fortschritt folgen dem Abhaken
+    const aufgaben = $$('#panel-tasks .task');
+    const liste = $$('[data-liste] .task');
+    const ring = $('[data-ring]');
+    const zaehlen = () => {
+      const fertig = aufgaben.filter((t) => t.classList.contains('task-done')).length;
+      const fertigListe = liste.filter((t) => t.classList.contains('task-done')).length;
+      if (ring) ring.style.strokeDashoffset = String(163.4 * (1 - fertig / aufgaben.length));
+      const rt = $('[data-ring-text]'); if (rt) rt.textContent = `${fertig} von ${aufgaben.length}`;
+      const oz = $('[data-offen-zahl]'); if (oz) oz.textContent = String(aufgaben.length - fertig);
+      const lz = $('[data-liste-zahl]'); if (lz) lz.textContent = `${fertigListe} von ${liste.length}`;
+      const lb = $('[data-liste-balken]'); if (lb) lb.style.width = `${(100 * fertigListe) / liste.length}%`;
+    };
+    $$('#panel-tasks .task-toggle').forEach((b) => b.addEventListener('click', () => setTimeout(zaehlen, 0)));
+    zaehlen();
+
+    // Handy: gewählten Reiter in der waagrechten Leiste sichtbar halten
+    const menue = $('.lx-menue', demo);
+    $$('[role="tab"]', menue).forEach((t) => t.addEventListener('click', () => { menue.scrollLeft = t.offsetLeft - 16; }));
+
+    // Uhr und Datum
+    const heute = new Date();
+    const uhr = $('[data-demo-uhr]');
+    const stellen = () => { if (uhr) uhr.textContent = new Date().toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }); };
+    stellen(); setInterval(stellen, 15000);
+    const dat = $('[data-demo-datum]'); if (dat) dat.textContent = heute.toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
+    $$('[data-demo-heute]').forEach((el) => { el.textContent = heute.toLocaleDateString('de-DE'); });
+
+    // Ablauf „Schritt für Schritt“
+    $$('[data-pfad-gehe]').forEach((b) => b.addEventListener('click', () => {
+      $$('[data-pfad-schritt]').forEach((s) => { s.hidden = s.dataset.pfadSchritt !== b.dataset.pfadGehe; });
+      $(`[data-pfad-schritt="${b.dataset.pfadGehe}"] button:last-of-type`)?.focus();
+    }));
+
+    // „Was wäre, wenn …?“ – feste Regeln wie in LEXIA (lib/absicherung/szenario.ts): Vertretung da → übernimmt;
+    // keine Vertretung → wichtig: bleibt liegen, sonst: wird knapp; Fristen/Aufgaben im Zeitraum → wird knapp.
+    const DATEN = {
+      ben: { name: 'Ben', ablaeufe: [['Angebote freigeben', true, null], ['Reklamation bearbeiten', false, 'Clara'], ['Kundenbesuche planen', false, null]], termine: [['Frist', 'Quartalsbericht Vertrieb', 20], ['Projektaufgabe', 'Messestand bestellen', 6]] },
+      lisa: { name: 'Lisa', ablaeufe: [['Lohnabrechnung vorbereiten', true, 'Clara'], ['Erster Arbeitstag', true, null], ['Urlaubsantrag', false, 'Clara']], termine: [['Frist', 'Meldung Sozialversicherung', 9], ['Projektaufgabe', 'Einarbeitung Max vorbereiten', 3]] },
+      tom: { name: 'Tom', ablaeufe: [['Rechnungen prüfen', true, 'Ben'], ['Mahnungen versenden', true, null], ['Reisekosten abrechnen', false, null]], termine: [['Frist', 'Umsatzsteuer-Voranmeldung', 24], ['Projektaufgabe', 'Unterlagen Jahresabschluss sammeln', 12]] },
+    };
+    const STUFE = {
+      kritisch: { text: 'Bleibt liegen', farbe: 'text-rose-400', d: 'M12 8v4M12 16h.01M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0z' },
+      achtung: { text: 'Wird knapp', farbe: 'text-amber-400', d: 'M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z' },
+      gedeckt: { text: 'Jemand übernimmt', farbe: 'text-slate-400', d: 'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0zM8 12l3 3 5-6' },
+    };
+    const wahl = { person: 'ben', wochen: 2 };
+    const zeigen = () => {
+      const p = DATEN[wahl.person];
+      const funde = [];
+      p.ablaeufe.forEach(([titel, wichtig, vertretung]) => {
+        if (vertretung) funde.push(['gedeckt', 'Ablauf', titel, `${vertretung} ist als Vertretung eingetragen und übernimmt.`]);
+        else funde.push([wichtig ? 'kritisch' : 'achtung', wichtig ? 'Wichtiger Ablauf' : 'Ablauf', titel, `${p.name} ist verantwortlich, eine Vertretung ist nicht eingetragen.`]);
+      });
+      p.termine.forEach(([art, titel, tage]) => {
+        if (tage > wahl.wochen * 7) return;
+        const d = new Date(heute); d.setDate(d.getDate() + tage);
+        funde.push(['achtung', art, titel, `Fällig am ${d.toLocaleDateString('de-DE')} – mitten in der Abwesenheit.`]);
+      });
+      const ordnung = { kritisch: 0, achtung: 1, gedeckt: 2 };
+      funde.sort((a, b) => ordnung[a[0]] - ordnung[b[0]]);
+      const n = (s) => funde.filter((f) => f[0] === s).length;
+      $('[data-wenn-summe]').innerHTML = `Fehlt <b class="text-white">${p.name}</b> ${wahl.wochen === 1 ? 'eine Woche' : wahl.wochen + ' Wochen'}: <b class="text-rose-400">${n('kritisch')} bleibt liegen</b> · <b class="text-amber-400">${n('achtung')} wird knapp</b> · ${n('gedeckt')} übernimmt jemand`;
+      // Nur feste Beispieldaten von oben – keine Eingaben der Besucher
+      $('[data-wenn-liste]').innerHTML = funde.map(([stufe, art, titel, grund]) => {
+        const s = STUFE[stufe];
+        return `<li class="flex gap-3 px-4 py-3"><svg class="w-5 h-5 mt-0.5 shrink-0 ${s.farbe}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${s.d}"/></svg><span class="min-w-0"><span class="block text-xs ${s.farbe} font-semibold">${s.text} · ${art}</span><span class="block font-semibold">${titel}</span><span class="block text-xs text-slate-400 mt-0.5">${grund}</span></span></li>`;
+      }).join('');
+    };
+    [['[data-wenn-person]', 'person'], ['[data-wenn-wochen]', 'wochen']].forEach(([sel, feld]) => {
+      const knoepfe = $$(`${sel} button`);
+      knoepfe.forEach((b) => b.addEventListener('click', () => {
+        knoepfe.forEach((k) => k.setAttribute('aria-pressed', String(k === b)));
+        wahl[feld] = feld === 'wochen' ? Number(b.dataset.wert) : b.dataset.wert;
+        zeigen();
+      }));
+    });
+    if ($('[data-wenn-liste]')) zeigen();
+    const hk = $('[data-handbuch-knopf]');
+    hk?.addEventListener('click', () => {
+      const box = $('#demo-handbuch');
+      box.hidden = !box.hidden;
+      hk.setAttribute('aria-expanded', String(!box.hidden));
+      hk.textContent = box.hidden ? 'Notfallhandbuch' : 'Notfallhandbuch schließen';
+    });
+  }
+
   // ---------- Zahlen hochzählen ----------
   function countUp(el) {
     const target = parseFloat(el.dataset.count);

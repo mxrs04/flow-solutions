@@ -671,6 +671,31 @@ html, body { overflow-x: clip; }
 .sf-nachweise { --sf: #0A84FF; }
 .sf-hilfe { --sf: #5E5CE6; }
 .sf-uhr { --sf: #40C8E0; --sf-text: #0a0a0a; }
+.sf-apps { --sf: #64D2FF; --sf-text: #0a0a0a; }
+.sf-firma { --sf: #FF453A; }
+
+/* ---------- LEXIA-Demo (lexia.html #app): Menü wie in der App, runde Haken, Auswahl-Knöpfe ---------- */
+.lx-menue .tab-btn[aria-selected="true"] {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.lx-menue::-webkit-scrollbar { display: none; }
+.task-done .rund-check {
+  background: #FF9F0A;
+  border-color: #FF9F0A;
+  animation: rund-haken 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes rund-haken {
+  0% { transform: scale(0.8); }
+  60% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+.wahl-chip { transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
+.wahl-chip[aria-pressed="true"] { background: #fff; color: #0a0a0a; border-color: #fff; }
+@media (prefers-reduced-motion: reduce) {
+  .task-done .rund-check { animation: none; }
+}
 /* Branchen (Startseite „Für wen“) */
 .sf-handwerk { --sf: #FF9F0A; }
 .sf-industrie { --sf: #8E8E93; }
