@@ -44,7 +44,7 @@
     {
       id: 'chef', frage: 'Sieht mein Chef meine Fragen?',
       worte: ['chef', 'privat', 'überwach', 'kontroll', 'betriebsrat', 'leistung'],
-      antwort: 'Nein. Chats sind privat – auch Admins und Flow Solutions lesen sie nicht. Statistiken zeigen nur Summen; eine Leistungskontrolle einzelner Personen ist nicht möglich.',
+      antwort: 'Nein. Chats sind privat – auch Admins und Flow Solutions lesen sie nicht. Statistiken zeigen nur Summen, aus Chats wird nichts über Personen abgeleitet. Für den Betriebsrat gibt es einen Transparenzbericht als PDF.',
       links: [],
     },
     {
