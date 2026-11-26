@@ -116,6 +116,15 @@ body {
   animation: wave-breathe 7s ease-in-out 3s infinite;
 }
 
+/* Startseite: Welle liegt hinter dem weißen Slogan → dunkles Systemgrau mit schwachem Schein, damit die Schrift vorne steht (26.11.2026) */
+#hero-flow .glow-wave {
+  color: #48484a;
+  filter: drop-shadow(0 0 18px rgba(255,255,255, 0.10)) drop-shadow(0 0 60px rgba(255,255,255, 0.05));
+}
+#hero-flow .wave-spark g[stroke="#f0fffd"] {
+  stroke: #8e8e93;
+}
+
 @keyframes wave-draw {
   to { stroke-dashoffset: 0; }
 }
