@@ -757,3 +757,27 @@ html, body { overflow-x: clip; }
 }
 @media (prefers-reduced-motion: reduce) { .fk-pfeil { transition: none; } }
 .fk-ohne .fk-rechts::after { content: ""; width: 1rem; }
+
+/* Hover wie bei Apple (Wunsch 26.11.2026): Klickbares leuchtet im LEXIA-Akzentblau (#0A84FF, wie in der App) auf
+   und wird minimal größer. Knöpfe mit eigener Fläche (bg-…) behalten ihre Schriftfarbe, zoomen nur.
+   Inline-Links im Fließtext zoomen nicht (scale wirkt dort nicht) – sie werden nur blau. */
+@media (hover: hover) {
+  a, button, summary, [role="button"], label[for] {
+    /* !important, weil Tailwind-Klassen wie transition-colors sonst nur die Farbe weich überblenden */
+    transition-property: color, background-color, border-color, opacity, box-shadow, transform, scale !important;
+    transition-duration: 0.2s !important;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+  a:not([class*="bg-"]):hover, button:not([class*="bg-"]):hover, summary:hover, .menu-link:hover {
+    color: #0a84ff;
+  }
+  a:hover, button:hover, summary:hover, [role="button"]:hover, label[for]:hover {
+    scale: 1.03;
+  }
+  .menu-link { display: inline-block; transform-origin: left center; }
+  /* große Flächen (Karten, Zeilen zum Aufklappen) nur ganz leicht */
+  a.block:hover, a.flex:hover, a.grid:hover, summary:hover { scale: 1.01; }
+}
+@media (prefers-reduced-motion: reduce) {
+  a:hover, button:hover, summary:hover, [role="button"]:hover, label[for]:hover { scale: none; }
+}
