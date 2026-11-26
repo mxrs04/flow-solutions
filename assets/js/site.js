@@ -616,7 +616,7 @@
         `<span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-1 rounded-full border border-lexia/30 bg-lexia/10 text-lexia">
            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>${esc(src)}</span>`).join('')}
       </div>
-      <button type="button" tabindex="-1" class="mt-3 inline-flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-full bg-lexia text-[#04201d]">${esc(s.action)}</button>`;
+      <button type="button" tabindex="-1" class="mt-3 inline-flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-full bg-lexia text-[#0C0C0C]">${esc(s.action)}</button>`;
 
     async function play() {
       for (;;) {
@@ -730,7 +730,7 @@
       $('#dlVersion').textContent = a.version ? `Version ${a.version}${datum ? ' · ' + datum : ''}` : '';
       $('#dlHinweis').textContent = a.hinweis || '';
       dl.innerHTML = (a.dateien || []).map((f) => f.url
-        ? `<a href="${f.url}" class="flex items-center justify-between gap-3 rounded-2xl bg-lexia text-[#04201d] px-5 py-4 font-bold hover:bg-white transition-colors"><span>Für ${f.name} herunterladen</span><span class="text-sm font-semibold opacity-75">${f.groesse || ''}</span></a>`
+        ? `<a href="${f.url}" class="flex items-center justify-between gap-3 rounded-2xl bg-lexia text-[#0C0C0C] px-5 py-4 font-bold hover:bg-white transition-colors"><span>Für ${f.name} herunterladen</span><span class="text-sm font-semibold opacity-75">${f.groesse || ''}</span></a>`
         : `<div class="flex items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-900/60 px-5 py-4"><span class="font-semibold">${f.name}</span><span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-slate-700 text-slate-400">Bald verfügbar</span></div>`).join('');
       const alt = d.frueher || [];
       $('#dlFrueher').innerHTML = alt.length ? `<details><summary class="cursor-pointer text-sm text-slate-400">Frühere Versionen</summary><ul class="mt-3 space-y-2 text-sm">${alt.map((v) => `<li>${v.version} · ${v.datum}${(v.dateien || []).filter((f) => f.url).map((f) => ` · <a class="text-lexia" href="${f.url}">${f.name}</a>`).join('')}</li>`).join('')}</ul></details>` : '';
@@ -878,7 +878,7 @@
       : '<svg viewBox="0 0 100 100" class="w-20 h-20" aria-hidden="true"><path d="M18 18 L82 82 M82 18 L18 82" fill="none" stroke="#E83A33" stroke-width="13" stroke-linecap="round"/></svg>';
     const huelle = document.createElement('div');
     huelle.className = 'fixed inset-0 z-[300] flex items-center justify-center bg-black/60 p-4';
-    huelle.innerHTML = `<div role="${ok ? 'status' : 'alertdialog'}" aria-live="${ok ? 'polite' : 'assertive'}" class="w-full max-w-sm rounded-3xl border border-slate-800 bg-[#0C0C0C] p-7 flex flex-col items-center gap-4 text-center shadow-2xl">${symbol}<p class="text-lg font-bold text-white"></p>${text ? '<p class="text-sm text-slate-400"></p>' : ''}${ok ? '' : '<button type="button" class="w-full rounded-xl bg-lexia py-3.5 font-bold text-[#04201d] hover:bg-white transition-colors">OK</button>'}</div>`;
+    huelle.innerHTML = `<div role="${ok ? 'status' : 'alertdialog'}" aria-live="${ok ? 'polite' : 'assertive'}" class="w-full max-w-sm rounded-3xl border border-slate-800 bg-[#0C0C0C] p-7 flex flex-col items-center gap-4 text-center shadow-2xl">${symbol}<p class="text-lg font-bold text-white"></p>${text ? '<p class="text-sm text-slate-400"></p>' : ''}${ok ? '' : '<button type="button" class="w-full rounded-xl bg-lexia py-3.5 font-bold text-[#0C0C0C] hover:bg-white transition-colors">OK</button>'}</div>`;
     const [t, x] = huelle.querySelectorAll('p');
     t.textContent = titel;
     if (x) x.textContent = text;

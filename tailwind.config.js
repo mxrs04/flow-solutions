@@ -7,14 +7,14 @@ module.exports = {
     extend: {
       colors: {
         darkbg: '#0C0C0C',
-        // neutrale Grautöne statt des bläulichen Tailwind-"slate" – passt zu LEXIA-Türkis
+        // neutrale Grautöne statt des bläulichen Tailwind-"slate" – schwarz-weiß (W0c, M10)
         // 500 etwas heller als Tailwind-Standard: kleine graue Schrift bleibt auf Schwarz gut lesbar (Kontrast > 4,5:1)
         slate: { ...colors.neutral, 500: '#8c8c8c' },
         lexia: {
-          DEFAULT: '#32F3DD',
-          deep: '#14b8a6',
+          DEFAULT: '#FFFFFF',
+          deep: '#D4D4D4',
         },
-        // Enterprise: warmes Champagner-Gold – edel, aber ruhiger als das Business-Türkis
+        // Enterprise: warmes Champagner-Gold – edel, aber ruhiger als das Business-Weiß
         gold: {
           DEFAULT: '#F2D48B',
           deep: '#C9A24D',

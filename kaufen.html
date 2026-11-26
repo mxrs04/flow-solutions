@@ -53,7 +53,7 @@
                 </a>
 
                 <a href="https://lexia-nu.vercel.app/registrieren" data-app-link data-app-pfad="/registrieren"
-                    class="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-lexia text-[#04201d] hover:bg-white transition-colors hover-scale shadow-[0_0_24px_rgba(50,243,221,0.25)] z-[101]">
+                    class="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-lexia text-[#0C0C0C] hover:bg-white transition-colors hover-scale shadow-[0_0_24px_rgba(255,255,255,0.25)] z-[101]">
                     <span class="sm:hidden">Testen</span><span class="hidden sm:inline">Kostenlos testen</span>
                 </a>
             </div>
@@ -65,7 +65,7 @@
     <nav id="siteMenu" aria-label="Hauptmenü" inert
         class="fixed top-0 left-0 bottom-0 w-full sm:w-[38vw] sm:min-w-[380px] bg-[#0C0C0C]/95 backdrop-blur-2xl z-[200] -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-8 sm:p-12 border-r border-slate-800">
         <button id="menuClose" type="button" aria-label="Menü schließen"
-            class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-lexia hover:text-[#04201d] flex items-center justify-center transition-colors">
+            class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 hover:bg-lexia hover:text-[#0C0C0C] flex items-center justify-center transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -97,10 +97,10 @@
             <form id="kaufForm" class="mt-10 grid lg:grid-cols-[1fr_380px] gap-8 items-start" novalidate>
                 <div class="space-y-6">
                 <section class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8">
-                    <h2 class="flex items-center gap-3 text-lg font-extrabold"><span class="w-8 h-8 rounded-full bg-lexia text-[#04201d] text-sm font-black flex items-center justify-center">1</span>Paket</h2>
+                    <h2 class="flex items-center gap-3 text-lg font-extrabold"><span class="w-8 h-8 rounded-full bg-lexia text-[#0C0C0C] text-sm font-black flex items-center justify-center">1</span>Paket</h2>
                     <div class="mt-6 space-y-5">
-                        <label class="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4 cursor-pointer has-[:checked]:border-lexia has-[:checked]:bg-lexia/[0.06] transition-colors"><input type="radio" name="paket" value="start" class="w-5 h-5 accent-[#32F3DD]"><span class="flex-1"><span class="block font-bold">Start</span><span class="block text-sm text-slate-400">bis 15 Personen · Wissen finden</span></span><span class="font-extrabold">149 €</span></label>
-                        <label class="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4 cursor-pointer has-[:checked]:border-lexia has-[:checked]:bg-lexia/[0.06] transition-colors"><input type="radio" name="paket" value="business" checked class="w-5 h-5 accent-[#32F3DD]"><span class="flex-1"><span class="block font-bold">Business <span class="ml-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-lexia text-[#04201d]">Empfohlen</span></span><span class="block text-sm text-slate-400">inkl. 15 Personen · jede weitere 6 €</span></span><span class="font-extrabold">ab 199 €</span></label>
+                        <label class="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4 cursor-pointer has-[:checked]:border-lexia has-[:checked]:bg-lexia/[0.06] transition-colors"><input type="radio" name="paket" value="start" class="w-5 h-5 accent-[#FFFFFF]"><span class="flex-1"><span class="block font-bold">Start</span><span class="block text-sm text-slate-400">bis 15 Personen · Wissen finden</span></span><span class="font-extrabold">149 €</span></label>
+                        <label class="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4 cursor-pointer has-[:checked]:border-lexia has-[:checked]:bg-lexia/[0.06] transition-colors"><input type="radio" name="paket" value="business" checked class="w-5 h-5 accent-[#FFFFFF]"><span class="flex-1"><span class="block font-bold">Business <span class="ml-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-lexia text-[#0C0C0C]">Empfohlen</span></span><span class="block text-sm text-slate-400">inkl. 15 Personen · jede weitere 6 €</span></span><span class="font-extrabold">ab 199 €</span></label>
                         <label id="kPersonenFeld" class="block">
                             <span class="block text-sm font-semibold mb-2">Wie viele Personen nutzen LEXIA?</span>
                             <input id="kPersonen" name="personen" type="number" inputmode="numeric" min="1" max="10000" value="15" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-lexia max-w-40">
@@ -108,7 +108,7 @@
                     </div>
                 </section>
                 <section class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8">
-                    <h2 class="flex items-center gap-3 text-lg font-extrabold"><span class="w-8 h-8 rounded-full bg-lexia text-[#04201d] text-sm font-black flex items-center justify-center">2</span>Firma</h2>
+                    <h2 class="flex items-center gap-3 text-lg font-extrabold"><span class="w-8 h-8 rounded-full bg-lexia text-[#0C0C0C] text-sm font-black flex items-center justify-center">2</span>Firma</h2>
                     <div class="mt-6 space-y-5">
                         <label class="block">
                             <span class="block text-sm font-semibold mb-2">Firma <span class="text-lexia">*</span></span>
@@ -125,7 +125,7 @@
                     </div>
                 </section>
                 <section class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8">
-                    <h2 class="flex items-center gap-3 text-lg font-extrabold"><span class="w-8 h-8 rounded-full bg-lexia text-[#04201d] text-sm font-black flex items-center justify-center">3</span>Ansprechperson</h2>
+                    <h2 class="flex items-center gap-3 text-lg font-extrabold"><span class="w-8 h-8 rounded-full bg-lexia text-[#0C0C0C] text-sm font-black flex items-center justify-center">3</span>Ansprechperson</h2>
                     <div class="mt-6 space-y-5">
                         <div class="grid sm:grid-cols-2 gap-5">
                         <label class="block">
@@ -144,9 +144,9 @@
                     </div>
                 </section>
                 <section class="rounded-3xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8">
-                    <h2 class="flex items-center gap-3 text-lg font-extrabold"><span class="w-8 h-8 rounded-full bg-lexia text-[#04201d] text-sm font-black flex items-center justify-center">4</span>Bezahlung</h2>
+                    <h2 class="flex items-center gap-3 text-lg font-extrabold"><span class="w-8 h-8 rounded-full bg-lexia text-[#0C0C0C] text-sm font-black flex items-center justify-center">4</span>Bezahlung</h2>
                     <div class="mt-6 space-y-5">
-                        <label class="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4 cursor-pointer has-[:checked]:border-lexia has-[:checked]:bg-lexia/[0.06] transition-colors"><input type="radio" name="zahlweise" value="rechnung" checked class="w-5 h-5 accent-[#32F3DD]"><span class="flex-1"><span class="block font-bold">Rechnung</span><span class="block text-sm text-slate-400">Monatlich nach Monatsende, zahlbar per Überweisung</span></span></label>
+                        <label class="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4 cursor-pointer has-[:checked]:border-lexia has-[:checked]:bg-lexia/[0.06] transition-colors"><input type="radio" name="zahlweise" value="rechnung" checked class="w-5 h-5 accent-[#FFFFFF]"><span class="flex-1"><span class="block font-bold">Rechnung</span><span class="block text-sm text-slate-400">Monatlich nach Monatsende, zahlbar per Überweisung</span></span></label>
                         <div class="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/30 p-4 opacity-60"><span class="w-5 h-5 rounded-full border border-slate-600"></span><span class="flex-1"><span class="block font-bold">SEPA-Lastschrift</span><span class="block text-sm text-slate-400">Bequem abbuchen lassen</span></span><span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-slate-700 text-slate-400">Bald</span></div>
                         <div class="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/30 p-4 opacity-60"><span class="w-5 h-5 rounded-full border border-slate-600"></span><span class="flex-1"><span class="block font-bold">Kreditkarte, Apple Pay, Google Pay</span><span class="block text-sm text-slate-400">Sofort bezahlt</span></span><span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-slate-700 text-slate-400">Bald</span></div>
                         <label class="block">
@@ -158,7 +158,7 @@
                     <div aria-hidden="true" class="absolute -left-[9999px]"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
                 </div>
 
-                <aside class="lg:sticky lg:top-28 rounded-3xl border border-lexia/40 bg-[#0b1817] p-6 sm:p-8 shadow-[0_0_60px_rgba(50,243,221,0.1)]">
+                <aside class="lg:sticky lg:top-28 rounded-3xl border border-lexia/40 bg-[#0b1817] p-6 sm:p-8 shadow-[0_0_60px_rgba(255,255,255,0.1)]">
                     <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">Ihre Bestellung</h2>
                     <p id="kPaket" class="mt-3 text-2xl font-extrabold tracking-[0.25em] text-lexia">BUSINESS</p>
                     <dl class="mt-6 text-sm divide-y divide-slate-800 border-y border-slate-800">
@@ -172,17 +172,17 @@
                     <p class="mt-2 text-xs text-slate-500">KI-Nutzung über dem Guthaben zum Einkaufspreis. Erste Rechnung nach dem ersten Monat.</p>
 
                     <label class="mt-6 flex items-start gap-3 text-sm text-slate-300 cursor-pointer">
-                        <input id="kZustimmung" type="checkbox" class="mt-0.5 w-5 h-5 accent-[#32F3DD]">
+                        <input id="kZustimmung" type="checkbox" class="mt-0.5 w-5 h-5 accent-[#FFFFFF]">
                         <span>Ich bestelle für mein Unternehmen. Die Bestellung wird mit der Bestätigung von Flow Solutions per E-Mail verbindlich. Hinweise zum <a href="/datenschutz" class="text-lexia underline underline-offset-4">Datenschutz</a>.</span>
                     </label>
                     <p id="kFehler" role="alert" class="mt-4 hidden rounded-xl bg-rose-950/60 border border-rose-900 p-3 text-sm text-rose-200"></p>
-                    <button id="kSenden" type="submit" class="mt-6 w-full px-6 py-4 rounded-full bg-lexia text-[#04201d] font-bold hover:bg-white transition-colors disabled:opacity-50">Bestellung absenden</button>
+                    <button id="kSenden" type="submit" class="mt-6 w-full px-6 py-4 rounded-full bg-lexia text-[#0C0C0C] font-bold hover:bg-white transition-colors disabled:opacity-50">Bestellung absenden</button>
                     <p class="mt-4 flex items-center justify-center gap-2 text-xs text-slate-500"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Verschlüsselt übertragen · Daten in Deutschland</p>
                 </aside>
             </form>
 
             <section id="kDanke" class="hidden mt-10 max-w-2xl rounded-3xl border border-lexia/40 bg-[#0b1817] p-8 sm:p-12 text-center">
-                <span class="mx-auto w-14 h-14 rounded-full bg-lexia text-[#04201d] text-2xl font-black flex items-center justify-center"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+                <span class="mx-auto w-14 h-14 rounded-full bg-lexia text-[#0C0C0C] text-2xl font-black flex items-center justify-center"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
                 <h2 class="mt-6 text-3xl font-extrabold">Danke für Ihre Bestellung!</h2>
                 <p class="mt-4 text-slate-300 leading-relaxed">Sie ist bei uns eingegangen. Wir melden uns in der Regel innerhalb von zwei Werktagen per E-Mail mit der Bestätigung und Ihrem Zugang – dann kann es sofort losgehen.</p>
                 <a href="/download" class="mt-8 inline-flex px-7 py-4 rounded-full border border-slate-700 font-semibold hover:border-lexia hover:text-lexia transition-colors">LEXIA schon mal als App vorbereiten</a>

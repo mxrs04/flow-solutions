@@ -94,7 +94,7 @@
 
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; };
 
-  const knopf = el('button', 'fixed bottom-5 right-5 z-[60] inline-flex items-center gap-2 rounded-full bg-[#141414]/95 backdrop-blur border border-lexia/40 px-5 py-3 text-sm font-semibold text-white shadow-[0_0_30px_rgba(50,243,221,0.18)] hover:border-lexia transition-colors');
+  const knopf = el('button', 'fixed bottom-5 right-5 z-[60] inline-flex items-center gap-2 rounded-full bg-[#141414]/95 backdrop-blur border border-lexia/40 px-5 py-3 text-sm font-semibold text-white shadow-[0_0_30px_rgba(255,255,255,0.18)] hover:border-lexia transition-colors');
   knopf.type = 'button';
   knopf.setAttribute('aria-expanded', 'false');
   knopf.setAttribute('aria-controls', 'fragLexia');
@@ -124,7 +124,7 @@
     <form data-form class="flex items-center gap-2 border-t border-slate-800 bg-[#161616] p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
       <label class="sr-only" for="fragLexiaEingabe">Ihre Frage</label>
       <input id="fragLexiaEingabe" data-eingabe type="text" maxlength="200" enterkeyhint="send" autocomplete="off" placeholder="Eigene Frage eingeben …" class="flex-1 min-w-0 rounded-full bg-slate-800 border border-slate-600 px-4 py-3 text-base text-white placeholder:text-slate-400 focus:outline-none focus:border-lexia">
-      <button type="submit" class="shrink-0 rounded-full bg-lexia px-5 py-3 text-base font-bold text-[#04201d] hover:bg-white">Fragen</button>
+      <button type="submit" class="shrink-0 rounded-full bg-lexia px-5 py-3 text-base font-bold text-[#0C0C0C] hover:bg-white">Fragen</button>
     </form>
     <p class="px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 text-[11px] text-slate-500 bg-[#161616] sm:bg-transparent sm:rounded-b-3xl">KI-Antworten von LEXIA aus dieser Website · Fragen werden nicht gespeichert</p>`;
 
@@ -138,7 +138,7 @@
     if (links.length) {
       const l = el('div', 'mt-2.5 flex flex-wrap gap-2');
       for (const [t, href] of links) {
-        const a = el('a', 'inline-flex rounded-full border border-lexia/40 px-3 py-1.5 text-xs font-semibold text-lexia hover:bg-lexia hover:text-[#04201d] transition-colors', t + ' →');
+        const a = el('a', 'inline-flex rounded-full border border-lexia/40 px-3 py-1.5 text-xs font-semibold text-lexia hover:bg-lexia hover:text-[#0C0C0C] transition-colors', t + ' →');
         a.href = href;
         l.append(a);
       }
